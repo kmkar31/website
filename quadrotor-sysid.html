@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grey-box System Identification | Karthik Karumanchi</title>
+<meta name="description" content="Physics-rooted data-driven models to mathematically relate a quadrotor&#x27;s power input to change in its global location.">
+<meta property="og:title" content="Grey-box System Identification | Karthik Karumanchi">
+<meta property="og:description" content="Physics-rooted data-driven models to mathematically relate a quadrotor&#x27;s power input to change in its global location.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/84da68_7ddf4665a50c46ddabbf0ea3eec595b2~mv2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">Karthik Karumanchi</a>
+  <nav aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html" aria-current="page">Projects</a></nav>
+  <div class="social">
+    <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg></a>
+    <a href="https://github.com/kmkar31" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+  </div>
+</header>
+<main>
+
+<article class="section narrow project">
+  <p class="back"><a href="projects.html">&larr; Back to Projects</a></p>
+  <h1>Grey-box System Identification of Quadrotors</h1>
+  <p class="question">How do we build accurate yet lightweight mathematical models for our system?</p>
+  
+<p>An object's movement is always described relative to a fixed point and a direction, known as a frame of reference. Typically, we use our surroundings as a frame of reference, which is called a global frame. However, we also use a local frame, based on our own position, when we describe direction using terms like "behind me" or "to my left." While robots operate in a global frame, their actuators work in a local frame, requiring a conversion of local movements into global displacements.</p>
+<p>This is where a system model becomes crucial. For example, in the case of a drone, a system model considers local factors like roll, pitch, yaw, and thrust, converting them into global displacements along the X, Y, and Z axes. However, developing such models presents challenges, as they assume an ideal system-environment interaction that rarely exists in reality. Additionally, even with these assumptions, the resulting model is often so complex that it requires substantial computing power to use effectively.</p>
+<figure class=""><img src="https://static.wixstatic.com/media/84da68_6df0228202e74535a5f452c999309ba2~mv2.png" alt="Quadrotor axis system" loading="lazy"><figcaption>Local and global frames of reference in a quadrotor</figcaption></figure>
+<p>To address these challenges, data-driven approaches have been developed, where the system operates in the real world and its state information is stored. This data is then used to mathematically identify relationships between input and output, without relying on physical principles. However, this approach can lead to unwanted variable relationships due to a lack of knowledge about the underlying physics. To mitigate these issues, grey-box system identification is employed, where a symbolic physics-based model is built and test data is fit to this symbolic model.</p>
+<p>The objective of this project is to create a model of a quadrotor that calculates global displacement in the global frame based on local rotation angles and rotor power input. By applying propeller theory, 3D rotation theory, and Lagrangian mechanics, a system model is constructed, requiring the estimation of four constants representing gains along the three rotations and thrust.</p>
+<div class="fig-row"><figure class="plain"><img src="https://static.wixstatic.com/media/84da68_b6c64d60aa0c44b19ef20fe814c32e4e~mv2.png" alt="Translational dynamics" loading="lazy"></figure><figure class="plain"><img src="https://static.wixstatic.com/media/84da68_72654718edb04cd1924bca0ff0f755df~mv2.png" alt="Rotational dynamics" loading="lazy"></figure></div>
+<p class="cap">Physics-based symbolic system model. V represents the system bus voltage and the P's are individual %PWM inputs to the rotors. The coefficients C<sub>t</sub>, C<sub>roll</sub>, C<sub>pitch</sub> and C<sub>yaw</sub> have to be estimated using data-driven methods.</p>
+<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_70750168931845fd892e43d1dc83aeea~mv2.png" alt="Thrust coefficient estimation" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_8ee9aca3e5634025b98b8b4e406feff2~mv2.png" alt="Roll coefficient estimation" loading="lazy"></figure></div>
+<p class="cap">Results of the C<sub>t</sub> and C<sub>roll</sub> identification tests. C<sub>t</sub> is calculated by commanding the drone to hover (thrust = weight) and recording the power inputs to each rotor. C<sub>roll</sub> is computed by commanding a sinusoidal roll angle and calculating the roll acceleration.</p>
+<p>The three rotational coefficients are determined by commanding a sinusoidal rotation along a specific axis and recording the global displacements. The thrust coefficient is obtained by conducting a hover test and measuring the point at which the rotor thrust balances the drone's weight.</p>
+<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_6ea167d03a7740e7bbd4c7df13191557~mv2.png" alt="Pitch coefficient estimation" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_4e0bfc31b3dd4d1095e207905b2e2d50~mv2.png" alt="Yaw coefficient estimation" loading="lazy"></figure></div>
+<p class="cap">Results of the C<sub>pitch</sub> and C<sub>yaw</sub> identification tests. Both coefficients are computed by commanding sinusoidal angles and calculating the corresponding accelerations.</p>
+<p>The final system model is obtained as:</p>
+<figure class="plain"><img src="https://static.wixstatic.com/media/84da68_39971515bfcb45c592a26725ba55f972~mv2.png" alt="Resultant system model" loading="lazy"></figure>
+
+  <p class="back"><a href="projects.html">&larr; Back to Projects</a></p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p>I would love to hear from you</p>
+  <div class="social">
+    <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg></a>
+    <a href="https://github.com/kmkar31" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+  </div>
+</footer>
+</body>
+</html>

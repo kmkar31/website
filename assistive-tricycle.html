@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistive Tricycle | Karthik Karumanchi</title>
+<meta name="description" content="Design of an assistive tricycle to enhance mobility of persons with single-leg disabilities.">
+<meta property="og:title" content="Assistive Tricycle | Karthik Karumanchi">
+<meta property="og:description" content="Design of an assistive tricycle to enhance mobility of persons with single-leg disabilities.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/84da68_7ddf4665a50c46ddabbf0ea3eec595b2~mv2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">Karthik Karumanchi</a>
+  <nav aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html" aria-current="page">Projects</a></nav>
+  <div class="social">
+    <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg></a>
+    <a href="https://github.com/kmkar31" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+  </div>
+</header>
+<main>
+
+<article class="section narrow project">
+  <p class="back"><a href="projects.html">&larr; Back to Projects</a></p>
+  <h1>Design of an Assistive Tricycle</h1>
+  <p class="question">How do we design a tricycle that can be pedaled using a single leg without causing joint pain?</p>
+  
+<p>This project aims to design a tricycle to be used by persons with lower-limb disabilities who possess full function in only one leg. To achieve this, specific criteria were established for the tricycle's design:</p>
+<ol>
+<li>Enable single-leg pedaling at a speed of 12 km/h.</li>
+<li>Maintain affordability and durability.</li>
+<li>Facilitate easy assembly and repair at standard bicycle repair shops.</li>
+<li>Ensure narrow dimensions for maneuverability in small streets.</li>
+<li>Withstand bumps and potholes commonly encountered on Indian roads.</li>
+</ol>
+<figure class=""><img src="https://static.wixstatic.com/media/84da68_6b1eba26356441ba8754b5b6ca57f636~mv2.png" alt="Design mind map" loading="lazy"></figure>
+<p>Following a design flowchart analysis, it was determined that the pedaling mechanism design was of utmost importance.</p>
+<p>Utilizing existing Indian anthropometric data and user studies, the maximum knee force and range of motion were determined. Traditional circular sprocket designs were found to exceed the knee's range of motion (ROM), potentially causing discomfort. To mitigate this issue, an elliptical pedaling mechanism employing a four-bar mechanism was devised.</p>
+<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_b99313c890554ddeb385961db61fb0d3~mv2.gif" alt="Circular mechanism knee angle range" loading="lazy"><figcaption>Knee ROM with a circular sprocket mechanism</figcaption></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_c2791845e11147b8b6adb5e2f6066969~mv2.gif" alt="Elliptical mechanism knee angle range" loading="lazy"><figcaption>Knee ROM with the proposed elliptical mechanism</figcaption></figure></div>
+<p>Through a grid-search optimization process, link lengths for the four-bar mechanism were fine-tuned while adhering to Grashof's criterion. Ultimately, a sprocket ratio of 2 was chosen, reducing the required force to acceptable levels. Despite a slightly faster cadence compared to circular mechanisms, it remained within user study parameters.</p>
+<p>Moreover, it was discovered that knee range of motion depended not only on seat height but also on horizontal seat position. To accommodate a wide range of users, a dual adjustable seat was developed.</p>
+<p>Given the single-leg pedaling limitation, a flywheel was integrated into the pedaling mechanism to release stored energy during the latter half of the pedaling cycle.</p>
+<p>Safety was ensured through ANSYS FEA simulations, subjecting all components to fatigue, 3g bump, and 2g torsional loading. Subsequently, all parts were assembled using Autodesk Inventor, and production and assembly drawings were prepared.</p>
+<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_f4c07fc4120945f79eb0202dc25ff55f~mv2.jpg" alt="FEA of the frame in 3g bump loading" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_56c3a8aea23f456bb6afb1afa16f520a~mv2.jpg" alt="FEA of the frame in static loading" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_63b44453b60d4b4284c1febb4993a751~mv2.jpg" alt="FEA of the frame in 2g torsional loading" loading="lazy"></figure></div>
+<p class="cap">Deformation of the frame under static (left), 3g bump (center) and 2g torsional loading (right) respectively.</p>
+<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_fe921c32beae496d840313b6092b718f~mv2.jpg" alt="FEA of the rear sprocket adapter: deformation" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_e3bc0775e7db4eab8ceca22bc1747f54~mv2.jpg" alt="FEA of the rear sprocket adapter: stress" loading="lazy"></figure></div>
+<p class="cap">Deformation and stress on the rear sprocket adapter. The sprocket adapter performs three functions: it acts as a rear brake rotor, it transmits power from the rear sprocket to the driveshafts, and it also acts as a flywheel.</p>
+
+  <p class="back"><a href="projects.html">&larr; Back to Projects</a></p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p>I would love to hear from you</p>
+  <div class="social">
+    <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg></a>
+    <a href="https://github.com/kmkar31" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+  </div>
+</footer>
+</body>
+</html>

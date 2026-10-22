@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tethered Nanosatellite | Karthik Karumanchi</title>
+<meta name="description" content="Demonstrating the effectiveness of electrodynamic tethers in clearing debris from LEO.">
+<meta property="og:title" content="Tethered Nanosatellite | Karthik Karumanchi">
+<meta property="og:description" content="Demonstrating the effectiveness of electrodynamic tethers in clearing debris from LEO.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/84da68_7ddf4665a50c46ddabbf0ea3eec595b2~mv2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">Karthik Karumanchi</a>
+  <nav aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html" aria-current="page">Projects</a></nav>
+  <div class="social">
+    <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg></a>
+    <a href="https://github.com/kmkar31" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+  </div>
+</header>
+<main>
+
+<article class="section narrow project">
+  <p class="back"><a href="projects.html">&larr; Back to Projects</a></p>
+  <h1>Dynamics and Control of Tethered Nanosatellites</h1>
+  <p class="question">How do we use satellites to de-orbit space debris and clear up Low-Earth Orbit?</p>
+  
+<p>Kessler's Syndrome is a phenomenon where the increasing amount of satellite debris in orbit causes a cascading effect rendering orbits unusable. The US Space Surveillance Network reportedly tracks nearly 40,000 objects in orbit, monitoring them for potential threats to ongoing missions. These debris are classified into three categories (cars, hubcaps and shrapnel) based on their size. Cars are the largest and account for less than 1% of all debris. Shrapnel, on the other hand, is no larger than 1 cm and accounts for 98% of space debris. Cars, while low in number, pose a large threat since they can potentially break into millions of pieces of shrapnel.</p>
+<figure class=""><img src="https://static.wixstatic.com/media/84da68_683f6cd5ca99486abd282f55566bb60b~mv2.jpg" alt="Depiction of orbital debris" loading="lazy"><figcaption>A demonstration of Kessler&rsquo;s syndrome. Source: <a href="https://spectrum.ieee.org/weve-already-passed-the-tipping-point-for-orbital-debris" target="_blank" rel="noopener">We&rsquo;ve Already Passed the Tipping Point for Orbital Debris</a>, IEEE Spectrum</figcaption></figure>
+<p>Can we use satellites to de-orbit these "cars" and prevent Kessler's syndrome from occurring? Fuel-based de-orbiting procedures are far too expensive since they require a large amount of propellant to be carried from Earth. As an alternative, electrodynamic tethers (EDTs) use the Earth's magnetic field and properties of its outer atmosphere to deorbit debris. This project aims to demonstrate the use of EDTs in deorbiting space debris.</p>
+<figure class="tall"><img src="https://static.wixstatic.com/media/84da68_68cf50c42cec4973a058e0b5b33b664a~mv2.png" alt="Electrodynamic tethers" loading="lazy"><figcaption>Electrodynamic tethers work by running a current through a thin strip of metal. This current interacts with the Earth's magnetic field, producing a drag force on the satellite.</figcaption></figure>
+<p>We do so by launching a 3U-1U CubeSat system connected by a thin aluminum tether 500 m long. The 1U satellite has a Spindt array that emits electrons. Earth's ionosphere has free ions which flow into the tether, completing a circuit and causing a current. Due to the Earth's magnetic field, the presence of a current in the tether causes a Lorentz drag force on it, reducing its orbital velocity. As its orbital velocity reduces, it moves closer and closer to the Earth, until it burns up in the atmosphere. Prior to launch, the 1U "daughter" satellite is housed within the 3U "mother" satellite. Once in orbit, a pin-puller mechanism generates an impulse, separates the two satellites and extends the tether.</p>
+<figure class=""><img src="https://static.wixstatic.com/media/84da68_2cd876c1e7e74e7a8fb302ba48d8acb0~mv2.png" alt="Mother and daughter nanosatellites" loading="lazy"><figcaption>3U mother satellite (left) and the 1U daughter satellite (right). The daughter satellite is housed within the mother satellite until they are inserted into orbit.</figcaption></figure>
+<p>Due to the long length of the tether, gravitational variations cause the satellite system to oscillate about the mean point (called libration). This oscillation was damped by implementing B-dot control on the satellite system using magnetorquers. To design the satellite and its onboard electronics, the satellite was simulated in orbit to estimate the solar power incident on the solar panels. The thermal profile was also calculated to protect onboard electronics from failures.</p>
+<figure class=""><img src="https://static.wixstatic.com/media/84da68_4399a65e25f947b095b6952a01397297~mv2.png" alt="Magnetorquer board" loading="lazy"><figcaption>A magnetorquer board (source: <a href="https://www.cubesatshop.com/product/isis-magnetorquer-board/" target="_blank" rel="noopener">CubeSatShop</a>). The boards work by passing currents through solenoids. The solenoids generate magnetic fields which interact with the Earth&rsquo;s field to create torques.</figcaption></figure>
+
+  <p class="back"><a href="projects.html">&larr; Back to Projects</a></p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p>I would love to hear from you</p>
+  <div class="social">
+    <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg></a>
+    <a href="https://github.com/kmkar31" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+  </div>
+</footer>
+</body>
+</html>
