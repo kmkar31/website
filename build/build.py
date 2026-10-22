@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generates the static portfolio site into the output dir given as argv[1]."""
-import os, sys, html
+import os, sys, html, json
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "."
 M = "https://static.wixstatic.com/media/"
@@ -175,7 +175,7 @@ PROJECTS = [
 
 # ---------------------------------------------------------------- redesign layout
 META = {
- "snake-robots": dict(tags=["Robotics", "Controls"], tldr="Gait-based control for modular snake robots in CMU's Biorobotics Lab, aimed at coordinating many joints without heavy computation.",
+ "snake-robots": dict(tags=["Robotics", "Controls"], tldr="Compliant, gait-based controllers I implemented on modular snake robots in CMU's Biorobotics Lab so they can cross unknown terrain.",
    results=[("Lab", "CMU Biorobotics Lab"), ("Advisor", "Prof. Howie Choset")]),
  "argus-mission": dict(tags=["Space"], tldr="A nanosatellite concept for finding its own position in low Earth orbit from images of Earth, without GPS.",
    results=[("Approach", "Visual orbit determination"), ("Orbit", "LEO")]),
@@ -204,7 +204,13 @@ MOON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="cu
 
 def chips(tags): return "".join(f'<span class="chip">{t}</span>' for t in tags)
 
-def page(fname, title, desc, body, active):
+BASE = "https://kmkar31.github.io/website/"
+OG = BASE + "assets/og.png"
+PAGES = []
+
+def page(fname, title, desc, body, active, ld=None):
+    PAGES.append(fname)
+    ldtag = ("\n<script type=\"application/ld+json\">" + json.dumps(ld, ensure_ascii=False) + "</script>") if ld else ""
     nav = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if k == active else ""}>{t}</a>'
         for k, h, t in [("home", "index.html", "Home"), ("about", "about.html", "About"), ("projects", "projects.html", "Projects")])
@@ -219,10 +225,18 @@ def page(fname, title, desc, body, active):
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{PROFILE}">
+<meta property="og:site_name" content="{SITE}">
+<meta property="og:url" content="{BASE}{fname}">
+<meta property="og:image" content="{OG}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Karthik Karumanchi, robotics and controls engineer">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(title)}">
+<meta name="twitter:description" content="{html.escape(desc)}">
+<meta name="twitter:image" content="{OG}">
 <link rel="canonical" href="https://kmkar31.github.io/website/{fname}">
-<link rel="icon" href="{FAVICON}">
+<link rel="icon" href="{FAVICON}">{ldtag}
 {FONTS}
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <link rel="stylesheet" href="assets/style.css">
@@ -243,13 +257,13 @@ def page(fname, title, desc, body, active):
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
-    <p>No public email. LinkedIn is the best way to reach me.</p>
+    <p>To get in touch, message me on LinkedIn.</p>
     <div class="footer-links">
       <a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
       <a href="{GITHUB}" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
-  <p class="copyright">&copy; Karthik Karumanchi</p>
+  <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4. No framework, one stylesheet.</p>
 </footer>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
 <script src="assets/site.js"></script>
@@ -266,13 +280,18 @@ def row_item(p, thumb=False):
 
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
+PERSON = {"@context": "https://schema.org", "@type": "Person", "name": "Karthik Karumanchi", "url": BASE,
+  "description": "Mechanical engineer working on control of robots and spacecraft.",
+  "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Carnegie Mellon University"}, {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}],
+  "sameAs": [LINKEDIN, GITHUB]}
+
 # ----------------------------------------------------------- home
 home = f"""
 <section class="intro">
   <h1>Karthik Karumanchi</h1>
   <p class="subhead">MS Mechanical Engineering, Carnegie Mellon University</p>
   <p class="lede">I work on control of robots and spacecraft. At CMU&rsquo;s Biorobotics Lab, under Prof. Howie Choset, I research compliant control of snake robots. Before that I captained the Formula SAE team at IIT Madras, which finished on the podium at Formula Bharat 2023.</p>
-  <p class="lede">As an intern at Seagate I built a simulation tool that cut controller design iteration on a batch of 30 drives from three weeks to 15 minutes. My CMU GPA is 4.0.</p>
+  <p class="lede">As an intern at Seagate I built a simulation tool that cut controller design iteration on a batch of 30 drives from <a class="hl" href="about.html#seagate">three weeks to 15 minutes</a>. My CMU GPA is 4.0.</p>
   <div class="actions">
     <a class="btn" href="projects.html">See the projects</a>
     <a class="textlink" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
@@ -285,18 +304,18 @@ home = f"""
 </section>
 """
 page("index.html", "Karthik Karumanchi | Robotics and Controls Engineer",
-     "Karthik Karumanchi - Master's Student in Mechanical Engineering at Carnegie Mellon University specializing in Robotics and Controls", home, "home")
+     "Portfolio of Karthik Karumanchi, MS Mechanical Engineering at Carnegie Mellon University. Control of robots and spacecraft: snake robots, quadrotor landing, a PPO aerobraking agent and an electric Formula SAE car.", home, "home", ld=PERSON)
 
 # ----------------------------------------------------------- about
-def tl(when, title, org, bullets=None, lines=None):
+def tl(when, title, org, bullets=None, lines=None, id_=None):
     inner = ""
     if lines: inner += "".join(f"<p>{l}</p>" for l in lines)
     if bullets: inner += "<ul>" + "".join(f"<li>{b}</li>" for b in bullets) + "</ul>"
-    return f"""<div class="tl-item"><p class="when">{when}</p><h3>{title}</h3><p class="org">{org}</p>{inner}</div>"""
+    return f"""<div class="tl-item"{f' id="{id_}"' if id_ else ''}><p class="when">{when}</p><h3>{title}</h3><p class="org">{org}</p>{inner}</div>"""
 
-skills = ["Model predictive control", "Reinforcement learning (PPO)", "System identification", "Adaptive &amp; compliant control",
-          "B-dot attitude control", "Finite state machines", "Orbit, power &amp; thermal analysis", "FEA (ANSYS)", "CAD (Autodesk Inventor)",
-          "Embedded systems (STM32, SPI)", "TCP/IP tooling"]
+skills = [("Control and learning", ["Model predictive control", "Reinforcement learning (PPO)", "Adaptive &amp; compliant control", "B-dot attitude control", "Finite state machines"]),
+          ("Analysis", ["System identification", "Orbit, power &amp; thermal analysis", "FEA (ANSYS)"]),
+          ("Build and software", ["CAD (Autodesk Inventor)", "Embedded systems (STM32, SPI)", "TCP/IP tooling"])]
 about = f"""
 <section class="page-head"><h1>About</h1></section>
 <section class="section narrow">
@@ -310,7 +329,7 @@ about = f"""
   </div>
 
   <h2>Skills &amp; tools</h2>
-  <ul class="skills">{"".join(f'<li>{s}</li>' for s in skills)}</ul>
+  {"".join(f'<h3 class="skill-group">{g}</h3><ul class="skills">' + "".join(f'<li>{x}</li>' for x in items) + '</ul>' for g, items in skills)}
 
   <h2>Education</h2>
   <div class="timeline">
@@ -325,7 +344,7 @@ about = f"""
     {tl("May &ndash; Aug 2024", "Advanced Control Engineer Intern", "Seagate Technology &middot; Shakopee, MN",
         bullets=["Built a tool that simulates HDD head tiering tests, so track-follow controllers can be tuned without the factory in the loop.",
                  "Designed a server-client architecture over JSON-formatted TCP/IP so the tool is accessible globally.",
-                 "Cut controller design iteration time on a batch of 30 drives from <strong>3 weeks to 15 minutes</strong>."])}
+                 "Cut controller design iteration time on a batch of 30 drives from <strong>3 weeks to 15 minutes</strong>."], id_="seagate")}
     {tl("May &ndash; Aug 2022", "MITACS Globalink Research Intern", "York University &middot; Toronto, Canada",
         bullets=["Implemented a pin-puller mechanism to reliably provide the impulse that deploys a 3U CubeSat in LEO.",
                  "Found the CubeSat&rsquo;s power limits by computing the solar energy incident on it in orbit.",
@@ -337,7 +356,7 @@ about = f"""
   </div>
 </section>
 """
-page("about.html", "About | Karthik Karumanchi", "Education and Professional Experience of Karthik Karumanchi", about, "about")
+page("about.html", "About | Karthik Karumanchi", "Education and professional experience of Karthik Karumanchi: CMU, IIT Madras, Seagate, York University and Tube Investments.", about, "about", ld=PERSON)
 
 # ----------------------------------------------------------- projects index
 filters = '<button class="filter active" data-filter="all" type="button" aria-pressed="true">All</button>' + "".join(
@@ -379,10 +398,17 @@ for i, p in enumerate(PROJECTS):
   </nav>
 </section>
 """
-    page(p["slug"] + ".html", f"{p['title']} | {SITE}", p["desc"], body, "projects")
+    page(p["slug"] + ".html", f"{p['title']} | {SITE}", p["desc"], body, "projects",
+         ld={"@context": "https://schema.org", "@type": "CreativeWork", "name": p["title"], "description": p["desc"],
+             "url": BASE + p["slug"] + ".html", "author": {"@type": "Person", "name": "Karthik Karumanchi", "url": BASE}})
 
 page("404.html", "Page not found | Karthik Karumanchi", "Page not found",
-     '<section class="page-head"><h1>That page doesn&rsquo;t exist.</h1><p class="actions"><a class="btn" href="index.html">Back home</a></p></section>', "")
+     '<section class="page-head"><h1>That page doesn&rsquo;t exist.</h1><p class="lede" style="margin-top:16px">This page failed to land on the target. Back to the index.</p><p class="actions"><a class="btn" href="index.html">Back home</a></p></section>', "")
+
+with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE}{n}</loc></url>\n" for n in PAGES if n != "404.html") + "</urlset>\n")
+with open(os.path.join(OUT, "robots.txt"), "w") as f:
+    f.write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 
 # ----------------------------------------------------------- css
 css = r"""
@@ -451,6 +477,9 @@ h3{font-size:1.3rem}
 .tags{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em}
 .more-link{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .95rem var(--sans)}
 .more-link:hover{background:var(--hi);color:#2b2118;text-decoration:none}
+.hl{background:var(--hi);color:#2b2118;text-decoration:underline;text-decoration-thickness:1px;padding:0 3px}
+.hl:hover{background:#2b2118;color:#f7f1e3}
+.skill-group{font:600 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:1.4em 0 .4em}
 .skills{margin:0;padding:0;list-style:none;columns:2;column-gap:32px;font-size:1rem}
 .skills li{padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid}
 
@@ -485,6 +514,8 @@ h3{font-size:1.3rem}
 .row h3{margin:0 0 .15em;font-size:1.35rem}
 .row p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45;max-width:46em}
 .row:hover{background:var(--card);box-shadow:inset 4px 0 0 var(--a1)}
+.row:active{transform:translate(2px,2px)}
+.filter:active{transform:translate(2px,2px)}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
 /* about */

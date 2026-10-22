@@ -63,6 +63,9 @@ h3{font-size:1.3rem}
 .tags{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em}
 .more-link{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .95rem var(--sans)}
 .more-link:hover{background:var(--hi);color:#2b2118;text-decoration:none}
+.hl{background:var(--hi);color:#2b2118;text-decoration:underline;text-decoration-thickness:1px;padding:0 3px}
+.hl:hover{background:#2b2118;color:#f7f1e3}
+.skill-group{font:600 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:1.4em 0 .4em}
 .skills{margin:0;padding:0;list-style:none;columns:2;column-gap:32px;font-size:1rem}
 .skills li{padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid}
 
@@ -97,6 +100,8 @@ h3{font-size:1.3rem}
 .row h3{margin:0 0 .15em;font-size:1.35rem}
 .row p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45;max-width:46em}
 .row:hover{background:var(--card);box-shadow:inset 4px 0 0 var(--a1)}
+.row:active{transform:translate(2px,2px)}
+.filter:active{transform:translate(2px,2px)}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
 /* about */

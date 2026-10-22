@@ -51,3 +51,21 @@ Declined / not possible:
 - 9 About line "push forward technological autonomy" kept: original-site wording. "40+" and "less fuel" are on the original project text.
 - Critic's cited references were unverified and were not relied on.
 Next attack if I were the critic: still all Wix hotlinks; project pages still lead with a question and long prose; Google Fonts dependency; sameness of the 9 rows; no real outcomes for several projects.
+
+## 2026-10-22: cycle 2 response (designer)
+Fixed:
+- 1 Added sitemap.xml and robots.txt (emitted by build.py); Person JSON-LD on home and About, CreativeWork on each project; og:url, og:site_name, twitter:title/description/image, og:image dimensions on every page; home description rewritten in plain words; og:image is now a local assets/og.png (made by tools/make_og.py, text only).
+- 4 (part) Snake blurb rewritten with the concrete thing done (from About text). The Seagate sentence now links to About#seagate, set as a marker highlight (6, 11).
+- 6 Amber marker highlight on the Seagate result (dark ink on amber, underlined so it does not rely on colour); press states on rows and filters.
+- 8 Footer reads "To get in touch, message me on LinkedIn." instead of a refusal.
+- 9 Skills grouped under three plain labels (Control and learning, Analysis, Build and software).
+- 11 404 now says "This page failed to land on the target" (99-second game); footer colophon (fonts, no framework, one stylesheet; true).
+Declined:
+- 2 Local images, resume copy, image width/height: wixstatic is 403 in the sandbox, dimensions unknown, owner must supply media.
+- 3 Dates and current status: only the owner can say; not invented.
+- 4 (rest) Choosing featured projects: owner decision. 5 Role/When/Team/Result rows: facts not available. The .question is the original site's framing and the .tldr states the method, so both stay; Background reorder skipped because figures are broken until media is local.
+- 7 Home image: needs owner media. 10 First-person anecdotes: need owner facts; About slogan is original wording.
+- 8 Header Contact link: external link in nav would confuse; contact choice is the owner's.
+- 12 Self-hosted fonts: cannot download WOFF2 in the sandbox. 13, 14, 15: no change needed.
+Verification: tools/check.py all pages, 3 viewports, 2 themes, no failures.
+Next attack: all media still on Wix, stale dates, project pages lack outcomes.
