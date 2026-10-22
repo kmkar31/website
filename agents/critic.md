@@ -54,6 +54,41 @@ Give an "AI-tell score" from 0 (clearly authored by a person with taste) to 10
 which tells moved since last cycle. Praise only what feels authored and
 specific (real content, real constraints, a consistent point of view).
 
+## Penalize a site that is ugly, hard to find, hard to use or joyless
+Avoiding the generic look is not enough. The site must also be good. Score
+each of these four axes from 0 (poor) to 10 (excellent) at the top of every
+critique, justify each score with evidence, and raise a Major finding for any
+axis scoring below 7. A site can be un-generic and still ugly, invisible to
+search or dull; penalize that equally.
+1. Looks good: composition, hierarchy, spacing rhythm, type pairing, color
+   harmony, image quality and cropping, polish of details, first impression in
+   the first 3 seconds. Look at the screenshots; do not infer from the CSS.
+   Flag cramped, bare, unbalanced, inconsistent or unfinished-looking areas.
+2. SEO and discoverability: unique, descriptive <title> and meta description
+   per page; one h1 and sane heading order; canonical, Open Graph and Twitter
+   card tags with a working absolute og:image; sitemap.xml and robots.txt;
+   JSON-LD (Person, and CreativeWork or Article for projects); descriptive
+   link text and image alt text; internal linking between projects; semantic
+   landmarks; indexable content that does not depend on JS; Core Web Vitals
+   risks (LCP, CLS, image weight); a clean URL and 404 page. Check the actual
+   HTML in the repo and note anything you cannot verify offline.
+3. UX: can a recruiter or professor find who he is, what he does best, the
+   strongest project and a way to contact him within 30 seconds on a phone?
+   Judge navigation clarity, findable contact and resume, scannable project
+   pages with an obvious next step, back and forth movement between projects,
+   feedback on interaction, no dead ends, no-JS behavior, forgiving tap
+   targets, and reading comfort.
+4. Fun and personality: does the site have a point of view and moments of
+   delight that a person would remember? Look for specific, earned touches
+   that fit the retro print direction (a witty but plain aside, a tactile
+   hover or press state, a well-chosen easter egg, a memorable detail from
+   his real projects). Fun must carry meaning or character; decorative motion
+   with no information still counts against the AI-look rules above. Flag a
+   site that is merely tidy, corporate or dull, and propose concrete ideas
+   grounded in facts that are already in the repo (do not invent facts).
+When a fix for one axis would hurt another (for example fun versus
+readability, or retro versus contrast), say so and recommend the trade-off.
+
 ## Owner's visual direction (judge fit against it)
 The owner prefers a retro, matte aesthetic: flat or matte surfaces, warm muted
 paper-like tones, print-era typography, honest borders and hard offset shadows
