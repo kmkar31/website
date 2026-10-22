@@ -11,8 +11,9 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://static.wixstatic.com/media/84da68_7ddf4665a50c46ddabbf0ea3eec595b2~mv2.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9a441'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='32' font-weight='700' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://kmkar31.github.io/website/argus-mission.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d9a441'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%232b2118' stroke-width='4'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@500;600&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -30,20 +31,18 @@
 <main id="main">
 
 <section class="proj-hero">
-  <div class="proj-hero-inner reveal">
-    <a class="crumb" href="projects.html">&larr; All projects</a>
-    <div class="chips"><span class="chip">Space</span></div>
-    <h1>ARGUS Mission</h1>
-    <p class="question">How do we localize a satellite&#x27;s position solely using visual methods?</p>
-    <p class="tldr">A nanosatellite concept that works out where it is by looking at Earth, with no GPS or ground station needed.</p>
-  </div>
+  <a class="crumb" href="projects.html">&larr; all projects</a>
+  <p class="tags">Space</p>
+  <h1>ARGUS Mission</h1>
+  <p class="question">How do we localize a satellite&#x27;s position solely using visual methods?</p>
+  <p class="tldr">A nanosatellite concept for finding its own position in low Earth orbit from images of Earth, without GPS.</p>
 </section>
-<section class="section narrow">
-  <div class="results reveal"><div><span>Approach</span><strong>Visual orbit determination</strong></div><div><span>Orbit</span><strong>LEO</strong></div></div>
+<section class="section narrow" style="padding-top:0">
+  <dl class="facts"><div><dt>Approach</dt><dd>Visual orbit determination</dd></div><div><dt>Orbit</dt><dd>LEO</dd></div></dl>
   <article class="prose project">
   
 <p>Localizing a satellite's position in LEO is hard. GPS has export restrictions and large ground stations are expensive. ARGUS aims to use visual based orbit determination, i.e., using images of Earth to identify its position.</p>
-<figure class=""><img src="https://static.wixstatic.com/media/84da68_d561ef950eb448809236d27460e6052e~mv2.jpg" alt="ARGUS mission" loading="lazy"></figure>
+<figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_d561ef950eb448809236d27460e6052e~mv2.jpg"><img src="https://static.wixstatic.com/media/84da68_d561ef950eb448809236d27460e6052e~mv2.jpg" alt="ARGUS nanosatellite mission figure" loading="lazy"></a></figure>
 
   </article>
   <nav class="pager" aria-label="More projects">
@@ -55,19 +54,15 @@
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>
-      <p class="footer-title">Get in touch.</p>
-      <p class="muted">Find me on LinkedIn or GitHub.</p>
-    </div>
+    <p>No public email. LinkedIn is the best way to reach me.</p>
     <div class="footer-links">
-      <a class="btn" href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg><span>LinkedIn</span></a>
-      <a class="btn ghost" href="https://github.com/kmkar31" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a>
-      <a class="btn ghost" href="https://686e8b1f-e8dd-4e34-9c3c-5ccc4d7af65d.filesusr.com/ugd/84da68_6a1c4dc4a15a4d4389d6b6b6fa727665.pdf" target="_blank" rel="noopener"><span>Resume</span></a>
+      <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/kmkar31" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <p class="copyright">&copy; Karthik Karumanchi</p>
 </footer>
-<div class="lightbox" id="lightbox" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
 <script src="assets/site.js"></script>
 </body>
 </html>

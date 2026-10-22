@@ -18,7 +18,7 @@ ICON_GH = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor"
 # ---------------------------------------------------------------- projects
 def fig(src, cap="", alt="", cls=""):
     c = f"<figcaption>{cap}</figcaption>" if cap else ""
-    return f'<figure class="{cls}"><img src="{img(src)}" alt="{html.escape(alt or cap)}" loading="lazy">{c}</figure>'
+    return f'<figure class="{cls}"><a class="zoom" href="{img(src)}"><img src="{img(src)}" alt="{html.escape(alt or cap)}" loading="lazy"></a>{c}</figure>'
 
 def row(*figs): return '<div class="fig-row">' + "".join(figs) + "</div>"
 
@@ -30,7 +30,7 @@ PROJECTS = [
   body=f"""
 <p>Snake robots are highly articulated robots that can coordinate their many degrees of freedom to access areas which are otherwise unreachable by machinery. They possess an infinite number of configurations allowing them to conform to and locomote over irregular terrain.</p>
 <p>Read more about modular snake robots <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">here</a>.</p>
-{row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Snake robot project"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Snake robot project"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Snake robot project"))}
+{row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
 """),
  dict(slug="argus-mission", title="ARGUS Mission",
   q="How do we localize a satellite's position solely using visual methods?",
@@ -38,7 +38,7 @@ PROJECTS = [
   desc="A nanosatellite designed to perform orbit determination using visual methods.",
   body=f"""
 <p>Localizing a satellite's position in LEO is hard. GPS has export restrictions and large ground stations are expensive. ARGUS aims to use visual based orbit determination, i.e., using images of Earth to identify its position.</p>
-{fig("84da68_d561ef950eb448809236d27460e6052e~mv2.jpg", alt="ARGUS mission")}
+{fig("84da68_d561ef950eb448809236d27460e6052e~mv2.jpg", alt="ARGUS nanosatellite mission figure")}
 """),
  dict(slug="quadrotor-landing", title="Quadrotor Landing on an Unstable Mobile Platform",
   q="How do we land aerial vehicles on mobile platforms in the presence of environmental disturbances?",
@@ -60,7 +60,7 @@ PROJECTS = [
   body=f"""
 <p>Raftar Formula Racing is the FSAE team of IIT Madras. A team of 40+ engineering students design, build, test and race an electric formula-style car at Indian and European competitions.</p>
 <p>Read more about the team <a href="https://www.raftariitm.com/" target="_blank" rel="noopener">here</a>.</p>
-{row(fig("84da68_6dc1a48fd9e240f18c13004eedbfb4b1~mv2.webp", alt="Raftar Formula Racing car"), fig("84da68_601857af9385447db7042112e16c3e30~mv2.png", alt="Raftar Formula Racing"))}
+{row(fig("84da68_6dc1a48fd9e240f18c13004eedbfb4b1~mv2.webp", alt="Raftar Formula Racing electric car"), fig("84da68_601857af9385447db7042112e16c3e30~mv2.png", alt="Raftar Formula Racing team figure"))}
 """),
  dict(slug="hasselhoff-submarine", title="Hasselhoff Submarine",
   q="How do we develop a submarine for underwater target detection?",
@@ -68,7 +68,7 @@ PROJECTS = [
   desc="A fun game using a submarine to navigate to and land on a target.",
   body=f"""
 <p>The Hasselhoff Bot is a small submarine inspired by David Hasselhoff's cameo in the 2004 SpongeBob Movie. In the movie, SpongeBob and Patrick explore the ocean in search of King Neptune's crown to cover his shiny, bald head and David Hasselhoff is the last "vehicle" that propels the two friends back to Bikini Bottom, where they return the crown to King Neptune. In a similar fashion, the Hasselhoff Bot is a small, user-steerable submarine that allows the user 99 seconds to explore an underwater environment in search of an IR beam mounted on the bottom of the tank.</p>
-{row(fig("84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp", alt="Hasselhoff submarine"), fig("84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp", alt="Remote controller for the Hasselhoff submarine"))}
+{row(fig("84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp", alt="The Hasselhoff submarine"), fig("84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp", alt="Remote controller for the Hasselhoff submarine"))}
 <p class="cap">Hasselhoff submarine (left) and remote control (right)</p>
 <h2>User Experience</h2>
 <p>In its welcome state, the submarine spins in place and the remote flashes LEDs waiting for user interaction. When the user interacts with the joystick, the sub is set into drive mode and the user has 99 seconds to reach the target. The user may use the throttle and steering joysticks to control planar motion as well as the target depth knob to control the sub's depth. Once over the target, a blue light illuminates, allowing the user to "land" onto the target. The user is scored on how fast they can maneuver to the goal. Once the landing is done, the sub resurfaces and resumes its welcome state.</p>
@@ -128,11 +128,13 @@ PROJECTS = [
   thumb="84da68_723a55c38d2b4c018aaa96108c047e1b~mv2.png", page_title="Grey-box System Identification",
   desc="Physics-rooted data-driven models to mathematically relate a quadrotor's power input to change in its global location.",
   body=f"""
+<p>The objective of this project is to create a model of a quadrotor that calculates global displacement in the global frame based on local rotation angles and rotor power input. By applying propeller theory, 3D rotation theory, and Lagrangian mechanics, a system model is constructed, requiring the estimation of four constants representing gains along the three rotations and thrust.</p>
+<h2>Background</h2>
 <p>An object's movement is always described relative to a fixed point and a direction, known as a frame of reference. Typically, we use our surroundings as a frame of reference, which is called a global frame. However, we also use a local frame, based on our own position, when we describe direction using terms like "behind me" or "to my left." While robots operate in a global frame, their actuators work in a local frame, requiring a conversion of local movements into global displacements.</p>
 <p>This is where a system model becomes crucial. For example, in the case of a drone, a system model considers local factors like roll, pitch, yaw, and thrust, converting them into global displacements along the X, Y, and Z axes. However, developing such models presents challenges, as they assume an ideal system-environment interaction that rarely exists in reality. Additionally, even with these assumptions, the resulting model is often so complex that it requires substantial computing power to use effectively.</p>
 {fig("84da68_6df0228202e74535a5f452c999309ba2~mv2.png", "Local and global frames of reference in a quadrotor", "Quadrotor axis system")}
 <p>To address these challenges, data-driven approaches have been developed, where the system operates in the real world and its state information is stored. This data is then used to mathematically identify relationships between input and output, without relying on physical principles. However, this approach can lead to unwanted variable relationships due to a lack of knowledge about the underlying physics. To mitigate these issues, grey-box system identification is employed, where a symbolic physics-based model is built and test data is fit to this symbolic model.</p>
-<p>The objective of this project is to create a model of a quadrotor that calculates global displacement in the global frame based on local rotation angles and rotor power input. By applying propeller theory, 3D rotation theory, and Lagrangian mechanics, a system model is constructed, requiring the estimation of four constants representing gains along the three rotations and thrust.</p>
+<h2>The model and the tests</h2>
 {row(fig("84da68_b6c64d60aa0c44b19ef20fe814c32e4e~mv2.png", alt="Translational dynamics", cls="plain"), fig("84da68_72654718edb04cd1924bca0ff0f755df~mv2.png", alt="Rotational dynamics", cls="plain"))}
 <p class="cap">Physics-based symbolic system model. V represents the system bus voltage and the P's are individual %PWM inputs to the rotors. The coefficients C<sub>t</sub>, C<sub>roll</sub>, C<sub>pitch</sub> and C<sub>yaw</sub> have to be estimated using data-driven methods.</p>
 {row(fig("84da68_70750168931845fd892e43d1dc83aeea~mv2.png", alt="Thrust coefficient estimation"), fig("84da68_8ee9aca3e5634025b98b8b4e406feff2~mv2.png", alt="Roll coefficient estimation"))}
@@ -173,29 +175,29 @@ PROJECTS = [
 
 # ---------------------------------------------------------------- redesign layout
 META = {
- "snake-robots": dict(tags=["Robotics", "Controls"], tldr="Gait-based control that lets a many-jointed snake robot move through rough terrain without heavy computation.",
-   results=[("Lab", "CMU Biorobotics"), ("Focus", "Compliant control")]),
- "argus-mission": dict(tags=["Space"], tldr="A nanosatellite concept that works out where it is by looking at Earth, with no GPS or ground station needed.",
+ "snake-robots": dict(tags=["Robotics", "Controls"], tldr="Gait-based control for modular snake robots in CMU's Biorobotics Lab, aimed at coordinating many joints without heavy computation.",
+   results=[("Lab", "CMU Biorobotics Lab"), ("Advisor", "Prof. Howie Choset")]),
+ "argus-mission": dict(tags=["Space"], tldr="A nanosatellite concept for finding its own position in low Earth orbit from images of Earth, without GPS.",
    results=[("Approach", "Visual orbit determination"), ("Orbit", "LEO")]),
- "quadrotor-landing": dict(tags=["Robotics", "Controls"], tldr="A drone that finds, tracks and lands on a moving, wobbling platform using model predictive control and a state machine.",
+ "quadrotor-landing": dict(tags=["Robotics", "Controls"], tldr="A CrazyFlie quadrotor lands on a Tumbller balancing robot driving in a circle, using model predictive control and a state machine.",
    results=[("Landing success", "100% (small pad, under 0.25 m/s)"), ("At top speed", "5.6 s, 2.5 cm error")]),
- "raftar-formula-racing": dict(tags=["Build"], tldr="An electric Formula SAE racecar designed, built and raced by 40+ students at IIT Madras.",
-   results=[("Team", "40+ engineers"), ("Result", "Podium, Formula Bharat 2023")]),
- "hasselhoff-submarine": dict(tags=["Robotics", "Build"], tldr="A waterproof, joystick-driven mini submarine that races a 99-second clock to land on a hidden IR target.",
+ "raftar-formula-racing": dict(tags=["Build"], tldr="The IIT Madras Formula SAE team's electric racecar, designed, built and raced by 40+ students.",
+   results=[("Team", "40+ students"), ("Result", "Podium, Formula Bharat 2023")]),
+ "hasselhoff-submarine": dict(tags=["Robotics", "Build"], tldr="A joystick-driven mini submarine with four thrusters; the player has 99 seconds to land on a hidden IR target.",
    results=[("Thrusters", "4 BLDC"), ("Round length", "99 seconds")]),
- "aerobraking-drl": dict(tags=["Space", "Controls"], tldr="A reinforcement learning agent that flies a spacecraft into orbit around another planet on its own, using less fuel.",
+ "aerobraking-drl": dict(tags=["Space", "Controls"], tldr="A PPO agent trained to choose the burns for an aerobraking orbit insertion, checked against a physics simulator.",
    results=[("Terminal error", "8.4 km"), ("Training", "1.1M steps"), ("To target", "46 orbits")]),
- "tethered-nanosatellite": dict(tags=["Space", "Controls"], tldr="Using a 500 m conductive tether and Earth's magnetic field to drag dead satellites out of orbit.",
+ "tethered-nanosatellite": dict(tags=["Space", "Controls"], tldr="A 3U and 1U CubeSat pair on a 500 m tether, using Earth's magnetic field to drag debris out of orbit.",
    results=[("Tether", "500 m"), ("Satellites", "3U + 1U CubeSat")]),
- "quadrotor-sysid": dict(tags=["Controls", "Robotics"], tldr="A physics-based drone model with just four constants, fitted from flight data.",
-   results=[("Unknowns", "4 coefficients"), ("Method", "Grey-box ID")]),
- "assistive-tricycle": dict(tags=["Build"], tldr="A low-cost tricycle with an elliptical pedaling mechanism so one-legged riders can pedal without knee pain.",
+ "quadrotor-sysid": dict(tags=["Controls", "Robotics"], tldr="A physics-based quadrotor model with four unknown constants, fitted from hover and sinusoidal-rotation tests.",
+   results=[("Unknowns", "4 coefficients"), ("Tests", "Hover and sinusoidal rotation")]),
+ "assistive-tricycle": dict(tags=["Build"], tldr="A tricycle for riders with one working leg, with an elliptical four-bar pedaling mechanism, checked with ANSYS FEA.",
    results=[("Target speed", "12 km/h"), ("Sprocket ratio", "2"), ("Checked with", "ANSYS FEA")]),
 }
 FILTERS = ["Robotics", "Controls", "Space", "Build"]
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">'
-FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9a441'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='32' font-weight='700' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@500;600&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">'
+FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d9a441'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%232b2118' stroke-width='4'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"
 ARROW = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>'
 SUN = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 MOON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>'
@@ -219,6 +221,7 @@ def page(fname, title, desc, body, active):
 <meta property="og:type" content="website">
 <meta property="og:image" content="{PROFILE}">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kmkar31.github.io/website/{fname}">
 <link rel="icon" href="{FAVICON}">
 {FONTS}
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
@@ -240,19 +243,15 @@ def page(fname, title, desc, body, active):
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>
-      <p class="footer-title">Get in touch.</p>
-      <p class="muted">Find me on LinkedIn or GitHub.</p>
-    </div>
+    <p>No public email. LinkedIn is the best way to reach me.</p>
     <div class="footer-links">
-      <a class="btn" href="{LINKEDIN}" target="_blank" rel="noopener">{ICON_LI}<span>LinkedIn</span></a>
-      <a class="btn ghost" href="{GITHUB}" target="_blank" rel="noopener">{ICON_GH}<span>GitHub</span></a>
-      <a class="btn ghost" href="{RESUME}" target="_blank" rel="noopener"><span>Resume</span></a>
+      <a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{GITHUB}" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <p class="copyright">&copy; Karthik Karumanchi</p>
 </footer>
-<div class="lightbox" id="lightbox" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
 <script src="assets/site.js"></script>
 </body>
 </html>
@@ -260,61 +259,29 @@ def page(fname, title, desc, body, active):
     with open(os.path.join(OUT, fname), "w") as f:
         f.write(full)
 
-def card(p, big=False):
+def row_item(p, thumb=False):
     m = META[p["slug"]]
-    return f"""<a class="card reveal{' big' if big else ''}" href="{p['slug']}.html" data-tags="{' '.join(t.lower() for t in m['tags'])}">
-  <div class="thumb"><img src="{img(p['thumb'])}" alt="{html.escape(p['title'])}" loading="lazy"></div>
-  <div class="card-body">
-    <div class="chips">{chips(m['tags'])}</div>
-    <h3>{html.escape(p['title'])}</h3>
-    <p>{html.escape(m['tldr'])}</p>
-    <span class="more-link">Read the project</span>
-  </div>
-</a>"""
+    t = f'<span class="thumb"><img src="{img(p["thumb"])}" alt="" width="96" height="72" loading="lazy"></span>' if thumb else ""
+    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags">{' / '.join(m['tags'])}</span></a></li>"""
 
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # ----------------------------------------------------------- home
-featured = "".join(card(p) for p in PROJECTS[:6])
 home = f"""
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text reveal">
-      <p class="eyebrow">Robotics &amp; controls engineer</p>
-      <h1>Karthik Karumanchi</h1>
-      <p class="subhead">MS Mechanical Engineering &middot; Carnegie Mellon University</p>
-      <p class="lede">I work on control of robots and spacecraft. At CMU&rsquo;s Biorobotics Lab, under Prof. Howie Choset, I research compliant control of snake robots. Before that I captained the Formula SAE team at IIT Madras, which finished on the podium at Formula Bharat 2023.</p>
-      <div class="actions">
-        <a class="btn" href="projects.html">See the projects</a>
-        <a class="btn ghost" href="about.html">About me</a>
-        <a class="btn ghost" href="{RESUME}" target="_blank" rel="noopener">Resume</a>
-      </div>
-    </div>
-    <div class="portrait-wrap reveal">
-      <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
-    </div>
+<section class="intro">
+  <h1>Karthik Karumanchi</h1>
+  <p class="subhead">MS Mechanical Engineering, Carnegie Mellon University</p>
+  <p class="lede">I work on control of robots and spacecraft. At CMU&rsquo;s Biorobotics Lab, under Prof. Howie Choset, I research compliant control of snake robots. Before that I captained the Formula SAE team at IIT Madras, which finished on the podium at Formula Bharat 2023.</p>
+  <p class="lede">As an intern at Seagate I built a simulation tool that cut controller design iteration on a batch of 30 drives from three weeks to 15 minutes. My CMU GPA is 4.0.</p>
+  <div class="actions">
+    <a class="btn" href="projects.html">See the projects</a>
+    <a class="textlink" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
   </div>
 </section>
 
-<section class="stats reveal" aria-label="Highlights"><div class="stats-inner">
-  <div><strong>4.0</strong><span>GPA at Carnegie Mellon</span></div>
-  <div><strong>3 wk &rarr; 15 min</strong><span>Controller tuning time at Seagate</span></div>
-  <div><strong>Podium</strong><span>Formula Bharat 2023, as team captain</span></div>
-  <div><strong>9</strong><span>Projects across robots, satellites &amp; vehicles</span></div>
-</div></section>
-
 <section class="section">
-  <div class="section-head reveal"><h2>Featured projects</h2><a class="more-link" href="projects.html">All projects</a></div>
-  <div class="grid">{featured}</div>
-</section>
-
-<section class="section">
-  <div class="section-head reveal"><h2>What I work on</h2></div>
-  <div class="focus">
-    <div class="focus-card reveal"><span class="num">01</span><h3>Control &amp; dynamics</h3><p>Model predictive control, adaptive and compliant control, and system identification: models that are accurate yet light enough to run on the robot.</p></div>
-    <div class="focus-card reveal"><span class="num">02</span><h3>Learning for autonomy</h3><p>Reinforcement learning that replaces human-in-the-loop decisions, such as a PPO agent that flies aerobraking maneuvers around Mars.</p></div>
-    <div class="focus-card reveal"><span class="num">03</span><h3>Hardware &amp; systems</h3><p>From CubeSats and a submarine to an electric racecar, designing, simulating, building and testing the real thing.</p></div>
-  </div>
+  <div class="section-head"><h2>Projects</h2></div>
+  <ul class="index">{"".join(row_item(p) for p in PROJECTS)}</ul>
 </section>
 """
 page("index.html", "Karthik Karumanchi | Robotics and Controls Engineer",
@@ -325,29 +292,27 @@ def tl(when, title, org, bullets=None, lines=None):
     inner = ""
     if lines: inner += "".join(f"<p>{l}</p>" for l in lines)
     if bullets: inner += "<ul>" + "".join(f"<li>{b}</li>" for b in bullets) + "</ul>"
-    return f"""<div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-card"><p class="when">{when}</p><h3>{title}</h3><p class="org">{org}</p>{inner}</div></div>"""
+    return f"""<div class="tl-item"><p class="when">{when}</p><h3>{title}</h3><p class="org">{org}</p>{inner}</div>"""
 
 skills = ["Model predictive control", "Reinforcement learning (PPO)", "System identification", "Adaptive &amp; compliant control",
           "B-dot attitude control", "Finite state machines", "Orbit, power &amp; thermal analysis", "FEA (ANSYS)", "CAD (Autodesk Inventor)",
           "Embedded systems (STM32, SPI)", "TCP/IP tooling"]
 about = f"""
-<section class="page-head"><div class="page-head-inner reveal">
-  <h1>About</h1>
-</div></section>
+<section class="page-head"><h1>About</h1></section>
 <section class="section narrow">
   <div class="about-top">
-    <div class="prose reveal">
+    <div class="prose">
       <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. My goal is to push forward technological autonomy, with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain. I&rsquo;m also taking courses in robot learning and artificial intelligence.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a podium finish at Formula Bharat 2023.</p>
       <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Download resume (PDF)</a></p>
     </div>
-    <img class="portrait reveal" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
+    <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
   </div>
 
-  <h2 class="reveal">Skills &amp; tools</h2>
-  <div class="chips big-chips reveal">{"".join(f'<span class="chip">{s}</span>' for s in skills)}</div>
+  <h2>Skills &amp; tools</h2>
+  <ul class="skills">{"".join(f'<li>{s}</li>' for s in skills)}</ul>
 
-  <h2 class="reveal">Education</h2>
+  <h2>Education</h2>
   <div class="timeline">
     {tl("2023 &ndash; 2025", "MS Mechanical Engineering", "Carnegie Mellon University &middot; Pittsburgh, PA",
         lines=["<strong>Research:</strong> Compliant control of snake robots, Biorobotics Lab", "<strong>Courses:</strong> Advanced Control Systems Integration, Intro to Robot Learning", "<strong>GPA:</strong> 4.0 / 4.0"])}
@@ -355,7 +320,7 @@ about = f"""
         lines=["<strong>Courses:</strong> Optimal Control, Multibody Dynamics, System Identification", "<strong>Activities:</strong> Captain of Raftar Formula Racing, the Formula SAE team of IIT Madras", "<strong>GPA:</strong> 9.3 / 10 (3.9 / 4.0)"])}
   </div>
 
-  <h2 class="reveal">Experience</h2>
+  <h2>Experience</h2>
   <div class="timeline">
     {tl("May &ndash; Aug 2024", "Advanced Control Engineer Intern", "Seagate Technology &middot; Shakopee, MN",
         bullets=["Built a tool that simulates HDD head tiering tests, so track-follow controllers can be tuned without the factory in the loop.",
@@ -375,15 +340,16 @@ about = f"""
 page("about.html", "About | Karthik Karumanchi", "Education and Professional Experience of Karthik Karumanchi", about, "about")
 
 # ----------------------------------------------------------- projects index
-filters = '<button class="filter active" data-filter="all" type="button">All</button>' + "".join(
-    f'<button class="filter" data-filter="{t.lower()}" type="button">{t}</button>' for t in FILTERS)
+filters = '<button class="filter active" data-filter="all" type="button" aria-pressed="true">All</button>' + "".join(
+    f'<button class="filter" data-filter="{t.lower()}" type="button" aria-pressed="false">{t}</button>' for t in FILTERS)
 projects = f"""
-<section class="page-head"><div class="page-head-inner reveal">
+<section class="page-head">
   <h1>Projects</h1>
   <div class="filters" role="group" aria-label="Filter projects">{filters}</div>
-</div></section>
+  <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+</section>
 <section class="section">
-  <div class="grid" id="project-grid">{"".join(card(p) for p in PROJECTS)}</div>
+  <ul class="index" id="project-list">{"".join(row_item(p, True) for p in PROJECTS)}</ul>
   <p class="empty" id="empty" hidden>No projects match that filter.</p>
 </section>
 """
@@ -392,20 +358,18 @@ page("projects.html", "Projects | Karthik Karumanchi", "Projects by Karthik Karu
 # ----------------------------------------------------------- project pages
 for i, p in enumerate(PROJECTS):
     m = META[p["slug"]]
-    res = "".join(f'<div><span>{k}</span><strong>{v}</strong></div>' for k, v in m["results"])
+    res = "".join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in m["results"])
     prev_p, next_p = PROJECTS[i - 1], PROJECTS[(i + 1) % len(PROJECTS)]
     body = f"""
 <section class="proj-hero">
-  <div class="proj-hero-inner reveal">
-    <a class="crumb" href="projects.html">&larr; All projects</a>
-    <div class="chips">{chips(m['tags'])}</div>
-    <h1>{html.escape(p['title'])}</h1>
-    <p class="question">{html.escape(p['q'])}</p>
-    <p class="tldr">{html.escape(m['tldr'])}</p>
-  </div>
+  <a class="crumb" href="projects.html">&larr; all projects</a>
+  <p class="tags">{' / '.join(m['tags'])}</p>
+  <h1>{html.escape(p['title'])}</h1>
+  <p class="question">{html.escape(p['q'])}</p>
+  <p class="tldr">{html.escape(m['tldr'])}</p>
 </section>
-<section class="section narrow">
-  <div class="results reveal">{res}</div>
+<section class="section narrow" style="padding-top:0">
+  <dl class="facts">{res}</dl>
   <article class="prose project">
   {p['body']}
   </article>
@@ -415,49 +379,52 @@ for i, p in enumerate(PROJECTS):
   </nav>
 </section>
 """
-    page(p["slug"] + ".html", f"{p['page_title']} | {SITE}", p["desc"], body, "projects")
+    page(p["slug"] + ".html", f"{p['title']} | {SITE}", p["desc"], body, "projects")
 
 page("404.html", "Page not found | Karthik Karumanchi", "Page not found",
-     '<section class="page-head"><div class="page-head-inner"><p class="eyebrow">404</p><h1>That page doesn&rsquo;t exist.</h1><p class="actions"><a class="btn" href="index.html">Back home</a></p></div></section>', "")
+     '<section class="page-head"><h1>That page doesn&rsquo;t exist.</h1><p class="actions"><a class="btn" href="index.html">Back home</a></p></section>', "")
 
 # ----------------------------------------------------------- css
 css = r"""
 :root{
-  --bg:#efe7d6; --bg2:#e5dbc3; --fg:#2b2118; --muted:#5b4e40; --ink:#2b2118; --line:#c9bc9f; --card:#f7f1e3;
-  --a1:#9c3a22; --a2:#2f6f62; --hi:#d9a441; --btn-bg:#b4452b; --btn-fg:#f7f1e3;
-  --shadow:4px 4px 0 var(--ink); --shadow-lg:6px 6px 0 var(--ink);
-  --radius:6px; --maxw:1120px;
-  --serif:"DM Serif Display",Georgia,"Times New Roman",serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --bg:#efe7d6; --bg2:#e5dbc3; --fg:#2b2118; --muted:#5b4e40; --ink:#2b2118; --line:#b9ab8a; --card:#f7f1e3;
+  --a1:#9c3a22; --a2:#2f6f62; --hi:#d9a441; --btn-bg:#b4452b; --btn-fg:#f7f1e3; --shadowc:#2b2118;
+  --maxw:1040px;
+  --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+/* dark = inverted print: dark paper, tan ink rules, hard shadows go darker than the paper */
 :root[data-theme="dark"]{
-  --bg:#1d1814; --bg2:#272019; --fg:#efe7d6; --muted:#b8ab95; --ink:#efe7d6; --line:#4a3f33; --card:#241e18;
-  --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814;
+  --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#b8ab95; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
+  --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1d1814; --bg2:#272019; --fg:#efe7d6; --muted:#b8ab95; --ink:#efe7d6; --line:#4a3f33; --card:#241e18;
-    --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814;
+    --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#b8ab95; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
+    --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08;
   }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg) var(--grain);color:var(--fg);font:17px/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{margin:0;background:var(--bg) var(--grain);color:var(--fg);font:18px/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;height:auto;display:block}
-a{color:var(--a1);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a{color:var(--a1);text-underline-offset:3px;text-decoration-thickness:1px}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.005em;margin:0 0 .5em}
-h1{font-size:clamp(2.3rem,6vw,4.1rem)}
-h2{font-size:clamp(1.7rem,3.2vw,2.3rem);margin-top:2.2em}
+h1{font-size:clamp(2.3rem,6vw,3.8rem)}
+h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:2em}
 h3{font-size:1.3rem}
 .muted{color:var(--muted)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--fg);color:var(--bg);padding:8px 14px;z-index:100}
 .skip:focus{left:8px}
 :focus-visible{outline:3px solid var(--a1);outline-offset:3px}
 
-/* header */
-.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:10px max(20px,calc((100vw - var(--maxw))/2));background:var(--bg);border-bottom:2px solid var(--ink)}
+/* header: double rule underneath, like a printed masthead */
+.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:6px max(20px,calc((100vw - var(--maxw))/2));background:var(--bg);border-bottom:5px double var(--ink);font-family:var(--sans)}
 .brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font-family:var(--serif);font-size:1.25rem;margin-right:auto;min-height:44px;min-width:44px;justify-content:center}
-.mark{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--ink);background:var(--hi);color:#2b2118;font-family:var(--serif);font-size:1.3rem;line-height:1}
+.mark{display:grid;place-items:center;width:34px;height:34px;border:2px solid var(--ink);background:var(--hi);color:#2b2118;font-family:var(--serif);font-size:1.3rem;line-height:1}
 .site-header nav{display:flex;gap:4px}
 .site-header nav a{color:var(--fg);text-decoration:none;font-weight:500;font-size:.95rem;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
 .site-header nav a:hover{border-color:var(--line)}
@@ -474,177 +441,141 @@ h3{font-size:1.3rem}
   :root:not([data-theme="light"]) #theme .i-moon{display:inline}
 }
 
-/* buttons / chips */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;min-height:46px;background:var(--btn-bg);color:var(--btn-fg);text-decoration:none;font-weight:600;font-size:.95rem;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
-.btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
-.btn.ghost{background:var(--card);color:var(--fg)}
+/* the only boxed, shadowed things: the primary button and filter buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;min-height:46px;background:var(--btn-bg);color:var(--btn-fg);text-decoration:none;font:600 .95rem var(--sans);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--shadowc);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--shadowc)}
+.btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--shadowc)}
 .btn.small{padding:9px 18px;min-height:44px;font-size:.9rem}
 .btn svg{width:18px;height:18px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{display:inline-block;padding:2px 9px;border:1.5px solid var(--ink);color:var(--fg);font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
-.big-chips .chip{font-size:.82rem;padding:5px 12px;background:var(--card)}
-.more-link{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;font-size:.95rem}
+.textlink{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .98rem var(--sans);padding:0 4px}
+.tags{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+.more-link{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .95rem var(--sans)}
 .more-link:hover{background:var(--hi);color:#2b2118;text-decoration:none}
-.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;color:var(--a1);font-weight:500;margin:0 0 16px}
+.skills{margin:0;padding:0;list-style:none;columns:2;column-gap:32px;font-size:1rem}
+.skills li{padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid}
 
-/* hero */
-.hero{padding:64px 20px 32px;border-bottom:2px solid var(--ink)}
-.hero-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center}
-.hero h1{margin-bottom:.25em}
-.subhead{font-family:var(--mono);font-size:.95rem;color:var(--muted);margin:0 0 22px}
-.lede{font-size:1.1rem;max-width:58ch;margin:0}
-.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.portrait-wrap{justify-self:center;max-width:360px;background:var(--card);border:2px solid var(--ink);padding:10px;box-shadow:var(--shadow-lg)}
-.portrait{width:100%;border:2px solid var(--ink)}
-
-/* at a glance */
-.stats{max-width:var(--maxw);margin:40px auto 0;padding:0 20px}
-.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);background:var(--card);box-shadow:var(--shadow)}
-.stats-inner>div{padding:18px 20px;border-right:2px solid var(--ink)}
-.stats-inner>div:last-child{border-right:0}
-.stats strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1.1}
-.stats span{display:block;margin-top:6px;color:var(--muted);font-family:var(--mono);font-size:.74rem;line-height:1.45;text-transform:uppercase;letter-spacing:.04em}
+/* intro (home) */
+.intro{max-width:var(--maxw);margin:0 auto;padding:56px 20px 8px}
+.intro h1{margin-bottom:.15em}
+.subhead{font-family:var(--mono);font-size:.9rem;color:var(--muted);margin:0 0 26px}
+.lede{font-size:1.2rem;max-width:34em;margin:0 0 1em}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:26px}
 
 /* sections */
-.section{max-width:var(--maxw);margin:0 auto;padding:56px 20px}
-.section.narrow{max-width:840px}
-.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:26px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.section{max-width:var(--maxw);margin:0 auto;padding:44px 20px}
+.section.narrow{max-width:760px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px;border-bottom:3px solid var(--ink);padding-bottom:6px}
 .section-head h2{margin:0}
-.page-head{padding:56px 20px 36px;border-bottom:2px solid var(--ink);background:var(--bg2)}
-.page-head-inner{max-width:var(--maxw);margin:0 auto}
+.page-head{padding:48px 20px 12px;max-width:var(--maxw);margin:0 auto}
 .page-head h1{max-width:22ch;margin-bottom:0}
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 18px;min-height:44px;font-family:var(--mono);font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 18px;min-height:44px;font:500 .9rem var(--sans);cursor:pointer}
 .filter:hover{background:var(--hi);color:#2b2118}
 .filter.active{background:var(--fg);color:var(--bg)}
-.empty{color:var(--muted);text-align:center;padding:40px 0}
+.empty{color:var(--muted);padding:24px 0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
-.card{display:flex;flex-direction:column;background:var(--card);border:2px solid var(--ink);color:inherit;text-decoration:none;box-shadow:var(--shadow);transition:transform .12s,box-shadow .12s}
-.card:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-lg)}
-.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--bg2);border-bottom:2px solid var(--ink)}
-.card .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) sepia(.12)}
-.card-body{display:flex;flex-direction:column;gap:10px;padding:18px 20px 12px;flex:1}
-.card h3{margin:0}
-.card p{margin:0;color:var(--muted);font-size:.93rem;line-height:1.55}
-.card .more-link{margin-top:auto;align-self:flex-start;padding:0 4px;margin-left:-4px}
-.card[hidden]{display:none}
-
-/* focus areas */
-.focus{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-.focus-card{padding:24px 24px 26px;border-right:2px solid var(--ink)}
-.focus-card:last-child{border-right:0}
-.focus-card .num{font-family:var(--mono);font-size:.8rem;color:var(--a1);font-weight:500}
-.focus-card h3{margin:.4em 0 .4em}
-.focus-card p{margin:0;color:var(--muted);font-size:.95rem}
+/* project index: ruled rows, like a table of contents */
+.index{list-style:none;margin:0;padding:0}
+.index li[hidden]{display:none}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;min-height:44px}
+.row.has-thumb{grid-template-columns:96px 1fr auto;align-items:center}
+.row .thumb{width:96px;height:72px;border:1px solid var(--ink);background:var(--bg2);overflow:hidden}
+.row .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) sepia(.15)}
+.row h3{margin:0 0 .15em;font-size:1.35rem}
+.row p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45;max-width:46em}
+.row:hover{background:var(--card);box-shadow:inset 4px 0 0 var(--a1)}
+.row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
 /* about */
-.about-top{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:start;margin-top:8px}
-.about-top .portrait{max-width:300px;justify-self:center;box-shadow:var(--shadow)}
+.about-top{display:grid;grid-template-columns:1.7fr 1fr;gap:40px;align-items:start}
+.about-top .portrait{max-width:280px;justify-self:center;border:1px solid var(--ink)}
 .prose p{margin:0 0 1.1em}
-.timeline{position:relative;margin-top:24px;padding-left:30px}
-.timeline:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--ink)}
-.tl-item{position:relative;margin-bottom:22px}
-.tl-dot{position:absolute;left:-30px;top:24px;width:14px;height:14px;background:var(--hi);border:2px solid var(--ink)}
-.tl-card{background:var(--card);border:2px solid var(--ink);padding:20px 24px}
-.tl-card .when{margin:0 0 4px;color:var(--a1);font-family:var(--mono);font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
-.tl-card h3{margin:0}
-.tl-card .org{margin:2px 0 10px;color:var(--muted)}
-.tl-card p{margin:.25em 0}
-.tl-card ul{margin:.4em 0 0;padding-left:1.2em}
-.tl-card li{margin:.4em 0}
+.timeline{margin-top:6px}
+.tl-item{padding:16px 0 12px;border-top:1px solid var(--line)}
+.tl-item:first-child{border-top:3px solid var(--ink)}
+.tl-item .when{margin:0 0 2px;color:var(--a1);font-family:var(--mono);font-size:.82rem;font-weight:500}
+.tl-item h3{margin:0}
+.tl-item .org{margin:2px 0 8px;color:var(--muted)}
+.tl-item p{margin:.25em 0}
+.tl-item ul{margin:.4em 0 0;padding-left:1.2em}
+.tl-item li{margin:.4em 0}
 
-/* project page */
-.proj-hero{padding:48px 20px 56px;border-bottom:2px solid var(--ink);background:var(--bg2)}
-.proj-hero-inner{max-width:840px;margin:0 auto}
-.crumb{display:inline-flex;align-items:center;min-height:44px;margin-bottom:10px;color:var(--fg);font-family:var(--mono);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+/* project page: running head, then plain facts */
+.proj-hero{max-width:760px;margin:0 auto;padding:28px 20px 8px}
+.crumb{display:inline-flex;align-items:center;min-height:44px;margin-bottom:6px;color:var(--fg);font:500 .85rem var(--sans);font-variant:small-caps;letter-spacing:.08em;text-transform:lowercase}
 .crumb:hover{color:var(--a1)}
+.proj-hero .tags{margin:0 0 10px}
 .question{font-family:var(--serif);font-size:1.4rem;color:var(--fg);margin:.5em 0 .7em;line-height:1.25}
-.tldr{font-size:1.05rem;margin:0;max-width:60ch;color:var(--muted)}
-.results{display:flex;flex-wrap:wrap;margin:-30px 0 36px;position:relative;z-index:2;border:2px solid var(--ink);background:var(--card);box-shadow:var(--shadow)}
-.results>div{flex:1 1 180px;padding:14px 20px;border-right:2px solid var(--ink)}
-.results>div:last-child{border-right:0}
-.results span{display:block;color:var(--muted);font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
-.results strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-top:4px;line-height:1.2}
-.project h2{margin-top:1.8em}
+.tldr{font-size:1.1rem;margin:0;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;margin:22px 0 28px;padding:0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.facts div{flex:1 1 180px;padding:10px 20px 10px 0}
+.facts dt{color:var(--muted);font:500 .8rem var(--mono)}
+.facts dd{margin:2px 0 0;font-family:var(--serif);font-size:1.2rem;line-height:1.2}
+.project h2{margin-top:1.8em;padding-top:.3em;border-top:1px solid var(--line)}
 .project figure{margin:1.8em 0}
-.project figure img{margin:0 auto;border:2px solid var(--ink);box-shadow:var(--shadow);cursor:zoom-in}
-.project figure.plain img{background:#fff;padding:8px;box-shadow:none}
+.project figure img{margin:0 auto;border:1px solid var(--ink)}
+.project figure a.zoom{display:block;min-height:44px;cursor:zoom-in}
+.project figure.plain img{background:#fff;padding:8px}
 .project figure.narrow img{max-width:320px}
 .project figure.tall img{max-height:520px;width:auto}
-figcaption,.cap{color:var(--muted);font-size:.88rem;text-align:center;margin-top:.9em;line-height:1.5}
+figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.7em;line-height:1.5}
 .fig-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:center;margin:1.8em 0 .4em}
 .fig-row figure{flex:1 1 220px;margin:0}
 .project ol,.project ul{padding-left:1.3em}
-.pager{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:64px}
-.pager a{display:block;background:var(--card);border:2px solid var(--ink);padding:16px 20px;text-decoration:none;color:var(--fg);box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
-.pager a:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
-.pager span{display:block;color:var(--a1);font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-.pager strong{font-family:var(--serif);font-weight:400;font-size:1.1rem;line-height:1.25}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;border-top:3px double var(--ink);padding-top:8px}
+.pager a{display:block;padding:12px 8px;text-decoration:none;color:var(--fg);min-height:44px}
+.pager a:hover{background:var(--card);box-shadow:inset 0 -3px 0 var(--a1)}
+.pager span{display:block;color:var(--a1);font:500 .85rem var(--sans);margin-bottom:2px}
+.pager strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.25}
 .pager .next{text-align:right}
 
 /* footer */
-.site-footer{margin-top:56px;border-top:2px solid var(--ink);background:var(--bg2);padding:44px 20px 24px}
-.footer-inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
-.footer-title{font-family:var(--serif);font-size:1.8rem;margin:0}
-.footer-links{display:flex;flex-wrap:wrap;gap:12px}
-.copyright{max-width:var(--maxw);margin:28px auto 0;color:var(--muted);font-family:var(--mono);font-size:.78rem}
+.site-footer{margin-top:40px;border-top:5px double var(--ink);padding:28px 20px 24px;font-family:var(--sans)}
+.footer-inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between}
+.footer-inner p{margin:0}
+.footer-links{display:flex;flex-wrap:wrap;gap:4px 18px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font-weight:500}
+.copyright{max-width:var(--maxw);margin:10px auto 0;color:var(--muted);font-family:var(--mono);font-size:.78rem}
 
 /* lightbox */
-.lightbox{position:fixed;inset:0;z-index:200;background:rgba(20,16,12,.92);display:grid;place-items:center;padding:24px;cursor:zoom-out}
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(20,16,12,.94);display:grid;place-items:center;padding:24px;cursor:zoom-out}
 .lightbox[hidden]{display:none}
 .lightbox img{max-height:90vh;max-width:94vw;background:#fff;border:2px solid #efe7d6}
 .lb-close{position:absolute;top:8px;right:12px;width:44px;height:44px;border:0;background:transparent;color:#efe7d6;font-size:2.4rem;cursor:pointer;line-height:1}
 
-/* reveal */
-.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
-.js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){
-  *{animation:none!important;transition:none!important}
-  .js .reveal{opacity:1;transform:none}
+  *{transition:none!important}
   html{scroll-behavior:auto}
 }
 
 @media (max-width:860px){
-  .hero{padding:40px 20px 28px}
-  .hero-inner,.about-top{grid-template-columns:1fr}
-  .hero-inner{gap:32px}
-  .portrait-wrap{max-width:260px}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
-  .stats-inner>div:nth-child(2){border-right:0}
-  .stats-inner>div:nth-child(-n+2){border-bottom:2px solid var(--ink)}
-  .focus-card{border-right:0;border-bottom:2px solid var(--ink)}
-  .focus-card:last-child{border-bottom:0}
+  .about-top{grid-template-columns:1fr}
+  .skills{columns:1}
 }
 @media (max-width:620px){
-  body{font-size:16px}
+  body{font-size:17px}
   h1{font-size:clamp(2.1rem,10vw,2.7rem)}
-  .site-header{gap:6px;padding:6px 12px}
+  .site-header{gap:6px;padding:4px 12px}
   .brand-name{display:none}
   .site-header nav{flex:1;justify-content:center;gap:0}
   .site-header nav a{padding:0 12px;font-size:.92rem}
   .header-tools a.icon-btn{display:none}
-  .lede{font-size:1rem}
-  .actions{display:grid;grid-template-columns:1fr 1fr;margin-top:22px}
-  .actions .btn:first-child{grid-column:1/-1}
-  .stats{padding:0 16px}
-  .stats-inner>div{padding:14px}
-  .stats strong{font-size:1.5rem}
-  .section{padding:40px 16px}
-  .page-head{padding:36px 16px 28px}
-  .proj-hero{padding:28px 16px 48px}
+  .intro{padding:36px 16px 4px}
+  .lede{font-size:1.08rem}
+  .section{padding:32px 16px}
+  .page-head{padding:32px 16px 8px}
+  .proj-hero{padding:20px 16px 4px}
+  .row,.row.has-thumb{grid-template-columns:1fr;padding:16px 4px}
+  .row.has-thumb{grid-template-columns:80px 1fr}
+  .row.has-thumb .thumb{width:80px;height:60px;grid-row:span 2}
+  .row.has-thumb .tags{grid-column:2}
   .pager{grid-template-columns:1fr}
   .pager .next{text-align:left}
-  .results{margin-top:-24px}
-  .results>div{flex-basis:100%;border-right:0;border-bottom:2px solid var(--ink)}
-  .results>div:last-child{border-bottom:0}
+  .facts div{flex-basis:100%;padding:8px 0;border-bottom:1px solid var(--line)}
+  .facts div:last-child{border-bottom:0}
   .section-head{flex-wrap:wrap}
   .footer-inner{flex-direction:column;align-items:flex-start}
-  .tl-card{padding:16px}
-  .timeline{padding-left:24px}
-  .tl-dot{left:-24px}
 }
 """
 with open(os.path.join(OUT, "assets", "style.css"), "w") as f:
@@ -654,7 +585,6 @@ with open(os.path.join(OUT, "assets", "style.css"), "w") as f:
 js = r"""
 (function(){
   var d=document, root=d.documentElement;
-  root.classList.add('js');
 
   // theme toggle
   var tb=d.getElementById('theme');
@@ -666,48 +596,38 @@ js = r"""
     try{localStorage.setItem('theme',next)}catch(e){}
   });}
 
-  // scroll reveal
-  var els=[].slice.call(d.querySelectorAll('.reveal'));
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-    },{rootMargin:'0px 0px -8% 0px',threshold:.05});
-    els.forEach(function(el,i){el.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(el);});
-  } else { els.forEach(function(el){el.classList.add('in');}); }
-  // safety net: never leave content hidden if the observer misses something
-  setTimeout(function(){els.forEach(function(el){
-    if(el.getBoundingClientRect().top<innerHeight*1.3){el.classList.add('in');}
-  });},2500);
-  addEventListener('load',function(){setTimeout(function(){els.forEach(function(el){
-    if(el.getBoundingClientRect().top<innerHeight){el.classList.add('in');}
-  });},300);});
-
-  // project filter
+  // project filter, with a spoken result count
   var fs=d.querySelectorAll('.filter');
   if(fs.length){
-    var cards=d.querySelectorAll('#project-grid .card'), empty=d.getElementById('empty');
+    var rows=d.querySelectorAll('#project-list li'), empty=d.getElementById('empty'), live=d.getElementById('filter-status');
     fs.forEach(function(b){b.addEventListener('click',function(){
-      fs.forEach(function(x){x.classList.remove('active');});
-      b.classList.add('active');
+      fs.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false');});
+      b.classList.add('active');b.setAttribute('aria-pressed','true');
       var f=b.getAttribute('data-filter'), shown=0;
-      cards.forEach(function(c){
+      rows.forEach(function(c){
         var ok=f==='all'||(' '+c.getAttribute('data-tags')+' ').indexOf(' '+f+' ')>-1;
-        c.hidden=!ok; if(ok){shown++;c.classList.add('in');}
+        c.hidden=!ok; if(ok){shown++;}
       });
       empty.hidden=shown>0;
+      if(live){live.textContent='Showing '+shown+' of '+rows.length+' projects';}
     });});
   }
 
-  // image lightbox
+  // image lightbox: figure images are real links to the full image, so they work without JS
   var lb=d.getElementById('lightbox');
   if(lb){
-    var lbi=lb.querySelector('img');
+    var lbi=lb.querySelector('img'), closeBtn=lb.querySelector('.lb-close'), opener=null;
+    function close(){lb.hidden=true;if(opener){opener.focus();opener=null;}}
     d.addEventListener('click',function(e){
-      var t=e.target;
-      if(t.tagName==='IMG'&&t.closest('.project figure')){lbi.src=t.src;lbi.alt=t.alt;lb.hidden=false;}
-      else if(!lb.hidden){lb.hidden=true;}
+      var a=e.target.closest&&e.target.closest('.project a.zoom');
+      if(a){e.preventDefault();opener=a;var im=a.querySelector('img');lbi.src=a.href;lbi.alt=im?im.alt:'';lb.hidden=false;closeBtn.focus();}
+      else if(!lb.hidden){close();}
     });
-    d.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.hidden=true;}});
+    d.addEventListener('keydown',function(e){
+      if(lb.hidden)return;
+      if(e.key==='Escape'){close();}
+      else if(e.key==='Tab'){e.preventDefault();closeBtn.focus();}
+    });
   }
 })();
 """

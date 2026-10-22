@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quadrotor Landing | Karthik Karumanchi</title>
+<title>Quadrotor Landing on an Unstable Mobile Platform | Karthik Karumanchi</title>
 <meta name="description" content="Finite State Machine based high-level controller for a quadrotor to autonomously navigate to and land on an unstable mobile platform.">
 <meta name="theme-color" content="#efe7d6">
-<meta property="og:title" content="Quadrotor Landing | Karthik Karumanchi">
+<meta property="og:title" content="Quadrotor Landing on an Unstable Mobile Platform | Karthik Karumanchi">
 <meta property="og:description" content="Finite State Machine based high-level controller for a quadrotor to autonomously navigate to and land on an unstable mobile platform.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://static.wixstatic.com/media/84da68_7ddf4665a50c46ddabbf0ea3eec595b2~mv2.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9a441'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='32' font-weight='700' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://kmkar31.github.io/website/quadrotor-landing.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d9a441'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%232b2118' stroke-width='4'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@500;600&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -30,24 +31,22 @@
 <main id="main">
 
 <section class="proj-hero">
-  <div class="proj-hero-inner reveal">
-    <a class="crumb" href="projects.html">&larr; All projects</a>
-    <div class="chips"><span class="chip">Robotics</span><span class="chip">Controls</span></div>
-    <h1>Quadrotor Landing on an Unstable Mobile Platform</h1>
-    <p class="question">How do we land aerial vehicles on mobile platforms in the presence of environmental disturbances?</p>
-    <p class="tldr">A drone that finds, tracks and lands on a moving, wobbling platform using model predictive control and a state machine.</p>
-  </div>
+  <a class="crumb" href="projects.html">&larr; all projects</a>
+  <p class="tags">Robotics / Controls</p>
+  <h1>Quadrotor Landing on an Unstable Mobile Platform</h1>
+  <p class="question">How do we land aerial vehicles on mobile platforms in the presence of environmental disturbances?</p>
+  <p class="tldr">A CrazyFlie quadrotor lands on a Tumbller balancing robot driving in a circle, using model predictive control and a state machine.</p>
 </section>
-<section class="section narrow">
-  <div class="results reveal"><div><span>Landing success</span><strong>100% (small pad, under 0.25 m/s)</strong></div><div><span>At top speed</span><strong>5.6 s, 2.5 cm error</strong></div></div>
+<section class="section narrow" style="padding-top:0">
+  <dl class="facts"><div><dt>Landing success</dt><dd>100% (small pad, under 0.25 m/s)</dd></div><div><dt>At top speed</dt><dd>5.6 s, 2.5 cm error</dd></div></dl>
   <article class="prose project">
   
 <p>In the realm of robotics, navigating uncertain real-world environments presents significant challenges. Uncertainties occur in the form of rough seas, turbulent winds, etc. This project addresses these uncertainties in operating aerial vehicles in such unpredictable conditions. While existing autopilot systems can manage stable environments, they falter in windy conditions and on unstable landing platforms, requiring human intervention. To address these challenges, a novel algorithm was developed to land a quadrotor (the CrazyFlie) on a two-wheeled platform (the Tumbller) while the latter follows a trajectory, mimicking the difficulties of landing on a ship in rough seas.</p>
-<figure class=""><img src="https://static.wixstatic.com/media/84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg" alt="Project hardware: CrazyFlie drone and Tumbller landing platform" loading="lazy"><figcaption>Tumbller with the small landing pad (left) and the CrazyFlie (right)</figcaption></figure>
+<figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg"><img src="https://static.wixstatic.com/media/84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg" alt="Project hardware: CrazyFlie drone and Tumbller landing platform" loading="lazy"></a><figcaption>Tumbller with the small landing pad (left) and the CrazyFlie (right)</figcaption></figure>
 <p>The controller divided the CrazyFlie's maneuver into two phases: the search and land phase. Each phase operated an individual high-level model predictive controller to track the landing platform. Selecting the appropriate phase and generating the objectives was handled by a finite state machine. A secondary disturbance-rejection controller was implemented on the Tumbller to implement trajectory-following. The position of the Tumbller during its trajectory was made available to the CrazyFlie via a global positioning system. Since the trajectory was not made known to the CrazyFlie in advance, a "trajectory-prediction" subroutine was built in, allowing the CrazyFlie to make anticipatory maneuvers.</p>
 <p>In the test, the Tumbller moves in a circular trajectory of radius 0.8 m at 0.38 m/s. The CrazyFlie takes off from a random location, navigates to the origin and then starts to track the Tumbller.</p>
 <p>The control algorithm was tested with two landing pads mounted on the Tumbller. The smaller landing pad offered a 50% greater tolerance for error but caused 30% lower platform instability compared to the larger landing pad. The implemented control algorithm achieves a 100% rate of landing success with the smaller landing pad as long as the Tumbller is stable and moving slower than 0.25 m/s. When the Tumbller is moving at its highest speed of 0.38 m/s, the drone completed a successful landing in 5.6 s with a position error of 2.5 cm. However, challenges arose with the larger landing pad, as heightened platform instability caused fluctuation in position estimates, compromising controller performance.</p>
-<figure class=""><img src="https://static.wixstatic.com/media/84da68_c0b0953450704f3ab136ef72e2d63fad~mv2.jpg" alt="Two landing pads to compare the effect of instability" loading="lazy"><figcaption>Smaller landing pad (left) and the larger landing pad (right)</figcaption></figure>
+<figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_c0b0953450704f3ab136ef72e2d63fad~mv2.jpg"><img src="https://static.wixstatic.com/media/84da68_c0b0953450704f3ab136ef72e2d63fad~mv2.jpg" alt="Two landing pads to compare the effect of instability" loading="lazy"></a><figcaption>Smaller landing pad (left) and the larger landing pad (right)</figcaption></figure>
 <p>With the large landing pad, the Tumbller executes a circular trajectory of radius 0.8 m at 0.18 m/s and shows significant instability, affecting the CrazyFlie's accuracy.</p>
 
   </article>
@@ -60,19 +59,15 @@
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>
-      <p class="footer-title">Get in touch.</p>
-      <p class="muted">Find me on LinkedIn or GitHub.</p>
-    </div>
+    <p>No public email. LinkedIn is the best way to reach me.</p>
     <div class="footer-links">
-      <a class="btn" href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg><span>LinkedIn</span></a>
-      <a class="btn ghost" href="https://github.com/kmkar31" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a>
-      <a class="btn ghost" href="https://686e8b1f-e8dd-4e34-9c3c-5ccc4d7af65d.filesusr.com/ugd/84da68_6a1c4dc4a15a4d4389d6b6b6fa727665.pdf" target="_blank" rel="noopener"><span>Resume</span></a>
+      <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/kmkar31" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <p class="copyright">&copy; Karthik Karumanchi</p>
 </footer>
-<div class="lightbox" id="lightbox" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
 <script src="assets/site.js"></script>
 </body>
 </html>

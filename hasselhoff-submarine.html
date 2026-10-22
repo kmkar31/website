@@ -11,8 +11,9 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://static.wixstatic.com/media/84da68_7ddf4665a50c46ddabbf0ea3eec595b2~mv2.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9a441'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='32' font-weight='700' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://kmkar31.github.io/website/hasselhoff-submarine.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d9a441'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%232b2118' stroke-width='4'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@500;600&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -30,33 +31,31 @@
 <main id="main">
 
 <section class="proj-hero">
-  <div class="proj-hero-inner reveal">
-    <a class="crumb" href="projects.html">&larr; All projects</a>
-    <div class="chips"><span class="chip">Robotics</span><span class="chip">Build</span></div>
-    <h1>Hasselhoff Submarine</h1>
-    <p class="question">How do we develop a submarine for underwater target detection?</p>
-    <p class="tldr">A waterproof, joystick-driven mini submarine that races a 99-second clock to land on a hidden IR target.</p>
-  </div>
+  <a class="crumb" href="projects.html">&larr; all projects</a>
+  <p class="tags">Robotics / Build</p>
+  <h1>Hasselhoff Submarine</h1>
+  <p class="question">How do we develop a submarine for underwater target detection?</p>
+  <p class="tldr">A joystick-driven mini submarine with four thrusters; the player has 99 seconds to land on a hidden IR target.</p>
 </section>
-<section class="section narrow">
-  <div class="results reveal"><div><span>Thrusters</span><strong>4 BLDC</strong></div><div><span>Round length</span><strong>99 seconds</strong></div></div>
+<section class="section narrow" style="padding-top:0">
+  <dl class="facts"><div><dt>Thrusters</dt><dd>4 BLDC</dd></div><div><dt>Round length</dt><dd>99 seconds</dd></div></dl>
   <article class="prose project">
   
 <p>The Hasselhoff Bot is a small submarine inspired by David Hasselhoff's cameo in the 2004 SpongeBob Movie. In the movie, SpongeBob and Patrick explore the ocean in search of King Neptune's crown to cover his shiny, bald head and David Hasselhoff is the last "vehicle" that propels the two friends back to Bikini Bottom, where they return the crown to King Neptune. In a similar fashion, the Hasselhoff Bot is a small, user-steerable submarine that allows the user 99 seconds to explore an underwater environment in search of an IR beam mounted on the bottom of the tank.</p>
-<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp" alt="Hasselhoff submarine" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp" alt="Remote controller for the Hasselhoff submarine" loading="lazy"></figure></div>
+<div class="fig-row"><figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp"><img src="https://static.wixstatic.com/media/84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp" alt="The Hasselhoff submarine" loading="lazy"></a></figure><figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp"><img src="https://static.wixstatic.com/media/84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp" alt="Remote controller for the Hasselhoff submarine" loading="lazy"></a></figure></div>
 <p class="cap">Hasselhoff submarine (left) and remote control (right)</p>
 <h2>User Experience</h2>
 <p>In its welcome state, the submarine spins in place and the remote flashes LEDs waiting for user interaction. When the user interacts with the joystick, the sub is set into drive mode and the user has 99 seconds to reach the target. The user may use the throttle and steering joysticks to control planar motion as well as the target depth knob to control the sub's depth. Once over the target, a blue light illuminates, allowing the user to "land" onto the target. The user is scored on how fast they can maneuver to the goal. Once the landing is done, the sub resurfaces and resumes its welcome state.</p>
 <h2>Design Methodology</h2>
 <p>The sub is powered by four waterproof thrusters driven by BLDC motors arranged radially. Two thrusters provide planar control and two provide ballast control. The motors are powered by a 4s1p 5000 mAh 21700 battery pack. All communications are executed via SPI. Processing, both on the submarine and the remote, is done using an STM32 microcontroller. The submarine is fitted with a depth sensor as well as an IR receiver. Waterproofing is done using gaskets and bolts arranged circumferentially. Electrical connections are passed via Deutsch and MPT connectors to prevent water leaks.</p>
-<div class="fig-row"><figure class=""><img src="https://static.wixstatic.com/media/84da68_4da2e6bf703d4ee48e1d1b202fe5389c~mv2.png" alt="Submarine external CAD schematic" loading="lazy"></figure><figure class=""><img src="https://static.wixstatic.com/media/84da68_a88077295ae7480ab3fc1653ff780517~mv2.png" alt="Submarine internal CAD schematic" loading="lazy"></figure></div>
+<div class="fig-row"><figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_4da2e6bf703d4ee48e1d1b202fe5389c~mv2.png"><img src="https://static.wixstatic.com/media/84da68_4da2e6bf703d4ee48e1d1b202fe5389c~mv2.png" alt="Submarine external CAD schematic" loading="lazy"></a></figure><figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_a88077295ae7480ab3fc1653ff780517~mv2.png"><img src="https://static.wixstatic.com/media/84da68_a88077295ae7480ab3fc1653ff780517~mv2.png" alt="Submarine internal CAD schematic" loading="lazy"></a></figure></div>
 <p class="cap">Submarine CAD (external and internal schematics)</p>
 <h2>State Machine Logic</h2>
 <p>The submarine, remote and communications all operate on state machines where events are handled by linked lists. The remote uses a non-preemptive scheduler to add events to the linked list. Every command generated by the remote is sent to the submarine via SPI. Each SPI message is acknowledged by the submarine with an 8 bit submarine state which includes flags for target detection, land completion and sub status.</p>
-<figure class=""><img src="https://static.wixstatic.com/media/84da68_bbba3759dc9948c88def0894c224682d~mv2.png" alt="Submarine state machine logic" loading="lazy"><figcaption>Submarine state machine</figcaption></figure>
+<figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_bbba3759dc9948c88def0894c224682d~mv2.png"><img src="https://static.wixstatic.com/media/84da68_bbba3759dc9948c88def0894c224682d~mv2.png" alt="Submarine state machine logic" loading="lazy"></a><figcaption>Submarine state machine</figcaption></figure>
 <h2>Testing</h2>
 <p>The submarine was found to be waterproof when submerged in a 50 gal water tank. Within this small tub of water, the submarine was able to run through its states and demo the full user experience. Due to access limitations, the submarine has not yet been tested in a large body of water.</p>
-<figure class="narrow"><img src="https://static.wixstatic.com/media/84da68_df211b32362e4065ac840ce55d646095f000.jpg" alt="Submarine testing in a tub" loading="lazy"><figcaption>The sub being driven around in a 50 gal tub, commanded to spin in a circle using only a steering input</figcaption></figure>
+<figure class="narrow"><a class="zoom" href="https://static.wixstatic.com/media/84da68_df211b32362e4065ac840ce55d646095f000.jpg"><img src="https://static.wixstatic.com/media/84da68_df211b32362e4065ac840ce55d646095f000.jpg" alt="Submarine testing in a tub" loading="lazy"></a><figcaption>The sub being driven around in a 50 gal tub, commanded to spin in a circle using only a steering input</figcaption></figure>
 <h2>Source Code</h2>
 <p><a href="https://github.com/scott-wade/hasselhoff-bot" target="_blank" rel="noopener">GitHub repo</a></p>
 
@@ -70,19 +69,15 @@
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>
-      <p class="footer-title">Get in touch.</p>
-      <p class="muted">Find me on LinkedIn or GitHub.</p>
-    </div>
+    <p>No public email. LinkedIn is the best way to reach me.</p>
     <div class="footer-links">
-      <a class="btn" href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.54h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.69V21h-4z"/></svg><span>LinkedIn</span></a>
-      <a class="btn ghost" href="https://github.com/kmkar31" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a>
-      <a class="btn ghost" href="https://686e8b1f-e8dd-4e34-9c3c-5ccc4d7af65d.filesusr.com/ugd/84da68_6a1c4dc4a15a4d4389d6b6b6fa727665.pdf" target="_blank" rel="noopener"><span>Resume</span></a>
+      <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/kmkar31" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <p class="copyright">&copy; Karthik Karumanchi</p>
 </footer>
-<div class="lightbox" id="lightbox" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
 <script src="assets/site.js"></script>
 </body>
 </html>

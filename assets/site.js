@@ -1,6 +1,5 @@
 (function(){
   var d=document, root=d.documentElement;
-  root.classList.add('js');
 
   // theme toggle
   var tb=d.getElementById('theme');
@@ -12,47 +11,37 @@
     try{localStorage.setItem('theme',next)}catch(e){}
   });}
 
-  // scroll reveal
-  var els=[].slice.call(d.querySelectorAll('.reveal'));
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-    },{rootMargin:'0px 0px -8% 0px',threshold:.05});
-    els.forEach(function(el,i){el.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(el);});
-  } else { els.forEach(function(el){el.classList.add('in');}); }
-  // safety net: never leave content hidden if the observer misses something
-  setTimeout(function(){els.forEach(function(el){
-    if(el.getBoundingClientRect().top<innerHeight*1.3){el.classList.add('in');}
-  });},2500);
-  addEventListener('load',function(){setTimeout(function(){els.forEach(function(el){
-    if(el.getBoundingClientRect().top<innerHeight){el.classList.add('in');}
-  });},300);});
-
-  // project filter
+  // project filter, with a spoken result count
   var fs=d.querySelectorAll('.filter');
   if(fs.length){
-    var cards=d.querySelectorAll('#project-grid .card'), empty=d.getElementById('empty');
+    var rows=d.querySelectorAll('#project-list li'), empty=d.getElementById('empty'), live=d.getElementById('filter-status');
     fs.forEach(function(b){b.addEventListener('click',function(){
-      fs.forEach(function(x){x.classList.remove('active');});
-      b.classList.add('active');
+      fs.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false');});
+      b.classList.add('active');b.setAttribute('aria-pressed','true');
       var f=b.getAttribute('data-filter'), shown=0;
-      cards.forEach(function(c){
+      rows.forEach(function(c){
         var ok=f==='all'||(' '+c.getAttribute('data-tags')+' ').indexOf(' '+f+' ')>-1;
-        c.hidden=!ok; if(ok){shown++;c.classList.add('in');}
+        c.hidden=!ok; if(ok){shown++;}
       });
       empty.hidden=shown>0;
+      if(live){live.textContent='Showing '+shown+' of '+rows.length+' projects';}
     });});
   }
 
-  // image lightbox
+  // image lightbox: figure images are real links to the full image, so they work without JS
   var lb=d.getElementById('lightbox');
   if(lb){
-    var lbi=lb.querySelector('img');
+    var lbi=lb.querySelector('img'), closeBtn=lb.querySelector('.lb-close'), opener=null;
+    function close(){lb.hidden=true;if(opener){opener.focus();opener=null;}}
     d.addEventListener('click',function(e){
-      var t=e.target;
-      if(t.tagName==='IMG'&&t.closest('.project figure')){lbi.src=t.src;lbi.alt=t.alt;lb.hidden=false;}
-      else if(!lb.hidden){lb.hidden=true;}
+      var a=e.target.closest&&e.target.closest('.project a.zoom');
+      if(a){e.preventDefault();opener=a;var im=a.querySelector('img');lbi.src=a.href;lbi.alt=im?im.alt:'';lb.hidden=false;closeBtn.focus();}
+      else if(!lb.hidden){close();}
     });
-    d.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.hidden=true;}});
+    d.addEventListener('keydown',function(e){
+      if(lb.hidden)return;
+      if(e.key==='Escape'){close();}
+      else if(e.key==='Tab'){e.preventDefault();closeBtn.focus();}
+    });
   }
 })();

@@ -27,3 +27,27 @@ Newest entry at the bottom. The designer appends one entry per cycle.
 - First retro matte pass applied by hand: warm paper palette, DM Serif Display
   + IBM Plex, flat components with ink borders and hard shadows, gradients,
   blobs, glass blur, pulse dot and floating badges removed, plainer hero copy.
+
+## 2026-10-22: cycle 1 response (designer)
+Fixed:
+- 1 Home is now a plain index: short intro in running text (Biorobotics, Formula Bharat, Seagate 3 wk to 15 min, GPA), then ruled project rows. Stats strip, "9 projects", and "What I work on" block removed.
+- 3 Boxes and hard shadows reserved for the primary button and filter buttons. Timeline, results, pager, projects are ruled text with hairline/heavy/double rules. Double rule under header and above footer. Dark theme is now inverted print: tan ink rules, shadows darker than paper.
+- 4 (partly) Results box is now a plain fact list; label-only entries replaced with factual context (lab, advisor, tests). Sysid page now opens with the objective, background moved below. Snake and other duplicate alt text made distinct.
+- 6 Dark theme reworked (above). Kept the toggle.
+- 7 Body is Source Serif 4; sans only for UI; mono only for dates/tags/captions. Eyebrow removed. Chips replaced by plain "A / B" tags.
+- 8 Portrait removed from home; About keeps it with a single 1px border.
+- 9 Card blurbs rewritten with specifics taken from the project pages.
+- 10 Footer says plainly there is no public email; duplicate resume button removed (resume is a text link on home and a button on About).
+- 11 One primary button, resume as text link.
+- 12 Scroll reveal removed (CSS, JS, classes).
+- 13 Titles are full project names; canonical link added on every page.
+- 14 Figure images are links to the full image (work without JS, focusable); lightbox is a modal dialog with focus moved in and returned; filters have aria-pressed and a live count. Zoom links have a 44px minimum height.
+- 15 Square serif favicon.
+- Grain raised from 7% to 16% alpha (still faint).
+Declined / not possible:
+- 2 Local images, WebP, width/height, local og:image and resume: the sandbox proxy returns 403 for wixstatic, so nothing can be downloaded and true dimensions are unknown. Project-list thumbnails now have fixed 96x72 boxes so they cannot shift layout. Needs owner to supply a media folder.
+- 4 (rest) Role, dates, team size and new outcome numbers: not on the original site; not invented. Owner to supply.
+- 5 Videos and report PDFs: not available; owner to supply.
+- 9 About line "push forward technological autonomy" kept: original-site wording. "40+" and "less fuel" are on the original project text.
+- Critic's cited references were unverified and were not relied on.
+Next attack if I were the critic: still all Wix hotlinks; project pages still lead with a question and long prose; Google Fonts dependency; sameness of the 9 rows; no real outcomes for several projects.
