@@ -20,6 +20,13 @@
     },{rootMargin:'0px 0px -8% 0px',threshold:.05});
     els.forEach(function(el,i){el.style.transitionDelay=Math.min((i%6)*60,300)+'ms';io.observe(el);});
   } else { els.forEach(function(el){el.classList.add('in');}); }
+  // safety net: never leave content hidden if the observer misses something
+  setTimeout(function(){els.forEach(function(el){
+    if(el.getBoundingClientRect().top<innerHeight*1.3){el.classList.add('in');}
+  });},2500);
+  addEventListener('load',function(){setTimeout(function(){els.forEach(function(el){
+    if(el.getBoundingClientRect().top<innerHeight){el.classList.add('in');}
+  });},300);});
 
   // project filter
   var fs=d.querySelectorAll('.filter');
