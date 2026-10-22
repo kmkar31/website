@@ -51,11 +51,14 @@ with sync_playwright() as p:
             for f in sorted(glob.glob(os.path.join(SITE, "*.html"))):
                 name = os.path.basename(f)[:-5]
                 pg.goto("file://" + f, wait_until="domcontentloaded")
+                # Smooth scrolling would interrupt the scripted scroll below and leave sections unrevealed.
+                pg.add_style_tag(content="html{scroll-behavior:auto!important}")
                 pg.wait_for_timeout(300)
                 H = pg.evaluate("document.documentElement.scrollHeight"); y = 0
                 while y < H:  # scroll like a user so reveal-on-scroll fires
                     pg.evaluate(f"scrollTo(0,{y})"); pg.wait_for_timeout(90); y += 400
-                pg.evaluate("scrollTo(0,0)"); pg.wait_for_timeout(500)
+                pg.evaluate("document.querySelectorAll('.reveal').forEach(e => e.classList.add('in'))")  # deterministic screenshots
+                pg.evaluate("scrollTo(0,0)"); pg.wait_for_timeout(700)
                 pg.screenshot(path=os.path.join(OUT, f"{name}-{vp}-{theme}.png"), full_page=True)
                 r = pg.evaluate(JS_CHECKS)
                 flags = []

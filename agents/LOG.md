@@ -20,3 +20,10 @@ Newest entry at the bottom. The designer appends one entry per cycle.
   podium at Formula Bharat 2023; Seagate intern (3 weeks to 15 minutes, 30
   drives); York University MITACS intern; Tube Investments intern; nine
   projects as listed on the site.
+
+## 2026-10-22: direction change from the owner
+- Owner wants a retro matte theme and no AI-generated look. Critic now scores an
+  "AI-tell score" each cycle; designer brief carries the direction.
+- First retro matte pass applied by hand: warm paper palette, DM Serif Display
+  + IBM Plex, flat components with ink borders and hard shadows, gradients,
+  blobs, glass blur, pulse dot and floating badges removed, plainer hero copy.

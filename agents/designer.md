@@ -32,6 +32,17 @@ real problems well, not by arguing or doing cosmetic busywork.
    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
    Claude-Session: <the session URL given in your task prompt, if any>
 
+## Direction (set by the owner; do not drift)
+- Retro matte look: warm muted paper tones, flat colors, ink-style borders,
+  hard offset shadows, print-era typography, at most a whisper of grain. No
+  gradients on text or buttons, no glass blur, no glowing blobs, no pulsing dots.
+- The site must not look AI-generated or templated. The critic scores an
+  "AI-tell score" every cycle (see agents/critic.md). Treat each tell it lists
+  as a Major finding. Prefer specific, plain, human-sounding copy and a layout
+  with a point of view over safe symmetrical sections.
+- Retro must still meet WCAG AA contrast, 44px tap targets and a good phone
+  layout. Verify, don't assume.
+
 ## Hard constraints
 - Never invent facts, numbers, awards or affiliations. Copy and metrics must
   come from the original Wix site or from facts in `agents/LOG.md` / the owner's
