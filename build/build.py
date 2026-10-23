@@ -18,7 +18,7 @@ ICON_GH = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor"
 # ---------------------------------------------------------------- projects
 def fig(src, cap="", alt="", cls=""):
     c = f"<figcaption>{cap}</figcaption>" if cap else ""
-    return f'<figure class="{cls}"><a class="zoom" href="{img(src)}"><img src="{img(src)}" alt="{html.escape(alt or cap)}" loading="lazy"></a>{c}</figure>'
+    return f'<figure class="{cls}"><a class="zoom" href="{img(src)}"><img src="{img(src)}" alt="{html.escape(alt or cap)}" loading="lazy" decoding="async"></a>{c}</figure>'
 
 def row(*figs): return '<div class="fig-row">' + "".join(figs) + "</div>"
 
@@ -182,11 +182,11 @@ META = {
  "quadrotor-landing": dict(tags=["Robotics", "Controls"], tldr="Landed a CrazyFlie on a Tumbller balancing robot driving in a circle, with model predictive control and a state machine.",
    results=[("Landing success", "100% (small pad, under 0.25 m/s)"), ("At top speed", "5.6 s, 2.5 cm error")]),
  "raftar-formula-racing": dict(tags=["Build"], tldr="IIT Madras's electric Formula SAE car, built and raced by 40+ students. I captained the team and did the suspension and brakes.",
-   results=[("Team", "40+ students"), ("Result", "Podium, Formula Bharat 2023")]),
+   stamp="Podium, Formula Bharat 2023", results=[("Team", "40+ students"), ("Result", "Podium, Formula Bharat 2023")]),
  "hasselhoff-submarine": dict(tags=["Robotics", "Build"], tldr="A mini submarine named after David Hasselhoff's cameo in the SpongeBob Movie. Four thrusters, a joystick remote, and 99 seconds to land on the target.",
-   results=[("Thrusters", "4 BLDC"), ("Round length", "99 seconds")]),
+   stamp="Time allowed: 99 s", results=[("Thrusters", "4 BLDC"), ("Time allowed", "99 seconds")]),
  "aerobraking-drl": dict(tags=["Space", "Controls"], tldr="Trained a PPO agent to pick the burns for an aerobraking orbit insertion, then checked it on a physics simulator: target reached in 46 orbits.",
-   results=[("Terminal error", "8.4 km"), ("Training", "1.1M steps"), ("To target", "46 orbits")]),
+   stamp="46 orbits to target", results=[("Terminal error", "8.4 km"), ("Training", "1.1M steps"), ("To target", "46 orbits")]),
  "tethered-nanosatellite": dict(tags=["Space", "Controls"], tldr="Two CubeSats on a 500 m tether that use Earth's magnetic field to drag debris out of orbit.",
    results=[("Tether", "500 m"), ("Satellites", "3U + 1U CubeSat")]),
  "quadrotor-sysid": dict(tags=["Controls", "Robotics"], tldr="A physics-based quadrotor model with four unknown constants, which I fitted from hover and sinusoidal-rotation tests.",
@@ -207,6 +207,10 @@ def chips(tags): return "".join(f'<span class="chip">{t}</span>' for t in tags)
 BASE = "https://kmkar31.github.io/website/"
 OG = BASE + "assets/og.png"
 PAGES = []
+
+LIGHTBOX = '<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>'
+# Owner to supply, e.g. "Graduated May 2025; open to roles in ...". Renders nothing while empty.
+STATUS = ""
 
 def page(fname, title, desc, body, active, ld=None):
     PAGES.append(fname)
@@ -264,9 +268,9 @@ def page(fname, title, desc, body, active, ld=None):
       <a href="{GITHUB}" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
-  <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4. No framework, one stylesheet.</p>
+  <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4.</p>
 </footer>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden><button type="button" aria-label="Close image" class="lb-close">&times;</button><img alt=""></div>
+{LIGHTBOX if 'class="zoom"' in body else ""}
 <script src="assets/site.js"></script>
 </body>
 </html>
@@ -277,8 +281,9 @@ def page(fname, title, desc, body, active, ld=None):
 def row_item(p, thumb=False):
     m = META[p["slug"]]
     n = PROJECTS.index(p) + 1
+    stamp = f'<span class="stamp">{m["stamp"]}</span>' if m.get("stamp") else ""
     t = f'<span class="thumb"><img src="{img(p["thumb"])}" alt="" width="96" height="72" loading="lazy"></span>' if thumb else ""
-    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{' / '.join(m['tags'])}</span></a></li>"""
+    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{stamp}{' / '.join(m['tags'])}</span></a></li>"""
 
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
@@ -302,7 +307,7 @@ home = f"""
   </div>
 </div>
 <aside class="ledger" aria-label="Quick facts"><p class="ledger-h">For the record</p>
-<dl><div><dt>Seagate</dt><dd>3 weeks to 15 minutes, 30 drives</dd></div><div><dt>Formula Bharat 2023</dt><dd>Podium, as team captain</dd></div><div><dt>CMU</dt><dd>Biorobotics Lab, Prof. Howie Choset</dd></div></dl></aside>
+<dl>{f'<div><dt>Status</dt><dd>{STATUS}</dd></div>' if STATUS else ''}<div><dt>Before CMU</dt><dd>B.Tech, IIT Madras, 2023</dd></div><div><dt>Internships</dt><dd>Seagate, York University, Tube Investments</dd></div><div><dt>Toolbox</dt><dd>MPC, PPO, system ID, STM32, ANSYS</dd></div></dl></aside>
 </div>
 </section>
 
@@ -325,8 +330,8 @@ skills = [("Control and learning", ["Model predictive control", "Reinforcement l
           ("Analysis", ["System identification", "Orbit, power &amp; thermal analysis", "FEA (ANSYS)"]),
           ("Build and software", ["CAD (Autodesk Inventor)", "Embedded systems (STM32, SPI)", "TCP/IP tooling"])]
 about = f"""
-<section class="page-head narrow"><h1>About</h1></section>
-<section class="section narrow">
+<section class="page-head"><h1>About</h1></section>
+<section class="section about">
   <div class="about-top">
     <div class="prose">
       <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. I focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain. I&rsquo;m also taking courses in robot learning and artificial intelligence.</p>
@@ -337,7 +342,7 @@ about = f"""
   </div>
 
   <h2>Skills &amp; tools</h2>
-  {"".join(f'<h3 class="skill-group">{g}</h3><ul class="skills">' + "".join(f'<li>{x}</li>' for x in items) + '</ul>' for g, items in skills)}
+  <div class="skill-cols">{"".join(f'<div><h3 class="skill-group">{g}</h3><ul class="skills">' + "".join(f'<li>{x}</li>' for x in items) + '</ul></div>' for g, items in skills)}</div>
 
   <h2>Education</h2>
   <div class="timeline">
@@ -385,7 +390,7 @@ page("projects.html", "Projects | Karthik Karumanchi", "Projects by Karthik Karu
 # ----------------------------------------------------------- project pages
 for i, p in enumerate(PROJECTS):
     m = META[p["slug"]]
-    res = "".join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in m["results"])
+    res = "".join(f'<div{" class=stamped" if k == "Time allowed" else ""}><dt>{k}</dt><dd>{v}</dd></div>' for k, v in m["results"])
     prev_p, next_p = PROJECTS[i - 1], PROJECTS[(i + 1) % len(PROJECTS)]
     body = f"""
 <section class="proj-hero">
@@ -432,12 +437,12 @@ css = r"""
 }
 /* dark = inverted print: dark paper, tan ink rules, hard shadows go darker than the paper */
 :root[data-theme="dark"]{
-  --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#b8ab95; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
+  --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#cdc1aa; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
   --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --band-bg:#14100c; --band-fg:#eadfc8; --band-mute:#b8ab95; --band-link:#e8a652;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#b8ab95; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
+    --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#cdc1aa; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
     --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08;
   }
 }
@@ -538,8 +543,16 @@ h3{font-size:1.3rem}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
 /* about */
-.about-top{display:grid;grid-template-columns:1.7fr 1fr;gap:40px;align-items:start}
-.about-top .portrait{max-width:280px;justify-self:center;margin-top:.4em;border:1px solid var(--ink)}
+.section.about .timeline,.section.about>h2{max-width:760px}
+.about-top{display:grid;grid-template-columns:minmax(0,38em) 280px;gap:24px 56px;align-items:start}
+.about-top .portrait{width:100%;max-width:280px;margin-top:.4em;border:1px solid var(--ink)}
+.skill-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.skill-cols .skill-group{margin-top:1em}
+.stamp{display:inline-block;margin:0 0 6px;padding:2px 6px;border:2px solid var(--a1);color:var(--a1);font:700 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
+.tags .stamp{display:block;width:max-content;max-width:100%}
+.facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.broken-fig a.zoom,.broken-fig img{display:none}
+.project figure.broken-fig:not(:has(figcaption)){display:none}
 .prose p{margin:0 0 1.1em}
 .timeline{margin-top:6px}
 .tl-item{padding:16px 0 12px;border-top:1px solid var(--line)}
@@ -604,6 +617,8 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 @media (max-width:860px){
   .intro-grid{grid-template-columns:1fr}
   .about-top{grid-template-columns:1fr}
+  .about-top .portrait{max-width:240px}
+  .skill-cols{grid-template-columns:1fr}
 }
 @media (max-width:620px){
   body{font-size:17px}
@@ -665,6 +680,12 @@ js = r"""
       if(live){live.textContent='Showing '+shown+' of '+rows.length+' projects';}
     });});
   }
+
+  // images that fail to load (e.g. a dead hotlink) drop out instead of leaving empty boxes
+  function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
+  d.querySelectorAll('.project figure img').forEach(function(i){
+    if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
+  });
 
   // image lightbox: figure images are real links to the full image, so they work without JS
   var lb=d.getElementById('lightbox');

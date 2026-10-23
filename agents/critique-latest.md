@@ -1,87 +1,79 @@
-# Critique, 2026-10-23 (cycle 3, after SEO files, JSON-LD, marker highlight, 404 copy)
+# Critique, cycle 4 (2026-10-23)
+
+Rendered with `tools/check.py` (all pages, phone/tablet/desktop, light/dark): zero automated failures. I looked at home (desktop light, phone light), About (desktop dark), snake-robots (phone dark). External media is blocked in the sandbox, so broken images are not counted as bugs; the hotlink dependency is.
+
+Sources: I had no live web access this cycle (search/fetch tools unavailable), so the references below are standards and guidance I know, cited by URL but NOT re-fetched. Treat them as unverified pointers.
+- WCAG 2.2 SC 2.5.8 Target Size (Minimum): https://www.w3.org/TR/WCAG22/#target-size-minimum
+- WCAG 2.2 SC 1.4.3 Contrast, 2.4.7 Focus Visible: https://www.w3.org/TR/WCAG22/
+- web.dev, Optimize LCP / CLS and image dimensions: https://web.dev/articles/optimize-lcp , https://web.dev/articles/optimize-cls
+- web.dev, Best practices for fonts (self-hosting, font-display): https://web.dev/articles/font-best-practices
+- Google Search Central, robots.txt must live at the host root: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+- Google Search Central, Person / structured data guidance: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+- NN/g, how recruiters/hiring managers read portfolios and "F-pattern" scanning: https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/ and their writing on credibility signals (dates, specifics).
 
 ## Scores
-- **AI-tell score: 3/10** (unchanged). Plain intro plus ruled index is authored, and the amber marker on "three weeks to 15 minutes" is a real print move. Tells that remain: the DM Serif + Source Serif + Plex Sans/Mono kit (the standard "print revival" stack), nine rows with identical anatomy (title, grey blurb, mono tag), evenly polished copy, and a colophon line that explains the stack. Nothing moved this cycle except the marker highlight (a point for human). The site would still look nearly identical with another name and nine other projects, because nothing on it is a picture or a voice.
-- **Looks good: 5/10** (was 6; judged more harshly because it has now been two cycles with the same finding). Calm and legible, double-rule masthead is good, dark theme is solid. But: no image of any kind on home or on the first screen of any page; every project page is a stack of 3 to 9 broken-image boxes (sandbox limit, but see finding 2 for the production risk); a 20px left misalignment between masthead and content on desktop (finding 8); About h1 sits left of its 760px column (finding 9).
-- **SEO and discoverability: 7/10** (was 4). Unique titles and descriptions, canonical, OG and Twitter tags with a local 1200x630 og:image, sitemap.xml, robots.txt, Person JSON-LD on home and about, CreativeWork on 9 projects, one h1 per page, landmarks. Held back by: no image width/height or local images (CLS/LCP), render-blocking Google Fonts, no JSON-LD on projects.html, `/index.html` canonical rather than the clean root, stale content signals (finding 3). Not verifiable offline: whether og.png renders as intended in Slack/LinkedIn, Search Console indexing.
-- **UX: 5/10** (was 6). Name, school, lab, resume and the best number are findable in 3 seconds on phone. But contact is a sentence pointing at LinkedIn, the phone header drops the LinkedIn/GitHub icons, nothing signals the strongest project, and every project page is a long wall with no outcome, role or date up top. Dead-end risk: the resume and every figure live on Wix.
-- **Fun and personality: 3/10** (was 3). One 404 joke that almost nobody sees, one marker highlight. Hover and press states on rows are good but carry no character.
 
-Axes below 7: looks (finding 4), UX (findings 1, 3, 5), fun (finding 7). SEO is at 7, so no Major raised for it beyond findings 2 and 10.
+AI-tell score: **3 / 10** (was ~5 implied after cycle 1). The stock layout is gone: no stats strip, no card trio, no gradient, no blobs, no glass. The ruled index, the struck-through "three weeks" marker, the mono "For the record" ledger and the 99-second 404 read as authored. What still reads as template: (a) every project row has the identical anatomy of title, two-line blurb, index, tag pair, with no row ever breaking pattern; (b) the paper palette plus DM Serif Display plus terracotta button plus amber highlight is a very current "warm editorial" template look; (c) the dark theme is a near-black brown with amber links, which is the stock "dark mode of the warm theme". Moved since last cycle: stats strip and "What I work on" (gone), slogan About line (gone), uniform rows (partly, via index numbers and varied blurbs), footer band (added, good).
 
-## Method and limits
-- `tools/check.py` ran on all 13 pages, 3 viewports, 2 themes (check run is slow here, about 4 minutes; use a background job). No overflow, contrast, tap-target or console failures reported; only "images not loaded" notes. I opened: index phone light, index tablet dark, index desktop light, snake-robots phone light, about desktop light. Not every screenshot was opened.
-- Wix images and Google Fonts are blocked in the sandbox, so serif headings render in the Georgia/Times fallback; type pairing is judged from CSS, not seen.
-- **Sources: WebFetch to w3.org, web.dev and developer.mozilla.org was refused again this cycle (permission request unanswered). I could NOT verify any source. The following are pointers from memory only; nothing in this critique depends on their exact wording:**
-  - WCAG 2.2 SC 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (blocked)
-  - web.dev, Optimize Largest Contentful Paint (third-party origin and resource load delay): https://web.dev/articles/optimize-lcp (blocked)
-  - MDN, font-display: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display (blocked)
-  - Also relevant, not fetched: Google Search Central ProfilePage structured data; NN/g on portfolios; WCAG 1.4.3 contrast.
-  - Topic this cycle: image/CLS/LCP and third-party dependency risk, font loading, content freshness, desktop alignment. Owner should enable web access for the critic if source verification is wanted.
+| Axis | Score | One-line evidence |
+|---|---|---|
+| Looks good | **6** | Home and About are calm and well set, but there is not one image anywhere in the first 3 seconds, About desktop leaves a dead right half, project pages are walls of text plus broken-image boxes. |
+| SEO | **6** | Meta, canonical, OG, JSON-LD, sitemap all present; but robots.txt is at a path crawlers ignore, Google Fonts and Wix hotlinks hurt LCP/CLS, images have no width/height. |
+| UX | **6** | Contact and resume are findable, rows are scannable; but dates are stale, resume is a Wix hotlink, no email, and the strongest project is not distinguished. |
+| Fun / personality | **6** | The strike-through and 404 are real; nothing else is. Hasselhoff, the tumbler robot and the 99-second brief are unexploited. |
 
-## Owner critique items
-1. **Retro matte theme.** Honored in surfaces, rules, shadows, palette. Still reads as "plain beige page" more than "printed object" (finding 4): no second surface, no ink-colour element besides rust links, grain nearly invisible at 1x. The marker highlight is the first real step; repeat that kind of move.
-2. **Not AI-generated.** 3/10. The structure is human. What would push it to 2 is a voice (first-person specifics) and real pictures, both owner-supplied. See findings 5 and 7. I disagree with the designer's reading that the About slogan "push forward technological autonomy" is fine because it is original-site wording: it is still the single most generic sentence on the site ("technological autonomy").
+Four axes at 6 each: each gets a Major finding below.
 
-## Ranked findings
+## Owner critique (agents/user-critique.md)
+1. Retro, matte, print-like: **mostly met.** Flat surfaces, hard offset shadow only on the primary button, double rules, ink footer band, faint grain. Drift risk: none toward glossy. Remaining gap is that it is retro in palette and rules but not in content structure (no colophon-like marginalia, no specimen-style captions, no real printed-object details). Fine, but see finding 8.
+2. Must not look AI-generated: see AI-tell score above. Honest answer: the layout no longer does; the remaining tell is sameness plus an absence of visible human specifics (no photo, no first-person asides, nothing uneven). A site with no images and no voice reads generated even when the CSS is hand-set.
 
-### 1. Status and dates are still stale; the first paragraph is ambiguous (Major, credibility/UX)
-Where: `index.html` subhead and lede ("I research compliant control"), `about.html` ("I'm pursuing a Master's", "I'm also taking courses", Education "2023 – 2025"). Today is October 2026, so either he graduated 17 months ago or the dates are wrong. Raised in cycle 2 and declined as "only the owner can say"; that is correct for the fix but means this is an open blocker on credibility, not a closed item.
-Why: a recruiter cannot tell if he is available, a student or an alumnus; "stale" is the most damaging first impression for a 30-second visitor.
-Fix: owner to answer one question: current status and location. Then one line under the name, in plain words ("MS, CMU, graduated May 2025. Now at ..." or the true expected date), and past tense on About.
+## Findings, ranked
 
-### 2. All media, the resume and the portrait are hotlinked from Wix (Major, robustness/performance)
-Where: 12 of 13 pages (about 30 wixstatic URLs counted by grep; the resume is a `filesusr.com` link used on home and About). In production the first-screen of every project page depends on a third-party host; no `width`/`height` on any `<img>`, so each image that loads shifts content (CLS) and the LCP element is a third-party fetch with a late discovery. One Wix plan lapse removes every picture and the resume together. (web.dev LCP/CLS guidance, unverified this cycle.)
-Fix: owner supplies a media folder; host in `assets/img/` as WebP/JPEG with width/height and `fetchpriority="high"` on the first figure. Minimum: put the resume PDF in `assets/` today; it is the most clicked asset and a single file.
+**1. Major (UX/credibility). Dates and status are stale and contradict "today".** Today is 2026-10-23; About lists "MS Mechanical Engineering 2023 to 2025" and home says "I research" in present tense. A recruiter reading this cannot tell if he has graduated, is job-hunting, or is still a student; that is the first question a hiring manager has. Both agent cycles have deferred this to the owner, correctly not inventing facts, but it remains the single biggest credibility gap. Action for owner: state current status (graduated or not, availability, where now). Designer: reserve a one-line status slot in the ledger ("Status: ...") ready for the fact, and do not claim anything until supplied. Source: NN/g on credibility and currency of information.
 
-### 3. Projects have no outcome, role, date or team up top, and the lead is a rhetorical question (Major, UX/content)
-Where: every project page; clearest on `quadrotor-sysid.html` and `snake-robots.html` phone. The `.question` heading ("How do we coordinate the motion of hyper-redundant snake robots ...?") is larger than the page's own summary and states the problem in the abstract; the `.tldr` under it is the useful sentence and is smaller. The facts list holds method labels ("Tests: Hover and sinusoidal rotation") or just Lab/Advisor. Phone length: snake page is 3 broken figure boxes after one paragraph, then the pager.
-Fix: demote `.question` below the tldr or drop it; make the tldr the h1's subhead at the larger size; add a Role / When / Team / Result row only with owner-confirmed facts (from the repo I can support: snake = CMU Biorobotics Lab, advisor Choset; Raftar = captain, suspension and brakes, Formula Bharat 2023 podium; Seagate = 30 drives, 3 weeks to 15 minutes). Do not invent the rest.
+**2. Major (Looks good / UX). No imagery in the first screen and project pages open on broken figures.** Home desktop and phone have zero visual proof of work; project rows are text-only. On phone, snake-robots shows three bordered alt-text boxes where the media should be (environment limit, but also the real failure mode if Wix ever drops them). For a robotics portfolio, a person scanning 30 seconds wants to see a robot. Owner must supply a media folder (images and a few stills of videos). Until then, designer could set text-first project pages to not render empty bordered boxes when an image errors (`onerror` hide, or reserve aspect ratio with a caption) so the page degrades into a clean text page.
 
-### 4. Retro direction is a theme, not yet an object (Major, looks good, taste)
-Where: all pages. One beige field, rust links, one button shadow. The nine rows are text-only; no figure numbers, no rule variations beyond hairline/double, no ink-block anywhere. The "K" mark in an amber box is the only graphic.
-Fix (taste, keep contrast): (a) give each row a right-aligned mono index number ("01" to "09") or a small figure label "Fig. 1" once images exist, like a contents page; (b) one solid ink band (dark paper block) for the footer or the masthead date line, so there is a second surface in light mode; (c) put a 1px-bordered image with a "Figure 1." caption in the right 35% of the home intro (see 6). Raise grain alpha slightly only if text contrast still passes.
+**3. Major (Performance/SEO/robustness). All media, the resume PDF and portrait are hotlinked from Wix (11 pages reference wixstatic/filesusr).** Single point of failure, no `width`/`height` on figures (CLS risk, web.dev), no `loading="lazy"`/`decoding` hints visible, no modern formats. A resume link that rots is the worst possible failure on a job-seeking page. Reopening because the designer's blocker (sandbox 403) is an environment fact, not a site fix: the owner must drop files into `assets/`. Until then, add `loading="lazy"` and an explicit `aspect-ratio` per figure so layout cannot jump, and verify the resume link from the owner's machine.
 
-### 5. Copy is accurate but has one voice-less register (Major, AI-tell/content)
-Where: row blurbs on home and `projects.html`: "A PPO agent trained to choose the burns...", "A tricycle for riders with one working leg...", "A nanosatellite concept for finding its own position ... without GPS." Each is "A X that Y." in the same cadence; the home lede has a tidy triplet ("modeling, designing and manufacturing" on About) and "My CMU GPA is 4.0" lands as a bolt-on. "Push forward technological autonomy" (About) is a slogan.
-Why: real portfolios are plain and a bit uneven; this reads as evenly polished. Fix: vary the blurbs by what actually happened ("Landed a CrazyFlie on a balancing robot driving in a circle. It took an MPC and a state machine to stop it chasing the platform."), only using facts already on the project pages; delete the slogan; move the GPA to the education block or after the Seagate line with a reason. Owner can add one honest sentence about what went wrong on one project; that is the most human thing available.
+**4. Major (SEO). robots.txt is at `/website/robots.txt`.** Crawlers only read `/robots.txt` at the host root (kmkar31.github.io/robots.txt), which this project site cannot control; the file here is ignored. Harmless since it only allows, but the sitemap line in it will not be discovered that way. Fix: submit sitemap.xml in Search Console / Bing Webmaster and drop the pretense that robots.txt does anything (or keep it, but do not count it). Also consider a custom domain, which fixes the root issue and gives a cleaner URL. Source: Google Search Central robots.txt intro.
 
-### 6. Home right column is empty and no image anywhere above the fold (Minor to Major, looks good)
-Where: `index.html` desktop 1366: lede measure about 650px of a 1000px frame, nothing beside it. Phone: no image before the project list either. Needs owner media; until then, tighten rather than pad: constrain `.index` rows to the same measure as the lede or put the "Seagate" and "Formula Bharat" facts in a two-line aside in that column set in mono as a ledger (3 weeks to 15 minutes / 30 drives / podium, Formula Bharat 2023). Facts exist in the repo.
+**5. Major (Fun / personality). The strongest personality is hidden.** Facts already in the repo that nobody sees on the first pass: the submarine is named after David Hasselhoff's cameo; the brief gave 99 seconds to land on target; the quadrotor lands on a balancing Tumbller; the 46-orbit result. Only the 404 uses the 99 seconds. Concrete, factual ideas in the print direction:
+- On the Hasselhoff page, set the 99 seconds as a stamped "TIME ALLOWED: 99 s" in the fact list (it is a real constraint), plus a plain dry caption about the cameo.
+- Replace tag pair "Robotics / Build" on one or two rows with a rubber-stamp style outlined label for a real status ("Podium, Formula Bharat 2023") so rows stop being identical.
+- A press state on rows that shifts 2px with the hard shadow (already partly there); add the same to the "See the projects" button only if not already (verify).
+Trade-off: motion-based fun must respect `prefers-reduced-motion` (rule at style.css:177 exists); prefer static, typographic jokes.
 
-### 7. Fun: one joke on a page nobody visits (Major, fun)
-Where: only the 404 ("failed to land on the target") and the marker. Earned, specific ideas from repo facts:
-- Hasselhoff Submarine: the "99 seconds" is already on its blurb; show a 99 second countdown stamp style counter on that row's hover that stops at 0 (no-JS safe: static text). 
-- Replace the generic "Previous / Next" pager labels with the project's own detail ("Next: lands a drone on a balancing robot driving in circles").
-- Seagate: set "3 weeks" struck through in ink next to "15 minutes" in the marker (a visible edit, a proofreader's mark), which carries the meaning and is on-direction.
-- Footer: "To get in touch, message me on LinkedIn." is fine; a plain aside like "No email form. LinkedIn answers faster." only if true.
-Trade-off: keep motion off under `prefers-reduced-motion` (already present) and keep all of it static-readable.
+**6. Major (Looks good). About desktop is unbalanced.** At 1366 the text column is about 280px wide with the portrait box floating far right at about 160px width, leaving large dead margins either side while the first paragraph is narrow and tall; skills are then a single narrow column of one-word rows, and the whole About reads as a long thin strip. The h1 "About" sits over empty space. Suggest: let the two intro paragraphs run at the 60-65ch measure beside the portrait on a two-column grid at 960px+, put skills in three columns (the three groups already exist), and keep the timeline column narrow. Source: reading comfort guidance (45-75 characters) is taste-adjacent; the dead space is measurable in the screenshot.
 
-### 8. Desktop masthead and body do not share a left edge (Minor, craft)
-Where: desktop 1366: header brand starts x=163, home heading, rows and the footer text start x=183 (the section has 20px padding inside the 1040px frame; the header and footer use `max(20px, (100vw - 1040px)/2)` padding without it). In the screenshots the brand mark sits 20px left of "Karthik Karumanchi" h1, and the footer copy starts left of the Projects rule. Fix: give header, footer and `.section` the same inner padding rule (one wrapper width). Nit-level to anyone else, but a printed page lives on its margins.
+**7. Major (SEO/performance). Google Fonts are render-blocking third-party requests** (`preconnect` + stylesheet, `display=swap` is set, good) for two families. Cost: extra DNS/TLS, FOUT between serif fallbacks and DM Serif Display on the h1, and a privacy-ish dependency on a site that otherwise advertises "no framework". Self-host WOFF2 with `preload` on the display font and `size-adjust` fallbacks when files are available. Not downloadable in sandbox; owner/dev machine task. Source: web.dev font best practices.
 
-### 9. About: h1 hangs left of its column; skills list leaves holes (Minor, craft)
-Where: `about.html` desktop and tablet: `.page-head` is 1040 wide while content is `.narrow` 760 wide, so "About" is about 95px left of the text. The two-column skills lists with 3, 2 and 2 items leave empty right cells and a lopsided block; the portrait floats top-right with no top alignment to the first line. Fix: put the page-head inside the narrow measure on About, set skills in one column or a single comma-separated line per group.
+**8. Minor (AI-tell). Every row is the same.** Same anatomy ×9 with the same index column. It is clean, but sameness is the remaining generated signature. Humans leave one row longer, one flagged "start here", and one with a single plain line. Suggest marking one project as the recommended first read (owner choice) with a stronger rule or short extra sentence, and promoting results (46 orbits, 40+ students, 500 m tether) to the row where they exist.
 
-### 10. Render-blocking fonts and a 4-family load (Minor, performance)
-Where: every `<head>`: one Google Fonts request with four families, two of them used for tiny text (IBM Plex Mono, IBM Plex Sans 500/600). `display=swap` is set (good), but each page waits on a third-party CSS request, and the fallback swap changes line breaks in the big serif headings (CLS risk). The colophon claims "one stylesheet" which is true of the first-party CSS only. Fix: self-host two WOFF2 files if owner supplies/permits, drop Plex Mono to a system mono (the tags and dates are tiny), `size-adjust` fallback metrics. Not downloadable in the sandbox.
+**9. Minor (UX). No obvious "best project" and no direct email.** A professor or recruiter with 30 seconds gets nine equally weighted rows. Contact is LinkedIn only (owner decision, accepted); but the footer line "To get in touch, message me on LinkedIn" is reasonable. Reopen only to ask the owner to choose a featured project.
 
-### 11. Phone header drops LinkedIn and GitHub; contact is buried in the footer (Minor to Major, UX)
-Where: phone screenshots: nav has Home/About/Projects and the theme toggle only; LinkedIn is at the very bottom of a long page. A professor on a phone must scroll past nine rows to learn how to reach him. Fix: a "Contact" text link (LinkedIn) in the home actions row next to the resume; keep the header lean.
+**10. Minor (Accessibility). Dark theme secondary text.** Blurb text on the dark about/project pages (grey-tan on near-black, e.g. org lines, pager summaries) looks dim in the screenshot; automated check passes at AA, so this is only taste. Consider raising blurb contrast to about 7:1 for long reading. Source: WCAG 1.4.3 and 1.4.6 (AAA).
 
-### 12. Canonical and home URL use `/index.html` (Nit, SEO)
-Where: canonical, og:url, sitemap, JSON-LD `url` mix `.../website/` (JSON-LD) and `.../website/index.html` (canonical). Pick one; `https://kmkar31.github.io/website/` is the cleaner shareable URL. Also add an `ItemList` or leave projects.html without JSON-LD deliberately. `robots.txt` is at the project path `/website/robots.txt`, which crawlers do not read (they look at the host root `kmkar31.github.io/robots.txt`); the Sitemap line there is not discoverable this way. Submit the sitemap in Search Console instead. (Reasoning from how GitHub Pages project sites are served; not tested offline.)
+**11. Minor (UX). Phone header and home.** Phone home is solid: headline first, tap targets 44px, no overflow. But the ledger "For the record" repeats the lede almost verbatim (Seagate 3 weeks to 15 minutes, podium, Biorobotics Lab appear in both). It reads as padding on phone where both stack. Trim the ledger on phone (hide) or give it facts not in the lede (courses, GPA, location), but only existing facts.
 
-### 13. Lightbox and zoom links are fine, but there is no caption or full-resolution fallback when images fail (Nit, robustness)
-Where: broken figures show a bordered box with underlined alt text, which is decent, but the alt strings are labels ("Modular snake robot, figure 1 of 3") that give nothing if the image never loads. Make alt say what the figure shows once the owner confirms what each is.
+**12. Minor (SEO). Heading and schema detail.** Home h1 is the name only; the document title carries "Robotics and Controls Engineer". Fine. Person JSON-LD lacks `sameAs` verification only if LinkedIn/GitHub are not listed; confirm they are and add `alumniOf`/`affiliation` from existing facts. Cannot verify with Rich Results offline.
 
-## Good and must not regress
-- Plain home: intro in running prose, the amber marker on the Seagate number linked to `about.html#seagate`, ruled project index with a 44px+ row.
-- Double-rule masthead and footer, hairline/heavy rule hierarchy; no boxes around prose.
-- Dark theme as inverted print (tan ink rules, shadows darker than paper), hard offset shadow only on the primary button and filters, press states.
-- Accessibility basics: skip link, `aria-current`, focus-visible outline, filter `aria-pressed` and live count, figure images as real links, modal lightbox with focus return, reduced-motion block, tap targets pass.
-- SEO scaffolding added in cycle 2 (titles, descriptions, OG/Twitter, local og.png, sitemap, JSON-LD, 404). Keep `build/build.py` as the single source so it stays in sync.
-- Specific, un-invented facts (Seagate numbers, Formula Bharat 2023, 99 seconds, 500 m tether, CrazyFlie/Tumbller). Keep the rule of not inventing facts.
+**13. Nit. Colophon says "No framework, one stylesheet."** It is accurate and charming but also a mild "look at me" line that a template would also add; keep, or replace with something only true of this site.
+
+**14. Nit. Footer on phone** wraps the colophon across 3 lines of mono; shorten for phone.
+
+**15. Nit. Lightbox markup is present on pages with no images** (home and About include an empty `.lightbox` dialog). Harmless; remove from pages that have no zoomable figures.
+
+## Regressions check
+None found. Cycle 3 changes (tldr lead, numbered index, ink footer, ledger, shared left edge) rendered correctly in all viewports; no overflow, no failing contrast, one h1 per page.
+
+## Good, must not regress
+- Ruled plain index with real, specific blurbs; no stats strip, cards, gradients, glass, glow.
+- Struck-through "three weeks" in the amber marker, linked to About#seagate: the best authored detail on the site.
+- Pager showing neighbour summaries; project pages leading with the one-sentence result.
+- Ink footer band and the double-rule header; inverted-print dark theme consistency.
+- 404 copy (99 seconds), focus-visible outline, skip link, accessible lightbox and filters, 44px tap targets.
+- Honest content discipline: nothing invented; open items are flagged for the owner.
 
 ## Verdict
-The site has stopped looking generated: it is a quiet, honest, well-built index with a sound retro skeleton. It is not yet good enough: it is bare (no images, nothing to remember), its dates say he is still a student in a year when he is not, and every picture and the resume still depend on a Wix account. The designer can fix craft items (4, 8, 9, 11, 12), copy variety (5) and the pager/marker/ledger touches (6, 7) without the owner; findings 1, 2 and 3 need the owner to supply status, a media folder and confirmed role/date facts, and they are now the ceiling on every score. Until they land, expect the Looks, UX and Fun axes to stay under 7.
+The site has genuinely left the AI-template look and has a coherent retro-print point of view; its remaining problems are not styling problems but missing human material. It has no photos, no current status, no voice beyond a few good lines, and its media and resume depend on a third party. Four scored axes at 6 means "competent and tidy," not yet "memorable." What the designer can still do alone: tidy About's layout, make image failure degrade gracefully with reserved aspect ratios, lazy loading, break the sameness of rows, and stage the Hasselhoff and 99-second facts as typographic jokes. What only the owner can do, and what will move the score most: supply current status and dates, a local media folder with the resume, one or two real photos of the robots, and pick the featured project.

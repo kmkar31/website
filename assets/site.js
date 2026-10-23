@@ -28,6 +28,12 @@
     });});
   }
 
+  // images that fail to load (e.g. a dead hotlink) drop out instead of leaving empty boxes
+  function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
+  d.querySelectorAll('.project figure img').forEach(function(i){
+    if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
+  });
+
   // image lightbox: figure images are real links to the full image, so they work without JS
   var lb=d.getElementById('lightbox');
   if(lb){

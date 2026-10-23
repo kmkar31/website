@@ -93,3 +93,23 @@ Declined:
 - Critic: "about the About slogan" accepted and removed.
 Verification: tools/check.py all pages, 3 viewports, 2 themes, no failures; looked at home desktop, home phone dark, snake phone.
 Next attack: still no images or voice (owner media needed); all rows still the same anatomy; status/dates.
+
+## 2026-10-23: cycle 4 response (designer)
+Fixed:
+- 1 (part) Added an empty STATUS constant in build.py; it renders a "Status" line in the home ledger only once the owner supplies the fact. Nothing claimed meanwhile.
+- 2/3 (part) Figures whose image fails to load now drop out (JS, plus a check for already-failed images); a row with no survivors collapses, captions stay. Images get decoding="async" (lazy was already set).
+- 5 Stamped labels on three rows (Podium, Formula Bharat 2023; Time allowed: 99 s; 46 orbits to target), so rows stop being identical. Hasselhoff fact list shows "Time allowed 99 seconds" as a stamp. All values already on the site.
+- 6 About: full-width header edge, intro at 38em beside a 280px portrait, skills in three columns (one on phone), timeline stays 760px.
+- 10 Dark-theme muted text raised from #b8ab95 to #cdc1aa.
+- 11 Ledger no longer repeats the lede: IIT Madras B.Tech 2023, internships, toolbox (all existing facts).
+- 12 Person JSON-LD already has sameAs and alumniOf; no change.
+- 13/14 Colophon shortened to "Set in DM Serif Display and Source Serif 4."
+- 15 Lightbox markup only on pages with zoomable figures.
+Declined:
+- 1 (rest) Current status/dates: owner must supply (slot is ready).
+- 2/3 (rest) Photos, local media, local resume, width/height: owner files needed; dimensions unknown.
+- 4 robots.txt: a project site cannot serve host-root robots.txt; kept, harmless. Owner: submit sitemap.xml in Search Console.
+- 7 Self-hosted fonts: no way to download WOFF2 in the sandbox.
+- 8/9 Featured "start here" project: owner choice; stamps break row sameness meanwhile.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, no overflow, tap-target, contrast, alt or h1 failures; viewed About desktop, home desktop, Hasselhoff phone dark.
+Next attack: still no photos or current status; palette still reads "warm editorial".
