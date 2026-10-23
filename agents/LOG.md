@@ -151,3 +151,22 @@ Declined:
 - 12 Self-hosted fonts: no WOFF2 download possible in sandbox. 13 robots.txt: owner submits sitemap in Search Console.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, no failures; viewed About desktop light.
 Next attack: still no imagery, status, or first-person outcomes.
+
+## 2026-10-23: cycle 7 response (designer)
+Fixed:
+- 4 sysid: "Background" moved after the final model so the tl;dr and tests lead; JS now hides a lead-in paragraph ending in ":" when the figure after it drops out (no dangling "obtained as:").
+- 5 About title now "About Karthik Karumanchi: CMU MS, IIT Madras, Seagate intern"; Projects title names robotics, controls and space. Both only use facts already on the site.
+- 7 Header "Resume" text link with arrow and sr-only note, tablet and up; hidden on phone (resume stays on home, footer area unchanged).
+- 10 Home row blurbs now use the body ink colour; muted stays for tags.
+- 11 Ledger "Before CMU" (repeated the lede) replaced by "Built: Pin-puller for a 3U CubeSat, 2022" (from About).
+- 13 sitemap has lastmod from git commit date.
+Declined:
+- 1, 2, 3: status/outcomes, imagery, local media, image width/height: owner-only. Wix file names do not encode dimensions. Nothing invented.
+- 6 Hasselhoff 99 s press countdown and index-card restyle: new gimmick with no owner request; the stamp already carries 99 s. Taste.
+- 8 Dead desktop column / dotted leaders: tags column is intentional and aligned; no measured fault. Taste.
+- 9 Font fallback size-adjust: needs measured metrics of the real fonts, which the sandbox cannot fetch; guessed values could worsen shift. Self-hosting needs owner WOFF2.
+- 12 Home list vs projects.html: projects.html adds filters; kept as is, low priority.
+- 14, 15: Hasselhoff question wording is owner copy; stamp styles are taste.
+- robots.txt: host-root only, owner to submit sitemap.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed home tablet light and phone dark (no header overflow, resume hidden on phone).
+Next attack: no imagery, no status line, no first-person outcomes.

@@ -130,11 +130,6 @@ PROJECTS = [
   desc="Physics-rooted data-driven models to mathematically relate a quadrotor's power input to change in its global location.",
   body=f"""
 <p>The objective of this project is to create a model of a quadrotor that calculates global displacement in the global frame based on local rotation angles and rotor power input. By applying propeller theory, 3D rotation theory, and Lagrangian mechanics, a system model is constructed, requiring the estimation of four constants representing gains along the three rotations and thrust.</p>
-<h2>Background</h2>
-<p>An object's movement is always described relative to a fixed point and a direction, known as a frame of reference. Typically, we use our surroundings as a frame of reference, which is called a global frame. However, we also use a local frame, based on our own position, when we describe direction using terms like "behind me" or "to my left." While robots operate in a global frame, their actuators work in a local frame, requiring a conversion of local movements into global displacements.</p>
-<p>This is where a system model becomes crucial. For example, in the case of a drone, a system model considers local factors like roll, pitch, yaw, and thrust, converting them into global displacements along the X, Y, and Z axes. However, developing such models presents challenges, as they assume an ideal system-environment interaction that rarely exists in reality. Additionally, even with these assumptions, the resulting model is often so complex that it requires substantial computing power to use effectively.</p>
-{fig("84da68_6df0228202e74535a5f452c999309ba2~mv2.png", "Local and global frames of reference in a quadrotor", "Quadrotor axis system")}
-<p>To address these challenges, data-driven approaches have been developed, where the system operates in the real world and its state information is stored. This data is then used to mathematically identify relationships between input and output, without relying on physical principles. However, this approach can lead to unwanted variable relationships due to a lack of knowledge about the underlying physics. To mitigate these issues, grey-box system identification is employed, where a symbolic physics-based model is built and test data is fit to this symbolic model.</p>
 <h2>The model and the tests</h2>
 {row(fig("84da68_b6c64d60aa0c44b19ef20fe814c32e4e~mv2.png", alt="Translational dynamics", cls="plain"), fig("84da68_72654718edb04cd1924bca0ff0f755df~mv2.png", alt="Rotational dynamics", cls="plain"))}
 <p class="cap">Physics-based symbolic system model. V represents the system bus voltage and the P's are individual %PWM inputs to the rotors. The coefficients C<sub>t</sub>, C<sub>roll</sub>, C<sub>pitch</sub> and C<sub>yaw</sub> have to be estimated using data-driven methods.</p>
@@ -145,6 +140,11 @@ PROJECTS = [
 <p class="cap">Results of the C<sub>pitch</sub> and C<sub>yaw</sub> identification tests. Both coefficients are computed by commanding sinusoidal angles and calculating the corresponding accelerations.</p>
 <p>The final system model is obtained as:</p>
 {fig("84da68_39971515bfcb45c592a26725ba55f972~mv2.png", alt="Resultant system model", cls="plain")}
+<h2>Background</h2>
+<p>An object's movement is always described relative to a fixed point and a direction, known as a frame of reference. Typically, we use our surroundings as a frame of reference, which is called a global frame. However, we also use a local frame, based on our own position, when we describe direction using terms like "behind me" or "to my left." While robots operate in a global frame, their actuators work in a local frame, requiring a conversion of local movements into global displacements.</p>
+<p>This is where a system model becomes crucial. For example, in the case of a drone, a system model considers local factors like roll, pitch, yaw, and thrust, converting them into global displacements along the X, Y, and Z axes. However, developing such models presents challenges, as they assume an ideal system-environment interaction that rarely exists in reality. Additionally, even with these assumptions, the resulting model is often so complex that it requires substantial computing power to use effectively.</p>
+{fig("84da68_6df0228202e74535a5f452c999309ba2~mv2.png", "Local and global frames of reference in a quadrotor", "Quadrotor axis system")}
+<p>To address these challenges, data-driven approaches have been developed, where the system operates in the real world and its state information is stored. This data is then used to mathematically identify relationships between input and output, without relying on physical principles. However, this approach can lead to unwanted variable relationships due to a lack of knowledge about the underlying physics. To mitigate these issues, grey-box system identification is employed, where a symbolic physics-based model is built and test data is fit to this symbolic model.</p>
 """),
  dict(slug="assistive-tricycle", title="Design of an Assistive Tricycle",
   q="How do we design a tricycle that can be pedaled using a single leg without causing joint pain?",
@@ -213,6 +213,14 @@ LIGHTBOX = '<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" 
 # Owner to supply, e.g. "Graduated May 2025; open to roles in ...". Renders nothing while empty.
 STATUS = ""
 
+import subprocess
+def lastmod(n):
+    try:
+        d = subprocess.run(["git", "log", "-1", "--format=%cs", "--", n], capture_output=True, text=True, cwd=OUT or ".").stdout.strip()
+    except Exception:
+        d = ""
+    return f"<lastmod>{d}</lastmod>" if d else ""
+
 def page(fname, title, desc, body, active, ld=None):
     PAGES.append(fname)
     URL = BASE if fname == "index.html" else BASE + fname
@@ -253,6 +261,7 @@ def page(fname, title, desc, body, active, ld=None):
   <a class="brand" href="index.html"><span class="mark">K</span><span class="brand-name">Karthik Karumanchi</span></a>
   <nav aria-label="Main">{nav}</nav>
   <div class="header-tools">
+    <a class="hdr-resume" href="{RESUME}" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
     <a class="icon-btn" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICON_LI}</a>
     <a class="icon-btn" href="{GITHUB}" target="_blank" rel="noopener" aria-label="GitHub">{ICON_GH}</a>
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle light and dark theme"><span class="i-sun">{SUN}</span><span class="i-moon">{MOON}</span></button>
@@ -308,7 +317,7 @@ home = f"""
   </div>
 </div>
 <aside class="ledger" aria-label="Quick facts"><p class="ledger-h">For the record</p>
-<dl>{f'<div><dt>Status</dt><dd>{STATUS}</dd></div>' if STATUS else ''}<div><dt>Before CMU</dt><dd>B.Tech, IIT Madras, 2023</dd></div><div><dt>Internships</dt><dd>Seagate, York University, Tube Investments</dd></div><div><dt>Toolbox</dt><dd>MPC, PPO, system ID, STM32, ANSYS</dd></div></dl></aside>
+<dl>{f'<div><dt>Status</dt><dd>{STATUS}</dd></div>' if STATUS else ''}<div><dt>Built</dt><dd>Pin-puller for a 3U CubeSat, 2022</dd></div><div><dt>Internships</dt><dd>Seagate, York University, Tube Investments</dd></div><div><dt>Toolbox</dt><dd>MPC, PPO, system ID, STM32, ANSYS</dd></div></dl></aside>
 </div>
 </section>
 
@@ -370,7 +379,7 @@ about = f"""
   </div>
 </section>
 """
-page("about.html", "About | Karthik Karumanchi", "Education and professional experience of Karthik Karumanchi: CMU, IIT Madras, Seagate, York University and Tube Investments.", about, "about", ld=PERSON)
+page("about.html", "About Karthik Karumanchi: CMU MS, IIT Madras, Seagate intern", "Education and professional experience of Karthik Karumanchi: CMU, IIT Madras, Seagate, York University and Tube Investments.", about, "about", ld=PERSON)
 
 # ----------------------------------------------------------- projects index
 filters = '<button class="filter active" data-filter="all" type="button" aria-pressed="true">All</button>' + "".join(
@@ -386,7 +395,7 @@ projects = f"""
   <p class="empty" id="empty" hidden>No projects match that filter.</p>
 </section>
 """
-page("projects.html", "Projects | Karthik Karumanchi", "Projects by Karthik Karumanchi at Carnegie Mellon University and IIT Madras", projects, "projects", ld={"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": q["title"], "url": BASE + q["slug"] + ".html"} for i, q in enumerate(PROJECTS)]})
+page("projects.html", "Robotics, controls and space projects | Karthik Karumanchi", "Projects by Karthik Karumanchi at Carnegie Mellon University and IIT Madras", projects, "projects", ld={"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": q["title"], "url": BASE + q["slug"] + ".html"} for i, q in enumerate(PROJECTS)]})
 
 # ----------------------------------------------------------- project pages
 for i, p in enumerate(PROJECTS):
@@ -420,7 +429,7 @@ page("404.html", "Page not found | Karthik Karumanchi", "Page not found",
      '<section class="page-head"><h1>That page doesn&rsquo;t exist.</h1><p class="lede" style="margin-top:16px">This page failed to land on the target. Back to the index.</p><p class="actions"><a class="btn" href="index.html">Back home</a></p></section>', "")
 
 with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
-    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE if n == 'index.html' else BASE + n}</loc></url>\n" for n in PAGES if n != "404.html") + "</urlset>\n")
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE if n == 'index.html' else BASE + n}</loc>{lastmod(n)}</url>\n" for n in PAGES if n != "404.html") + "</urlset>\n")
 with open(os.path.join(OUT, "robots.txt"), "w") as f:
     f.write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 
@@ -469,7 +478,9 @@ h3{font-size:1.3rem}
 .site-header nav a{color:var(--fg);text-decoration:none;font-weight:500;font-size:.95rem;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
 .site-header nav a:hover{border-color:var(--line)}
 .site-header nav a[aria-current]{border-color:var(--a1)}
-.header-tools{display:flex;gap:2px}
+.header-tools{display:flex;gap:2px;align-items:center}
+.hdr-resume{color:var(--fg);font:500 .95rem var(--sans);padding:0 12px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;border-bottom:3px solid transparent}
+.hdr-resume:hover{border-color:var(--line)}
 .icon-btn{display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;color:var(--fg);cursor:pointer}
 .icon-btn:hover{color:var(--a1)}
 .icon-btn svg{width:20px;height:20px}
@@ -537,7 +548,7 @@ h3{font-size:1.3rem}
 .row .thumb{width:96px;height:72px;border:1px solid var(--ink);background:var(--bg2);overflow:hidden}
 .row .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) sepia(.15)}
 .row h3{margin:0 0 .15em;font-size:1.35rem}
-.row p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45;max-width:46em}
+.row p{margin:0;color:var(--fg);font-size:1rem;line-height:1.45;max-width:46em}
 .row:hover{background:var(--card);box-shadow:inset 4px 0 0 var(--a1)}
 .row:active{transform:translate(2px,2px)}
 .filter:active{transform:translate(2px,2px)}
@@ -634,7 +645,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .brand-name{display:none}
   .site-header nav{flex:1;justify-content:center;gap:0}
   .site-header nav a{padding:0 12px;font-size:.92rem}
-  .header-tools a.icon-btn{display:none}
+  .header-tools a.icon-btn,.hdr-resume{display:none}
   .intro{padding:36px 16px 4px}
   .lede{font-size:1.08rem}
   .section{padding:32px 16px}
@@ -689,7 +700,7 @@ js = r"""
   }
 
   // images that fail to load (e.g. a dead hotlink) drop out instead of leaving empty boxes
-  function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
+  function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var q=f.previousElementSibling;if(q&&q.tagName==='P'&&/:\s*$/.test(q.textContent)){q.hidden=true;}var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
   d.querySelectorAll('.about-top .portrait').forEach(function(i){
     function nop(){i.parentNode.classList.add('no-portrait');}
     if(i.complete&&i.naturalWidth===0){nop();}else{i.addEventListener('error',nop);}

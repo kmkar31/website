@@ -29,7 +29,7 @@
   }
 
   // images that fail to load (e.g. a dead hotlink) drop out instead of leaving empty boxes
-  function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
+  function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var q=f.previousElementSibling;if(q&&q.tagName==='P'&&/:\s*$/.test(q.textContent)){q.hidden=true;}var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
   d.querySelectorAll('.about-top .portrait').forEach(function(i){
     function nop(){i.parentNode.classList.add('no-portrait');}
     if(i.complete&&i.naturalWidth===0){nop();}else{i.addEventListener('error',nop);}

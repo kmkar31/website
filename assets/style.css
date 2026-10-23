@@ -41,7 +41,9 @@ h3{font-size:1.3rem}
 .site-header nav a{color:var(--fg);text-decoration:none;font-weight:500;font-size:.95rem;padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
 .site-header nav a:hover{border-color:var(--line)}
 .site-header nav a[aria-current]{border-color:var(--a1)}
-.header-tools{display:flex;gap:2px}
+.header-tools{display:flex;gap:2px;align-items:center}
+.hdr-resume{color:var(--fg);font:500 .95rem var(--sans);padding:0 12px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;border-bottom:3px solid transparent}
+.hdr-resume:hover{border-color:var(--line)}
 .icon-btn{display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;color:var(--fg);cursor:pointer}
 .icon-btn:hover{color:var(--a1)}
 .icon-btn svg{width:20px;height:20px}
@@ -109,7 +111,7 @@ h3{font-size:1.3rem}
 .row .thumb{width:96px;height:72px;border:1px solid var(--ink);background:var(--bg2);overflow:hidden}
 .row .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) sepia(.15)}
 .row h3{margin:0 0 .15em;font-size:1.35rem}
-.row p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45;max-width:46em}
+.row p{margin:0;color:var(--fg);font-size:1rem;line-height:1.45;max-width:46em}
 .row:hover{background:var(--card);box-shadow:inset 4px 0 0 var(--a1)}
 .row:active{transform:translate(2px,2px)}
 .filter:active{transform:translate(2px,2px)}
@@ -206,7 +208,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .brand-name{display:none}
   .site-header nav{flex:1;justify-content:center;gap:0}
   .site-header nav a{padding:0 12px;font-size:.92rem}
-  .header-tools a.icon-btn{display:none}
+  .header-tools a.icon-btn,.hdr-resume{display:none}
   .intro{padding:36px 16px 4px}
   .lede{font-size:1.08rem}
   .section{padding:32px 16px}
