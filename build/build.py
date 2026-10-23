@@ -177,26 +177,26 @@ PROJECTS = [
 META = {
  "snake-robots": dict(tags=["Robotics", "Controls"], tldr="Compliant, gait-based controllers I implemented on modular snake robots in CMU's Biorobotics Lab so they can cross unknown terrain.",
    results=[("Lab", "CMU Biorobotics Lab"), ("Advisor", "Prof. Howie Choset")]),
- "argus-mission": dict(tags=["Space"], tldr="A nanosatellite concept for finding its own position in low Earth orbit from images of Earth, without GPS.",
+ "argus-mission": dict(tags=["Space"], tldr="Can a satellite find its own position in low Earth orbit by looking at the Earth? GPS has export limits and ground stations are costly, so this one uses images.",
    results=[("Approach", "Visual orbit determination"), ("Orbit", "LEO")]),
- "quadrotor-landing": dict(tags=["Robotics", "Controls"], tldr="A CrazyFlie quadrotor lands on a Tumbller balancing robot driving in a circle, using model predictive control and a state machine.",
+ "quadrotor-landing": dict(tags=["Robotics", "Controls"], tldr="Landed a CrazyFlie on a Tumbller balancing robot driving in a circle, with model predictive control and a state machine.",
    results=[("Landing success", "100% (small pad, under 0.25 m/s)"), ("At top speed", "5.6 s, 2.5 cm error")]),
- "raftar-formula-racing": dict(tags=["Build"], tldr="The IIT Madras Formula SAE team's electric racecar, designed, built and raced by 40+ students.",
+ "raftar-formula-racing": dict(tags=["Build"], tldr="IIT Madras's electric Formula SAE car, built and raced by 40+ students. I captained the team and did the suspension and brakes.",
    results=[("Team", "40+ students"), ("Result", "Podium, Formula Bharat 2023")]),
- "hasselhoff-submarine": dict(tags=["Robotics", "Build"], tldr="A joystick-driven mini submarine with four thrusters; the player has 99 seconds to land on a hidden IR target.",
+ "hasselhoff-submarine": dict(tags=["Robotics", "Build"], tldr="A mini submarine named after David Hasselhoff's cameo in the SpongeBob Movie. Four thrusters, a joystick remote, and 99 seconds to land on the target.",
    results=[("Thrusters", "4 BLDC"), ("Round length", "99 seconds")]),
- "aerobraking-drl": dict(tags=["Space", "Controls"], tldr="A PPO agent trained to choose the burns for an aerobraking orbit insertion, checked against a physics simulator.",
+ "aerobraking-drl": dict(tags=["Space", "Controls"], tldr="Trained a PPO agent to pick the burns for an aerobraking orbit insertion, then checked it on a physics simulator: target reached in 46 orbits.",
    results=[("Terminal error", "8.4 km"), ("Training", "1.1M steps"), ("To target", "46 orbits")]),
- "tethered-nanosatellite": dict(tags=["Space", "Controls"], tldr="A 3U and 1U CubeSat pair on a 500 m tether, using Earth's magnetic field to drag debris out of orbit.",
+ "tethered-nanosatellite": dict(tags=["Space", "Controls"], tldr="Two CubeSats on a 500 m tether that use Earth's magnetic field to drag debris out of orbit.",
    results=[("Tether", "500 m"), ("Satellites", "3U + 1U CubeSat")]),
- "quadrotor-sysid": dict(tags=["Controls", "Robotics"], tldr="A physics-based quadrotor model with four unknown constants, fitted from hover and sinusoidal-rotation tests.",
+ "quadrotor-sysid": dict(tags=["Controls", "Robotics"], tldr="A physics-based quadrotor model with four unknown constants, which I fitted from hover and sinusoidal-rotation tests.",
    results=[("Unknowns", "4 coefficients"), ("Tests", "Hover and sinusoidal rotation")]),
- "assistive-tricycle": dict(tags=["Build"], tldr="A tricycle for riders with one working leg, with an elliptical four-bar pedaling mechanism, checked with ANSYS FEA.",
+ "assistive-tricycle": dict(tags=["Build"], tldr="A tricycle for riders with one working leg. The pedals follow an elliptical four-bar path so the knee stays within its range of motion.",
    results=[("Target speed", "12 km/h"), ("Sprocket ratio", "2"), ("Checked with", "ANSYS FEA")]),
 }
 FILTERS = ["Robotics", "Controls", "Space", "Build"]
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@500;600&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">'
 FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d9a441'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%232b2118' stroke-width='4'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' fill='%232b2118' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"
 ARROW = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>'
 SUN = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
@@ -210,6 +210,7 @@ PAGES = []
 
 def page(fname, title, desc, body, active, ld=None):
     PAGES.append(fname)
+    URL = BASE if fname == "index.html" else BASE + fname
     ldtag = ("\n<script type=\"application/ld+json\">" + json.dumps(ld, ensure_ascii=False) + "</script>") if ld else ""
     nav = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if k == active else ""}>{t}</a>'
@@ -226,7 +227,7 @@ def page(fname, title, desc, body, active, ld=None):
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{SITE}">
-<meta property="og:url" content="{BASE}{fname}">
+<meta property="og:url" content="{URL}">
 <meta property="og:image" content="{OG}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -235,7 +236,7 @@ def page(fname, title, desc, body, active, ld=None):
 <meta name="twitter:title" content="{html.escape(title)}">
 <meta name="twitter:description" content="{html.escape(desc)}">
 <meta name="twitter:image" content="{OG}">
-<link rel="canonical" href="https://kmkar31.github.io/website/{fname}">
+<link rel="canonical" href="{URL}">
 <link rel="icon" href="{FAVICON}">{ldtag}
 {FONTS}
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
@@ -275,8 +276,9 @@ def page(fname, title, desc, body, active, ld=None):
 
 def row_item(p, thumb=False):
     m = META[p["slug"]]
+    n = PROJECTS.index(p) + 1
     t = f'<span class="thumb"><img src="{img(p["thumb"])}" alt="" width="96" height="72" loading="lazy"></span>' if thumb else ""
-    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags">{' / '.join(m['tags'])}</span></a></li>"""
+    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{' / '.join(m['tags'])}</span></a></li>"""
 
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
@@ -290,12 +292,18 @@ home = f"""
 <section class="intro">
   <h1>Karthik Karumanchi</h1>
   <p class="subhead">MS Mechanical Engineering, Carnegie Mellon University</p>
+<div class="intro-grid"><div class="intro-text">
   <p class="lede">I work on control of robots and spacecraft. At CMU&rsquo;s Biorobotics Lab, under Prof. Howie Choset, I research compliant control of snake robots. Before that I captained the Formula SAE team at IIT Madras, which finished on the podium at Formula Bharat 2023.</p>
-  <p class="lede">As an intern at Seagate I built a simulation tool that cut controller design iteration on a batch of 30 drives from <a class="hl" href="about.html#seagate">three weeks to 15 minutes</a>. My CMU GPA is 4.0.</p>
+  <p class="lede">As an intern at Seagate I built a simulation tool that cut controller design iteration on a batch of 30 drives from <a class="hl" href="about.html#seagate"><span class="strike">three weeks</span> to 15 minutes</a>.</p>
   <div class="actions">
     <a class="btn" href="projects.html">See the projects</a>
     <a class="textlink" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
+    <a class="textlink" href="{LINKEDIN}" target="_blank" rel="noopener">Contact on LinkedIn</a>
   </div>
+</div>
+<aside class="ledger" aria-label="Quick facts"><p class="ledger-h">For the record</p>
+<dl><div><dt>Seagate</dt><dd>3 weeks to 15 minutes, 30 drives</dd></div><div><dt>Formula Bharat 2023</dt><dd>Podium, as team captain</dd></div><div><dt>CMU</dt><dd>Biorobotics Lab, Prof. Howie Choset</dd></div></dl></aside>
+</div>
 </section>
 
 <section class="section">
@@ -317,11 +325,11 @@ skills = [("Control and learning", ["Model predictive control", "Reinforcement l
           ("Analysis", ["System identification", "Orbit, power &amp; thermal analysis", "FEA (ANSYS)"]),
           ("Build and software", ["CAD (Autodesk Inventor)", "Embedded systems (STM32, SPI)", "TCP/IP tooling"])]
 about = f"""
-<section class="page-head"><h1>About</h1></section>
+<section class="page-head narrow"><h1>About</h1></section>
 <section class="section narrow">
   <div class="about-top">
     <div class="prose">
-      <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. My goal is to push forward technological autonomy, with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain. I&rsquo;m also taking courses in robot learning and artificial intelligence.</p>
+      <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. I focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain. I&rsquo;m also taking courses in robot learning and artificial intelligence.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a podium finish at Formula Bharat 2023.</p>
       <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Download resume (PDF)</a></p>
     </div>
@@ -372,7 +380,7 @@ projects = f"""
   <p class="empty" id="empty" hidden>No projects match that filter.</p>
 </section>
 """
-page("projects.html", "Projects | Karthik Karumanchi", "Projects by Karthik Karumanchi at Carnegie Mellon University and IIT Madras", projects, "projects")
+page("projects.html", "Projects | Karthik Karumanchi", "Projects by Karthik Karumanchi at Carnegie Mellon University and IIT Madras", projects, "projects", ld={"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": q["title"], "url": BASE + q["slug"] + ".html"} for i, q in enumerate(PROJECTS)]})
 
 # ----------------------------------------------------------- project pages
 for i, p in enumerate(PROJECTS):
@@ -384,8 +392,8 @@ for i, p in enumerate(PROJECTS):
   <a class="crumb" href="projects.html">&larr; all projects</a>
   <p class="tags">{' / '.join(m['tags'])}</p>
   <h1>{html.escape(p['title'])}</h1>
-  <p class="question">{html.escape(p['q'])}</p>
   <p class="tldr">{html.escape(m['tldr'])}</p>
+  <p class="question"><span>The question</span> {html.escape(p['q'])}</p>
 </section>
 <section class="section narrow" style="padding-top:0">
   <dl class="facts">{res}</dl>
@@ -393,8 +401,8 @@ for i, p in enumerate(PROJECTS):
   {p['body']}
   </article>
   <nav class="pager" aria-label="More projects">
-    <a href="{prev_p['slug']}.html"><span>&larr; Previous</span><strong>{html.escape(prev_p['title'])}</strong></a>
-    <a href="{next_p['slug']}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(next_p['title'])}</strong></a>
+    <a href="{prev_p['slug']}.html"><span>&larr; Previous</span><strong>{html.escape(prev_p['title'])}</strong><em>{html.escape(META[prev_p['slug']]['tldr'])}</em></a>
+    <a href="{next_p['slug']}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(next_p['title'])}</strong><em>{html.escape(META[next_p['slug']]['tldr'])}</em></a>
   </nav>
 </section>
 """
@@ -406,7 +414,7 @@ page("404.html", "Page not found | Karthik Karumanchi", "Page not found",
      '<section class="page-head"><h1>That page doesn&rsquo;t exist.</h1><p class="lede" style="margin-top:16px">This page failed to land on the target. Back to the index.</p><p class="actions"><a class="btn" href="index.html">Back home</a></p></section>', "")
 
 with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
-    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE}{n}</loc></url>\n" for n in PAGES if n != "404.html") + "</urlset>\n")
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE if n == 'index.html' else BASE + n}</loc></url>\n" for n in PAGES if n != "404.html") + "</urlset>\n")
 with open(os.path.join(OUT, "robots.txt"), "w") as f:
     f.write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 
@@ -415,17 +423,17 @@ css = r"""
 :root{
   --bg:#efe7d6; --bg2:#e5dbc3; --fg:#2b2118; --muted:#5b4e40; --ink:#2b2118; --line:#b9ab8a; --card:#f7f1e3;
   --a1:#9c3a22; --a2:#2f6f62; --hi:#d9a441; --btn-bg:#b4452b; --btn-fg:#f7f1e3; --shadowc:#2b2118;
-  --maxw:1040px;
+  --maxw:1040px; --band-bg:#2b2118; --band-fg:#efe7d6; --band-mute:#c9bca2; --band-link:#e8a652;
   --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
   --text:"Source Serif 4",Georgia,"Times New Roman",serif;
-  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,Menlo,Consolas,monospace;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 /* dark = inverted print: dark paper, tan ink rules, hard shadows go darker than the paper */
 :root[data-theme="dark"]{
   --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#b8ab95; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
-  --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08;
+  --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --band-bg:#14100c; --band-fg:#eadfc8; --band-mute:#b8ab95; --band-link:#e8a652;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -448,7 +456,7 @@ h3{font-size:1.3rem}
 :focus-visible{outline:3px solid var(--a1);outline-offset:3px}
 
 /* header: double rule underneath, like a printed masthead */
-.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:6px max(20px,calc((100vw - var(--maxw))/2));background:var(--bg);border-bottom:5px double var(--ink);font-family:var(--sans)}
+.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:20px;padding:6px max(20px,calc((100% - var(--maxw))/2 + 20px));background:var(--bg);border-bottom:5px double var(--ink);font-family:var(--sans)}
 .brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font-family:var(--serif);font-size:1.25rem;margin-right:auto;min-height:44px;min-width:44px;justify-content:center}
 .mark{display:grid;place-items:center;width:34px;height:34px;border:2px solid var(--ink);background:var(--hi);color:#2b2118;font-family:var(--serif);font-size:1.3rem;line-height:1}
 .site-header nav{display:flex;gap:4px}
@@ -480,7 +488,7 @@ h3{font-size:1.3rem}
 .hl{background:var(--hi);color:#2b2118;text-decoration:underline;text-decoration-thickness:1px;padding:0 3px}
 .hl:hover{background:#2b2118;color:#f7f1e3}
 .skill-group{font:600 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:1.4em 0 .4em}
-.skills{margin:0;padding:0;list-style:none;columns:2;column-gap:32px;font-size:1rem}
+.skills{margin:0;padding:0;list-style:none;font-size:1rem}
 .skills li{padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid}
 
 /* intro (home) */
@@ -490,12 +498,23 @@ h3{font-size:1.3rem}
 .lede{font-size:1.2rem;max-width:34em;margin:0 0 1em}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:26px}
 
+.strike{text-decoration:line-through;text-decoration-thickness:2px}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:24px 56px;align-items:start}
+.ledger{border-top:3px solid var(--ink);padding-top:8px;font-family:var(--mono);font-size:.85rem}
+.ledger-h{margin:0 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:.75rem}
+.ledger dl{margin:0}
+.ledger dl div{padding:9px 0;border-bottom:1px solid var(--line)}
+.ledger dt{color:var(--muted);font-size:.78rem}
+.ledger dd{margin:1px 0 0;color:var(--fg);line-height:1.35}
+.row .no{display:block;color:var(--fg);font-weight:700;font-size:.85rem;margin-bottom:2px}
+
 /* sections */
 .section{max-width:var(--maxw);margin:0 auto;padding:44px 20px}
 .section.narrow{max-width:760px}
 .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px;border-bottom:3px solid var(--ink);padding-bottom:6px}
 .section-head h2{margin:0}
 .page-head{padding:48px 20px 12px;max-width:var(--maxw);margin:0 auto}
+.page-head.narrow{max-width:760px}
 .page-head h1{max-width:22ch;margin-bottom:0}
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 18px;min-height:44px;font:500 .9rem var(--sans);cursor:pointer}
@@ -507,8 +526,8 @@ h3{font-size:1.3rem}
 /* project index: ruled rows, like a table of contents */
 .index{list-style:none;margin:0;padding:0}
 .index li[hidden]{display:none}
-.row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;min-height:44px}
-.row.has-thumb{grid-template-columns:96px 1fr auto;align-items:center}
+.row{display:grid;grid-template-columns:1fr 160px;gap:8px 24px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;min-height:44px}
+.row.has-thumb{grid-template-columns:96px 1fr 160px;align-items:center}
 .row .thumb{width:96px;height:72px;border:1px solid var(--ink);background:var(--bg2);overflow:hidden}
 .row .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) sepia(.15)}
 .row h3{margin:0 0 .15em;font-size:1.35rem}
@@ -520,7 +539,7 @@ h3{font-size:1.3rem}
 
 /* about */
 .about-top{display:grid;grid-template-columns:1.7fr 1fr;gap:40px;align-items:start}
-.about-top .portrait{max-width:280px;justify-self:center;border:1px solid var(--ink)}
+.about-top .portrait{max-width:280px;justify-self:center;margin-top:.4em;border:1px solid var(--ink)}
 .prose p{margin:0 0 1.1em}
 .timeline{margin-top:6px}
 .tl-item{padding:16px 0 12px;border-top:1px solid var(--line)}
@@ -537,8 +556,9 @@ h3{font-size:1.3rem}
 .crumb{display:inline-flex;align-items:center;min-height:44px;margin-bottom:6px;color:var(--fg);font:500 .85rem var(--sans);font-variant:small-caps;letter-spacing:.08em;text-transform:lowercase}
 .crumb:hover{color:var(--a1)}
 .proj-hero .tags{margin:0 0 10px}
-.question{font-family:var(--serif);font-size:1.4rem;color:var(--fg);margin:.5em 0 .7em;line-height:1.25}
-.tldr{font-size:1.1rem;margin:0;max-width:34em}
+.tldr{font-family:var(--serif);font-size:1.45rem;line-height:1.3;margin:.2em 0 .9em;max-width:30em}
+.question{font-size:1rem;color:var(--muted);margin:0;max-width:36em;line-height:1.45}
+.question span{font:600 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
 .facts{display:flex;flex-wrap:wrap;margin:22px 0 28px;padding:0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
 .facts div{flex:1 1 180px;padding:10px 20px 10px 0}
 .facts dt{color:var(--muted);font:500 .8rem var(--mono)}
@@ -559,15 +579,16 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 .pager a:hover{background:var(--card);box-shadow:inset 0 -3px 0 var(--a1)}
 .pager span{display:block;color:var(--a1);font:500 .85rem var(--sans);margin-bottom:2px}
 .pager strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.25}
+.pager em{display:block;margin-top:4px;color:var(--muted);font-size:.9rem;line-height:1.4;font-style:normal}
 .pager .next{text-align:right}
 
 /* footer */
-.site-footer{margin-top:40px;border-top:5px double var(--ink);padding:28px 20px 24px;font-family:var(--sans)}
-.footer-inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between}
+.site-footer{margin-top:40px;border-top:5px double var(--ink);background:var(--band-bg);color:var(--band-fg);padding:28px 0 24px;font-family:var(--sans)}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between}
 .footer-inner p{margin:0}
 .footer-links{display:flex;flex-wrap:wrap;gap:4px 18px}
-.footer-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font-weight:500}
-.copyright{max-width:var(--maxw);margin:10px auto 0;color:var(--muted);font-family:var(--mono);font-size:.78rem}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--band-link);font-weight:500}
+.copyright{max-width:var(--maxw);margin:10px auto 0;padding:0 20px;color:var(--band-mute);font-family:var(--mono);font-size:.78rem}
 
 /* lightbox */
 .lightbox{position:fixed;inset:0;z-index:200;background:rgba(20,16,12,.94);display:grid;place-items:center;padding:24px;cursor:zoom-out}
@@ -581,8 +602,8 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 }
 
 @media (max-width:860px){
+  .intro-grid{grid-template-columns:1fr}
   .about-top{grid-template-columns:1fr}
-  .skills{columns:1}
 }
 @media (max-width:620px){
   body{font-size:17px}
@@ -601,6 +622,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .row.has-thumb{grid-template-columns:80px 1fr}
   .row.has-thumb .thumb{width:80px;height:60px;grid-row:span 2}
   .row.has-thumb .tags{grid-column:2}
+  .row .no{display:inline;margin-right:8px}
   .pager{grid-template-columns:1fr}
   .pager .next{text-align:left}
   .facts div{flex-basis:100%;padding:8px 0;border-bottom:1px solid var(--line)}

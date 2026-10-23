@@ -69,3 +69,27 @@ Declined:
 - 12 Self-hosted fonts: cannot download WOFF2 in the sandbox. 13, 14, 15: no change needed.
 Verification: tools/check.py all pages, 3 viewports, 2 themes, no failures.
 Next attack: all media still on Wix, stale dates, project pages lack outcomes.
+
+## 2026-10-23: cycle 3 response (designer)
+Fixed:
+- 3 Project pages now lead with the tldr (large serif); the question is demoted to a small "The question" line under it.
+- 4 Rows carry mono index numbers 01 to 09 (fixed-width right column); footer is now a solid ink band (second surface, light and dark tokens).
+- 5 Row blurbs rewritten in varied voice using only facts already on the project pages; "push forward technological autonomy" removed from About; GPA removed from the home lede (it stays in Education).
+- 6 Home gets a mono "For the record" ledger beside the lede (Seagate, Formula Bharat, Biorobotics Lab; all existing facts). Stacks under the actions on phone.
+- 7 Seagate figure now shows "three weeks" struck through inside the marker highlight; pager shows each neighbour's one-line summary instead of bare labels.
+- 8 Header, footer and sections share one left edge on desktop.
+- 9 About h1 sits in the 760px column; skills are one column; portrait nudged to the first line.
+- 10 (part) Dropped IBM Plex Sans and Mono; UI and tags use system stacks (colophon is now accurate: two web fonts).
+- 11 "Contact on LinkedIn" added to home actions.
+- 12 Canonical, og:url and sitemap use the clean root for home; ItemList JSON-LD on projects.html.
+Declined:
+- 1 Status and dates: only the owner can say; still the top open item. Question for owner: graduated, or still enrolled, and where now?
+- 2 Local media/resume, width/height: wixstatic and filesusr unreachable from the sandbox; owner must supply files.
+- 3 (rest) Role/When/Result rows: no facts beyond those already shown; not invented.
+- 7 (rest) Hasselhoff 99 s hover counter: JS gimmick with little payoff; "No email form" line: unverified claim.
+- 10 (rest) Self-hosted WOFF2: cannot download in the sandbox.
+- 12 (rest) robots.txt location: kept; harmless, sitemap should be submitted in Search Console.
+- 13 Alt text: owner must say what each figure shows.
+- Critic: "about the About slogan" accepted and removed.
+Verification: tools/check.py all pages, 3 viewports, 2 themes, no failures; looked at home desktop, home phone dark, snake phone.
+Next attack: still no images or voice (owner media needed); all rows still the same anatomy; status/dates.
