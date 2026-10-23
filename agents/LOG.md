@@ -133,3 +133,21 @@ Declined:
 Note: critic could not fetch its cited sources (WebFetch blocked); citations were treated as unverified pointers, and no decision here relied on them.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed About desktop light (portrait collapsed) and home phone dark (three distinct stamps).
 Next attack: no photos or voice, status/dates, palette still "warm editorial".
+
+## 2026-10-23: cycle 6 response (designer)
+Fixed:
+- 1 (part) snake-robots: figures first, then the generic field paragraph under a "Background" label, so the tl;dr and facts lead. Same on the other pages was already the case (Background label exists on sysid).
+- 4b The "3 weeks to 15 minutes" bullet on About now uses the same struck-through marker as the home page.
+- 8 (part) Hairline rule above each About section heading (a lighter printer's-rule separator). A glyph ornament was tried and removed: its background patch did not match the grain.
+- 11 Cut the redundant "taking courses in robot learning and AI" sentence from About (courses stay under Education, no tense claim).
+Declined:
+- 1 (rest), 2, 5: photos, outcomes sentences, local media, local resume, image dimensions need owner files; owner must supply 2-3 sentences of "what I did and what happened" and one image per project. Nothing invented.
+- 3 Status/dates: owner must supply one line (graduated or enrolled, available or not); STATUS slot ready.
+- 4a/4c Hasselhoff ticket, footer joke: taste; the stamp already carries 99 seconds, and a new joke would be invented copy.
+- 6 Home h1: name-only h1 is deliberate; the lede names robotics and controls.
+- 7 Row tag column: taste; no overflow or alignment fault measured, tags align to the title top.
+- 9 "Start here": owner choice.
+- 10 Text-spacing test not run; no fixed-height text boxes in the CSS.
+- 12 Self-hosted fonts: no WOFF2 download possible in sandbox. 13 robots.txt: owner submits sitemap in Search Console.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, no failures; viewed About desktop light.
+Next attack: still no imagery, status, or first-person outcomes.

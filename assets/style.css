@@ -117,6 +117,7 @@ h3{font-size:1.3rem}
 
 /* about */
 .section.about .timeline,.section.about>h2{max-width:760px}
+.section.about>h2{border-top:1px solid var(--line);padding-top:.6em;position:relative}
 .about-top{display:grid;grid-template-columns:minmax(0,38em) 280px;gap:24px 56px;align-items:start}
 .about-top.no-portrait{grid-template-columns:minmax(0,38em)}
 .about-top.no-portrait .portrait{display:none}

@@ -28,9 +28,10 @@ PROJECTS = [
   thumb="84da68_68a480733b8146feb7ff1fad23072b9d~mv2.jpg", page_title="Snake Robots",
   desc="Projects on control of modular snake robots as part of the Biorobotics Lab, CMU.",
   body=f"""
+{row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
+<h2>Background</h2>
 <p>Snake robots are highly articulated robots that can coordinate their many degrees of freedom to access areas which are otherwise unreachable by machinery. They possess an infinite number of configurations allowing them to conform to and locomote over irregular terrain.</p>
 <p>Read more on the <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">CMU Biorobotics Lab research page</a>.</p>
-{row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
 """),
  dict(slug="argus-mission", title="ARGUS Mission",
   q="How do we localize a satellite's position solely using visual methods?",
@@ -334,7 +335,7 @@ about = f"""
 <section class="section about">
   <div class="about-top">
     <div class="prose">
-      <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. I focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain. I&rsquo;m also taking courses in robot learning and artificial intelligence.</p>
+      <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. I focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a podium finish at Formula Bharat 2023.</p>
       <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a></p>
     </div>
@@ -357,7 +358,7 @@ about = f"""
     {tl("May &ndash; Aug 2024", "Advanced Control Engineer Intern", "Seagate Technology &middot; Shakopee, MN",
         bullets=["Built a tool that simulates HDD head tiering tests, so track-follow controllers can be tuned without the factory in the loop.",
                  "Designed a server-client architecture over JSON-formatted TCP/IP so the tool is accessible globally.",
-                 "Cut controller design iteration time on a batch of 30 drives from <strong>3 weeks to 15 minutes</strong>."], id_="seagate")}
+                 "Cut controller design iteration time on a batch of 30 drives from <strong><span class='strike'>3 weeks</span> to 15 minutes</strong>."], id_="seagate")}
     {tl("May &ndash; Aug 2022", "MITACS Globalink Research Intern", "York University &middot; Toronto, Canada",
         bullets=["Implemented a pin-puller mechanism to reliably provide the impulse that deploys a 3U CubeSat in LEO.",
                  "Found the CubeSat&rsquo;s power limits by computing the solar energy incident on it in orbit.",
@@ -544,6 +545,7 @@ h3{font-size:1.3rem}
 
 /* about */
 .section.about .timeline,.section.about>h2{max-width:760px}
+.section.about>h2{border-top:1px solid var(--line);padding-top:.6em;position:relative}
 .about-top{display:grid;grid-template-columns:minmax(0,38em) 280px;gap:24px 56px;align-items:start}
 .about-top.no-portrait{grid-template-columns:minmax(0,38em)}
 .about-top.no-portrait .portrait{display:none}
