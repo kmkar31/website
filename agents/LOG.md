@@ -113,3 +113,23 @@ Declined:
 - 8/9 Featured "start here" project: owner choice; stamps break row sameness meanwhile.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, no overflow, tap-target, contrast, alt or h1 failures; viewed About desktop, home desktop, Hasselhoff phone dark.
 Next attack: still no photos or current status; palette still reads "warm editorial".
+
+## 2026-10-23: cycle 5 response (designer)
+Fixed:
+- 1 (part) About portrait now collapses (column and image) when it fails to load, like figures do; intro runs at its normal measure.
+- 6 Stamps varied: Podium gets a 4px double border and no tilt; Hasselhoff tilts the other way (+1.2 deg); aerobraking is dashed and flat. Same ink (contrast unchanged).
+- 10 Dark-theme muted text raised from #cdc1aa to #d9cfba.
+- 11 Resume wording identical ("Resume (PDF)") on home and About.
+- 12 Home meta/OG description trimmed to about 140 characters.
+- 13 "here" links replaced with named targets (CMU Biorobotics Lab research page; Raftar Formula Racing website).
+Declined:
+- 1 (rest), 4 (rest), 9: photos, local media, local resume, self-hosted fonts need owner files; sandbox cannot reach Wix. 
+- 2 Status/dates: only the owner can say; STATUS slot still ready. Owner question stands: graduated or enrolled, and where now?
+- 3 Hasselhoff joke/crosslink: the caption would be invented content; relation between quadrotor projects is not stated on the site. Static stamp and fact already carry it.
+- 4 CSS aspect-ratio on figures: image ratios are unknown and vary (tall/narrow classes); a forced ratio would letterbox or crop real photos. Needs real dimensions.
+- 5 robots.txt: host-root only; kept, owner should submit sitemap.xml in Search Console.
+- 7 "Start here" tag: owner choice; row 01 is already first.
+- 8 Tag column spacing: taste, low priority; tags align to title top on phone and desktop, no overflow.
+Note: critic could not fetch its cited sources (WebFetch blocked); citations were treated as unverified pointers, and no decision here relied on them.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed About desktop light (portrait collapsed) and home phone dark (three distinct stamps).
+Next attack: no photos or voice, status/dates, palette still "warm editorial".

@@ -29,7 +29,7 @@ PROJECTS = [
   desc="Projects on control of modular snake robots as part of the Biorobotics Lab, CMU.",
   body=f"""
 <p>Snake robots are highly articulated robots that can coordinate their many degrees of freedom to access areas which are otherwise unreachable by machinery. They possess an infinite number of configurations allowing them to conform to and locomote over irregular terrain.</p>
-<p>Read more about modular snake robots <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">here</a>.</p>
+<p>Read more on the <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">CMU Biorobotics Lab research page</a>.</p>
 {row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
 """),
  dict(slug="argus-mission", title="ARGUS Mission",
@@ -59,7 +59,7 @@ PROJECTS = [
   desc="An electric Formula SAE car built by a team of 45 engineers at IIT Madras.",
   body=f"""
 <p>Raftar Formula Racing is the FSAE team of IIT Madras. A team of 40+ engineering students design, build, test and race an electric formula-style car at Indian and European competitions.</p>
-<p>Read more about the team <a href="https://www.raftariitm.com/" target="_blank" rel="noopener">here</a>.</p>
+<p>Read more on the <a href="https://www.raftariitm.com/" target="_blank" rel="noopener">Raftar Formula Racing website</a>.</p>
 {row(fig("84da68_6dc1a48fd9e240f18c13004eedbfb4b1~mv2.webp", alt="Raftar Formula Racing electric car"), fig("84da68_601857af9385447db7042112e16c3e30~mv2.png", alt="Raftar Formula Racing team figure"))}
 """),
  dict(slug="hasselhoff-submarine", title="Hasselhoff Submarine",
@@ -281,7 +281,7 @@ def page(fname, title, desc, body, active, ld=None):
 def row_item(p, thumb=False):
     m = META[p["slug"]]
     n = PROJECTS.index(p) + 1
-    stamp = f'<span class="stamp">{m["stamp"]}</span>' if m.get("stamp") else ""
+    stamp = f'<span class="stamp s-{p["slug"].split("-")[0]}">{m["stamp"]}</span>' if m.get("stamp") else ""
     t = f'<span class="thumb"><img src="{img(p["thumb"])}" alt="" width="96" height="72" loading="lazy"></span>' if thumb else ""
     return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{stamp}{' / '.join(m['tags'])}</span></a></li>"""
 
@@ -317,7 +317,7 @@ home = f"""
 </section>
 """
 page("index.html", "Karthik Karumanchi | Robotics and Controls Engineer",
-     "Portfolio of Karthik Karumanchi, MS Mechanical Engineering at Carnegie Mellon University. Control of robots and spacecraft: snake robots, quadrotor landing, a PPO aerobraking agent and an electric Formula SAE car.", home, "home", ld=PERSON)
+     "Karthik Karumanchi, MS Mechanical Engineering at Carnegie Mellon. Control of robots and spacecraft: snake robots, quadrotor landing, aerobraking.", home, "home", ld=PERSON)
 
 # ----------------------------------------------------------- about
 def tl(when, title, org, bullets=None, lines=None, id_=None):
@@ -336,7 +336,7 @@ about = f"""
     <div class="prose">
       <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. I focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain. I&rsquo;m also taking courses in robot learning and artificial intelligence.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a podium finish at Formula Bharat 2023.</p>
-      <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Download resume (PDF)</a></p>
+      <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a></p>
     </div>
     <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
   </div>
@@ -437,12 +437,12 @@ css = r"""
 }
 /* dark = inverted print: dark paper, tan ink rules, hard shadows go darker than the paper */
 :root[data-theme="dark"]{
-  --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#cdc1aa; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
+  --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#d9cfba; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
   --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --band-bg:#14100c; --band-fg:#eadfc8; --band-mute:#b8ab95; --band-link:#e8a652;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#cdc1aa; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
+    --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#d9cfba; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
     --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08;
   }
 }
@@ -545,10 +545,15 @@ h3{font-size:1.3rem}
 /* about */
 .section.about .timeline,.section.about>h2{max-width:760px}
 .about-top{display:grid;grid-template-columns:minmax(0,38em) 280px;gap:24px 56px;align-items:start}
+.about-top.no-portrait{grid-template-columns:minmax(0,38em)}
+.about-top.no-portrait .portrait{display:none}
 .about-top .portrait{width:100%;max-width:280px;margin-top:.4em;border:1px solid var(--ink)}
 .skill-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
 .skill-cols .skill-group{margin-top:1em}
 .stamp{display:inline-block;margin:0 0 6px;padding:2px 6px;border:2px solid var(--a1);color:var(--a1);font:700 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
+.stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
+.stamp.s-hasselhoff{transform:rotate(1.2deg)}
+.stamp.s-aerobraking{transform:none;border-style:dashed}
 .tags .stamp{display:block;width:max-content;max-width:100%}
 .facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
 .broken-fig a.zoom,.broken-fig img{display:none}
@@ -683,6 +688,10 @@ js = r"""
 
   // images that fail to load (e.g. a dead hotlink) drop out instead of leaving empty boxes
   function gone(i){var f=i.closest('figure');if(f){f.classList.add('broken-fig');var r=f.parentNode;if(r&&r.classList.contains('fig-row')&&!r.querySelector('figure:not(.broken-fig)')){r.style.display='none';}}}
+  d.querySelectorAll('.about-top .portrait').forEach(function(i){
+    function nop(){i.parentNode.classList.add('no-portrait');}
+    if(i.complete&&i.naturalWidth===0){nop();}else{i.addEventListener('error',nop);}
+  });
   d.querySelectorAll('.project figure img').forEach(function(i){
     if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
   });
