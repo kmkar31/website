@@ -46,7 +46,7 @@ PROJECTS = [
   thumb="84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg", page_title="Quadrotor Landing",
   desc="Finite State Machine based high-level controller for a quadrotor to autonomously navigate to and land on an unstable mobile platform.",
   body=f"""
-<p>In the realm of robotics, navigating uncertain real-world environments presents significant challenges. Uncertainties occur in the form of rough seas, turbulent winds, etc. This project addresses these uncertainties in operating aerial vehicles in such unpredictable conditions. While existing autopilot systems can manage stable environments, they falter in windy conditions and on unstable landing platforms, requiring human intervention. To address these challenges, a novel algorithm was developed to land a quadrotor (the CrazyFlie) on a two-wheeled platform (the Tumbller) while the latter follows a trajectory, mimicking the difficulties of landing on a ship in rough seas.</p>
+<p>Existing autopilots can manage stable environments, but they falter in wind and on unstable landing platforms, and then need a human to step in. This project built an algorithm to land a quadrotor (the CrazyFlie) on a two-wheeled platform (the Tumbller) while the latter follows a trajectory, mimicking the difficulties of landing on a ship in rough seas.</p>
 {fig("84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg", "Tumbller with the small landing pad (left) and the CrazyFlie (right)", "Project hardware: CrazyFlie drone and Tumbller landing platform")}
 <p>The controller divided the CrazyFlie's maneuver into two phases: the search and land phase. Each phase operated an individual high-level model predictive controller to track the landing platform. Selecting the appropriate phase and generating the objectives was handled by a finite state machine. A secondary disturbance-rejection controller was implemented on the Tumbller to implement trajectory-following. The position of the Tumbller during its trajectory was made available to the CrazyFlie via a global positioning system. Since the trajectory was not made known to the CrazyFlie in advance, a "trajectory-prediction" subroutine was built in, allowing the CrazyFlie to make anticipatory maneuvers.</p>
 <p>In the test, the Tumbller moves in a circular trajectory of radius 0.8 m at 0.38 m/s. The CrazyFlie takes off from a random location, navigates to the origin and then starts to track the Tumbller.</p>
@@ -276,6 +276,7 @@ def page(fname, title, desc, body, active, ld=None):
     <div class="footer-links">
       <a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
       <a href="{GITHUB}" target="_blank" rel="noopener">GitHub</a>
+      <a href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
     </div>
   </div>
   <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4.</p>
@@ -457,7 +458,7 @@ css = r"""
   }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg) var(--grain);color:var(--fg);font:18px/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--a1);text-underline-offset:3px;text-decoration-thickness:1px}
@@ -570,7 +571,7 @@ h3{font-size:1.3rem}
 .tags .stamp{display:block;width:max-content;max-width:100%}
 .facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
 .broken-fig a.zoom,.broken-fig img{display:none}
-.project figure.broken-fig:not(:has(figcaption)){display:none}
+.project figure.broken-fig{display:none}
 .prose p{margin:0 0 1.1em}
 .timeline{margin-top:6px}
 .tl-item{padding:16px 0 12px;border-top:1px solid var(--line)}

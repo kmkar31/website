@@ -51,7 +51,7 @@
   <dl class="facts"><div><dt>Landing success</dt><dd>100% (small pad, under 0.25 m/s)</dd></div><div><dt>At top speed</dt><dd>5.6 s, 2.5 cm error</dd></div></dl>
   <article class="prose project">
   
-<p>In the realm of robotics, navigating uncertain real-world environments presents significant challenges. Uncertainties occur in the form of rough seas, turbulent winds, etc. This project addresses these uncertainties in operating aerial vehicles in such unpredictable conditions. While existing autopilot systems can manage stable environments, they falter in windy conditions and on unstable landing platforms, requiring human intervention. To address these challenges, a novel algorithm was developed to land a quadrotor (the CrazyFlie) on a two-wheeled platform (the Tumbller) while the latter follows a trajectory, mimicking the difficulties of landing on a ship in rough seas.</p>
+<p>Existing autopilots can manage stable environments, but they falter in wind and on unstable landing platforms, and then need a human to step in. This project built an algorithm to land a quadrotor (the CrazyFlie) on a two-wheeled platform (the Tumbller) while the latter follows a trajectory, mimicking the difficulties of landing on a ship in rough seas.</p>
 <figure class=""><a class="zoom" href="https://static.wixstatic.com/media/84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg"><img src="https://static.wixstatic.com/media/84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg" alt="Project hardware: CrazyFlie drone and Tumbller landing platform" loading="lazy" decoding="async"></a><figcaption>Tumbller with the small landing pad (left) and the CrazyFlie (right)</figcaption></figure>
 <p>The controller divided the CrazyFlie's maneuver into two phases: the search and land phase. Each phase operated an individual high-level model predictive controller to track the landing platform. Selecting the appropriate phase and generating the objectives was handled by a finite state machine. A secondary disturbance-rejection controller was implemented on the Tumbller to implement trajectory-following. The position of the Tumbller during its trajectory was made available to the CrazyFlie via a global positioning system. Since the trajectory was not made known to the CrazyFlie in advance, a "trajectory-prediction" subroutine was built in, allowing the CrazyFlie to make anticipatory maneuvers.</p>
 <p>In the test, the Tumbller moves in a circular trajectory of radius 0.8 m at 0.38 m/s. The CrazyFlie takes off from a random location, navigates to the origin and then starts to track the Tumbller.</p>
@@ -73,6 +73,7 @@
     <div class="footer-links">
       <a href="https://linkedin.com/in/kmkar31" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/kmkar31" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://686e8b1f-e8dd-4e34-9c3c-5ccc4d7af65d.filesusr.com/ugd/84da68_6a1c4dc4a15a4d4389d6b6b6fa727665.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
     </div>
   </div>
   <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4.</p>

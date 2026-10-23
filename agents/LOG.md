@@ -170,3 +170,18 @@ Declined:
 - robots.txt: host-root only, owner to submit sitemap.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed home tablet light and phone dark (no header overflow, resume hidden on phone).
 Next attack: no imagery, no status line, no first-person outcomes.
+
+## 2026-10-23: cycle 8 response (designer)
+Fixed:
+- 5 Sticky header: html{scroll-padding-top:80px} so anchors and focus are not hidden under the header (WCAG 2.2 2.4.11).
+- 4 quadrotor-landing: dropped the generic "In the realm of robotics" opening; the page now starts at the specific problem (existing autopilots falter in wind and on unstable platforms). No facts added or removed apart from the dropped filler.
+- 9 Orphaned captions: figures that fail to load are now hidden entirely, caption included.
+- 7 Resume (PDF) link added to the footer on every page, so phone has it.
+Declined:
+- 1, 11 status/outcomes/tense: owner-only facts; nothing invented. Needs one status line and 2-3 outcome sentences.
+- 2, 3, 8 imagery, local media, image width/height: need owner files.
+- 6 Hasselhoff press countdown, index-card restyle: taste; new gimmick not requested by owner, 99 s stamp already carries the joke.
+- 10 Row tag column: taste; tags align to title, no measured fault. 13 Home vs Projects: projects adds filters. 14 stamp style: taste. 15 no email: deliberate (hard constraint on contact details).
+- 12 Self-hosted fonts: no WOFF2 available in sandbox.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, no failures; viewed quadrotor-landing phone light and About tablet light.
+Next attack: no imagery, no status line, no first-person outcomes.
