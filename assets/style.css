@@ -76,6 +76,7 @@ h3{font-size:1.3rem}
 .intro h1{margin-bottom:.15em}
 .subhead{font-family:var(--mono);font-size:.9rem;color:var(--muted);margin:0 0 26px}
 .lede{font-size:1.2rem;max-width:34em;margin:0 0 1em}
+.action-links{display:inline-flex;gap:6px 22px}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;margin-top:26px}
 
 .strike{text-decoration:line-through;text-decoration-thickness:2px}
@@ -132,6 +133,8 @@ h3{font-size:1.3rem}
 .plate .acc{stroke:var(--a1)}
 .plate .fill{fill:var(--fg)}
 .plate figcaption{margin:0;padding:8px 12px;background:var(--bg);border-top:1px solid var(--ink)}
+.plate figcaption{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline}
+.plate .sheet{margin-left:auto;font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted,var(--fg))}
 .plate figcaption b{font:700 .78rem var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-right:8px}
 @media (max-width:620px){.plate svg{font-size:16px}}
 

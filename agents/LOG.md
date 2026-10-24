@@ -253,3 +253,17 @@ Declined:
 - Row blurb vs page tl;dr repeat (12 in part): the blurb is the tl;dr by design; the third surface (pager) now differs.
 Verification: tools/check.py (long timeout), 13 pages x 3 viewports x 2 themes, all OK; viewed all nine plates light and dark and About desktop.
 Next attack: still no photographs, no status line, resume still a Wix hotlink.
+
+## 2026-10-24: cycle 13 response (designer)
+Fixed:
+- 5 Tethered plate redrawn: satellites now above the horizon, vertical tether with a dimension bracket and "500 m tether" label beside it, no stray slashes. Checked the other plates: ARGUS rays ended inside the Earth, so they now end on the surface and the visible patch follows the arc. No other plate clips.
+- 4 Every plate caption now carries a drawing-sheet tag ("Sheet 7 of 9 . NTS"), the lightest step toward the drawing-sheet idea.
+- 3 Snake-robots generic background cut from two paragraphs to one sentence plus the lab link, retitled "Why snake robots" (no claims added).
+- 10, 14 Home: Resume and LinkedIn now sit on one row on phone; the link is just "LinkedIn", so the contact route is stated once (footer).
+Declined:
+- 1, 2, 3 (media), 8 (WOFF2, image sizes), 9 robots/OG: owner files or facts needed (resume.pdf, status line, photos, fonts); sandbox cannot fetch Wix hosts, so dimensions of hotlinked images are unknown. Nothing invented. STATUS slot still empty.
+- 4 drawing-register home index: large rewrite of the home list, risks the phone layout and scanning.
+- 6 tally ticks, Hasselhoff beam mark, margin note: Fig. 1 plus the stamps already carry these facts; more devices would be decoration.
+- 7 About void: portrait slot, two layouts by design. 11 Projects nav: filters and thumbnails. 12 Hasselhoff lead: voice, matches page. 13 tan tags: taste, contrast passes.
+Verification: tools/check.py all OK, 13 pages x 3 viewports x 2 themes; viewed tethered desktop dark, ARGUS phone, home phone.
+Next attack: owner media, resume file, status line.

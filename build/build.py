@@ -29,9 +29,8 @@ PROJECTS = [
   desc="Gait-based, compliant controllers for modular snake robots, implemented in CMU's Biorobotics Lab so they can cross unknown terrain.",
   body=f"""
 {row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
-<h2>Background</h2>
-<p>Snake robots are highly articulated robots that can coordinate their many degrees of freedom to access areas which are otherwise unreachable by machinery. They possess an infinite number of configurations allowing them to conform to and locomote over irregular terrain.</p>
-<p>Read more on the <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">CMU Biorobotics Lab research page</a>.</p>
+<h2>Why snake robots</h2>
+<p>A snake robot coordinates many joints at once, so it can reach places other machines cannot and conform to irregular terrain. Read more on the <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">CMU Biorobotics Lab research page</a>.</p>
 """),
  dict(slug="argus-mission", title="ARGUS Mission",
   q="How do we localize a satellite's position solely using visual methods?",
@@ -187,7 +186,7 @@ def _orbits():
     return f'<circle cx="240" cy="100" r="30" class="paper"/><circle cx="240" cy="100" r="42" class="dash"/>{es.replace("205","240")}'
 PLATES = {
  "snake-robots": (_snake(), "Schematic of a modular snake robot in a serpentine gait. Module count is illustrative.", "Eight joined modules following a sine-wave body shape"),
- "argus-mission": ('<path d="M-40 250 A330 330 0 0 1 520 250" class="paper"/><rect x="224" y="34" width="32" height="22" class="paper"/><path d="M200 40h24M256 40h24" class="thick"/><path d="M240 56L150 130M240 56L330 130" class="dash"/><path d="M150 130Q240 112 330 130" class="acc"/><text x="240" y="170" text-anchor="middle">visible patch of Earth</text>',
+ "argus-mission": ('<path d="M-40 250 A330 330 0 0 1 520 250" class="paper"/><rect x="224" y="34" width="32" height="22" class="paper"/><path d="M200 40h24M256 40h24" class="thick"/><path d="M240 56L150 107M240 56L330 107" class="dash"/><path d="M150 107A330 330 0 0 1 330 107" class="acc thick"/><text x="240" y="170" text-anchor="middle">visible patch of Earth</text>',
    "A nanosatellite in low Earth orbit images the ground below it; the position estimate comes from those images alone, not GPS.", "Satellite looking down at a patch of Earth"),
  "quadrotor-landing": ('<circle cx="240" cy="100" r="70" class="dash"/><circle cx="240" cy="100" r="3" class="fill"/><text x="206" y="126">origin</text><rect x="283" y="46" width="30" height="30" class="paper acc" transform="rotate(35 298 61)"/><path d="M80 40l70 38 80 20" class="dash"/><path d="M70 40h20M80 30v20" class="thick"/><text x="20" y="22">start (random)</text><path d="M240 100h70" /><text x="258" y="122">r = 0.8 m</text>',
    "Top view of the test: the Tumbller drives a 0.8 m circle at 0.38 m/s while the CrazyFlie flies from a random start to the origin and then tracks it.", "Circular platform path with a quadrotor approaching from a random start"),
@@ -197,7 +196,7 @@ PLATES = {
    "Top view: four thrusters drive the hull, and the pilot has 99 seconds to land it on the infrared target.", "Submarine seen from above with four thrusters, heading for a target ring"),
  "aerobraking-drl": (_orbits()+'<text x="352" y="36">46 orbits</text><path d="M240 100H410" class="dash"/>',
    "Each pass through the upper atmosphere shrinks the orbit. The agent picks the burns that bring it to the target in 46 orbits.", "Nested orbits shrinking around a planet"),
- "tethered-nanosatellite": ('<path d="M-40 270 A330 330 0 0 1 520 270" class="paper"/><rect x="224" y="150" width="32" height="26" class="paper"/><text x="262" y="168">3U</text><rect x="228" y="22" width="14" height="14" class="paper"/><text x="250" y="34">1U</text><path d="M235 36V60M235 118V150" class="thick"/><path d="M228 66l14 8M228 76l14 8" /><text x="140" y="100">500 m tether</text>',
+ "tethered-nanosatellite": ('<path d="M-60 330 A360 360 0 0 1 540 330" class="paper"/><text x="240" y="192" text-anchor="middle">Earth</text><rect x="224" y="108" width="32" height="26" class="paper"/><text x="266" y="126">3U</text><rect x="233" y="20" width="14" height="14" class="paper"/><text x="256" y="32">1U</text><path d="M240 34V108"/><path d="M206 34h20M206 108h20M216 34V108" class="dash"/><text x="262" y="76">500 m tether</text>',
    "A 3U and a 1U CubeSat joined by a 500 m tether, orbiting together. Not to scale.", "Two satellites linked by a long tether above the Earth"),
  "quadrotor-sysid": ('<path d="M40 30V170H450M40 100H450" /><path d="M40 100H190" class="acc thick"/><path d="M190 100C215 36 240 36 262 100S310 164 334 100S380 36 406 100" class="acc thick"/><text x="62" y="86">hover</text><text x="236" y="190">sinusoidal rotation</text><text x="48" y="24">signal</text><text x="424" y="190">t</text>',
    "The two test types used to fit the model: hover, then sinusoidal rotation.", "Plot with a flat hover trace followed by a sine wave"),
@@ -206,7 +205,7 @@ PLATES = {
 }
 def plate(slug):
     svg, cap, label = PLATES[slug]
-    return f'<figure class="plate"><svg viewBox="0 0 480 200" role="img" aria-label="{html.escape(label)}">{svg}</svg><figcaption><b>Fig. 1</b> {html.escape(cap)}</figcaption></figure>'
+    return f'<figure class="plate"><svg viewBox="0 0 480 200" role="img" aria-label="{html.escape(label)}">{svg}</svg><figcaption><b>Fig. 1</b> {html.escape(cap)}<span class="sheet">Sheet {[q["slug"] for q in PROJECTS].index(slug)+1} of {len(PROJECTS)} &middot; NTS</span></figcaption></figure>'
 
 # ---------------------------------------------------------------- redesign layout
 META = {
@@ -347,8 +346,8 @@ home = f"""
   <p class="lede">As an intern at Seagate I built a simulation tool that cut controller design iteration on a batch of 30 drives from <a class="hl" href="about.html#seagate"><span class="strike">three weeks</span> to 15 minutes</a>.</p>
   <div class="actions">
     <a class="btn" href="projects.html">See the projects</a>
-    <a class="textlink" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
-    <a class="textlink" href="{LINKEDIN}" target="_blank" rel="noopener">Contact on LinkedIn</a>
+    <span class="action-links"><a class="textlink" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
+    <a class="textlink" href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a></span>
   </div>
 </div>
 <aside class="ledger" aria-label="Quick facts"><p class="ledger-h">For the record</p>
@@ -553,6 +552,7 @@ h3{font-size:1.3rem}
 .intro h1{margin-bottom:.15em}
 .subhead{font-family:var(--mono);font-size:.9rem;color:var(--muted);margin:0 0 26px}
 .lede{font-size:1.2rem;max-width:34em;margin:0 0 1em}
+.action-links{display:inline-flex;gap:6px 22px}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;margin-top:26px}
 
 .strike{text-decoration:line-through;text-decoration-thickness:2px}
@@ -609,6 +609,8 @@ h3{font-size:1.3rem}
 .plate .acc{stroke:var(--a1)}
 .plate .fill{fill:var(--fg)}
 .plate figcaption{margin:0;padding:8px 12px;background:var(--bg);border-top:1px solid var(--ink)}
+.plate figcaption{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline}
+.plate .sheet{margin-left:auto;font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted,var(--fg))}
 .plate figcaption b{font:700 .78rem var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-right:8px}
 @media (max-width:620px){.plate svg{font-size:16px}}
 
