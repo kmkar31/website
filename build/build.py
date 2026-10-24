@@ -289,12 +289,12 @@ def page(fname, title, desc, body, active, ld=None):
     with open(os.path.join(OUT, fname), "w") as f:
         f.write(full)
 
-def row_item(p, thumb=False):
+def row_item(p, thumb=False, first=False):
     m = META[p["slug"]]
     n = PROJECTS.index(p) + 1
     stamp = f'<span class="stamp s-{p["slug"].split("-")[0]}">{m["stamp"]}</span>' if m.get("stamp") else ""
     t = f'<span class="thumb"><img src="{img(p["thumb"])}" alt="" width="96" height="72" loading="lazy"></span>' if thumb else ""
-    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{stamp}{' / '.join(m['tags'])}</span></a></li>"""
+    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}{' start' if first else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{stamp}{('<span class="here">Start here</span>' if first else '')}{' / '.join(m['tags'])}</span></a></li>"""
 
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
@@ -324,10 +324,10 @@ home = f"""
 
 <section class="section">
   <div class="section-head"><h2>Projects</h2></div>
-  <ul class="index">{"".join(row_item(p) for p in PROJECTS)}</ul>
+  <ul class="index">{"".join(row_item(p, first=(i == 0)) for i, p in enumerate(PROJECTS))}</ul>
 </section>
 """
-page("index.html", "Karthik Karumanchi | Robotics and Controls Engineer",
+page("index.html", "Karthik Karumanchi | Control of Robots and Spacecraft",
      "Karthik Karumanchi, MS Mechanical Engineering at Carnegie Mellon. Control of robots and spacecraft: snake robots, quadrotor landing, aerobraking.", home, "home", ld=PERSON)
 
 # ----------------------------------------------------------- about
@@ -544,9 +544,9 @@ h3{font-size:1.3rem}
 /* project index: ruled rows, like a table of contents */
 .index{list-style:none;margin:0;padding:0}
 .index li[hidden]{display:none}
-.row{display:grid;grid-template-columns:1fr 160px;gap:8px 24px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;min-height:44px}
-.row.has-thumb{grid-template-columns:96px 1fr 160px;align-items:center}
-.row.no-thumb{grid-template-columns:1fr 160px;align-items:baseline}
+.row{display:grid;grid-template-columns:1fr 240px;gap:8px 24px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;min-height:44px}
+.row.has-thumb{grid-template-columns:96px 1fr 240px;align-items:center}
+.row.no-thumb{grid-template-columns:1fr 240px;align-items:baseline}
 .row.no-thumb .thumb{display:none}
 .row .thumb{width:96px;height:72px;border:1px solid var(--ink);background:var(--bg2);overflow:hidden}
 .row .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) sepia(.15)}
@@ -554,6 +554,9 @@ h3{font-size:1.3rem}
 .row p{margin:0;color:var(--fg);font-size:1rem;line-height:1.45;max-width:46em}
 .row:hover{background:var(--card);box-shadow:inset 4px 0 0 var(--a1)}
 .row:active{transform:translate(2px,2px)}
+.row.start h3{font-size:1.65rem}
+.tags .here{display:block;margin:0 0 6px;font:700 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);border-bottom:2px solid var(--a1);width:max-content}
+.facts div.stamped dd{cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation}
 .filter:active{transform:translate(2px,2px)}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
@@ -570,7 +573,8 @@ h3{font-size:1.3rem}
 .stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
 .stamp.s-hasselhoff{transform:rotate(1.2deg)}
 .stamp.s-aerobraking{transform:none}
-.tags .stamp{display:block;width:max-content;max-width:100%}
+.tags .stamp{display:block;width:max-content;max-width:100%;white-space:nowrap}
+@media (max-width:420px){.tags .stamp{white-space:normal}}
 .facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
 .broken-fig a.zoom,.broken-fig img{display:none}
 .project figure.broken-fig{display:none}
@@ -717,6 +721,15 @@ js = r"""
   d.querySelectorAll('.project figure img').forEach(function(i){
     if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
   });
+
+  // Hasselhoff stamp: hold it and the 99 seconds run down. Static for reduced motion; text is restored on release.
+  var st=d.querySelector('.facts div.stamped dd');
+  if(st&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var orig=st.textContent,tm=null,left=99;
+    function stop(){if(tm){clearInterval(tm);tm=null;}st.textContent=orig;left=99;}
+    st.addEventListener('pointerdown',function(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);});
+    ['pointerup','pointerleave','pointercancel'].forEach(function(n){st.addEventListener(n,stop);});
+  }
 
   // image lightbox: figure images are real links to the full image, so they work without JS
   var lb=d.getElementById('lightbox');

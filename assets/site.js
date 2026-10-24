@@ -42,6 +42,15 @@
     if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
   });
 
+  // Hasselhoff stamp: hold it and the 99 seconds run down. Static for reduced motion; text is restored on release.
+  var st=d.querySelector('.facts div.stamped dd');
+  if(st&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var orig=st.textContent,tm=null,left=99;
+    function stop(){if(tm){clearInterval(tm);tm=null;}st.textContent=orig;left=99;}
+    st.addEventListener('pointerdown',function(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);});
+    ['pointerup','pointerleave','pointercancel'].forEach(function(n){st.addEventListener(n,stop);});
+  }
+
   // image lightbox: figure images are real links to the full image, so they work without JS
   var lb=d.getElementById('lightbox');
   if(lb){

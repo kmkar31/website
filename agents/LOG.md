@@ -218,3 +218,18 @@ Declined:
 - Owner notes: retro and not-AI direction unchanged; grain left as is.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
 Next attack: no imagery, no status line, no start-here row, one idea of fun.
+
+## 2026-10-24: cycle 11 response (designer)
+Fixed:
+- 4 "Start here" label and larger title on row 01 (snake robots, matches the lede) on home only.
+- 5 Hasselhoff "99 seconds" stamp on its project page counts down while pressed (pointer), restores on release, static under prefers-reduced-motion; contrast unchanged.
+- 6 Home title now "Control of Robots and Spacecraft", taken from the page's own first sentence.
+- 7 Row tag column widened 160 to 240 px; all stamps now one line at desktop, tablet and phone (measured heights 22-25 px, no overflow).
+Declined:
+- 1, 3, 10, 11, 13 status, local media/resume, Search Console, WOFF2, repo facts: owner-only; nothing invented.
+- 2 About void: right column is the portrait slot; moving Skills would break the layout once the portrait exists.
+- 8 Projects vs home: Projects adds filters and thumbnails; trimming home would hide work. 9 About order: Seagate is linked from home and the Skills block is short; taste.
+- 12 filter state, 15 nav glyph spacing: taste, no measured fault. 14 stamp in link name: acceptable, reads as part of the title.
+- Index-card ledger and pager aside (5b, 5c): not added; no owner request.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed home desktop and phone.
+Next attack: no imagery, no status line, owner files needed.
