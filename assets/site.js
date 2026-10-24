@@ -34,6 +34,10 @@
     function nop(){i.parentNode.classList.add('no-portrait');}
     if(i.complete&&i.naturalWidth===0){nop();}else{i.addEventListener('error',nop);}
   });
+  d.querySelectorAll('.row .thumb img').forEach(function(i){
+    function nt(){var a=i.closest('.row');if(a){a.classList.add('no-thumb');}}
+    if(i.complete&&i.naturalWidth===0){nt();}else{i.addEventListener('error',nt);}
+  });
   d.querySelectorAll('.project figure img').forEach(function(i){
     if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
   });

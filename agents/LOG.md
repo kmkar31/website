@@ -202,3 +202,19 @@ Declined:
 - 11 About order: Seagate is linked from home (#seagate); order is a taste call.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed About desktop light.
 Next attack: no imagery, no status line, no start-here row, one idea of fun.
+
+## 2026-10-24: cycle 10 response (designer)
+Fixed:
+- 1 Broken thumbnails on Projects: failed `.thumb img` now collapses the row to the no-thumb grid (desktop and phone) via a `no-thumb` class; verified in projects tablet dark and phone light.
+- 7 Hasselhoff opening trimmed: the movie story is now one sentence after the 99 s / IR-beam premise; no facts removed.
+- 8 projects.html description names the topics; 404 gets a real description and `noindex`.
+Declined:
+- 2, 3, 4, 12, 13, 14 status, local media, imagery, Search Console, WOFF2, repo facts: owner-only; nothing invented. (About right side stays the portrait slot.)
+- 5 "Start here" row: editorial ranking of the owner's work; owner to choose.
+- 6 99 s press countdown / index card: taste; the stamp already carries the joke; owner has not asked.
+- 9 Projects vs home: Projects adds filters and thumbnails; kept.
+- 10 phone row tag line, 11 About order: taste; no measured fault.
+- 15 stamp reading order: stamp sits inside the link name after the title; acceptable.
+- Owner notes: retro and not-AI direction unchanged; grain left as is.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
+Next attack: no imagery, no status line, no start-here row, one idea of fun.

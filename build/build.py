@@ -68,7 +68,7 @@ PROJECTS = [
   thumb="84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp", page_title="Hasselhoff Submarine",
   desc="A mini submarine with four BLDC thrusters and a joystick remote: the player has 99 seconds to drive it onto an IR target.",
   body=f"""
-<p>The Hasselhoff Bot is a small submarine inspired by David Hasselhoff's cameo in the 2004 SpongeBob Movie. In the movie, SpongeBob and Patrick explore the ocean in search of King Neptune's crown to cover his shiny, bald head and David Hasselhoff is the last "vehicle" that propels the two friends back to Bikini Bottom, where they return the crown to King Neptune. In a similar fashion, the Hasselhoff Bot is a small, user-steerable submarine that allows the user 99 seconds to explore an underwater environment in search of an IR beam mounted on the bottom of the tank.</p>
+<p>The Hasselhoff Bot is a small, user-steerable submarine that gives the user 99 seconds to explore an underwater environment in search of an IR beam mounted on the bottom of the tank. It is named for David Hasselhoff's cameo in the 2004 SpongeBob Movie, where he is the last "vehicle" that carries SpongeBob and Patrick back to Bikini Bottom.</p>
 {row(fig("84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp", alt="The Hasselhoff submarine"), fig("84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp", alt="Remote controller for the Hasselhoff submarine"))}
 <p class="cap">Hasselhoff submarine (left) and remote control (right)</p>
 <h2>User Experience</h2>
@@ -235,7 +235,7 @@ def page(fname, title, desc, body, active, ld=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-<meta name="theme-color" content="#efe7d6">
+{'<meta name="robots" content="noindex">' + chr(10) if fname == "404.html" else ""}<meta name="theme-color" content="#efe7d6">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
@@ -396,7 +396,7 @@ projects = f"""
   <p class="empty" id="empty" hidden>No projects match that filter.</p>
 </section>
 """
-page("projects.html", "Robotics, controls and space projects | Karthik Karumanchi", "Projects by Karthik Karumanchi at Carnegie Mellon University and IIT Madras", projects, "projects", ld={"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": q["title"], "url": BASE + q["slug"] + ".html"} for i, q in enumerate(PROJECTS)]})
+page("projects.html", "Robotics, controls and space projects | Karthik Karumanchi", "Nine projects: snake robots, quadrotor landing, aerobraking, tethered nanosatellites, a Formula SAE car, a mini submarine and more, from CMU and IIT Madras.", projects, "projects", ld={"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": q["title"], "url": BASE + q["slug"] + ".html"} for i, q in enumerate(PROJECTS)]})
 
 # ----------------------------------------------------------- project pages
 for i, p in enumerate(PROJECTS):
@@ -426,7 +426,7 @@ for i, p in enumerate(PROJECTS):
          ld={"@context": "https://schema.org", "@type": "CreativeWork", "name": p["title"], "description": p["desc"],
              "url": BASE + p["slug"] + ".html", "author": {"@type": "Person", "name": "Karthik Karumanchi", "url": BASE}})
 
-page("404.html", "Page not found | Karthik Karumanchi", "Page not found",
+page("404.html", "Page not found | Karthik Karumanchi", "This page does not exist. Back to the project index.",
      '<section class="page-head"><h1>That page doesn&rsquo;t exist.</h1><p class="lede" style="margin-top:16px">This page failed to land on the target. Back to the index.</p><p class="actions"><a class="btn" href="index.html">Back home</a></p></section>', "")
 
 with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
@@ -546,6 +546,8 @@ h3{font-size:1.3rem}
 .index li[hidden]{display:none}
 .row{display:grid;grid-template-columns:1fr 160px;gap:8px 24px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;min-height:44px}
 .row.has-thumb{grid-template-columns:96px 1fr 160px;align-items:center}
+.row.no-thumb{grid-template-columns:1fr 160px;align-items:baseline}
+.row.no-thumb .thumb{display:none}
 .row .thumb{width:96px;height:72px;border:1px solid var(--ink);background:var(--bg2);overflow:hidden}
 .row .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) sepia(.15)}
 .row h3{margin:0 0 .15em;font-size:1.35rem}
@@ -656,6 +658,8 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .row.has-thumb{grid-template-columns:80px 1fr}
   .row.has-thumb .thumb{width:80px;height:60px;grid-row:span 2}
   .row.has-thumb .tags{grid-column:2}
+  .row.has-thumb.no-thumb{grid-template-columns:1fr}
+  .row.has-thumb.no-thumb .tags{grid-column:1}
   .row .no{display:inline;margin-right:8px}
   .pager{grid-template-columns:1fr}
   .pager .next{text-align:left}
@@ -705,6 +709,10 @@ js = r"""
   d.querySelectorAll('.about-top .portrait').forEach(function(i){
     function nop(){i.parentNode.classList.add('no-portrait');}
     if(i.complete&&i.naturalWidth===0){nop();}else{i.addEventListener('error',nop);}
+  });
+  d.querySelectorAll('.row .thumb img').forEach(function(i){
+    function nt(){var a=i.closest('.row');if(a){a.classList.add('no-thumb');}}
+    if(i.complete&&i.naturalWidth===0){nt();}else{i.addEventListener('error',nt);}
   });
   d.querySelectorAll('.project figure img').forEach(function(i){
     if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
