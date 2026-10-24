@@ -267,3 +267,20 @@ Declined:
 - 7 About void: portrait slot, two layouts by design. 11 Projects nav: filters and thumbnails. 12 Hasselhoff lead: voice, matches page. 13 tan tags: taste, contrast passes.
 Verification: tools/check.py all OK, 13 pages x 3 viewports x 2 themes; viewed tethered desktop dark, ARGUS phone, home phone.
 Next attack: owner media, resume file, status line.
+
+## 2026-10-24: cycle 14 response (designer)
+Fixed:
+- 6 Home: Start-here row 01 now carries its Fig. 1 plate (repo-local inline SVG, text hidden at thumbnail size) on a graph-paper ground; full width on phone, so the front page has a visual and the list is no longer uniform.
+- 5 Hasselhoff: Testing moved up after User Experience; Design Methodology and State Machine Logic now sit in a native `<details>` ("Implementation detail"), no JS, still in the HTML. Text unchanged.
+- 14 Orphaned captions: the "(left)/(right)" caption reworded ("side by side"); JS now also hides a `p.cap` whose figure or figure row failed to load.
+- 13 Hasselhoff row blurb no longer repeats the cameo joke (kept on the page lead); also removed duplicated "joystick remote" wording.
+- 9 Mono labels at 11.5 px raised to 12 px (Start here, sheet tag, question label, stamps); stamps still one line.
+- 11 Header: hairline rule separates the nav from Resume/icons (desktop and tablet).
+- 15 Already done: every target=_blank carries rel="noopener". 4 interim: preconnect to fonts.gstatic.com already present.
+Declined:
+- 1 resume.pdf, 2 status line, 3 photographs, 4 self-hosted WOFF2, 10 og.png with plate, 8 email: need owner files or facts (sandbox cannot fetch Wix hosts); nothing invented. STATUS slot still empty.
+- 3 "Table 1" of values: facts already sit in the facts strip above each plate; a table would repeat them.
+- 7 About ledger-style date column: large About rewrite, About has a two-layout portrait slot; risk to phone layout.
+- 12 more plate jokes: taste, owner has not asked.
+Verification: tools/check.py all OK, 13 pages x 3 viewports x 2 themes; viewed home desktop and phone, Hasselhoff phone dark.
+Next attack: owner blockers (resume, status, photos, fonts).
