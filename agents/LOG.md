@@ -185,3 +185,20 @@ Declined:
 - 12 Self-hosted fonts: no WOFF2 available in sandbox.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, no failures; viewed quadrotor-landing phone light and About tablet light.
 Next attack: no imagery, no status line, no first-person outcomes.
+
+## 2026-10-24: cycle 9 response (designer)
+Fixed:
+- 4 Meta descriptions rewritten for all nine projects around facts already on each page (e.g. Hasselhoff: four BLDC thrusters, joystick remote, 99 s, IR target). Raftar now says 40+ students, matching the page (was "45").
+- 1 (partial) About opening is tense-neutral: "My Master's ... is at Carnegie Mellon University (2023 - 2025)". Real status still owner-only.
+- 12 Skills grid capped at the 760 px measure so rules and skills share one width on About.
+- 8 SC 1.4.12 text-spacing test run (line-height 1.5, letter 0.12em, word 0.16em, paragraph 2em) on home, About, Hasselhoff, aerobraking, 404 at phone and desktop: no overflow, no clipped stamps, facts or buttons.
+- 14 Aerobraking stamp is solid, no longer dashed.
+Declined:
+- 1 (rest), 3, 13, 15 status, local media, Wix resume file, email: owner-only facts or files; nothing invented.
+- 2 Moving skills beside the intro: the right column is the portrait slot; aligned widths (12) instead.
+- 5 Hasselhoff press countdown, index-card ledger, extra asides: taste; owner has not asked and the 99 s stamp already carries it. Raftar aside would repeat the stamp.
+- 6 "Start here" row: an editorial ranking of the owner's work; deferred again, owner to choose.
+- 7 Phone row tag line: taste; no measured fault. 9 robots.txt: host-root only. 10 Font metrics: no measurable files in sandbox.
+- 11 About order: Seagate is linked from home (#seagate); order is a taste call.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed About desktop light.
+Next attack: no imagery, no status line, no start-here row, one idea of fun.

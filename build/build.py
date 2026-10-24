@@ -26,7 +26,7 @@ PROJECTS = [
  dict(slug="snake-robots", title="Gait-based Control of Modular Snake Robots",
   q="How do we coordinate the motion of hyper-redundant snake robots while remaining computationally inexpensive?",
   thumb="84da68_68a480733b8146feb7ff1fad23072b9d~mv2.jpg", page_title="Snake Robots",
-  desc="Projects on control of modular snake robots as part of the Biorobotics Lab, CMU.",
+  desc="Gait-based, compliant controllers for modular snake robots, implemented in CMU's Biorobotics Lab so they can cross unknown terrain.",
   body=f"""
 {row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
 <h2>Background</h2>
@@ -36,7 +36,7 @@ PROJECTS = [
  dict(slug="argus-mission", title="ARGUS Mission",
   q="How do we localize a satellite's position solely using visual methods?",
   thumb="84da68_dc84e56af31f48c2975157ca1d0a7b58~mv2.jpg", page_title="ARGUS Mission",
-  desc="A nanosatellite designed to perform orbit determination using visual methods.",
+  desc="A nanosatellite that finds its own position in low Earth orbit from images of the Earth, avoiding GPS export limits and costly ground stations.",
   body=f"""
 <p>Localizing a satellite's position in LEO is hard. GPS has export restrictions and large ground stations are expensive. ARGUS aims to use visual based orbit determination, i.e., using images of Earth to identify its position.</p>
 {fig("84da68_d561ef950eb448809236d27460e6052e~mv2.jpg", alt="ARGUS nanosatellite mission figure")}
@@ -44,7 +44,7 @@ PROJECTS = [
  dict(slug="quadrotor-landing", title="Quadrotor Landing on an Unstable Mobile Platform",
   q="How do we land aerial vehicles on mobile platforms in the presence of environmental disturbances?",
   thumb="84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg", page_title="Quadrotor Landing",
-  desc="Finite State Machine based high-level controller for a quadrotor to autonomously navigate to and land on an unstable mobile platform.",
+  desc="A CrazyFlie quadrotor lands on a moving Tumbller robot using model predictive control and a state machine: 100% success on the small pad below 0.25 m/s.",
   body=f"""
 <p>Existing autopilots can manage stable environments, but they falter in wind and on unstable landing platforms, and then need a human to step in. This project built an algorithm to land a quadrotor (the CrazyFlie) on a two-wheeled platform (the Tumbller) while the latter follows a trajectory, mimicking the difficulties of landing on a ship in rough seas.</p>
 {fig("84da68_3767353ce606470db6978bad6b77b7f3~mv2.jpg", "Tumbller with the small landing pad (left) and the CrazyFlie (right)", "Project hardware: CrazyFlie drone and Tumbller landing platform")}
@@ -57,7 +57,7 @@ PROJECTS = [
  dict(slug="raftar-formula-racing", title="Raftar Formula Racing",
   q="How do we build an electric racecar that is one-fifth the weight of a Ferrari but matches its 0-60 acceleration time?",
   thumb="84da68_2f4866a7d377424f8b71ef3d12529617~mv2.jpg", page_title="Raftar Formula Racing",
-  desc="An electric Formula SAE car built by a team of 45 engineers at IIT Madras.",
+  desc="Raftar Formula Racing, IIT Madras: 40+ students built and raced an electric Formula SAE car; podium at Formula Bharat 2023.",
   body=f"""
 <p>Raftar Formula Racing is the FSAE team of IIT Madras. A team of 40+ engineering students design, build, test and race an electric formula-style car at Indian and European competitions.</p>
 <p>Read more on the <a href="https://www.raftariitm.com/" target="_blank" rel="noopener">Raftar Formula Racing website</a>.</p>
@@ -66,7 +66,7 @@ PROJECTS = [
  dict(slug="hasselhoff-submarine", title="Hasselhoff Submarine",
   q="How do we develop a submarine for underwater target detection?",
   thumb="84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp", page_title="Hasselhoff Submarine",
-  desc="A fun game using a submarine to navigate to and land on a target.",
+  desc="A mini submarine with four BLDC thrusters and a joystick remote: the player has 99 seconds to drive it onto an IR target.",
   body=f"""
 <p>The Hasselhoff Bot is a small submarine inspired by David Hasselhoff's cameo in the 2004 SpongeBob Movie. In the movie, SpongeBob and Patrick explore the ocean in search of King Neptune's crown to cover his shiny, bald head and David Hasselhoff is the last "vehicle" that propels the two friends back to Bikini Bottom, where they return the crown to King Neptune. In a similar fashion, the Hasselhoff Bot is a small, user-steerable submarine that allows the user 99 seconds to explore an underwater environment in search of an IR beam mounted on the bottom of the tank.</p>
 {row(fig("84da68_c24e062c23de44129b5ec12fadd6e607~mv2.webp", alt="The Hasselhoff submarine"), fig("84da68_ffefc35738fe40f5a4bca7df529d1fd3~mv2.webp", alt="Remote controller for the Hasselhoff submarine"))}
@@ -89,7 +89,7 @@ PROJECTS = [
  dict(slug="aerobraking-drl", title="Deep Reinforcement Learning for Aerobraking Maneuvers",
   q="How do we eliminate the reliance on human decisions during orbital insertions on other planets?",
   thumb="84da68_c839ad691caa43eba5f0fd8c6c2a7b22~mv2.gif", page_title="Aerobraking",
-  desc="Deep reinforcement learning methods to automate spacecraft aerobraking maneuvers.",
+  desc="A PPO agent that picks the burns for an aerobraking orbit insertion; on a physics simulator it reaches the target orbit in 46 orbits.",
   body=f"""
 <p>Aerobraking is a technique that uses a planet's atmosphere to alter a spacecraft's trajectory from an interplanetary hyperbolic path to a target elliptical orbit. Current methods for conducting aerobraking maneuvers rely on continuous ground station monitoring, which introduces delays due to the vast distances involved in interplanetary travel. To address these challenges, this project implements a reinforcement learning approach for executing lightweight control strategies onboard. Our method trains a Proximal Policy Optimization (PPO) agent to perform aerobraking maneuvers faster and with reduced fuel consumption.</p>
 {fig("84da68_fcee06d18ae44b0d83cb16d7137cc758~mv2.png", "Depiction of an aerobraking maneuver. An initial propulsive maneuver inserts the spacecraft into a high energy elliptical orbit from an interplanetary hyperbolic orbit. Subsequent passages through the atmosphere reduce the spacecraft's energy until a suitable target orbit is reached.", "Aerobraking maneuver definition")}
@@ -113,7 +113,7 @@ PROJECTS = [
  dict(slug="tethered-nanosatellite", title="Dynamics and Control of Tethered Nanosatellites",
   q="How do we use satellites to de-orbit space debris and clear up Low-Earth Orbit?",
   thumb="84da68_68cf50c42cec4973a058e0b5b33b664a~mv2.png", page_title="Tethered Nanosatellite",
-  desc="Demonstrating the effectiveness of electrodynamic tethers in clearing debris from LEO.",
+  desc="Two CubeSats joined by a 500 m electrodynamic tether that uses Earth's magnetic field to drag debris out of low Earth orbit.",
   body=f"""
 <p>Kessler's Syndrome is a phenomenon where the increasing amount of satellite debris in orbit causes a cascading effect rendering orbits unusable. The US Space Surveillance Network reportedly tracks nearly 40,000 objects in orbit, monitoring them for potential threats to ongoing missions. These debris are classified into three categories (cars, hubcaps and shrapnel) based on their size. Cars are the largest and account for less than 1% of all debris. Shrapnel, on the other hand, is no larger than 1 cm and accounts for 98% of space debris. Cars, while low in number, pose a large threat since they can potentially break into millions of pieces of shrapnel.</p>
 {fig("84da68_683f6cd5ca99486abd282f55566bb60b~mv2.jpg", 'A demonstration of Kessler&rsquo;s syndrome. Source: <a href="https://spectrum.ieee.org/weve-already-passed-the-tipping-point-for-orbital-debris" target="_blank" rel="noopener">We&rsquo;ve Already Passed the Tipping Point for Orbital Debris</a>, IEEE Spectrum', "Depiction of orbital debris")}
@@ -127,7 +127,7 @@ PROJECTS = [
  dict(slug="quadrotor-sysid", title="Grey-box System Identification of Quadrotors",
   q="How do we build accurate yet lightweight mathematical models for our system?",
   thumb="84da68_723a55c38d2b4c018aaa96108c047e1b~mv2.png", page_title="Grey-box System Identification",
-  desc="Physics-rooted data-driven models to mathematically relate a quadrotor's power input to change in its global location.",
+  desc="A physics-based quadrotor model with four unknown coefficients, fitted from hover and sinusoidal-rotation flight tests.",
   body=f"""
 <p>The objective of this project is to create a model of a quadrotor that calculates global displacement in the global frame based on local rotation angles and rotor power input. By applying propeller theory, 3D rotation theory, and Lagrangian mechanics, a system model is constructed, requiring the estimation of four constants representing gains along the three rotations and thrust.</p>
 <h2>The model and the tests</h2>
@@ -149,7 +149,7 @@ PROJECTS = [
  dict(slug="assistive-tricycle", title="Design of an Assistive Tricycle",
   q="How do we design a tricycle that can be pedaled using a single leg without causing joint pain?",
   thumb="84da68_05d5033f23aa415484de4567ce426e30~mv2.png", page_title="Assistive Tricycle",
-  desc="Design of an assistive tricycle to enhance mobility of persons with single-leg disabilities.",
+  desc="A tricycle for riders with one working leg, designed for 12 km/h on an elliptical four-bar path, checked with ANSYS FEA.",
   body=f"""
 <p>This project aims to design a tricycle to be used by persons with lower-limb disabilities who possess full function in only one leg. To achieve this, specific criteria were established for the tricycle's design:</p>
 <ol>
@@ -345,7 +345,7 @@ about = f"""
 <section class="section about">
   <div class="about-top">
     <div class="prose">
-      <p>I&rsquo;m pursuing a Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University. I focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
+      <p>My Master&rsquo;s in Mechanical Engineering is at Carnegie Mellon University (2023 &ndash; 2025), with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a podium finish at Formula Bharat 2023.</p>
       <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a></p>
     </div>
@@ -562,12 +562,12 @@ h3{font-size:1.3rem}
 .about-top.no-portrait{grid-template-columns:minmax(0,38em)}
 .about-top.no-portrait .portrait{display:none}
 .about-top .portrait{width:100%;max-width:280px;margin-top:.4em;border:1px solid var(--ink)}
-.skill-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.skill-cols{max-width:760px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
 .skill-cols .skill-group{margin-top:1em}
 .stamp{display:inline-block;margin:0 0 6px;padding:2px 6px;border:2px solid var(--a1);color:var(--a1);font:700 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
 .stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
 .stamp.s-hasselhoff{transform:rotate(1.2deg)}
-.stamp.s-aerobraking{transform:none;border-style:dashed}
+.stamp.s-aerobraking{transform:none}
 .tags .stamp{display:block;width:max-content;max-width:100%}
 .facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
 .broken-fig a.zoom,.broken-fig img{display:none}
