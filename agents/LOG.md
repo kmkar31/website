@@ -233,3 +233,23 @@ Declined:
 - Index-card ledger and pager aside (5b, 5c): not added; no owner request.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed home desktop and phone.
 Next attack: no imagery, no status line, owner files needed.
+
+## 2026-10-24: cycle 12 response (designer)
+Fixed:
+- 1, 4d, 6 Every project page now opens with "Fig. 1", an authored line drawing (inline SVG, repo-local, cannot hotlink-fail) on a graph-paper ground, drawn only from facts already on the page (500 m tether, four thrusters, 99 s, 0.8 m circle at 0.38 m/s, 46 orbits, elliptical vs circular path, hover and sinusoidal tests). Captions say where a drawing is schematic. This is the one non-default print idea: lab-notebook plates with figure numbers.
+- 5 About: when the portrait fails to load, the empty column now holds an "On this page" index (Skills, Education, Experience; 44 px targets); hidden when the portrait loads and on phone.
+- 10 Home actions wrap with tighter row gap on phone.
+- 12, 4b Pager now shows the neighbour's first fact (e.g. "Tether: 500 m") instead of repeating its tl;dr.
+- 13 Stamps reduced to two types: tilted single border, and the double border for the Formula Bharat podium.
+- 14 Header link now reads "Resume (PDF)" like the body and footer.
+- 4c Colophon adds the true line "Hand-built static pages, one stylesheet, no framework."
+Declined:
+- 2 Local resume PDF: the sandbox proxy returns 403 for the filesusr host, so the file cannot be copied; owner should drop it in assets/. Not faked.
+- 3 Status/date line: owner-only fact; STATUS slot stays empty.
+- 4a Hasselhoff index card: Fig. 1 plus the pressable stamp already open the page with the 99 s IR target; a second device would repeat it.
+- 7 Self-hosted fonts and 8 robots.txt/OG image: need real WOFF2 and a host root; unchanged.
+- 9 Resume in phone header: four header items would break the 44 px phone layout; resume is on the home actions and every footer.
+- 11 Projects vs home: Projects adds filters and thumbnails when media loads.
+- Row blurb vs page tl;dr repeat (12 in part): the blurb is the tl;dr by design; the third surface (pager) now differs.
+Verification: tools/check.py (long timeout), 13 pages x 3 viewports x 2 themes, all OK; viewed all nine plates light and dark and About desktop.
+Next attack: still no photographs, no status line, resume still a Wix hotlink.

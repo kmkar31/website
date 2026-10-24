@@ -1,49 +1,63 @@
-# Critique, cycle 11 (2026-10-24)
+# Critique, 2026-10-24 (after cycle 11)
 
-Method: ran `tools/check.py` (13 pages x 3 viewports x 2 themes; all OK, only "images not loaded" sandbox notes). Viewed home phone light and desktop light, About desktop light, Projects tablet dark. Grepped titles, canonical, wixstatic counts. No site files edited.
+## Sources
+WebFetch was blocked this cycle (permission request unanswered), so none of these could be opened. They are pointers from background knowledge, not verified quotes:
+- web.dev optimize CLS (font swap shift, size-adjust fallback): https://web.dev/articles/optimize-cls (blocked)
+- NN/g portfolio guidance: https://www.nngroup.com/articles/portfolios/ (blocked)
+- WCAG 2.2 SC 2.5.8 target size: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (blocked)
+Findings below rest on what I measured and saw in the repo.
 
-Sources: WebFetch was blocked this run (permission request unanswered) for all three attempts, so these are unverified pointers, not fetched. No decision should rest on them alone.
-- WCAG 2.2 SC 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (blocked)
-- web.dev, Optimize CLS (web fonts): https://web.dev/articles/optimize-cls (blocked)
-- NN/g, How users read on the web: https://www.nngroup.com/articles/how-users-read-on-the-web/ (blocked)
-Topic this cycle: scanning and first-screen content, font-swap CLS, target size.
+Measured: tools/check.py timed out at 2 min in my run, but screenshots were regenerated. I looked at home (desktop light, phone light and dark), About desktop, snake-robots phone. Repo grep: every page still hotlinks wixstatic/filesusr (3 to 9 references per page), the resume PDF is on filesusr, fonts come from Google Fonts, assets/ holds only og.png, site.js, style.css.
 
 ## Scores
-AI-tell: **3 / 10** (unchanged). No gradients, glass, glow, slogans. Remaining tells: nine same-anatomy rows; warm cream/rust/amber "editorial" palette; hero order name, subtitle, lede, button, ledger, list. Authored: struck-through "three weeks", 99 s stamp, SpongeBob/Hasselhoff blurb, 404 line. Moved since cycle 10: nothing; the thumbnail collapse removed a broken look, not a tell.
-Looks good: **6 / 10**. Type, rules and footer band are good; still no image anywhere above the fold, so first impression is a well-set text document. Projects page now collapses cleanly without thumbnails (cycle 10 fix verified in screenshot) but then is just home with filters.
-SEO: **7 / 10**. Unique titles, descriptions, canonical, JSON-LD, sitemap. Gaps: media hotlinks (LCP/weight), robots.txt location, home title "Robotics and Controls Engineer" is a claim not stated on the site.
-UX: **6 / 10**. Identity, resume and LinkedIn are findable on phone. No status, no start-here.
-Fun and personality: **5 / 10**. Stamps only; nothing responds to touch.
+- AI-tell score: 4/10. Down from the gradient and card-stack era. Remaining tells: warm-cream editorial palette with serif display plus terracotta accent is itself a 2025 template look; the numbered list with mono index, stamps and a mono "for the record" sidebar is a well-worn "editorial" kit; one-line hero + lede + ledger is tidy. Moved since last cycle: "Start here" label added (human, useful); stamps now consistent (less accidental, slightly more systematic). Praise: struck-through "three weeks" highlight, 99 s stamp, "failed to land on the target" 404 are specific.
+- Looks good: 6/10. Typographic hierarchy is clear and the home page is calm and scannable. But there is no image anywhere. Every page is text on cream; project pages are a title, a tl;dr, two fact rows and a paragraph (snake-robots page ends after about 1.2 screens with nothing visual). Project pages look unfinished, not minimal.
+- SEO: 7/10. Unique titles and descriptions, canonical, OG, local og.png, JSON-LD, sitemap, robots present. Weaknesses: robots.txt cannot work on a project subpath; the og card is text only; render depends on Google Fonts (no size-adjusted fallback); no image alt content to index because media is broken.
+- UX: 6/10. Name, field, strongest project, resume, LinkedIn within one phone screen: good. Problems: contact is only LinkedIn (and a hotlinked PDF that may die), no status or date line, Resume hidden in the phone header, project pages have no outcome section.
+- Fun and personality: 5/10. Three good touches (strike-through, 99 s stamp, 404). Everything else is plain. Site is tidy, not memorable.
 
 ## Owner critique (user-critique.md)
-- Retro matte: honoured (flat, one hard shadow, double rules, ink footer). Taste: grain is almost invisible in the screenshots.
-- Not AI-looking: honoured at 3/10. Residual risk is sameness and absence of first-person voice, not any effect.
+1. Retro, matte: committed (flat paper, ink rules, hard shadow on one button, no blur or gradient). Grain is barely visible; fine. Fit is good. Drift risk: it reads "warm editorial blog" more than "retro print"; see finding 6.
+2. Not AI-looking: improved; see score and finding 6.
 
-## Findings, ranked
+## Findings (ranked)
 
-1. **Major, Credibility/UX: no current status (owner-only).** Today is 2026-10-24; About says MS 2023 - 2025 and home has no status line (STATUS slot empty). A recruiter cannot tell whether he has graduated or is available. One owner answer fixes it: graduated or enrolled, where now, open to roles. Not fixable by the designer.
-2. **Major, Looks good: no imagery above the fold.** Home desktop and phone show no robot, satellite or car; the About right two-fifths is empty (portrait failed to load and collapsed, intro stays at ~38em with a large void to the right on desktop). Until media exists, make the void deliberate: move the Skills block beside the intro on desktop, or widen the intro. Taste on layout; measured fact that the right of About is blank.
-3. **Major, Robustness/Performance: 31 wixstatic references remain** (aerobraking 7, sysid 5, tricycle 4, hasselhoff 4, tethered 4, landing 2, one each on about, argus, projects, raftar, snake) plus the Wix resume. Outage or hotlink block means no figures and a dead resume link, which is the single most important file. No local copies, no dimensions. Owner must supply a media folder and the resume PDF.
-4. **Major, UX: no "start here" project.** Nine equal rows; a 30-second visitor guesses. Deferred five times. Default recommendation: give row 01 (matches the lede, Biorobotics Lab) a larger title and a "Start here" mono label, or row 04 for the podium. It also breaks the even rhythm, which is the main remaining AI tell.
-5. **Major, Fun: one idea only.** Stamps are good, three rows have them, none respond to touch. Grounded, nothing invented: (a) Hasselhoff "TIME ALLOWED: 99 S" stamp counts down only while pressed (:active or JS), static under prefers-reduced-motion; (b) ledger set as a typed index card with a slightly off-register heading; (c) one plain aside in the pager. Trade-off: keep 4.5:1 contrast and no motion for reduced-motion users. This has been declined as "taste" repeatedly; the axis score below 7 makes it a standing Major.
-6. **Minor, Content/SEO: home title says "Robotics and Controls Engineer"** while the page itself says MS student. Either say "MS student" or use a descriptor already on the site. Also "Karthik Karumanchi | ..." puts the name first, fine.
-7. **Minor, Looks good: phone home is a ~5700 px even scroll.** Rows with stamps (04, 05, 06) are taller because the stamp wraps above the tag line, and the Raftar and aerobraking stamps wrap to two lines on desktop and tablet ("PODIUM, FORMULA / BHARAT 2023"). Shorten to "PODIUM, FORMULA BHARAT" is not an option without losing the fact; widen the column slightly (about 200px) so each stamp fits one line.
-8. **Minor, UX: Projects duplicates home.** Same nine blurbs and order; Projects adds filter buttons only. With no thumbnails (broken state) the pages are nearly identical. Either give Projects a different job (grouped by topic) or drop the list from home to the top three after the start-here pick.
-9. **Minor, Content: About order.** Skills (generic list) come before Education and Experience; the strongest fact, 3 weeks to 15 minutes, is the last section. Taste; Experience first is the usual reading order for hiring managers.
-10. **Minor, SEO: robots.txt and sitemap sit under /website/**, where crawlers do not read robots.txt on a project site. Owner: submit sitemap in Search Console.
-11. **Minor, Performance: Google Fonts without size-adjusted fallbacks** (swap CLS risk on the h1). Needs owner WOFF2 to self-host. Source pointer (blocked): web.dev/articles/optimize-cls.
-12. **Minor, Looks good: filter buttons are the only boxes on Projects** and the gap between the h1/filters and the first row (about 60px) is bigger than between rows; fine, but the "All" active state in dark theme (cream block) is the heaviest object on the page and competes with the title. Taste.
-13. **Nit, Content: Hasselhoff "Source Code" is a bare "GitHub repo" link** with no context. Needs owner facts.
-14. **Nit, Accessibility: stamps sit inside the home row link name**, so the accessible name ends "Podium, Formula Bharat 2023". Probably fine; verify with a screen reader.
-15. **Nit, Looks good: nav "Resume" arrow is a text glyph next to LinkedIn and GitHub icons**; spacing between the text link and icons is uneven on desktop. Minor polish.
+1. Major (UX, looks good). Project pages have no visual evidence and a thin, generic body. Snake-robots phone page: tl;dr, two fact rows, a background paragraph taken from the field, then pager. A recruiter gets no proof of the work. Whole site depends on owner-supplied media (images, videos, report PDFs), which has been deferred for 10 cycles. Recommendation: stop waiting. Ask the owner for one image per project, or have the designer draw a flat diagram per project from facts already on the page (tether length 500 m, four thrusters, elliptical four-bar linkage, 46 orbits). Authored line art in ink fits the print direction and cannot hotlink-fail. Source: NN/g portfolio guidance (unverified).
+
+2. Major (robustness). Every page still hotlinks Wix, including the resume PDF the home page, About page and footer point to. If that URL rots, the main call to action is dead. Not verified offline. Copy the PDF into the repo; this is the single highest-value owner action.
+
+3. Major (UX). No status or date: Home says "MS ... Carnegie Mellon" and About says 2023 to 2025 and today is October 2026. A reader cannot tell whether he has graduated or is available. The STATUS slot has been empty since cycle 4. Owner needs to answer one question. Flag as stale-looking content, not a design bug.
+
+4. Major (fun, below 7). The personality is concentrated in three details; the rest is a clean resume. Ideas grounded in repo facts only: (a) Hasselhoff page: a small index-card with "target: IR beam, 99 s" as the first thing on the page; (b) pager text on a project page could carry the stamp of the neighbour; (c) a real colophon line with true constraint ("one stylesheet, no framework", already stated elsewhere); (d) a visible ruler or tolerance mark on the snake/tricycle pages. Trade-off: keep each static or press-only (reduced-motion safe) to avoid decorative-motion penalty.
+
+5. Major (UX, About). About page desktop has a large empty right column beside the intro and Skills (the portrait slot is empty after the portrait collapse), so the page looks left-heavy and unfinished. The portrait is missing because it is hotlinked. Either supply the portrait or lay out for its absence; the designer has declined this repeatedly, but a missing image is the current state, not a hypothetical.
+
+6. Major (AI-tell). Palette and kit: cream background, near-black brown text, one terracotta accent, one amber highlight, DM Serif Display, mono labels. It is competent and also the most common "tasteful" generator output. Concrete alternative: commit harder to print. Pick one real reference (an engineering lab notebook, graph paper, a patent drawing plate, or a Letterpress specimen sheet) and let it dictate one non-default thing: for example a faint grid rule on the project index, figure numbers ("Fig. 1") on every project, or a two-ink (black plus one spot colour) rule applied consistently to stamps, buttons and links. Taste, but I label the sameness risk as the biggest remaining tell.
+
+7. Minor (SEO and CWV). Google Fonts is render-affecting and third-party; no fallback metric adjustment. Not verifiable offline. Self-hosted WOFF2 is the fix and needs real font files. Source: web.dev CLS guidance (unverified).
+
+8. Minor (SEO). robots.txt in a project subpath is ignored by crawlers; sitemap is only discoverable if submitted. Harmless; the designer already said so. OG image is a text card, so shares carry no project visual.
+
+9. Minor (UX). Phone header hides Resume; reaching it needs the home lede or the footer. Acceptable, but on phone project pages there is no resume or contact link until the footer.
+
+10. Minor (looks good). Home phone view: three actions (button, Resume, Contact on LinkedIn) wrap to two rows with the third link alone on the second row and unaligned. Group them or give the third a clear row.
+
+11. Minor (UX). Home and Projects both list all nine projects; the filtered Projects page adds little with no thumbnails (they fail to load). Consider whether it earns its nav slot.
+
+12. Nit. Row blurbs on home are close to the project tl;dr text; the same sentence appears on three surfaces (row, page tl;dr, pager). Vary or shorten.
+
+13. Nit. Stamps are boxed capitals in the same face; the double-border, tilt and solid variants are inconsistent in a way that reads as arbitrary rather than authored. Pick two stamp types max.
+
+14. Nit. The "Resume↗" in the header uses an arrow glyph but the same link in the body reads "Resume (PDF)"; unify the label.
 
 ## Good, do not regress
-- Plain intro with the struck-through "three weeks" marker; "For the record" ledger.
-- Project pages lead with the large tl;dr, then facts; pager shows neighbour summaries.
-- Concrete meta descriptions and unique titles; canonical, OG, JSON-LD, sitemap lastmod; 404 noindex with voice ("failed to land on the target").
-- Retro system: flat surfaces, hard shadow on the primary button only, double rules, ink footer, inverted dark theme, no gradient or blur.
-- Failed thumbnails, figures and portrait collapse cleanly; scroll-padding under sticky header; text-spacing test passed.
-- Footer carries resume and LinkedIn on every page.
+- Home: name, one-line affiliation, specific lede, struck-through "three weeks to 15 minutes", ledger sidebar, "Start here".
+- Flat matte surfaces, hard shadow on one button only, no gradients, blur or glow.
+- Dark theme as inverted print with readable contrast.
+- Unique titles and meta per page, clean canonical, JSON-LD, local og.png, sitemap.
+- Graceful collapse of failed images and captions.
+- The 404 line and the pressable 99 s stamp.
+- Pager shows neighbour summaries, giving a next step on every project page.
 
 ## Verdict
-The site is coherent, honest and does not read as generated; the retro direction is committed to and cycle 10's broken-thumbnail fix holds. What caps it is content only the owner can give: a status line, locally hosted images and resume, and a chosen starting project. The designer can still act on three things without new facts: a "Start here" row (default row 01), one earned interaction (the 99 s press), and making the blank right side of About and the wrapped stamps look intentional. Until media arrives the ceiling is about 6 on looks and UX.
+The site has moved from template to something with a voice: plain copy, real numbers, a coherent flat print system and no obvious AI gradients. What holds it back is no longer polish but substance and risk. There are no images, no outcomes beyond one or two numbers, no status line, and the resume, portrait and project media are all fragile Wix hotlinks. The visual system is tasteful and, for that reason, still close to a stock editorial look. The next cycle should stop declining "needs owner files" and either extract the files from the owner or produce authored, repo-local line illustrations and a self-hosted resume, then push one non-default print idea consistently.

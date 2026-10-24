@@ -174,6 +174,40 @@ PROJECTS = [
 """),
 ]
 
+
+# ---------------------------------------------------------------- authored plates (line art drawn from facts already on each page)
+import math
+def _snake():
+    pts=[(40+i*55, 100+42*math.sin(i*0.95)) for i in range(8)]
+    seg="".join(f'<line x1="{a[0]:.0f}" y1="{a[1]:.0f}" x2="{b[0]:.0f}" y2="{b[1]:.0f}" class="thick"/>' for a,b in zip(pts,pts[1:]))
+    j="".join(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="7" class="paper"/>' for x,y in pts)
+    return f'{seg}{j}<path d="M40 176h425" class="dash"/><path d="M455 170l10 6-10 6" />'
+def _orbits():
+    es="".join(f'<ellipse cx="{205+k*0:.0f}" cy="100" rx="{rx}" ry="{ry}" class="{"acc" if k==0 else ""}"/>' for k,(rx,ry) in enumerate([(170,78),(138,64),(110,52),(86,42)]))
+    return f'<circle cx="240" cy="100" r="30" class="paper"/><circle cx="240" cy="100" r="42" class="dash"/>{es.replace("205","240")}'
+PLATES = {
+ "snake-robots": (_snake(), "Schematic of a modular snake robot in a serpentine gait. Module count is illustrative.", "Eight joined modules following a sine-wave body shape"),
+ "argus-mission": ('<path d="M-40 250 A330 330 0 0 1 520 250" class="paper"/><rect x="224" y="34" width="32" height="22" class="paper"/><path d="M200 40h24M256 40h24" class="thick"/><path d="M240 56L150 130M240 56L330 130" class="dash"/><path d="M150 130Q240 112 330 130" class="acc"/><text x="240" y="170" text-anchor="middle">visible patch of Earth</text>',
+   "A nanosatellite in low Earth orbit images the ground below it; the position estimate comes from those images alone, not GPS.", "Satellite looking down at a patch of Earth"),
+ "quadrotor-landing": ('<circle cx="240" cy="100" r="70" class="dash"/><circle cx="240" cy="100" r="3" class="fill"/><text x="206" y="126">origin</text><rect x="283" y="46" width="30" height="30" class="paper acc" transform="rotate(35 298 61)"/><path d="M80 40l70 38 80 20" class="dash"/><path d="M70 40h20M80 30v20" class="thick"/><text x="20" y="22">start (random)</text><path d="M240 100h70" /><text x="258" y="122">r = 0.8 m</text>',
+   "Top view of the test: the Tumbller drives a 0.8 m circle at 0.38 m/s while the CrazyFlie flies from a random start to the origin and then tracks it.", "Circular platform path with a quadrotor approaching from a random start"),
+ "raftar-formula-racing": ('<circle cx="120" cy="140" r="34" class="paper"/><circle cx="120" cy="140" r="12"/><circle cx="360" cy="140" r="34" class="paper"/><circle cx="360" cy="140" r="12"/><path d="M60 128H30v-14h70M154 140h172M100 114L190 100 210 70h60l30 38 70 8v12" class="thick"/><path d="M215 70l-8-24h46l-6 24" /><path d="M20 176h440" class="dash"/>',
+   "Side-on sketch of an open-wheel Formula SAE car, the kind the team built. I did the suspension and brakes.", "Open-wheel race car in side view"),
+ "hasselhoff-submarine": ('<rect x="170" y="50" width="140" height="100" rx="40" class="paper"/><circle cx="150" cy="60" r="16" class="acc"/><circle cx="330" cy="60" r="16" class="acc"/><circle cx="150" cy="140" r="16" class="acc"/><circle cx="330" cy="140" r="16" class="acc"/><circle cx="415" cy="100" r="26" class="dash"/><circle cx="415" cy="100" r="10"/><circle cx="415" cy="100" r="2" class="fill"/><path d="M315 100H378" class="dash"/><text x="170" y="176">4 thrusters</text><text x="388" y="148">IR target</text>',
+   "Top view: four thrusters drive the hull, and the pilot has 99 seconds to land it on the infrared target.", "Submarine seen from above with four thrusters, heading for a target ring"),
+ "aerobraking-drl": (_orbits()+'<text x="352" y="36">46 orbits</text><path d="M240 100H410" class="dash"/>',
+   "Each pass through the upper atmosphere shrinks the orbit. The agent picks the burns that bring it to the target in 46 orbits.", "Nested orbits shrinking around a planet"),
+ "tethered-nanosatellite": ('<path d="M-40 270 A330 330 0 0 1 520 270" class="paper"/><rect x="224" y="150" width="32" height="26" class="paper"/><text x="262" y="168">3U</text><rect x="228" y="22" width="14" height="14" class="paper"/><text x="250" y="34">1U</text><path d="M235 36V60M235 118V150" class="thick"/><path d="M228 66l14 8M228 76l14 8" /><text x="140" y="100">500 m tether</text>',
+   "A 3U and a 1U CubeSat joined by a 500 m tether, orbiting together. Not to scale.", "Two satellites linked by a long tether above the Earth"),
+ "quadrotor-sysid": ('<path d="M40 30V170H450M40 100H450" /><path d="M40 100H190" class="acc thick"/><path d="M190 100C215 36 240 36 262 100S310 164 334 100S380 36 406 100" class="acc thick"/><text x="62" y="86">hover</text><text x="236" y="190">sinusoidal rotation</text><text x="48" y="24">signal</text><text x="424" y="190">t</text>',
+   "The two test types used to fit the model: hover, then sinusoidal rotation.", "Plot with a flat hover trace followed by a sine wave"),
+ "assistive-tricycle": ('<circle cx="170" cy="100" r="62" class="dash"/><ellipse cx="320" cy="100" rx="80" ry="48" class="acc thick"/><circle cx="170" cy="100" r="3" class="fill"/><circle cx="320" cy="100" r="3" class="fill"/><text x="116" y="186">circular</text><text x="274" y="186">elliptical</text>',
+   "Foot path of a circular crank (dashed) against the elliptical four-bar path (solid) used to keep the knee within its range of motion.", "Circle beside a wider ellipse"),
+}
+def plate(slug):
+    svg, cap, label = PLATES[slug]
+    return f'<figure class="plate"><svg viewBox="0 0 480 200" role="img" aria-label="{html.escape(label)}">{svg}</svg><figcaption><b>Fig. 1</b> {html.escape(cap)}</figcaption></figure>'
+
 # ---------------------------------------------------------------- redesign layout
 META = {
  "snake-robots": dict(tags=["Robotics", "Controls"], tldr="Compliant, gait-based controllers I implemented on modular snake robots in CMU's Biorobotics Lab so they can cross unknown terrain.",
@@ -261,7 +295,7 @@ def page(fname, title, desc, body, active, ld=None):
   <a class="brand" href="index.html"><span class="mark">K</span><span class="brand-name">Karthik Karumanchi</span></a>
   <nav aria-label="Main">{nav}</nav>
   <div class="header-tools">
-    <a class="hdr-resume" href="{RESUME}" target="_blank" rel="noopener">Resume<span aria-hidden="true"> &#8599;</span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
+    <a class="hdr-resume" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)<span class="sr-only"> (opens in a new tab)</span></a>
     <a class="icon-btn" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICON_LI}</a>
     <a class="icon-btn" href="{GITHUB}" target="_blank" rel="noopener" aria-label="GitHub">{ICON_GH}</a>
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle light and dark theme"><span class="i-sun">{SUN}</span><span class="i-moon">{MOON}</span></button>
@@ -279,7 +313,7 @@ def page(fname, title, desc, body, active, ld=None):
       <a href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a>
     </div>
   </div>
-  <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4.</p>
+  <p class="copyright">&copy; Karthik Karumanchi. Set in DM Serif Display and Source Serif 4. Hand-built static pages, one stylesheet, no framework.</p>
 </footer>
 {LIGHTBOX if 'class="zoom"' in body else ""}
 <script src="assets/site.js"></script>
@@ -350,12 +384,13 @@ about = f"""
       <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a></p>
     </div>
     <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
+    <aside class="ledger toc" aria-label="On this page"><p class="ledger-h">On this page</p><dl><div><dt><a href="#skills">Skills &amp; tools</a></dt></div><div><dt><a href="#education">Education</a></dt></div><div><dt><a href="#experience">Experience</a></dt></div></dl></aside>
   </div>
 
-  <h2>Skills &amp; tools</h2>
+  <h2 id="skills">Skills &amp; tools</h2>
   <div class="skill-cols">{"".join(f'<div><h3 class="skill-group">{g}</h3><ul class="skills">' + "".join(f'<li>{x}</li>' for x in items) + '</ul></div>' for g, items in skills)}</div>
 
-  <h2>Education</h2>
+  <h2 id="education">Education</h2>
   <div class="timeline">
     {tl("2023 &ndash; 2025", "MS Mechanical Engineering", "Carnegie Mellon University &middot; Pittsburgh, PA",
         lines=["<strong>Research:</strong> Compliant control of snake robots, Biorobotics Lab", "<strong>Courses:</strong> Advanced Control Systems Integration, Intro to Robot Learning", "<strong>GPA:</strong> 4.0 / 4.0"])}
@@ -363,7 +398,7 @@ about = f"""
         lines=["<strong>Courses:</strong> Optimal Control, Multibody Dynamics, System Identification", "<strong>Activities:</strong> Captain of Raftar Formula Racing, the Formula SAE team of IIT Madras", "<strong>GPA:</strong> 9.3 / 10 (3.9 / 4.0)"])}
   </div>
 
-  <h2>Experience</h2>
+  <h2 id="experience">Experience</h2>
   <div class="timeline">
     {tl("May &ndash; Aug 2024", "Advanced Control Engineer Intern", "Seagate Technology &middot; Shakopee, MN",
         bullets=["Built a tool that simulates HDD head tiering tests, so track-follow controllers can be tuned without the factory in the loop.",
@@ -399,6 +434,9 @@ projects = f"""
 page("projects.html", "Robotics, controls and space projects | Karthik Karumanchi", "Nine projects: snake robots, quadrotor landing, aerobraking, tethered nanosatellites, a Formula SAE car, a mini submarine and more, from CMU and IIT Madras.", projects, "projects", ld={"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": q["title"], "url": BASE + q["slug"] + ".html"} for i, q in enumerate(PROJECTS)]})
 
 # ----------------------------------------------------------- project pages
+def first_fact(slug):
+    k, v = META[slug]['results'][0]
+    return f'{k}: {v}'
 for i, p in enumerate(PROJECTS):
     m = META[p["slug"]]
     res = "".join(f'<div{" class=stamped" if k == "Time allowed" else ""}><dt>{k}</dt><dd>{v}</dd></div>' for k, v in m["results"])
@@ -414,11 +452,12 @@ for i, p in enumerate(PROJECTS):
 <section class="section narrow" style="padding-top:0">
   <dl class="facts">{res}</dl>
   <article class="prose project">
+  {plate(p['slug'])}
   {p['body']}
   </article>
   <nav class="pager" aria-label="More projects">
-    <a href="{prev_p['slug']}.html"><span>&larr; Previous</span><strong>{html.escape(prev_p['title'])}</strong><em>{html.escape(META[prev_p['slug']]['tldr'])}</em></a>
-    <a href="{next_p['slug']}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(next_p['title'])}</strong><em>{html.escape(META[next_p['slug']]['tldr'])}</em></a>
+    <a href="{prev_p['slug']}.html"><span>&larr; Previous</span><strong>{html.escape(prev_p['title'])}</strong><em>{html.escape(first_fact(prev_p['slug']))}</em></a>
+    <a href="{next_p['slug']}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(next_p['title'])}</strong><em>{html.escape(first_fact(next_p['slug']))}</em></a>
   </nav>
 </section>
 """
@@ -439,7 +478,7 @@ css = r"""
 :root{
   --bg:#efe7d6; --bg2:#e5dbc3; --fg:#2b2118; --muted:#5b4e40; --ink:#2b2118; --line:#b9ab8a; --card:#f7f1e3;
   --a1:#9c3a22; --a2:#2f6f62; --hi:#d9a441; --btn-bg:#b4452b; --btn-fg:#f7f1e3; --shadowc:#2b2118;
-  --maxw:1040px; --band-bg:#2b2118; --band-fg:#efe7d6; --band-mute:#c9bca2; --band-link:#e8a652;
+  --maxw:1040px; --grid:#e3d9c1; --band-bg:#2b2118; --band-fg:#efe7d6; --band-mute:#c9bca2; --band-link:#e8a652;
   --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
   --text:"Source Serif 4",Georgia,"Times New Roman",serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -449,12 +488,12 @@ css = r"""
 /* dark = inverted print: dark paper, tan ink rules, hard shadows go darker than the paper */
 :root[data-theme="dark"]{
   --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#d9cfba; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
-  --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --band-bg:#14100c; --band-fg:#eadfc8; --band-mute:#b8ab95; --band-link:#e8a652;
+  --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --grid:#2d251c; --band-bg:#14100c; --band-fg:#eadfc8; --band-mute:#b8ab95; --band-link:#e8a652;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#d9cfba; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
-    --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08;
+    --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --grid:#2d251c;
   }
 }
 *{box-sizing:border-box}
@@ -514,7 +553,7 @@ h3{font-size:1.3rem}
 .intro h1{margin-bottom:.15em}
 .subhead{font-family:var(--mono);font-size:.9rem;color:var(--muted);margin:0 0 26px}
 .lede{font-size:1.2rem;max-width:34em;margin:0 0 1em}
-.actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:26px}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;margin-top:26px}
 
 .strike{text-decoration:line-through;text-decoration-thickness:2px}
 .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:24px 56px;align-items:start}
@@ -560,19 +599,34 @@ h3{font-size:1.3rem}
 .filter:active{transform:translate(2px,2px)}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
+/* figure plates: drawn from facts on the page, graph-paper ground like a lab notebook */
+.project figure.plate{margin:0 0 1.8em;border:1px solid var(--ink);background-color:var(--card);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px}
+.plate svg{display:block;width:100%;height:auto;fill:none;stroke:var(--fg);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;font:600 13px var(--mono)}
+.plate text{fill:var(--fg);stroke:none}
+.plate .paper{fill:var(--card)}
+.plate .thick{stroke-width:5}
+.plate .dash{stroke-dasharray:6 6;stroke-width:1.5}
+.plate .acc{stroke:var(--a1)}
+.plate .fill{fill:var(--fg)}
+.plate figcaption{margin:0;padding:8px 12px;background:var(--bg);border-top:1px solid var(--ink)}
+.plate figcaption b{font:700 .78rem var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-right:8px}
+@media (max-width:620px){.plate svg{font-size:16px}}
+
 /* about */
 .section.about .timeline,.section.about>h2{max-width:760px}
 .section.about>h2{border-top:1px solid var(--line);padding-top:.6em;position:relative}
 .about-top{display:grid;grid-template-columns:minmax(0,38em) 280px;gap:24px 56px;align-items:start}
-.about-top.no-portrait{grid-template-columns:minmax(0,38em)}
 .about-top.no-portrait .portrait{display:none}
+.about-top .toc{display:none}
+.about-top.no-portrait{grid-template-columns:minmax(0,38em) 280px}
+.about-top.no-portrait .toc{display:block}
+.toc dt a{display:flex;align-items:center;min-height:44px;color:var(--fg);text-decoration:none;font-size:.9rem}
+.toc dt a:hover{color:var(--a1);text-decoration:underline}
 .about-top .portrait{width:100%;max-width:280px;margin-top:.4em;border:1px solid var(--ink)}
 .skill-cols{max-width:760px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
 .skill-cols .skill-group{margin-top:1em}
 .stamp{display:inline-block;margin:0 0 6px;padding:2px 6px;border:2px solid var(--a1);color:var(--a1);font:700 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
 .stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
-.stamp.s-hasselhoff{transform:rotate(1.2deg)}
-.stamp.s-aerobraking{transform:none}
 .tags .stamp{display:block;width:max-content;max-width:100%;white-space:nowrap}
 @media (max-width:420px){.tags .stamp{white-space:normal}}
 .facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
@@ -641,7 +695,8 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 
 @media (max-width:860px){
   .intro-grid{grid-template-columns:1fr}
-  .about-top{grid-template-columns:1fr}
+  .about-top,.about-top.no-portrait{grid-template-columns:1fr}
+  .about-top.no-portrait .toc{display:none}
   .about-top .portrait{max-width:240px}
   .skill-cols{grid-template-columns:1fr}
 }
