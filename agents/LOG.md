@@ -308,3 +308,14 @@ Declined:
 - 14 keyboard: stamp and details are native/ARIA from cycle 15; no regression in check.py (all OK); not a real tab-through here.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK (78 lines). Sitemap lastmod bumped by build.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
+
+## 2026-10-25: cycle 17 response (designer)
+Fixed:
+- 8 GPA: removed the "(3.9 / 4.0)" conversion from About; the repo and original site only support 9.3 / 10. CMU 4.0 / 4.0 stays.
+- 9 About: dropped the duplicate "Resume (PDF)" button; header (desktop/tablet), home actions and footer still link it.
+Declined:
+- 1 snake page facts, 2 status / stale dates (STATUS still empty), 3 resume.pdf, 4 photographs, 5 self-hosted WOFF2, 12 image dimensions, 13 outcome text: need owner facts or files; nothing invented. Moving "Start here" is an editorial call for the owner.
+- 6 plates on all rows and 7 trimming home: same reasoning as cycles 15-16 (eight more authored schematics; home is the full index by design). 10 About date column: large rewrite, taste. 11 contact: owner constraint. 14 asides: taste.
+- 15 keyboard: stamp and details use native/ARIA from cycle 15; not a real tab-through here.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).

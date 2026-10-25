@@ -387,7 +387,6 @@ about = f"""
     <div class="prose">
       <p>My Master&rsquo;s in Mechanical Engineering is at Carnegie Mellon University (2023 &ndash; 2025), with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a podium finish at Formula Bharat 2023.</p>
-      <p><a class="btn small" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)</a></p>
     </div>
     <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
     <aside class="ledger toc" aria-label="On this page"><p class="ledger-h">On this page</p><dl><div><dt><a href="#skills">Skills &amp; tools</a></dt></div><div><dt><a href="#education">Education</a></dt></div><div><dt><a href="#experience">Experience</a></dt></div></dl></aside>
@@ -401,7 +400,7 @@ about = f"""
     {tl("2023 &ndash; 2025", "MS Mechanical Engineering", "Carnegie Mellon University &middot; Pittsburgh, PA",
         lines=["<strong>Research:</strong> Compliant control of snake robots, Biorobotics Lab", "<strong>Courses:</strong> Advanced Control Systems Integration, Intro to Robot Learning", "<strong>GPA:</strong> 4.0 / 4.0"])}
     {tl("2019 &ndash; 2023", "B.Tech Mechanical Engineering", "Indian Institute of Technology Madras &middot; Chennai, India",
-        lines=["<strong>Courses:</strong> Optimal Control, Multibody Dynamics, System Identification", "<strong>Activities:</strong> Captain of Raftar Formula Racing, the Formula SAE team of IIT Madras", "<strong>GPA:</strong> 9.3 / 10 (3.9 / 4.0)"])}
+        lines=["<strong>Courses:</strong> Optimal Control, Multibody Dynamics, System Identification", "<strong>Activities:</strong> Captain of Raftar Formula Racing, the Formula SAE team of IIT Madras", "<strong>GPA:</strong> 9.3 / 10"])}
   </div>
 
   <h2 id="experience">Experience</h2>
