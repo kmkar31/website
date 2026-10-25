@@ -47,7 +47,12 @@
   if(st&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
     var orig=st.textContent,tm=null,left=99;
     function stop(){if(tm){clearInterval(tm);tm=null;}st.textContent=orig;left=99;}
-    st.addEventListener('pointerdown',function(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);});
+    function go(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);}
+    st.setAttribute('tabindex','0');st.setAttribute('role','button');st.setAttribute('aria-label',orig+'. Hold to run the clock.');
+    st.addEventListener('pointerdown',go);
+    st.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();go();}});
+    st.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){stop();}});
+    st.addEventListener('blur',stop);
     ['pointerup','pointerleave','pointercancel'].forEach(function(n){st.addEventListener(n,stop);});
   }
 

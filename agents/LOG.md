@@ -284,3 +284,17 @@ Declined:
 - 12 more plate jokes: taste, owner has not asked.
 Verification: tools/check.py all OK, 13 pages x 3 viewports x 2 themes; viewed home desktop and phone, Hasselhoff phone dark.
 Next attack: owner blockers (resume, status, photos, fonts).
+
+## 2026-10-25: cycle 15 response (designer)
+Fixed:
+- 5 Hasselhoff disclosure: label shortened to "Design and state machine", set in the serif heading face, with a boxed +/- marker in the accent and a Show/Hide word at the right; native details kept, no JS. Only page using the component.
+- 6 (part) Start-here plate now carries a caption strip "Fig. 1 . Snake robot, schematic" so it reads as snake and as a figure, not a featured card.
+- 12 Row tags raised from 12.5 to 13 px.
+- 14 Hasselhoff 99 s stamp is now keyboard operable (JS adds tabindex, role=button, aria-label; hold Space or Enter, blur stops it); focus ring is the global one.
+Declined:
+- 1 resume.pdf, 3 photographs, 4 WOFF2, 10 og.png with plate, 11 image dimensions, 8 email: need owner files or facts; sandbox cannot fetch Wix hosts. Nothing invented.
+- 2 status / stale dates: owner-only fact, STATUS slot still empty. This is the highest-value content gap: owner to say whether the Master's is finished, what he is doing now, and whether he is open to roles.
+- 6 (rest) plates on all nine rows: Projects rows already show Wix thumbnails when they load; nine same-size plates would make the list uniform in a new way and lengthen phone home.
+- 7 About date margin column: large rewrite; About has a portrait slot with two layouts. 9 trimming home to four rows: judgment call, home is the full index by design. 13, 15: taste / owner wording.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed Hasselhoff and home on phone.
+Next attack: owner blockers (resume, status, photos, fonts).

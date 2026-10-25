@@ -75,7 +75,7 @@ PROJECTS = [
 <h2>Testing</h2>
 <p>The submarine was found to be waterproof when submerged in a 50 gal water tank. Within this small tub of water, the submarine was able to run through its states and demo the full user experience. Due to access limitations, the submarine has not yet been tested in a large body of water.</p>
 {fig("84da68_df211b32362e4065ac840ce55d646095f000.jpg", "The sub being driven around in a 50 gal tub, commanded to spin in a circle using only a steering input", "Submarine testing in a tub", "narrow")}
-<details class="impl"><summary>Implementation detail: design and state machine</summary>
+<details class="impl"><summary>Design and state machine</summary>
 <h2>Design Methodology</h2>
 <p>The sub is powered by four waterproof thrusters driven by BLDC motors arranged radially. Two thrusters provide planar control and two provide ballast control. The motors are powered by a 4s1p 5000 mAh 21700 battery pack. All communications are executed via SPI. Processing, both on the submarine and the remote, is done using an STM32 microcontroller. The submarine is fitted with a depth sensor as well as an IR receiver. Waterproofing is done using gaskets and bolts arranged circumferentially. Electrical connections are passed via Deutsch and MPT connectors to prevent water leaks.</p>
 {row(fig("84da68_4da2e6bf703d4ee48e1d1b202fe5389c~mv2.png", alt="Submarine external CAD schematic"), fig("84da68_a88077295ae7480ab3fc1653ff780517~mv2.png", alt="Submarine internal CAD schematic"))}
@@ -207,7 +207,7 @@ PLATES = {
 }
 def plate_thumb(slug):
     svg = PLATES[slug][0]
-    return f'<span class="thumb plate-thumb plate"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
+    return f'<span class="thumb plate-thumb plate" data-cap="Fig. 1 &middot; Snake robot, schematic"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
 
 def plate(slug):
     svg, cap, label = PLATES[slug]
@@ -545,7 +545,7 @@ h3{font-size:1.3rem}
 .btn.small{padding:9px 18px;min-height:44px;font-size:.9rem}
 .btn svg{width:18px;height:18px}
 .textlink{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .98rem var(--sans);padding:0 4px}
-.tags{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+.tags{font-family:var(--mono);font-size:.82rem;color:var(--muted);letter-spacing:.02em}
 .more-link{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .95rem var(--sans)}
 .more-link:hover{background:var(--hi);color:#2b2118;text-decoration:none}
 .hl{background:var(--hi);color:#2b2118;text-decoration:underline;text-decoration-thickness:1px;padding:0 3px}
@@ -605,9 +605,15 @@ h3{font-size:1.3rem}
 .row .thumb.plate-thumb{width:176px;height:auto;background-color:var(--card);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px}
 .plate-thumb svg{display:block;width:100%;height:auto;fill:none;stroke:var(--fg);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .plate-thumb text{display:none}
+.plate-thumb::after{content:attr(data-cap);display:block;padding:5px 8px;border-top:1px solid var(--ink);background:var(--bg);font:500 .75rem var(--mono);letter-spacing:.04em;color:var(--fg)}
 .plate-thumb .paper{fill:var(--card)}.plate-thumb .thick{stroke-width:6}.plate-thumb .acc{stroke:var(--a1)}.plate-thumb .fill{fill:var(--fg)}.plate-thumb .dash{stroke-dasharray:6 6;stroke-width:2}
 details.impl{margin:1.8em 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
-details.impl summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font:600 .9rem var(--mono);letter-spacing:.04em;padding:0 2px}
+details.impl summary{display:flex;align-items:center;gap:12px;min-height:48px;cursor:pointer;list-style:none;font:400 1.2rem var(--serif);padding:0 2px}
+details.impl summary::-webkit-details-marker{display:none}
+details.impl summary::before{content:'+';flex:none;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--a1);color:var(--a1);font:700 1.1rem/1 var(--mono)}
+details.impl[open] summary::before{content:'\2212'}
+details.impl summary::after{content:'Show';margin-left:auto;font:500 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted,var(--fg))}
+details.impl[open] summary::after{content:'Hide'}
 details.impl summary:hover{background:var(--hi);color:#2b2118}
 details.impl[open] summary{border-bottom:1px solid var(--line)}
 details.impl h2:first-of-type{margin-top:.8em;border-top:0}
@@ -805,7 +811,12 @@ js = r"""
   if(st&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
     var orig=st.textContent,tm=null,left=99;
     function stop(){if(tm){clearInterval(tm);tm=null;}st.textContent=orig;left=99;}
-    st.addEventListener('pointerdown',function(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);});
+    function go(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);}
+    st.setAttribute('tabindex','0');st.setAttribute('role','button');st.setAttribute('aria-label',orig+'. Hold to run the clock.');
+    st.addEventListener('pointerdown',go);
+    st.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();go();}});
+    st.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){stop();}});
+    st.addEventListener('blur',stop);
     ['pointerup','pointerleave','pointercancel'].forEach(function(n){st.addEventListener(n,stop);});
   }
 

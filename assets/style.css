@@ -62,7 +62,7 @@ h3{font-size:1.3rem}
 .btn.small{padding:9px 18px;min-height:44px;font-size:.9rem}
 .btn svg{width:18px;height:18px}
 .textlink{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .98rem var(--sans);padding:0 4px}
-.tags{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+.tags{font-family:var(--mono);font-size:.82rem;color:var(--muted);letter-spacing:.02em}
 .more-link{display:inline-flex;align-items:center;min-height:44px;color:var(--a1);font:500 .95rem var(--sans)}
 .more-link:hover{background:var(--hi);color:#2b2118;text-decoration:none}
 .hl{background:var(--hi);color:#2b2118;text-decoration:underline;text-decoration-thickness:1px;padding:0 3px}
@@ -122,9 +122,15 @@ h3{font-size:1.3rem}
 .row .thumb.plate-thumb{width:176px;height:auto;background-color:var(--card);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px}
 .plate-thumb svg{display:block;width:100%;height:auto;fill:none;stroke:var(--fg);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .plate-thumb text{display:none}
+.plate-thumb::after{content:attr(data-cap);display:block;padding:5px 8px;border-top:1px solid var(--ink);background:var(--bg);font:500 .75rem var(--mono);letter-spacing:.04em;color:var(--fg)}
 .plate-thumb .paper{fill:var(--card)}.plate-thumb .thick{stroke-width:6}.plate-thumb .acc{stroke:var(--a1)}.plate-thumb .fill{fill:var(--fg)}.plate-thumb .dash{stroke-dasharray:6 6;stroke-width:2}
 details.impl{margin:1.8em 0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
-details.impl summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font:600 .9rem var(--mono);letter-spacing:.04em;padding:0 2px}
+details.impl summary{display:flex;align-items:center;gap:12px;min-height:48px;cursor:pointer;list-style:none;font:400 1.2rem var(--serif);padding:0 2px}
+details.impl summary::-webkit-details-marker{display:none}
+details.impl summary::before{content:'+';flex:none;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--a1);color:var(--a1);font:700 1.1rem/1 var(--mono)}
+details.impl[open] summary::before{content:'\2212'}
+details.impl summary::after{content:'Show';margin-left:auto;font:500 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted,var(--fg))}
+details.impl[open] summary::after{content:'Hide'}
 details.impl summary:hover{background:var(--hi);color:#2b2118}
 details.impl[open] summary{border-bottom:1px solid var(--line)}
 details.impl h2:first-of-type{margin-top:.8em;border-top:0}
