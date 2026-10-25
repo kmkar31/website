@@ -665,6 +665,7 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
 .tags .stamp{display:block;width:max-content;max-width:100%;white-space:nowrap}
 @media (max-width:420px){.tags .stamp{white-space:normal}}
+.facts div.stamped dd button{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;padding:0;min-height:44px;cursor:pointer;touch-action:manipulation;-webkit-user-select:none;user-select:none}
 .facts div.stamped dd{display:inline-block;border:2px solid var(--a1);color:var(--a1);padding:0 8px;transform:rotate(-1.5deg);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
 .broken-fig a.zoom,.broken-fig img{display:none}
 .project figure.broken-fig{display:none}
@@ -815,16 +816,23 @@ js = r"""
     if(i.complete&&i.naturalWidth===0){nt();}else{i.addEventListener('error',nt);}
   });
   d.querySelectorAll('.project figure img').forEach(function(i){
-    if(i.complete&&i.naturalWidth===0){gone(i);}else{i.addEventListener('error',function(){gone(i);});}
+    var za=i.closest('a.zoom');
+    function hold(){if(za){za.setAttribute('tabindex','-1');za.setAttribute('aria-hidden','true');}}
+    function free(){if(za){za.removeAttribute('tabindex');za.removeAttribute('aria-hidden');}}
+    if(i.complete&&i.naturalWidth>0){return;}
+    if(i.complete){hold();gone(i);return;}
+    hold();
+    i.addEventListener('load',free);
+    i.addEventListener('error',function(){hold();gone(i);});
   });
 
   // Hasselhoff stamp: hold it and the 99 seconds run down. Static for reduced motion; text is restored on release.
   var st=d.querySelector('.facts div.stamped dd');
   if(st&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
-    var orig=st.textContent,tm=null,left=99;
+    var dd=st,orig=dd.textContent,tm=null,left=99;st=d.createElement('button');st.type='button';st.textContent=orig;dd.textContent='';dd.appendChild(st);
     function stop(){if(tm){clearInterval(tm);tm=null;}st.textContent=orig;left=99;}
     function go(){if(tm)return;left=99;tm=setInterval(function(){left=Math.max(0,left-1);st.textContent=left+' seconds';if(left===0){clearInterval(tm);tm=null;}},100);}
-    st.setAttribute('tabindex','0');st.setAttribute('role','button');st.setAttribute('aria-label',orig+'. Hold to run the clock.');
+    st.setAttribute('aria-label',orig+'. Hold to run the clock.');
     st.addEventListener('pointerdown',go);
     st.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();go();}});
     st.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){stop();}});

@@ -343,3 +343,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed aerobraking phone light and snake desktop light (pager).
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2); keyboard tab-through.
+
+## 2026-10-25: cycle 20 response (designer)
+Fixed:
+- 3 Empty focusable zoom links: figure images start with their `a.zoom` wrapper set to tabindex=-1 and aria-hidden until the image reports load; on error it stays hidden and the figure is dropped. Real Tab pass on Hasselhoff with all http blocked: no nameless stops left (stops now: skip link, nav, back link, stamp button, summary, repo, pager, footer). No-JS behaviour unchanged (links work).
+- 14 99 s stamp: the dd is now plain text for no-JS; JS puts a real `<button>` inside it (aria-label, 47 px tall), so the definition list keeps its semantics. Look unchanged (viewed).
+- 15 "three weeks to 15 minutes" link goes to about.html#seagate, which exists and is the Seagate entry; no change.
+Declined:
+- 1 snake facts / Start-here swap, 2 status and stale dates (STATUS still empty), 4 resume.pdf, 5 photographs, 7 WOFF2, 9 image width/height: need owner facts or files; nothing invented. Editorial choice of Start here is the owner's.
+- 6 one fact per row: stamps already carry facts on three rows; repeating pager/strip facts on nine rows adds a uniform column (as in cycle 19).
+- 8 home length: full index by design. 10 About date column and 11 collapsing Sysid Background: large rewrite / taste. 12 contact: owner constraint. 13 asides: taste.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py all OK; Playwright Tab x30 on Hasselhoff offline.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
