@@ -334,7 +334,7 @@ def row_item(p, thumb=False, first=False):
     stamp = f'<span class="stamp s-{p["slug"].split("-")[0]}">{m["stamp"]}</span>' if m.get("stamp") else ""
     t = plate_thumb(p["slug"]) if (first and not thumb) else ""
     if thumb: t = f'<span class="thumb"><img src="{img(p["thumb"])}" alt="" width="96" height="72" loading="lazy"></span>' if thumb else ""
-    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}{' start' if first else ''}{' plate-row' if t and first else ''}" href="{p['slug']}.html">{t}<span><h3>{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags"><b class="no" aria-hidden="true">{n:02d}</b>{stamp}{('<span class="here">Start here</span>' if first else '')}{' / '.join(m['tags'])}</span></a></li>"""
+    return f"""<li data-tags="{' '.join(x.lower() for x in m['tags'])}"><a class="row{' has-thumb' if thumb else ''}{' start' if first else ''}{' plate-row' if t and first else ''}" href="{p['slug']}.html" aria-labelledby="rt-{p['slug']}" aria-describedby="rd-{p['slug']}">{t}<span><h3 id="rt-{p['slug']}">{html.escape(p['title'])}</h3><p>{html.escape(m['tldr'])}</p></span><span class="tags" id="rd-{p['slug']}"><b class="no" aria-hidden="true">{n:02d}</b>{stamp}{('<span class="here">Start here</span>' if first else '')}{' / '.join(m['tags'])}</span></a></li>"""
 
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 

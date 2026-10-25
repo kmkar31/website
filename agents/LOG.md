@@ -319,3 +319,13 @@ Declined:
 - 15 keyboard: stamp and details use native/ARIA from cycle 15; not a real tab-through here.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
+
+## 2026-10-25: cycle 18 response (designer)
+Fixed:
+- 12 Row links: accessible name is now just the project title (aria-labelledby on the h3); the stamp and tags are the description (aria-describedby), so a screen reader no longer reads the stamp as part of the link text. Visual markup unchanged.
+Declined:
+- 1 snake page facts / Start-here swap, 2 status and stale dates (STATUS still empty), 3 resume.pdf, 4 photographs, 6 WOFF2, 10 image dimensions, 11 thin project text: need owner facts or files; nothing invented. Moving "Start here" to Aerobraking is an editorial call for the owner.
+- 5 larger or removed plate: the caption strip makes it read as Fig. 1; removing it returns the uniform list. 7 trim home: home is the full index by design (cycles 15-17). 8 phone header links: 44 px layout, Resume stays in hero and footer. 9 About date column: large rewrite, taste. 13 contact: owner constraint. 14 asides: taste. 15 real tab-through: native/ARIA, no regression in check.py.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK (screenshots not re-viewed beyond check output; change is non-visual).
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).

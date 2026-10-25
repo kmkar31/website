@@ -1,64 +1,65 @@
-# Critique, 2026-10-25 (cycle 17, reviewing commit 696d69e "Cycle 16")
+# Critique, 2026-10-25 (cycle 18, reviewing main after cycle 17)
 
 ## Sources
-WebFetch (web.dev optimize-cls) was refused by the permission layer and I have no search tool, so I read NO source this cycle. Pointers are unverified; no finding depends on them.
-- web.dev CLS and images without dimensions: https://web.dev/articles/optimize-cls (blocked)
-- WCAG 2.2 SC 3.2.6 / 2.4.4 link purpose: https://www.w3.org/WAI/WCAG22/Understanding/ (unverified)
-- NN/g on recruiter scanning of portfolios: https://www.nngroup.com/ (unverified)
-Topic this cycle: staleness and credibility, repetition, page weight on phone, derived figures.
+WebSearch returned result lists only (titles and URLs); WebFetch was not used, so I did not read page bodies. Pointers, not verified quotes; no finding depends on them.
+- web.dev, font best practices (self-host, font-display, preload): https://web.dev/articles/font-best-practices
+- WCAG 2.2 SC 2.5.8 Target Size (Minimum), summaries: https://tabnav.com/academy/wcag/success-criterion-2.5.8 (primary: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
+- NN/g on how hiring managers read portfolios (search listing only): https://www.nngroup.com/articles/author/rachel-krause/?page=5
+Topic this cycle: staleness and credibility, home length on phone, row sameness, font loading.
 
-Measured: tools/check.py ran 13 pages x 3 viewports x 2 themes, every page OK (Wix images not loaded = sandbox). STATUS in build/build.py is still "". Wix/filesusr hotlinks remain on all pages (2 to 9 each). Every page has one JSON-LD block except 404. Titles are unique. Home phone is about 6150 px tall. Live site not checked.
+Measured: tools/check.py ran 13 pages x 3 viewports x 2 themes, all OK (Wix images not loaded = sandbox limit). STATUS in build/build.py is still "". Wix/filesusr hotlinks remain on every page (2 to 9 each, 404 included); the resume is a filesusr URL in header, hero and footer. Home phone is 6148 px tall. Live site not checked. Screenshots viewed: home desktop and phone (light), snake-robots phone (light), About desktop (dark).
 
 ## Scores
-- AI-tell: 3/10 (unchanged). Authored: struck-through "three weeks", stamps, Fig./Sheet plates, 404 game line, "no framework" colophon. Residual: warm-cream, serif, terracotta kit; eight identical rows; name-only hero.
-- Looks good: 6/10. Calm and aligned, but no photograph anywhere; project pages are a plate plus prose. On home desktop only row 01 has a plate, so it reads as a featured card.
-- SEO: 7/10. Titles, descriptions, canonical, OG, JSON-LD, sitemap, noindex 404 in place. Weak: render-blocking Google Fonts, hotlinked images without dimensions, project pages carry little unique text.
-- UX: 6/10. Name, field, resume, LinkedIn are in the first phone screen. Misses: stale dates, no "now" statement, third-party resume URL, featured project has no result.
-- Fun/personality: 6/10. Earned touches exist (99 s stamp you can hold, 404) but seven of nine pages have none of their own.
+- AI-tell: 3/10 (unchanged). Authored: struck-through "three weeks" in a marker, stamps, Fig./Sheet plates, 404 game line, "no framework" colophon, plain lede. Residual: warm-cream, serif, terracotta kit; eight rows of identical anatomy; name-only hero. No gradients, blur, glow, badges or "I build X that Y" slogans found. Nothing moved this cycle (cycle 17 removed a GPA conversion and a duplicate button).
+- Looks good: 6/10. Calm, aligned, readable, good ink-rule hierarchy. But no photograph anywhere, and the only image is a six-dot zigzag; the front page is text in a nice frame.
+- SEO: 7/10. Unique titles and descriptions, canonical, OG with local image, JSON-LD, sitemap, noindex 404. Weak: render-blocking third-party font CSS, hotlinked images without width/height, thin project text.
+- UX: 6/10. Name, field, resume and LinkedIn are in the first phone screen. Misses: no "now" statement, dates stale, third-party resume URL, featured project has no result.
+- Fun/personality: 6/10. Earned touches (holdable 99 s stamp, 404, struck-through weeks) but seven of nine project pages have none of their own.
 
 ## Owner critique (user-critique.md)
-1. Retro, matte: met. No blur, glow or gradient; hard-offset button; ink rules; dark theme is near-black plus amber rather than paper (taste).
-2. Not AI-looking: mostly met; remaining risk is the kit and uniform rows (finding 6).
+1. Retro, matte: met. Flat paper tones, ink rules, hard offset button, no blur or gradient. Dark theme is near-black plus amber, not inverted paper (taste; it reads fine and contrast is good).
+2. Not AI-looking: mostly met. Remaining risk is the "warm editorial kit" plus uniform rows (finding 5). Taste, not a defect.
 
 ## Findings (ranked)
 
-1. Major (content/UX). The featured project is the thinnest page. Snake robots is "Start here" and the lede's research focus, yet the page (phone, 1 screen of content) is lab, advisor, a schematic zigzag and one generic "Why snake robots" sentence. Home says "controllers I implemented"; the page never says which gaits, what was tested, or what happened. A recruiter who follows our one pointer hits a dead end. Fix: owner supplies 2-3 facts (gaits, terrain/test, result, status). Until then consider moving "Start here" to a page with a result (Aerobraking: 46 orbits). Editorial call; flagged, not dictated.
+1. Major (content/UX). The "Start here" project is the thinnest page. Snake robots is the lede's research focus and the home's featured row, yet its page (phone, about 3300 px, mostly whitespace and a plate) has lab, advisor, a schematic zigzag and one generic sentence "Why snake robots". Home says "controllers I implemented"; the page never says which gaits, what terrain, what result. A recruiter who follows the one pointer hits a dead end, and the "Module count is illustrative" caption underlines that the figure carries no real data. Fix: owner supplies 2-3 facts (gaits, test, result). Until then, consider moving "Start here" to Aerobraking (46 orbits is a real result). Editorial call, flagged not dictated. Principle: hiring readers scan for evidence of outcomes (NN/g portfolio guidance, unverified pointer above).
 
-2. Major (credibility). No "now" statement, dates look stale. About says the Master's "is at Carnegie Mellon University (2023 - 2025)" and Education shows 2023 - 2025; today is 25 Oct 2026. Reader cannot tell graduated, enrolled or open to roles. STATUS slot is empty (open since cycle 1). Owner needs one sentence.
+2. Major (credibility). No "now" statement and dates are stale. Today is 25 Oct 2026; About says the Master's "is at Carnegie Mellon University (2023 - 2025)" and Education reads 2023 - 2025. Reader cannot tell graduated, enrolled or open to roles. STATUS slot has been empty since cycle 1. Owner needs one sentence. Highest-value change available.
 
-3. Major (robustness). Resume PDF, the main call to action, is a Wix filesusr hotlink in the header, hero, About and every footer. One rotation breaks it on all 13 pages silently. Owner should put resume.pdf in assets/. Not verifiable offline.
+3. Major (robustness). The resume PDF, the main call to action, is a Wix filesusr hotlink in the header, hero and footer on all 13 pages. One Wix rotation breaks it everywhere silently. Owner should put resume.pdf in assets/. Not verifiable offline.
 
-4. Major (looks good, 6). No photograph or real result image. Wix figures drop out on failure, so pages read as plate plus prose. A robotics portfolio is expected to show the robot. Needs owner media with real width/height.
+4. Major (looks good, 6). No photograph or real result image; Wix figures drop out on failure so pages read as plate plus prose, and a robotics portfolio is expected to show the robot. Needs owner media with true width/height.
 
-5. Major (performance/SEO). Google Fonts stylesheet is render-blocking and third-party with no fallback metrics. Self-host two WOFF2 with font-display: swap and preload. Needs owner files; sandbox cannot fetch.
+5. Major (AI-tell: kit / looks good). Home desktop and phone: only row 01 has a plate (a small boxed zigzag), rows 02-09 are the same title/blurb/tag anatomy. It reads as a featured card over a list, and the zigzag at 175 px is too small to read as a snake. Options: drop the plate and let "Start here" plus stamps work, or render the plate larger. Taste.
 
-6. Major (AI-tell: kit). Home desktop: only row 01 has a plate, so it looks like the stock "featured card" over a list. Rows 02-09 are identical in anatomy. Options: plates on every row at tablet/desktop only (local SVG, cannot fail) or drop the plate and let "Start here" and the stamps do the work. Taste.
+6. Major (performance/SEO). Google Fonts stylesheet is render-blocking and third-party; no fallback metric overrides. Self-host the two WOFF2 files with font-display: swap and a preload (web.dev pointer above). Needs files the sandbox cannot fetch; owner can drop them in assets/.
 
-7. Minor (UX, phone length). Home on phone is about 6150 px: lede, ledger, nine rows, each 4-5 lines. Home duplicates the Projects page. Consider home showing Start here plus the three stamped rows and a link "All nine projects". Judgment call.
+7. Minor (UX, phone length). Home on phone is about 6150 px: lede, ledger, nine rows of 4-5 lines. Home duplicates the Projects page. Consider home showing Start here plus the three stamped rows and "All nine projects". Judgment call; designer has documented "home is the full index by design".
 
-8. Minor (credibility). About shows "GPA: 9.3 / 10 (3.9 / 4.0)". The 3.9 is a conversion; the site does not say who computed it or by what scale. If it is not from the owner's transcript or resume, flag as unsupported or remove it. Owner to confirm.
+8. Minor (UX). Phone header drops Resume and LinkedIn/GitHub (only Home, About, Projects, theme). Resume is reachable from the hero and footer, so the 30-second test passes, but on a project page the phone user must scroll to the footer to reach it. Taste versus 44 px layout; a footer-only route is acceptable.
 
-9. Minor (repetition/a11y). "Resume (PDF)" appears four times on desktop (header, hero, About button, footer) and "LinkedIn" three times. Same link text for one destination is fine for SC 2.4.4, but the About button plus header link adds nothing; dropping the About button would quiet the page. Taste.
+9. Minor (layout). About desktop (1366): below the intro the right 28% is empty from Skills to the footer, about 1700 px, apart from the "On this page" index that only appears when the portrait fails to load. With the portrait working the layout differs from what I reviewed; with it broken (current Wix state) the column is mostly void. Dates in a margin column would use the width. Taste, large rewrite.
 
-10. Minor (layout). About desktop: below the intro, the right 28% is empty from Skills to the footer (about 1700 px in the 1366 shot). Reads as a plain CV. Dates in a left margin column would use the width. Taste, large rewrite.
+10. Minor (SEO/CLS). Hotlinked `<img>` tags have no width/height, so late-loading figures shift layout. Cannot measure offline; needs owner files.
 
-11. Minor (UX). Contact is LinkedIn only (owner constraint; flag only). The footer sentence is the sole contact line.
+11. Minor (SEO). Project pages hold little unique text; Snake in particular has about 40 words of body copy, so each page ranks on its title alone. Owner outcome sentences help findings 1, 4 and 11 at once.
 
-12. Minor (SEO/CLS). Wix `<img>` tags have no width/height, so late-loading figures shift layout. Cannot measure offline; needs owner files.
+12. Minor (a11y). Row stamps sit inside the link name after the title, so a screen reader announces "Hasselhoff Submarine ... Time allowed: 99 s ..." as the link text. Acceptable under SC 2.4.4 but long; tags could sit outside the anchor. Nit-level on a nine-row list.
 
-13. Minor (SEO). Project pages hold little unique text, so each ranks on its title alone. Owner-supplied outcome sentences would help SEO and findings 1 and 4 at once.
+13. Minor (contact). Contact is LinkedIn only (owner constraint). The footer sentence is the sole contact line and the hero has no email. Flag only.
 
-14. Nit (fun). Facts already in the repo that could carry one plain aside per page: Aerobraking 46 orbits, Tricycle 12 km/h, Tethered 500 m. Designer has declined as taste; acceptable unless owner asks.
+14. Nit (fun). Facts already in the repo that could carry one plain aside per page: Aerobraking 46 orbits, Tricycle 12 km/h, Tethered 500 m. Declined as taste in earlier cycles; acceptable unless the owner asks.
 
-15. Nit (a11y). Hasselhoff stamp (tabindex, role=button) and the details control were not driven with a real tab-through in this run (screenshots only).
+15. Nit (a11y). The Hasselhoff stamp (tabindex, role=button) and details control were not driven with a real keyboard tab-through in this run; screenshots only.
 
 ## Good, do not regress
-- Struck-through "three weeks" in marker highlight (home, About).
+- Struck-through "three weeks" in an amber marker (home, About).
 - Fig. N plates with sheet tags and honest "schematic / NTS" captions; repo-local and robust.
-- Two stamp types; the holdable 99 s stamp.
+- Two stamp types and the holdable 99 s stamp.
 - Hasselhoff disclosure bar (boxed +, "Show", native details).
 - Honest empty-state handling: failed figures, thumbnails and portrait collapse without orphan captions.
-- Plain, specific home lede with the "For the record" ledger; ink-rule hierarchy and dark theme contrast.
+- Plain, specific home lede with the "For the record" ledger; ink-rule hierarchy; dark theme contrast; solid ink footer.
+- No-framework, no-gradient, hard-shadow restraint across both themes.
 
 ## Verdict
-The design is now coherent, matte and fairly authored (AI-tell 3), and the designer has run out of safe moves inside the repo. What holds the site back is content only the owner can supply: a status sentence, outcomes for the Start-here project, a local resume.pdf and real photographs. Until those arrive, scores for looks, UX and fun stay at 6. Next cycle the useful design work is limited to the home length and row sameness (findings 6 and 7); everything else is waiting on Karthik.
+The design is coherent, matte and fairly authored (AI-tell 3), and the designer has run out of safe moves inside the repo; cycle 17's trims were correct and caused no regression. What holds the site at 6 on looks, UX and fun is content only the owner can supply: one status sentence, two or three outcome facts for the Start-here project (or a different Start-here), a local resume.pdf, real photographs, and two WOFF2 files. Without those, the only remaining design work is the home's length and row sameness (findings 5 and 7), which are judgment calls rather than defects.
