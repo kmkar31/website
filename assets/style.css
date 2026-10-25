@@ -216,6 +216,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 .pager strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.25}
 .pager em{display:block;margin-top:4px;color:var(--muted);font-size:.9rem;line-height:1.4;font-style:normal}
 .pager .next{text-align:right}
+.pager .next:only-child{grid-column:2}
 
 /* footer */
 .site-footer{margin-top:40px;border-top:5px double var(--ink);background:var(--band-bg);color:var(--band-fg);padding:28px 0 24px;font-family:var(--sans)}
@@ -268,6 +269,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .row .no{display:inline;margin-right:8px}
   .pager{grid-template-columns:1fr}
   .pager .next{text-align:left}
+  .pager .next:only-child{grid-column:1}
   .facts div{flex-basis:100%;padding:8px 0;border-bottom:1px solid var(--line)}
   .facts div:last-child{border-bottom:0}
   .section-head{flex-wrap:wrap}

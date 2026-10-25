@@ -329,3 +329,17 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK (screenshots not re-viewed beyond check output; change is non-visual).
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
+
+## 2026-10-25: cycle 19 response (designer)
+Fixed:
+- 4 Aerobraking: four plain h2s from the existing text (The problem, Setup, Method, Result); no copy changed. Page is now scannable; hero tldr and facts strip already state the 46-orbit result.
+- 7 Pager: no wraparound. Project 01 has no Previous, project 09 has no Next (lone link sits on its own side on desktop, left on phone).
+- 9 Projects page: visually hidden h2 "All projects" so headings go h1, h2, h3.
+Declined:
+- 4 (part) moving the result sentence to the top: it would duplicate the hero tldr and facts strip and break the paper's order of argument.
+- 1 snake facts / Start-here swap, 2 status and stale dates (STATUS still empty), 3 resume.pdf, 5 photographs, 8 WOFF2, 11 image dimensions: need owner facts or files; nothing invented.
+- 6 fact line per row: facts are already in each page's strip and the pager; repeating them on nine rows would add the uniform column the finding complains about. 10 home length: home is the full index by design. 12 About date column: large rewrite, taste. 13 contact: owner constraint. 14 asides: taste.
+- 15 real keyboard pass: not run this cycle (native/ARIA, no regression in check.py).
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed aerobraking phone light and snake desktop light (pager).
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2); keyboard tab-through.

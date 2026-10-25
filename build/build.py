@@ -92,16 +92,20 @@ PROJECTS = [
   thumb="84da68_c839ad691caa43eba5f0fd8c6c2a7b22~mv2.gif", page_title="Aerobraking",
   desc="A PPO agent that picks the burns for an aerobraking orbit insertion; on a physics simulator it reaches the target orbit in 46 orbits.",
   body=f"""
+<h2>The problem</h2>
 <p>Aerobraking is a technique that uses a planet's atmosphere to alter a spacecraft's trajectory from an interplanetary hyperbolic path to a target elliptical orbit. Current methods for conducting aerobraking maneuvers rely on continuous ground station monitoring, which introduces delays due to the vast distances involved in interplanetary travel. To address these challenges, this project implements a reinforcement learning approach for executing lightweight control strategies onboard. Our method trains a Proximal Policy Optimization (PPO) agent to perform aerobraking maneuvers faster and with reduced fuel consumption.</p>
 {fig("84da68_fcee06d18ae44b0d83cb16d7137cc758~mv2.png", "Depiction of an aerobraking maneuver. An initial propulsive maneuver inserts the spacecraft into a high energy elliptical orbit from an interplanetary hyperbolic orbit. Subsequent passages through the atmosphere reduce the spacecraft's energy until a suitable target orbit is reached.", "Aerobraking maneuver definition")}
 <p>As shown in the figure above, an initial propulsive maneuver moves the spacecraft from a hyperbolic interplanetary trajectory into a high-energy elliptical orbit whose periapsis (the orbit's near point) is in the planet's atmosphere. Repeated passages through the atmosphere (called drag passages) reduce the orbit's energy until a suitable apoapsis radius is reached. Then, additional propulsive maneuvers are executed to bring the periapsis out of the planet's atmosphere and stabilize the orbit. Control inputs are provided as &Delta;V's at the apoapses. These maneuvers raise or lower the periapsis and result in increased or decreased drag effect.</p>
+<h2>Setup</h2>
 <p>This project builds off work done by <a href="http://dx.doi.org/10.2514/6.2022-2497" target="_blank" rel="noopener">Falcone et al.</a> to develop an aerobraking agent simulating the Mars Odyssey orbit insertion mission. The spacecraft's state is depicted by the orbital elements of its current orbit: apoapsis radius, periapsis altitude, inclination, AOP (argument of periapsis) and RAAN (right ascension of the ascending node). The action space is a set of &Delta;V's that can be applied at each apoapsis: A = [&minus;1.0, &minus;0.5, &minus;0.3, &minus;0.2, &minus;0.1, &minus;0.05, 0, 0.05, 0.1, 0.2, 0.3, 0.5, 1.0]. Negative actions lower the periapsis while positive actions raise it.</p>
 <p>Every aerobraking episode begins with an initial apoapsis radius of 10038 km. The episode terminates when one of three conditions occurs: (a) the spacecraft attains or surpasses the target apoapsis radius of 4906 km, (b) the periapsis altitude falls below 85 km, below which it is bound to crash into the planet's surface, or (c) the periapsis altitude exceeds 135 km, beyond which atmospheric drag is negligible.</p>
 {fig("84da68_145f9899d7964da680e9f15253708b4f~mv2.png", "A neural network based system model used to model spacecraft physics. The model was found to be accurate to within 1 km of the physics based model. The red lines represent the physics based model and the green lines represent the NN model.", "Neural network based state-space model")}
+<h2>Method</h2>
 <p>Falcone et al. simulated their agent on a high-fidelity physics-based simulator. Due to the complex physics involved, the authors required a training time of 1 week on a 50 core cluster. To reduce training time, a neural network based system model was trained on the results of the physics based simulator. The trained model was accurate to within 1 km of the physics-based results, as shown in the figure above.</p>
 <p>The most important part of a reinforcement learning based solution is the reward formulation. As shown below, a combination of a continuous and terminal reward function was used to provide the agent with continuous feedback. The agent is penalized on the normalized distance to the target and the magnitude of the action used.</p>
 {row(fig("84da68_5c0cf947947a4c6ba2791e7929a9c20f~mv2.png", alt="Continuous reward function definition", cls="plain"), fig("84da68_01116cd2a7d14a4fa1a629570e846f90~mv2.png", alt="Terminal reward function formulation", cls="plain"))}
 <p>The policy was represented by a neural network with 4 hidden layers and 512 hidden neurons per layer. The policy took the current state as input and gave the softmax-probabilities of each action in the action space. An action was randomly sampled weighted by these probabilities and applied on the system. Policy updates were clipped to 0.2 to maintain the sampling assumptions.</p>
+<h2>Result</h2>
 <p>After training the PPO agent over 1.1 million steps (where each step is an action applied at the apoapsis, a subsequent drag passage and finally a return to the new apoapsis) with a batch size of 512 steps, the trained agent returned an average episodic reward of +5 with a terminal error of 8.4 km.</p>
 {row(fig("84da68_65c1b9f82d1540bc88334b9aa0353d12~mv2.png", alt="PPO agent episode length over training steps"), fig("84da68_2b92e643d56c4d3b9b831220e5c674b5~mv2.png", alt="PPO agent average episodic return over training steps"))}
 <p class="cap">Average episode length (number of propulsive maneuvers) (left) and the average episodic return (right) over number of training steps. The agent stabilizes around a return of +5 after 200,000 steps of training.</p>
@@ -432,6 +436,7 @@ projects = f"""
   <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
 </section>
 <section class="section">
+  <h2 class="sr-only">All projects</h2>
   <ul class="index" id="project-list">{"".join(row_item(p, True) for p in PROJECTS)}</ul>
   <p class="empty" id="empty" hidden>No projects match that filter.</p>
 </section>
@@ -445,7 +450,13 @@ def first_fact(slug):
 for i, p in enumerate(PROJECTS):
     m = META[p["slug"]]
     res = "".join(f'<div{" class=stamped" if k == "Time allowed" else ""}><dt>{k}</dt><dd>{v}</dd></div>' for k, v in m["results"])
-    prev_p, next_p = PROJECTS[i - 1], PROJECTS[(i + 1) % len(PROJECTS)]
+    pager_prev = pager_next = ""
+    if i > 0:
+        q = PROJECTS[i - 1]
+        pager_prev = f'<a href="{q["slug"]}.html"><span>&larr; Previous</span><strong>{html.escape(q["title"])}</strong><em>{html.escape(first_fact(q["slug"]))}</em></a>'
+    if i < len(PROJECTS) - 1:
+        q = PROJECTS[i + 1]
+        pager_next = f'<a href="{q["slug"]}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(q["title"])}</strong><em>{html.escape(first_fact(q["slug"]))}</em></a>'
     body = f"""
 <section class="proj-hero">
   <a class="crumb" href="projects.html">&larr; all projects</a>
@@ -461,8 +472,8 @@ for i, p in enumerate(PROJECTS):
   {p['body']}
   </article>
   <nav class="pager" aria-label="More projects">
-    <a href="{prev_p['slug']}.html"><span>&larr; Previous</span><strong>{html.escape(prev_p['title'])}</strong><em>{html.escape(first_fact(prev_p['slug']))}</em></a>
-    <a href="{next_p['slug']}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(next_p['title'])}</strong><em>{html.escape(first_fact(next_p['slug']))}</em></a>
+    {pager_prev}
+    {pager_next}
   </nav>
 </section>
 """
@@ -698,6 +709,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 .pager strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.25}
 .pager em{display:block;margin-top:4px;color:var(--muted);font-size:.9rem;line-height:1.4;font-style:normal}
 .pager .next{text-align:right}
+.pager .next:only-child{grid-column:2}
 
 /* footer */
 .site-footer{margin-top:40px;border-top:5px double var(--ink);background:var(--band-bg);color:var(--band-fg);padding:28px 0 24px;font-family:var(--sans)}
@@ -750,6 +762,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .row .no{display:inline;margin-right:8px}
   .pager{grid-template-columns:1fr}
   .pager .next{text-align:left}
+  .pager .next:only-child{grid-column:1}
   .facts div{flex-basis:100%;padding:8px 0;border-bottom:1px solid var(--line)}
   .facts div:last-child{border-bottom:0}
   .section-head{flex-wrap:wrap}
