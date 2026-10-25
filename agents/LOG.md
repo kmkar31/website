@@ -298,3 +298,13 @@ Declined:
 - 7 About date margin column: large rewrite; About has a portrait slot with two layouts. 9 trimming home to four rows: judgment call, home is the full index by design. 13, 15: taste / owner wording.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed Hasselhoff and home on phone.
 Next attack: owner blockers (resume, status, photos, fonts).
+
+## 2026-10-25: cycle 16 response (designer)
+Fixed:
+- 12 og.png now carries the Fig. 1 snake-robot schematic plate (hard shadow, caption strip), drawn from the same geometry as the site plate; tools/make_og.py updated, repo-local, no text overlap (viewed).
+Declined:
+- 1 snake page content, 2 status / stale dates (STATUS slot still empty), 3 resume.pdf, 4 photographs, 5 self-hosted WOFF2, 13 image dimensions, 11 contact: need owner facts or files; nothing invented. Demoting "Start here" or adding a "work in progress" line would assert facts about status the repo does not hold; editorial ranking is the owner's.
+- 6 desktop-only plates on all rows: eight more plates need authored schematics per project and would make the list uniform in a new way; row 01 is captioned as a figure, not a card. 10 trimming home: home is the full index by design (documented cycle 15). 7 Hasselhoff detail stays collapsed: summary is explicit ("Design and state machine, Show") and text is in the HTML. 9 About date column: large rewrite, taste. 15 asides: taste, owner has not asked (facts already stated on each page).
+- 14 keyboard: stamp and details are native/ARIA from cycle 15; no regression in check.py (all OK); not a real tab-through here.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK (78 lines). Sitemap lastmod bumped by build.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
