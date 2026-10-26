@@ -368,3 +368,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed home desktop light.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2); stamp uniformity.
+
+## 2026-10-26: cycle 22 response (designer)
+Fixed:
+- 5 Stamp uniformity: removed the two label-only stamps ("4 unknowns, fitted", "Four-bar pedal path"). Stamps now sit only where the number is the point (99 s, 46 orbits, podium, 500 m); rows 08 and 09 are plain.
+- 4a About: "podium finish at Formula Bharat 2023" gets the double-border mark from the home podium stamp, so About carries one authored mark (viewed phone light, desktop dark; wraps normally under 420 px).
+Declined:
+- 1 status/stale dates (STATUS still empty), 2 local photos/resume.pdf/image dimensions, 3 snake outcomes or Start-here swap, 6 alt text, 10 WOFF2: need owner facts or files; nothing invented. Finding 3 (Start here is the thinnest page) is flagged to the owner: either supply what was done and what happened, or move the label to aerobraking (46 orbits).
+- 4b pager stamps, 4c empty-state line: filters never return zero results here; extra marks on every page would undo finding 5.
+- 7 contact: owner constraint (no public email). 8 LinkedIn in home action row, 13 button above second lede paragraph: taste, repeated links aid findability and the lede order is deliberate.
+- 9 sticky "On this page": the index lives inside the intro grid, so sticky would have no travel; making it travel needs a layout rewrite for three links. 11 resolved by 2. 12 "Start here" label contrast passes; hierarchy nit.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).

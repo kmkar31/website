@@ -1,66 +1,60 @@
-# Critique, 2026-10-26 (cycle 21, reviewing main at b487ffb "Cycle 20")
+# Critique, 2026-10-26 (cycle 22, reviewing main after "cycle 21")
 
 ## Sources
-No page was fetched this cycle (WebFetch not used; the previous cycle's fetches were refused). The links are pointers only, no finding depends on them.
-- WCAG 2.2 SC 2.4.4 Link Purpose / 4.1.2 Name, Role, Value: https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html (not read)
-- web.dev, Optimize web fonts / font-display: https://web.dev/articles/optimize-webfont-loading (not read)
-- web.dev, Optimize CLS: https://web.dev/articles/optimize-cls (not read)
-- NN/g, portfolios for hiring managers: https://www.nngroup.com/articles/portfolios/ (not read)
-Topic this cycle: regression check of cycle 20, fonts, robustness. Findings below are measured in the repo or with Playwright.
+WebFetch was attempted this cycle for three primary sources and every request was refused (PROVENANCE_REQUIRED, permission not answered). None was read, so no finding below rests on them. They are listed as pointers only.
+- web.dev, Optimize CLS (width/height or aspect-ratio on images): https://web.dev/articles/optimize-cls (blocked)
+- WCAG 2.2 SC 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (blocked)
+- NN/g, portfolios for hiring managers: https://www.nngroup.com/articles/portfolios/ (blocked)
+Topic this cycle: freshness and credibility of content, evidence (media) dependency, UX for a 30-second reader.
 
-Measured: tools/check.py on 13 pages x 3 viewports x 2 themes, every line OK (Wix images not loading is a sandbox limit). Screenshots viewed: home phone (light) and home desktop (light). The desktop shot in agents/shots was stale in my first read (it showed no Fig. 1 plate); a fresh Playwright shot at 1366 wide shows the plate, so no regression there. Live site not checked. STATUS in build/build.py is still "" (line 257), so no status line on home or About.
+Measured: `python3 tools/check.py . agents/shots` on 13 pages x 3 viewports x 2 themes, every line OK (no overflow, tap-target, contrast, alt or h1 failure). "N images not loaded" notes are the sandbox blocking Wix, not a bug. Screenshots viewed: home phone light, home desktop light, About desktop light, snake-robots phone light. Repo checks: `STATUS = ""` still at build/build.py line 257; wixstatic/filesusr references per page: 2 to 9 (404 included); robots.txt, sitemap, canonical, OG/Twitter with absolute local og.png, JSON-LD all present. Live site not checked.
 
 ## Scores
-- AI-tell: 3/10 (unchanged). Authored: struck-through "three weeks" in marker, "For the record" ledger, stamps, Fig. plate, plain lede, colophon "no framework". Residual: cream + serif + terracotta editorial kit; rows 02-09 share one anatomy. No gradients, blur, glow, badges, slogans. Tells moved since last cycle: none (cycle 20 was non-visual).
-- Looks good: 6/10. Calm, aligned, rules are crisp, the phone first screen is good. But the only image on home is a six-dot zigzag, no photograph renders anywhere, and the desktop home is a long text list with a lot of empty cream to the right of each blurb.
-- SEO: 7/10. Unique title, description, canonical, OG/Twitter with local og.png, JSON-LD, sitemap, robots, noindex 404, one h1. Weak: render-blocking Google Fonts CSS, hotlinked project images with no width/height (0 of about 40 img tags carry them), thin Snake page.
-- UX: 6/10. Name, field, resume, LinkedIn in the first phone screen; 44 px targets; keyboard order now clean. Misses: no "now" statement, resume is a third-party URL, the featured project has no result.
-- Fun: 6/10. Earned touches (holdable 99 s stamp, struck weeks, colophon, 404) live on home and Hasselhoff only; seven of nine project pages have none.
+- AI-tell: 3/10 (unchanged). Authored: struck-through "three weeks" in a marker highlight, "For the record" ledger, stamps with real figures, Fig. plates with sheet numbers, plain lede, honest colophon. Residual tells: cream + serif + terracotta is the current "editorial warm" kit; rows 04-09 now all carry a stamp, so the stamp is becoming the template (see 5). No gradients, glass, glow, floating chips, sparkle, stat strip or three-card grid. Moved since last cycle: stamps on rows 07-09 slightly raised sameness; nothing else.
+- Looks good: 7/10. Composition, rhythm and type pairing are coherent and the paper/ink/double-rule system is committed. Held back by the one thing the screenshots cannot hide: there is not one real photograph or result image anywhere a viewer can see, so every page is text plus line drawings. The About desktop view leaves roughly a third of the width empty on the right below the first section (taste).
+- SEO: 7/10. Title and description per page, one h1, canonical, OG/Twitter with absolute image, JSON-LD, sitemap, robots, 404 noindex are all in place. Open items: alt text on hotlinked figures is generic ("Modular snake robot, figure 1 of 3"), no image width/height, fonts from Google, and the project site cannot serve a host-root robots.txt (cannot verify live).
+- UX: 6/10. A recruiter finds who he is and the strongest area fast on phone. Weak: no current status or date (finding 1), only LinkedIn as a contact route, project pages with no outcome or role (finding 3), and the Resume link is not in the phone header.
+- Fun and personality: 6/10. Real touches exist (struck-through 3 weeks, 99 s stamp you can hold down, "failed to land on the target" 404, Fig. plates). Beyond those, About and eight of nine project pages read as tidy and neutral. Below 7, so raised as Major (finding 4).
 
-## Owner critique (user-critique.md)
-1. Retro, matte: met. Paper tones, ink borders, hard-shadow button, no blur or gradient.
-2. Not AI-looking: mostly met. Remaining risk is uniform rows 02-09 and the stock editorial palette; taste, not a defect.
+## Owner critique (agents/user-critique.md)
+- Retro, matte, flat, warm, print-like, no glossy gradients: met. Paper tones, ink borders, hard offset shadow on the one button, no blur or glow, faint grain. Dark theme is the inverted-print idea and stays coherent. Retro is not costume here: contrast and 44 px targets pass in check.py.
+- Must not look AI-generated: met at 3/10. The remaining risk is the stamp pattern and the uniform row anatomy, not the palette.
 
 ## Findings (ranked)
 
-1. Major (content/UX, carried). Snake robots is "Start here" but its page has little beyond lab, advisor, a schematic and one generic paragraph. Owner must give 2-3 facts (gaits, terrain, result) or pick Aerobraking (46 orbits, a real result) as Start here. Flagged, not dictated.
+1. Major (Blocker for credibility). Stale or missing status and dates. About says "My Master's ... is at Carnegie Mellon University (2023 - 2025)" and the education entry reads 2023 - 2025; today is October 2026 and `STATUS` is still empty, so home has no "where is he now" line. A hiring manager cannot tell if he has graduated, is available, or is still enrolled, and a stale-looking page reads as abandoned. Where: home ledger, About, phone and desktop. Fix (owner only): one sentence, e.g. "Graduated May 2025 / Seeking roles in controls and autonomy starting ..." put into `STATUS`; the slot is ready. I will not invent it. Not fixable by the designer without owner facts.
 
-2. Major (credibility, carried). No "now" statement. Today is 26 Oct 2026; About says CMU "2023 - 2025" and home is present tense. A reader cannot tell if he has graduated, is enrolled or is open to roles. One owner sentence into STATUS is the highest-value change available.
+2. Major. Evidence is hotlinked from Wix and the site shows no real photographs. 2 to 9 Wix/filesusr URLs per page, including the three snake figures on the "Start here" project and the resume.pdf. If Wix reorganises, pages lose all images and the resume link dies; with the sandbox block, screenshots show the pages as they would look with broken media. Also, none of these images has width/height, so on a slow load the layout shifts (CLS risk; source blocked, standard guidance). Fix: owner supplies an assets folder (one hero photo per project, resume.pdf); designer then localises, adds dimensions and alt text. Interim designer step that needs no facts: add `width`/`height` once any image is local; until then nothing more to do.
 
-3. Major (robustness). Resume PDF, the main call to action, is a Wix filesusr hotlink in header, hero and footer on every page. Owner should supply assets/resume.pdf. Not verifiable offline.
+3. Major. The "Start here" project is the thinnest page. snake-robots (phone) is: title, tl;dr, a question, Lab and Advisor, a schematic, one "Why snake robots" sentence, pager. No result, no role, no method, no number, no video. The page the home page tells people to open first has the least to say, while ARGUS, aerobraking and Hasselhoff have real figures and results. Either the owner supplies two or three sentences on what was done and what happened (preferred), or the "Start here" label should move to a project that already has outcomes (aerobraking: 46 orbits). Editorial call is the owner's; flag it plainly in the next designer response.
 
-4. Major (looks good, 6). No photograph or result image loads anywhere; a robotics portfolio shows no robot. Owner media with true dimensions is the only fix. Until then, every figure is a hotlink dependency (about 40 img tags).
+4. Major (axis below 7). Fun and personality is concentrated in about five spots. Grounded ideas that use only facts already in the repo, none requiring invention: (a) About: the Seagate bullet and the home highlight already do the struck-through gag; give the Formula Bharat podium the same hand-made treatment on About (the double-border stamp from the home row) so About has one authored mark; (b) the pager "Next" could show the neighbour's stamp instead of its first fact for the three stamped rows, tying the pager to the front page; (c) the 404 joke exists, a one-line equivalent on empty states (e.g. filters with zero results) would be consistent. Trade-off: each addition must stay quiet; prefer one more authored mark on About over several on every page.
 
-5. Major (performance/SEO). Google Fonts stylesheet is render-blocking and third party (index.html line 25), no metric-matched fallback. check.py blocks it, so my screenshots render in a Times-like fallback and the colophon names fonts a visitor may not see. Self-host two WOFF2 with font-display: swap and preload. Needs font files; designer can at least add a size-adjusted local fallback in the font stack.
+5. Minor to Major. Stamp uniformity. Six of nine rows (04 to 09) now carry a stamp, row 01 has the plate, rows 02 and 03 are bare. The stamp was the cure for sameness in cycles 10 to 15 and is now the pattern: a mono pill with a number reads as a template. Two rows with none look unfinished by comparison rather than plain. Suggestion: keep stamps only where the number is the point (99 s, 46 orbits, podium, 500 m) and drop "4 unknowns, fitted" and "Four-bar pedal path", which are labels, not facts. That leaves four stamps plus a plate and removes the template feel. Taste, but evidence-based: the last two stamps do not carry a quantity a reader can use.
 
-6. Minor (AI-tell, taste). Home rows 02-09 share one anatomy (title, blurb, number, tag). Rows 04-06 already carry stamps; rows 02, 03, 07, 08, 09 do not. One real fact per row from text already in the repo (500 m tether for 07, four unknown constants for 08, four-bar pedal path for 09) as a stamp would break the uniformity. Reopened only because it is the largest remaining sameness.
+6. Minor. Alt text is a placeholder pattern. "Modular snake robot, figure 1 of 3" says nothing about what the image shows (WCAG 1.1.1 asks for the equivalent purpose). Owner must say what each figure shows; until then, captions carry the meaning, so this is low risk.
 
-7. Minor (SEO/CLS). Hotlinked project-page imgs lack width/height, so late figures shift layout. Needs real dimensions from the owner files.
+7. Minor. Contact is one route. Footer: "To get in touch, message me on LinkedIn." plus LinkedIn, GitHub, Resume. This is a stated owner constraint (no public email), so not a defect; note only that a recruiter with no LinkedIn account has no route, and that Resume (PDF) is hidden in the phone header (it remains in the home actions and every footer).
 
-8. Minor (looks good, desktop). The Fig. 1 caption "Fig. 1 . Snake robot, schematic" wraps to two lines inside the 176 px plate at 1366 wide, which looks cramped next to the single-line title. Widen the plate to about 200 px or shorten to "Fig. 1 . Snake robot".
+8. Minor. Repetition on the home page at desktop: "Resume (PDF)" appears in the header, the action row and the footer, and LinkedIn in the action row and footer. Fine for findability, but the action row on home could drop LinkedIn since the header icon and footer already carry it. Taste.
 
-9. Minor (layout). Desktop home: blurbs cap at 46em and the tag column sits at 240 px, leaving a wide gutter in the middle of every row. Acceptable, but the eye travels far from title to number. Taste.
+9. Minor. About desktop: the 760 px column leaves a wide empty strip to the right of Skills, Education and Experience once the "On this page" index (three links) ends after the intro. The void is documented as the portrait slot; but with no portrait, it is simply empty for about 2000 px of scroll. Option: make the index sticky so it travels with the reader, which is also useful navigation. No content invented.
 
-10. Minor (layout, About desktop). Right 28% is empty for long stretches when the portrait hotlink fails. A date margin column would use it. Taste, large rewrite.
+10. Minor. Fonts: two Google Fonts families with display=swap and no size-adjusted fallback; a flash of different metrics is likely on first load (CLS, unverified offline). Fix needs the real WOFF2 files to self-host. Owner/environment limit.
 
-11. Minor (UX). Sysid desktop: Background (about 20 lines) sits between the work and the pager; could be collapsed like Hasselhoff's detail. Taste.
+11. Minor. Snake project phone view: after the plate and one sentence, the page ends with a lot of empty space before the pager; the Fig. 1 caption says "Module count is illustrative", which is honest but also highlights that the drawing is not the real robot. Resolved by finding 2.
 
-12. Minor (UX, phone length). Home is about 6150 px on phone. Designer documents "full index by design"; accepted, only noted.
+12. Nit. "START HERE" is a 12 px mono label with an underline on phone, close to the row index; it is easy to miss next to "01". Contrast passes; it is a hierarchy nit.
 
-13. Minor (contact). Contact is LinkedIn only (owner constraint); the footer sentence is the only contact line.
+13. Nit. Phone home: two lede paragraphs push the primary button below the first viewport at 390 wide (button begins about 1000 px down in the full-page shot). The first paragraph alone answers who/what; the Seagate paragraph could follow the button. Taste, consistent with the 30-second goal.
 
-14. Nit (fun). One plain aside per project page from facts in the repo (46 orbits, 500 m, 99 s) would spread personality to the seven bare pages. Declined as taste before; fine unless owner asks.
-
-15. Nit (verify). Cycle 20 hides `a.zoom` until image load; I did not re-run a real Tab pass this cycle. Check it once on a page where Wix images succeed (live) to confirm the zoom links become focusable again after load.
-
-## Good, do not regress
-- Struck-through "three weeks" in amber marker (home, About), now linking to About#seagate.
-- Fig. N plate with sheet tag and honest "schematic" caption; repo-local og.png carries it.
-- Stamps and the 99 s stamp, now a real button inside the dd.
-- Hasselhoff disclosure bar; pager without wraparound; Aerobraking h2s; Projects h2.
-- Row links named by title; skip link first; 44 px targets; 3 px focus ring; no empty tab stops with images blocked.
-- Plain specific lede, "For the record" ledger, ink-rule hierarchy, solid ink footer, dark theme contrast.
-- Canonical, JSON-LD, sitemap, noindex 404, no framework, no gradient, no blur.
+## Good, must not regress
+- Retro matte system: paper tones, ink rules, double rules under header and above footer, hard shadow on one button only, no blur or gradients, faint grain, inverted-print dark theme.
+- Authored specifics: struck-through "three weeks" in marker (home, About), "For the record" ledger, stamps with real figures, Fig. plates with sheet numbers drawn from facts on each page, 99 s pressable stamp, 404 "failed to land on the target", honest colophon.
+- Plain lede with real facts; no slogan copy; project titles are full names.
+- Accessibility: skip link, aria-pressed filters, modal lightbox with focus return, no nameless Tab stops, row link names are the project title, 44 px targets, scroll-padding for sticky header, reduced-motion handling.
+- SEO base: per-page titles and descriptions, canonical, OG/Twitter with absolute image, JSON-LD, sitemap with lastmod, 404 noindex.
+- Failed images collapse instead of leaving gaps or orphan captions.
 
 ## Verdict
-The site is coherent, matte and fairly authored (AI-tell 3), and cycle 20 introduced no visible regression; check.py is clean on all 78 combinations. What holds the four axes at 6 is almost entirely owner-only content: a status sentence, Snake facts or a different Start here, a local resume.pdf, photographs with dimensions and WOFF2 files. Designer-only work left is small: add stamps with real facts to the five bare rows (6), fix the wrapping Fig. 1 caption (8), add a size-adjusted fallback font, and consider one aside on the bare project pages (14). Without the owner's input, further cycles will keep returning to the same five items.
+The design is finished enough that the remaining problems are not design problems. The site still has a point of view and avoids the AI look; what limits it now is substance only the owner can supply: a current status sentence (it is October 2026 and the page implies a 2023 to 2025 degree in progress), real images and a local resume instead of Wix hotlinks, and outcomes for the project the site tells people to open first. Designer-side work this cycle is small: trim the two label-only stamps, give About one authored mark, consider a sticky "On this page" index, and say plainly in the log that findings 1 to 3 are blocked on the owner. Sources this cycle could not be read; nothing here depends on them.
