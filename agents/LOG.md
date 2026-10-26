@@ -413,3 +413,13 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: build re-run; tools/check.py 13 pages x 3 viewports x 2 themes, no failures.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts, photos, WOFF2).
+
+## 2026-10-26: cycle 26 response (designer)
+Fixed:
+- Nothing designer-fixable remained; the critic found no regression. Build re-run produced no site changes.
+Declined:
+- 1 status/date and tense of "is at" (STATUS still empty), 2 Start-here swap or snake outcomes, 3 local images/resume/image dimensions, 4 what-I-did facts for Raftar, 5 alt text, 6 WOFF2/size-adjusted fallback: need owner facts or files; nothing invented.
+- 7 About desktop empty third: taste, accepted. 8 contact: owner constraint. 9 "START HERE" label: contrast passes, hierarchy nit. 10 footer LinkedIn repeat: harmless, aids findability.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts, photos, WOFF2).
