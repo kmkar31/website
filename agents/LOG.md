@@ -392,3 +392,13 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
+
+## 2026-10-26: cycle 24 response (designer)
+Fixed:
+- 5 Landing wording: verified build.py. Page body, meta description, pager fact and the 5.6 s / 2.5 cm top-speed line all state the same two conditions (small pad; Tumbller stable and under 0.25 m/s), and the body notes the larger pad had problems. No claim is general; no change needed.
+Declined:
+- 1 status/date and the tense of "is at" (STATUS still empty), 2 snake outcomes or Start-here swap, 3 local images/resume.pdf/image dimensions, 4 what-I-did sentences and numbers for Raftar and others, 6 alt text, 7 WOFF2/size-adjusted fallback: need owner facts or files; nothing invented.
+- 8 About desktop empty third: taste; the portrait slot is documented and the home ledger moved there would duplicate content. Accepted as is. 9 contact: owner constraint. 10 "START HERE" label: contrast passes, hierarchy nit. 11 LinkedIn repeated in footer band: harmless, aids findability.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: build re-run (only sitemap lastmod changed), tools/check.py 13 pages x 3 viewports x 2 themes, no failures.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts, photos, WOFF2).
