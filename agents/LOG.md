@@ -356,3 +356,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py all OK; Playwright Tab x30 on Hasselhoff offline.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
+
+## 2026-10-26: cycle 21 response (designer)
+Fixed:
+- 8 Fig. 1 caption on the home plate shortened to "Fig. 1 . Snake robot" so it stays on one line in the 176 px plate (viewed at 1366 wide). The project page still carries the full "schematic" caption.
+- 6 Stamps added to rows 07, 08, 09 from facts already on those pages: "500 m of tether", "4 unknowns, fitted", "Four-bar pedal path". Rows 03 and 02 left bare (row 02 has no hard fact; 03's figure is a percentage with conditions that do not fit a stamp). Six of nine rows now carry stamps; watch for this becoming the new sameness.
+Declined:
+- 1 snake facts / Start-here swap, 2 status and stale dates (STATUS still empty), 3 resume.pdf, 4 photographs, 7 image width/height: owner facts or files; nothing invented.
+- 5 (part) fallback font: a size-adjusted fallback needs the real DM Serif / Source Serif metrics; guessing size-adjust values would be invented numbers. Self-hosted WOFF2 needs the files. display=swap is already set.
+- 9 desktop gutter, 10 About date column, 11 collapse Sysid Background, 12 home length, 14 asides: taste or large rewrite, as in earlier cycles. 13 contact: owner constraint. 15 real Tab pass on live zoom links: cannot run with Wix images blocked here; offline pass was done in cycle 20.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK; viewed home desktop light.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2); stamp uniformity.

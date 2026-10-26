@@ -211,7 +211,7 @@ PLATES = {
 }
 def plate_thumb(slug):
     svg = PLATES[slug][0]
-    return f'<span class="thumb plate-thumb plate" data-cap="Fig. 1 &middot; Snake robot, schematic"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
+    return f'<span class="thumb plate-thumb plate" data-cap="Fig. 1 &middot; Snake robot"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
 
 def plate(slug):
     svg, cap, label = PLATES[slug]
@@ -232,11 +232,11 @@ META = {
  "aerobraking-drl": dict(tags=["Space", "Controls"], tldr="Trained a PPO agent to pick the burns for an aerobraking orbit insertion, then checked it on a physics simulator: target reached in 46 orbits.",
    stamp="46 orbits to target", results=[("Terminal error", "8.4 km"), ("Training", "1.1M steps"), ("To target", "46 orbits")]),
  "tethered-nanosatellite": dict(tags=["Space", "Controls"], tldr="Two CubeSats on a 500 m tether that use Earth's magnetic field to drag debris out of orbit.",
-   results=[("Tether", "500 m"), ("Satellites", "3U + 1U CubeSat")]),
+   stamp="500 m of tether", results=[("Tether", "500 m"), ("Satellites", "3U + 1U CubeSat")]),
  "quadrotor-sysid": dict(tags=["Controls", "Robotics"], tldr="A physics-based quadrotor model with four unknown constants, which I fitted from hover and sinusoidal-rotation tests.",
-   results=[("Unknowns", "4 coefficients"), ("Tests", "Hover and sinusoidal rotation")]),
+   stamp="4 unknowns, fitted", results=[("Unknowns", "4 coefficients"), ("Tests", "Hover and sinusoidal rotation")]),
  "assistive-tricycle": dict(tags=["Build"], tldr="A tricycle for riders with one working leg. The pedals follow an elliptical four-bar path so the knee stays within its range of motion.",
-   results=[("Target speed", "12 km/h"), ("Sprocket ratio", "2"), ("Checked with", "ANSYS FEA")]),
+   stamp="Four-bar pedal path", results=[("Target speed", "12 km/h"), ("Sprocket ratio", "2"), ("Checked with", "ANSYS FEA")]),
 }
 FILTERS = ["Robotics", "Controls", "Space", "Build"]
 
