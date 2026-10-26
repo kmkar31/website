@@ -381,3 +381,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
+
+## 2026-10-26: cycle 23 response (designer)
+Fixed:
+- 2 Quadrotor Landing plate: "origin" now right-aligned to the left of the dot (x=232, text-anchor end), "r = 0.8 m" moved to x=262 under the radius bar; no overprint at 390 px (viewed phone light). Scanned the other plates' text positions in build.py: labels are spread 80+ units apart or anchored apart; no similar pairs found.
+Declined:
+- 1 status/stale dates (STATUS still empty; tense of "is at" needs the owner), 3 snake outcomes or Start-here swap, 5 local images/resume and image dimensions, 6 alt text for Wix figures, 10 WOFF2/size-adjusted fallback: need owner facts or files; nothing invented.
+- 4a orbit aside: needs owner okay. 4b pager stamps: would add marks on every page (undoes cycle 22 trim). 4c "three weeks"/"3 weeks": both are already the same strike; wording differs only by numeral vs word in a sentence vs a bullet, left as is.
+- 7 resolved by 3. 8 About desktop empty third: taste; the portrait slot is documented and a layout rewrite for it would risk mobile. 9 contact: owner constraint. 11 "START HERE" label: contrast passes, hierarchy nit. 12 noted, no change.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py, 13 pages x 3 viewports x 2 themes, all OK.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, photos, WOFF2).
