@@ -1,56 +1,58 @@
-# Critique, 2026-10-26 (cycle 24, reviewing main at 5b0f017 "Cycle 23")
+# Critique, 2026-10-26 (cycle 25, reviewing main at 1e7d912 "Cycle 24")
 
 ## Sources
-WebFetch was refused again (PROVENANCE_REQUIRED, permission not answered) for https://www.nngroup.com/articles/mobile-ux/. WebSearch returned only result lists. Nothing below rests on a page I could read. Pointers only, unverified:
-- NN/G, 5 Steps to Creating a UX-Design Portfolio: https://www.nngroup.com/articles/ux-design-portfolios/ (search result only)
-- NN/G, UX Portfolios: What Hiring Managers Look For: https://www.nngroup.com/videos/ux-portfolios-hiring/ (search result only)
-- NN/G, mobile UX: https://www.nngroup.com/articles/mobile-ux/ (blocked)
-Topic this cycle: portfolio content strategy for a 30-second reader (recruiter or professor), freshness and credibility.
+WebFetch of https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html was refused (PROVENANCE_REQUIRED, permission unanswered). WebSearch returned only result lists, no readable pages. Nothing below rests on a page I read. Pointers only, unverified:
+- web.dev, Optimize Cumulative Layout Shift: https://web.dev/optimize-cls/ (search result only)
+- WCAG 2.2 SC 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (blocked)
+- NN/G portfolio guidance, carried over from last cycle: https://www.nngroup.com/articles/ux-design-portfolios/ (unread)
+Topic this cycle: layout stability (CLS) and image/font loading, plus a visual pass of home and About.
 
-Measured: `python3 tools/check.py . agents/shots`, 13 pages x 3 viewports x 2 themes. Every line is OK (no overflow, tap, contrast, alt or h1 failures; "images not loaded" is the sandbox). Screenshots viewed: home phone and desktop (light), snake-robots tablet (dark), raftar phone (light). Repo read: critic/LOG/user-critique, grep of titles, og tags, robots, hotlink counts. Live site not checked.
+Measured: `python3 tools/check.py . agents/shots`, 13 pages x 3 viewports x 2 themes: every line OK (only "images not loaded", the sandbox). Screenshots viewed: home phone light, home desktop dark, About tablet light. Repo grep: title, canonical, og tags, robots, Wix hotlink counts, STATUS. Live site not checked.
 
 ## Scores
-- AI-tell: 3/10 (unchanged). No gradients, glass, glow, stats strip or card trio. Plain first-person lede with real numbers; plates and four quantity stamps are specific to him. Residual: cream paper + serif + terracotta + mono labels is a familiar "editorial" kit. Moved: nothing this cycle (cycle 23 only fixed a label).
-- Looks good: 7/10. Home desktop and phone are well ordered: rules, one hard-shadow button, ruled index, dark footer band. Held back by no photographs anywhere (images blocked here, but the repo has none local), by the snake page being a large drawing plus one sentence, and by About's empty right third (taste).
-- SEO: 7/10. Unique titles and descriptions, canonical, OG/Twitter with absolute og.png, JSON-LD, sitemap, 404 present. Open: placeholder alt text, no width/height on images, Google Fonts without a size-adjusted fallback. robots.txt in a /website/ subpath is not read by crawlers (host root only); harmless, cannot verify live.
-- UX: 6/10. Within one phone screen: name, school, lab, advisor, the Seagate result, Resume and LinkedIn. Weak: no current status or date, LinkedIn is the only contact route, Resume is a Wix hotlink, phone header has no Resume link (it is in hero and footer).
-- Fun and personality: 6/10. Struck-through "three weeks", 99 s stamp, 404 joke, Sheet N of 9 plates are real and earned. Most project pages outside those are neutral. Same score as last cycle; ideas are blocked on owner facts.
+- AI-tell: 3/10 (unchanged). No gradient, glass, glow, stats strip or card trio. Plain lede with real numbers; strike-through "three weeks", stamps and Fig. plates are specific to him. Residual: cream paper + serif + terracotta + mono labels is a familiar "editorial" kit. Tells moved since last cycle: none (cycle 24 changed nothing visible).
+- Looks good: 7/10. Home desktop dark is well ordered: rules, one hard-shadow button, ruled index, stamps at right, inverted-print dark band. Phone home is a long single column but rhythmic. Held back by zero photographs (repo has none local), and the snake plate being the only image on home so row 01 is visually 3x heavier than the rest.
+- SEO: 7/10. Unique title/description, canonical, OG with absolute 1200x630 og.png and alt, JSON-LD, sitemap, noindex 404. Open: placeholder alt on Wix figures, no width/height on images, Google Fonts without size-adjusted fallback. robots.txt under /website/ is not read by crawlers (host root only); harmless.
+- UX: 6/10. Phone first screen answers who, where, lab, advisor, the Seagate result, Resume and LinkedIn. Weak: no status or date (STATUS = "" still, build.py:257), LinkedIn is the only contact route, Resume is a Wix hotlink.
+- Fun and personality: 6/10. Struck-through "three weeks", 99 s stamp, 404 joke, Sheet N of 9 plates are earned. Rest of the project pages are neutral. Ideas are blocked on owner facts.
 
 ## Owner critique (agents/user-critique.md)
-- Retro, matte, warm, print-like: met. Flat paper, ink rules, hard shadow on one button, no blur or gradient, inverted-print dark theme (checked snake-robots tablet dark: legible, coherent).
-- Not AI-looking: met at 3/10; see the AI-tell score. No generic-template tell is present.
+- Retro, matte, warm, print-like: met. Flat paper, ink rules, hard shadow on one button, no blur or gradient, dark theme reads as inverted print (checked home desktop dark: legible, coherent).
+- Not AI-looking: met at 3/10. No generic-template tell is present.
 
 ## Findings (ranked)
 
-1. Major (credibility, owner-only). Still no current status or date. `STATUS = ""` in build/build.py. About says the Master's is "2023 - 2025" and the home lede and hero sub-line are present tense ("I research", "MS Mechanical Engineering, Carnegie Mellon University"). Today is October 2026. A recruiter cannot tell whether he has graduated, is employed or is looking. Hiring-manager guidance generally asks portfolios to say what the person wants next (NN/G pointers above, unread). Needs: one sentence from the owner plus the tense of "is at". Not repeating the designer's reason for declining; it is sound, but the page remains the single largest UX gap.
+1. Major (credibility, owner-only). No current status or date. About says "2023 - 2025" and the lede is present tense ("I research"); today is October 2026. A recruiter cannot tell whether he has graduated or is looking. Needs one owner sentence and the tense of "is at". Still the largest UX gap. Not a designer-fixable item; the designer's reason for declining is sound.
 
-2. Major (first impression of his actual work). "Start here" (snake-robots) is still the thinnest project page: tl;dr, question, lab/advisor strip, schematic whose caption says the module count is illustrative, one sentence on "why", and a link out. It is the first row on home and the only row with a plate. Seen at tablet dark this cycle: the plate takes most of the screen and the body is one sentence. Either the owner supplies what he implemented and what happened, or "Start here" moves to Aerobraking (46 orbits) or Hasselhoff (99 s, 4 thrusters). Owner decision.
+2. Major (first impression of his work). "Start here" (snake-robots) is the thinnest project page yet is row 01 and the only row with a plate. Owner either supplies what he implemented and what happened, or moves "Start here" to Aerobraking (46 orbits) or Hasselhoff (99 s, 4 thrusters). Owner decision.
 
-3. Major (robustness, owner/environment). Every project page and Resume depend on Wix hotlinks (about 3 to 9 per page; 404.html also carries 2, which is the Resume link). If the Wix site changes, photos and Resume go with it, and a dead Resume link sits in the header, hero and footer of every page. No width/height on the images, so layout shift on load (standard CLS advice; web.dev page not read, unverified). Needs the owner's files; nothing designer-side remains except a reminder.
+3. Major (robustness). Project pages and Resume depend on Wix hotlinks (counts per page: aerobraking 7, sysid 5, tricycle 4, hasselhoff 4, nanosat 4, landing 2, others 1; index has 0 but links Resume). Dead Resume link would sit in header, hero and footer of every page. No width/height on images, so layout shift when they load (standard CLS advice, web.dev pointer unread). Needs owner files.
 
-4. Major (axis at the line: UX/content). Project pages carry almost no "what I did, what I learned, what I would change" beyond one-liners; only Aerobraking, Landing and Hasselhoff have numbers. A professor or recruiter who opens Raftar (seen on phone) gets a team-size line, a sketch, two paragraphs of team description and one link. The plate there is a generic open-wheel car, not his suspension or brakes, which is what he says he did. Owner facts needed (one sentence of what he designed, one number). Do not invent them.
+4. Major (content). Project pages carry few "what I did / learned / would change" beyond one-liners; only Aerobraking, Landing and Hasselhoff have numbers. Raftar's plate is a generic open-wheel car, not his suspension or brakes, which is what he claims. Owner facts needed; do not invent.
 
-5. Minor (designer can act). Raftar's pager facts differ in kind: "Landing success: 100% (small pad, under 0.25 m/s)" vs "Thrusters: 4 BLDC". Fine, but the Landing fact has two conditions and is the more claim-like; check that the page body says the same thing and that "100%" is not read as a general claim. Wording is already carried in the repo; verify, do not rewrite.
+5. Minor (designer can act, new). About, tablet and phone: the boxed "podium finish at Formula Bharat 2023" mark is an inline-block that breaks onto its own line, leaving the sentence ending "...led the team to a" then the box, then a stranded "." (visible in the About tablet shot). Fix: let the mark wrap with `white-space: normal` / `box-decoration-break: clone`, or keep the final period inside the mark, or rephrase so the mark sits mid-sentence. Taste-adjacent but a visible typographic blemish on a page recruiters read.
 
-6. Minor. Alt text on Wix figures is placeholder-pattern ("ARGUS nanosatellite mission figure"). WCAG 1.1.1 asks for an equivalent; owner must say what each image shows.
+6. Minor. Home row 04 stamp "Podium, Formula Bharat 2023" repeats the lede sentence directly above it on desktop (lede: "finished on the podium at Formula Bharat 2023"). Same fact twice within one screen. Consider leaving the stamp for a number that is not already stated (e.g. team size 40+) only if the owner confirms it; otherwise accept.
 
-7. Minor. Fonts: two Google families with display=swap and no size-adjusted fallback; in the check run the h1 uses a different fallback serif, so a swap will reflow the h1 and lede (CLS risk, unverified offline). Needs WOFF2 files.
+7. Minor. Alt text on Wix figures is placeholder-pattern ("ARGUS nanosatellite mission figure"). WCAG 1.1.1 wants an equivalent; owner must say what each image shows.
 
-8. Minor (taste). About desktop leaves roughly the right third empty for the whole page; the portrait slot is documented but empty. Accept it and say so in the log, or put the "For the record" ledger from the home page in that column.
+8. Minor. Fonts: two Google families, display=swap, no size-adjusted fallback; the h1 and lede will reflow on swap (CLS risk, unverified offline). Needs WOFF2 files for real metrics.
 
-9. Minor. Contact is LinkedIn only (owner constraint). Conversion risk for readers without LinkedIn; not a defect.
+9. Minor (taste). About desktop leaves the right third empty; the portrait slot is documented but unused. Accept and say so, or move the home "For the record" ledger there.
 
-10. Nit. "START HERE" is a small mono underlined label under the bold "01"; easy to miss on phone. Contrast passes.
+10. Minor. Contact is LinkedIn only (owner constraint). Conversion risk for readers without LinkedIn; not a defect.
 
-11. Nit. Footer text "Set in DM Serif Display and Source Serif 4. Hand-built static pages, one stylesheet, no framework." is a good honest touch; keep. But "To get in touch, message me on LinkedIn." plus three links below repeats LinkedIn twice in the same band; harmless.
+11. Nit. "START HERE" is a small mono underlined label under bold "01"; easy to miss on phone. Contrast passes.
+
+12. Nit. Footer says "message me on LinkedIn" and then lists LinkedIn again beside it; harmless.
 
 ## Good, must not regress
-- Retro matte system: paper tones, ink rules, double rule under header and above footer, hard shadow on one button, no blur or gradient, inverted-print dark theme.
-- Authored specifics: struck-through "three weeks", "For the record" ledger, four quantity stamps (46 orbits, 99 s, 500 m, podium) and the About echo, Fig./Sheet N of 9 plates, 404 joke, honest colophon.
+- Retro matte system: paper tones, ink rules, double rule under header and above footer, one hard-shadow button, no blur or gradient, inverted-print dark theme.
+- Authored specifics: struck-through "three weeks", "For the record" ledger, quantity stamps (46 orbits, 99 s, 500 m, podium), Fig./Sheet N of 9 plates, 404 joke, honest colophon.
 - Plain lede with real facts; full project names as titles; per-project blurbs that state the specific thing done.
 - Accessibility: skip link, aria-pressed filters, modal lightbox, no nameless Tab stops, row link name equals title, 44 px targets, reduced-motion handling.
 - SEO base: titles, descriptions, canonical, OG/Twitter, JSON-LD, sitemap, noindex 404.
-- Failed images collapse cleanly; pager has no wraparound; cycle 23's quadrotor plate label fix (not re-viewed this cycle).
+- Failed images collapse cleanly; pager has no wraparound; quadrotor plate label fix.
 
 ## Verdict
-The design is coherent, retro without being costume, and does not read as generated. Cycle 23's label fix closed the last visible defect, and I found no new regression in the automated run or the four screens I viewed. What limits the site now is substance only the owner can supply: a current status sentence and tense check (it is October 2026 and the page says 2023 - 2025), local images and a local Resume, and real outcomes for the "Start here" snake page and the Raftar page (what he designed). Without those, further designer cycles will mostly be polish. Sources could not be read this cycle; no finding depends on them.
+The design is coherent, retro without being costume, and does not read as generated; the automated run is clean and I found no regression from cycle 24. The one new, designer-fixable defect is the boxed podium mark on About stranding its full stop on phone and tablet. Everything else that limits the site is substance only the owner can supply: a current status sentence (it is October 2026 and the page says 2023 - 2025), local images and a local Resume, and real outcomes for the "Start here" snake page and Raftar. Without those, further designer cycles are mostly polish. Sources could not be read this cycle; no finding depends on them.

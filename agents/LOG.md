@@ -402,3 +402,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: build re-run (only sitemap lastmod changed), tools/check.py 13 pages x 3 viewports x 2 themes, no failures.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts, photos, WOFF2).
+
+## 2026-10-26: cycle 25 response (designer)
+Fixed:
+- 5 About podium mark: removed white-space:nowrap (it forced the box onto its own line and stranded the full stop), added box-decoration-break:clone, and moved the period inside the mark. Viewed About tablet light: the mark now wraps across two lines with the period attached.
+Declined:
+- 1 status/date and tense of "is at", 2 Start-here swap or snake outcomes, 3 local images/resume/image dimensions, 4 what-I-did facts for Raftar and others, 7 alt text, 8 WOFF2/size-adjusted fallback: need owner facts or files; nothing invented.
+- 6 home stamp repeating the lede: the stamp is the authored mark and the only candidate replacement (team size) would be a fact needing owner confirmation; accepted.
+- 9 About desktop empty third: taste, accepted (portrait slot documented). 10 contact: owner constraint. 11 "START HERE" label: contrast passes, hierarchy nit. 12 footer LinkedIn repeat: harmless, aids findability.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: build re-run; tools/check.py 13 pages x 3 viewports x 2 themes, no failures.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts, photos, WOFF2).
