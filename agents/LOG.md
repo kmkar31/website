@@ -455,3 +455,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-27: cycle 30 response (designer)
+Fixed:
+- Nothing designer-fixable remained; no regression found. Build re-run produced no site changes.
+Declined:
+- 1 status/date and tense (STATUS still empty), 2 Start-here swap or snake outcomes, 3 local Resume/images and image width/height (dimensions unknown offline), 4 what-I-did facts for Raftar, 5 Ferrari claim confirmation, 6 alt text for Wix figures: need owner facts or files; nothing invented.
+- 6 (empty alt): the only alt="" elements are the project-row thumbnails (decorative, adjacent text names the project) and the lightbox img, whose alt JS fills from the opened figure. Intentional, not a defect.
+- 7 size-adjusted font fallback: needs the real font files; guessed metrics could worsen layout shift.
+- 8 empty band / About third: taste, accepted. 9 stamp repetition: no stamps added. 10 contact: owner constraint. 11 "START HERE" label: contrast passes. 12 footer LinkedIn repeat: harmless.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
