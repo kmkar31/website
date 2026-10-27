@@ -479,3 +479,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures; viewed Aerobraking phone light.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-27: cycle 32 response (designer)
+Fixed:
+- 1 Result ledger: dropped the three figures already shown in the hero, facts strip and Result paragraph (46 orbits, 8.4 km, 1.1M steps); kept only initial and target apoapsis as a two-item "Orbit range" line. No wrapping labels, no orphaned item, baselines align on phone and desktop.
+- 6 "guarantees" claim: replaced the last sentence with "in simulation the RL-based method completed the aerobraking maneuver, reaching the target apoapsis in 46 orbits", which the page's own evidence supports. Removes the unshown fuel/time comparison.
+Declined:
+- 2 status/date, 3 Start-here swap or snake outcomes, 4 local Resume and image width/height (dimensions unknown offline), 5 Raftar facts, 7 Ferrari wording, 8 alt text for Wix figures: need owner facts or files; nothing invented.
+- 9 size-adjusted font fallback: needs real font files; guessed metrics could worsen layout shift.
+- 10 stamp repetition: no stamps added. 11 contact: owner constraint. 12 "START HERE" label and empty bands: contrast passes, taste, accepted.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes); viewed Aerobraking phone light and desktop dark.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
