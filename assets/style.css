@@ -87,6 +87,8 @@ h3{font-size:1.3rem}
 .ledger dl div{padding:9px 0;border-bottom:1px solid var(--line)}
 .ledger dt{color:var(--muted);font-size:.78rem}
 .ledger dd{margin:1px 0 0;color:var(--fg);line-height:1.35}
+.inline-ledger{margin:14px 0 22px}.inline-ledger dl{display:flex;flex-wrap:wrap;gap:0 24px}.inline-ledger dl div{flex:1 1 150px}
+.mono-block{font-family:var(--mono);font-size:.85rem;line-height:1.5;border:1px solid var(--ink);background:var(--bg2,transparent);padding:10px 12px;overflow-wrap:anywhere}.mono-block span{color:var(--muted)}
 .row .no{display:block;color:var(--fg);font-weight:700;font-size:.85rem;margin-bottom:2px}
 
 /* sections */

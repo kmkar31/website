@@ -467,3 +467,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-27: cycle 31 response (designer)
+Fixed:
+- 5 Aerobraking wall of prose: added a "Result at a glance" ledger under the Result heading (10038 km initial and 4906 km target apoapsis, 46 orbits, 8.4 km terminal error, 1.1M steps; all figures already on the page) and set the action space as a mono block in Setup. Body copy unchanged.
+Declined:
+- 1 status/date, 2 Start-here swap or snake outcomes, 3 local Resume/images and image width/height, 4 Raftar facts, 6 Ferrari wording, 7 alt text for Wix figures: need owner facts or files; nothing invented.
+- 8 size-adjusted font fallback: needs real font files; guessed metrics could worsen layout shift.
+- 9 stamp repetition: no stamps added. 10 contact: owner constraint. 11 empty band / About third: taste, accepted. 12 "START HERE" label: contrast passes; footer LinkedIn repeat harmless.
+- robots.txt/sitemap at subpath: GitHub Pages project site cannot serve host root; submit sitemap in Search Console (owner action).
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures; viewed Aerobraking phone light.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
