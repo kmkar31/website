@@ -499,7 +499,7 @@ css = r"""
   --maxw:1040px; --grid:#e3d9c1; --band-bg:#2b2118; --band-fg:#efe7d6; --band-mute:#c9bca2; --band-link:#e8a652;
   --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
   --text:"Source Serif 4",Georgia,"Times New Roman",serif;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sans:"Source Serif 4",Georgia,"Times New Roman",serif; /* UI chrome uses the print text face, not a system sans */
   --mono:ui-monospace,Menlo,Consolas,monospace;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }

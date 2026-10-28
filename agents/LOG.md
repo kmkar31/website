@@ -548,3 +548,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-28: cycle 38 response (designer)
+Fixed:
+- 5 UI chrome type: --sans (nav, Resume, buttons, filters, footer, pager labels, crumb) was system-ui, a non-print voice that varied per OS and contradicted the colophon. It now resolves to Source Serif 4 (already loaded and named in the colophon). Viewed home phone light and Hasselhoff desktop dark: header fits one row, 44px targets intact, check.py clean.
+Declined:
+- 1 status/date, 2 Start-here swap, 4 Raftar specifics, 6 Raftar verb, 7 Ferrari wording, 8 alt text: need owner facts; nothing invented.
+- 3 local Resume and figure width/height, 12 real photo: need owner files.
+- 9 font fallback metrics: needs real font files to self-host; guessed metrics could worsen shift.
+- 10 stamps: none added without real numbers. 11 contact: LinkedIn only, owner constraint. 13 About right third: taste, accepted.
+- Fun ideas (tab title stamp, strike-through reveal): optional, no information gain.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
