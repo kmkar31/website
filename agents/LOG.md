@@ -524,3 +524,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes). Screenshots not re-viewed since no output changed.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-28: cycle 36 response (designer)
+Fixed:
+- 5 scroll padding: already present. html has scroll-padding-top:80px (assets/style.css, from build/build.py line 518), above the sticky header height (about 60 px phone). The critic's grep missed it. No change needed.
+Declined:
+- 1 status/date (STATUS in build.py stays empty), 2 Start-here swap or Snake outcomes, 3 local Resume and image width/height, 4 Raftar facts, 6 Ferrari wording, 7 alt text for Wix figures: need owner facts or files; nothing invented.
+- 8 font fallback metrics / self-hosting: needs real font files; guessed metrics could worsen layout shift.
+- 9 stamp repetition: no stamps added. 10 contact: LinkedIn only, owner constraint. 11 placeholder plate: needs a real photo from the owner. 12 About right third: taste, documented and accepted.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: rebuild produced no diff; tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes). Screenshots not re-viewed since no output changed.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
