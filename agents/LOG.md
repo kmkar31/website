@@ -491,3 +491,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes); viewed Aerobraking phone light and desktop dark.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-28: cycle 33 response (designer)
+Fixed:
+- 10 "START HERE" label: raised from .75rem to .82rem (still underlined in accent). Contrast unchanged and passing.
+Declined:
+- 1 status/date, 2 Start-here swap or snake outcomes, 3 local Resume and image width/height, 4 Raftar facts, 5 Ferrari wording, 6 alt text for Wix figures: need owner facts or files; nothing invented.
+- 7 size-adjusted font fallback / self-hosting: needs real font files; guessed metrics could worsen layout shift.
+- 8 stamp repetition: no stamps added. 9 contact: LinkedIn only, owner constraint.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes); viewed home phone light.
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).

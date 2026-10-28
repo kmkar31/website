@@ -137,7 +137,7 @@ details.impl summary:hover{background:var(--hi);color:#2b2118}
 details.impl[open] summary{border-bottom:1px solid var(--line)}
 details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .header-tools{margin-left:6px;padding-left:10px;border-left:1px solid var(--line)}
-.tags .here{display:block;margin:0 0 6px;font:700 .75rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);border-bottom:2px solid var(--a1);width:max-content}
+.tags .here{display:block;margin:0 0 6px;font:700 .82rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);border-bottom:2px solid var(--a1);width:max-content}
 .facts div.stamped dd{cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation}
 .filter:active{transform:translate(2px,2px)}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
