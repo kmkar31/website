@@ -535,3 +535,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: rebuild produced no diff; tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes). Screenshots not re-viewed since no output changed.
 Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
+
+## 2026-10-28: cycle 37 response (designer)
+Fixed:
+- 5 podium mark: the double-bordered mark wrapped into two stacked boxes on tablet. Shortened it to "podium finish" (rest of the sentence is plain text) and added white-space:nowrap. Viewed About on tablet and phone, light: one box, one line.
+Declined:
+- 1 status/date (STATUS in build.py stays empty), 2 Start-here swap or Snake outcomes, 4 Raftar suspension/brakes specifics, 6 Raftar verb consistency, 7 Ferrari wording: need owner facts; nothing invented.
+- 3 local Resume and image width/height, 8 alt text for Wix figures, 12 real photo for placeholder plate: need owner files or descriptions.
+- 9 font fallback metrics / self-hosting: needs real font files; guessed metrics could worsen layout shift.
+- 10 stamp repetition: no stamps added without real numbers. 11 contact: LinkedIn only, owner constraint. 13 About right third: taste, documented and accepted.
+- Fun ideas (tab title as stamp, strike-through reveal): optional taste, not added; no information gain.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
+Next attack: owner blockers (status sentence, resume.pdf, snake facts, Raftar facts and Ferrari wording, photos, font files).
