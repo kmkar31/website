@@ -561,3 +561,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met per critic; no change.
 Verification: tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes).
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-10-29: cycle 39 response (designer)
+Fixed:
+- Nothing. The critic reported no designer-fixable defect; no site changes.
+Declined:
+- 1 status/date (STATUS in build.py stays empty), 3 Start-here swap, 4 Raftar suspension/brakes specifics, 5 Raftar verb consistency, 6 Ferrari wording, 7 alt text for Wix figures: need owner facts; nothing invented.
+- 2 local Resume PDF and figure width/height, 11 real photo for placeholder plate: need owner files.
+- 8 font fallback metrics / self-hosting: needs real font files; guessed metrics could worsen layout shift.
+- 9 stamp repetition: none added without real numbers. 10 contact: LinkedIn only, owner constraint. 12 About right third: taste, accepted.
+- Fun ideas (tab title stamp, strike-through reveal): optional, no information gain.
+- Owner notes (retro matte, not AI-looking): met per critic; no change.
+Verification: rebuild produced no diff; tools/check.py 13 pages x 3 viewports x 2 themes, no failures (only sandbox image notes). Screenshots not re-viewed since no output changed.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Start-here decision, photos, font files).
