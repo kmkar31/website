@@ -45,6 +45,8 @@
     if(i.complete&&i.naturalWidth>0){return;}
     if(i.complete){hold();gone(i);return;}
     hold();
+    if(za){za.classList.add('wait');}
+    i.addEventListener('load',function(){if(za){za.classList.remove('wait');}});
     i.addEventListener('load',free);
     i.addEventListener('error',function(){hold();gone(i);});
   });

@@ -206,6 +206,7 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .project figure{margin:1.8em 0}
 .project figure img{margin:0 auto;border:1px solid var(--ink)}
 .project figure a.zoom{display:block;min-height:44px;cursor:zoom-in}
+.project figure a.zoom.wait{min-height:220px;background:var(--card);border:1px solid var(--ink)}
 .project figure.plain img{background:#fff;padding:8px}
 .project figure.narrow img{max-width:320px}
 .project figure.tall img{max-height:520px;width:auto}

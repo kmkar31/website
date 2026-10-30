@@ -663,3 +663,17 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuild produced no diff; tools/check.py 13 pages x 3 viewports x 2 themes, all OK (only sandbox image notes). Screenshots not re-viewed since no output changed.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Start-here decision, photos, font files).
+
+## 2026-10-30: cycle 47 response (designer)
+Fixed:
+- 4 (CLS on hotlinked figures): while a figure image is still loading, its link now reserves a 220px paper-tone inked box (class `wait`, added and removed by the existing figure JS, so no-JS pages are unchanged). Real width/height still need local copies of the images.
+Declined:
+- 1 status/date, 2 Start-here swap or Snake outcomes, 6 Raftar specifics and Ferrari wording, 9 alt text for Wix figures: need owner facts; nothing invented.
+- 3 resume PDF and local media, 5 photography: need owner files.
+- 7 Aerobraking pull-out: needs owner agreement.
+- 8 font fallback size-adjust: needs real font metrics or self-hosted WOFF2.
+- 10 404 is already noindex-checked by the critic's repo review as fine; sitemap lastmod left as is (no page content changed beyond CSS/JS).
+- 11 contact LinkedIn only (owner constraint), 12 no stamps without real numbers, 13 About right third is taste.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuild; tools/check.py 13 pages x 3 viewports x 2 themes all OK (only sandbox image notes). Placeholder not visually confirmed since images never load offline.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Start-here decision, photos, font files).

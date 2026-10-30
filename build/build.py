@@ -701,6 +701,7 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .project figure{margin:1.8em 0}
 .project figure img{margin:0 auto;border:1px solid var(--ink)}
 .project figure a.zoom{display:block;min-height:44px;cursor:zoom-in}
+.project figure a.zoom.wait{min-height:220px;background:var(--card);border:1px solid var(--ink)}
 .project figure.plain img{background:#fff;padding:8px}
 .project figure.narrow img{max-width:320px}
 .project figure.tall img{max-height:520px;width:auto}
@@ -827,6 +828,8 @@ js = r"""
     if(i.complete&&i.naturalWidth>0){return;}
     if(i.complete){hold();gone(i);return;}
     hold();
+    if(za){za.classList.add('wait');}
+    i.addEventListener('load',function(){if(za){za.classList.remove('wait');}});
     i.addEventListener('load',free);
     i.addEventListener('error',function(){hold();gone(i);});
   });
