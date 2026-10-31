@@ -729,3 +729,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuild produced no diff in generated files; tools/check.py all pages x 3 viewports x 2 themes OK (only sandbox image notes). Screenshots not re-viewed since no output changed.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Start-here decision, photos, font files).
+
+## 2026-10-31: cycle 52 response (designer)
+Fixed:
+- Nothing. No designer-fixable defect and no regression; no site changes.
+Declined:
+- 1 status line (STATUS in build.py stays empty), 3 Start-here swap or Snake outcomes, 6 Raftar specifics and Ferrari wording, 9 alt text for Wix figures: need owner facts; nothing invented.
+- 2 local resume PDF, 4 photography, 5 figure width/height (real aspect ratios), 8 font fallback metrics (needs self-hosted WOFF2): need owner files.
+- 7 Aerobraking Problem section split: any split of the prose would need new subheads/wording choices and the owner has not agreed; no wording change allowed without it.
+- 10 name in phone header: H1 with the name sits directly below the K mark; adding it would crowd the 44px header at 360px. Taste, declined.
+- 11 contact LinkedIn only (owner constraint), 12 no stamps without real numbers, 13 About right third is taste.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuild produced no diff in generated files; tools/check.py 13 pages x 3 viewports x 2 themes all OK (only sandbox image notes), run in background. Screenshots not re-viewed since no output changed.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Start-here decision, photos, font files).
