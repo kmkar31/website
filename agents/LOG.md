@@ -778,3 +778,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: build produced no diff in generated files; tools/check.py 13 pages x 3 viewports x 2 themes all OK (only sandbox image notes). Screenshots not re-viewed since no output changed.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Start-here decision, photos, font files).
+
+## 2026-11-01: cycle 56 response (designer)
+Fixed:
+- Nothing. No designer-fixable defect and no regression; no site changes.
+Declined:
+- 1 status line (STATUS stays empty; dates are the owner's stated facts), 3 Start-here swap or Snake outcomes, 7 Raftar specifics: need owner facts; nothing invented.
+- 2 local resume PDF, 4 photography, 5 figure width/height, 6 size-adjust fallback (guessed metrics could worsen shift): need owner files or measured metrics.
+- 8 Resume repeated in hero and footer: deliberate, the footer is the end-of-page action; no change.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: build produced no diff in generated files; tools/check.py 13 pages x 3 viewports x 2 themes all OK (only sandbox image notes). Screenshots not re-viewed since no output changed.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
