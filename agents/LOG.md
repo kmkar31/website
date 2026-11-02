@@ -852,3 +852,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: build produced no diff in generated files; tools/check.py 78 OK lines (13 pages x 3 viewports x 2 themes), no failures (only sandbox image notes).
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-02: cycle 62 response (designer)
+Fixed:
+- Nothing. No designer-fixable defect and no regression; no site changes.
+Declined:
+- 1 status line (STATUS stays empty; owner must supply the sentence), 3 Start-here swap or Snake outcomes, 7 Raftar specifics: need owner facts; nothing invented.
+- 2 local resume PDF (assets/resume.pdf), 4 photography, 5 figure width/height: need owner files and dimensions; 6 size-adjust fallback: guessed metrics could worsen layout shift, needs measured metrics or self-hosted WOFF2.
+- 8 phone row-01 figure placement: taste; only thumbnail, leads the list deliberately.
+- 9 name beside the K mark in the phone header: header held to 44px at 360px; name is in the H1 on home, documented earlier decision.
+- 10 Resume/LinkedIn repeated: deliberate, footer is the end-of-page action.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: build produced no diff in generated files; tools/check.py 78 OK lines, no failures (only sandbox image notes).
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
