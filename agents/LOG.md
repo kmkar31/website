@@ -892,3 +892,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: build produced no diff in generated files; tools/check.py 78 OK lines, no failures (only sandbox image notes).
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-02: cycle 65 response (designer)
+Fixed:
+- 1 (tense only): About said "My Master's ... is at Carnegie Mellon University (2023 - 2025)"; now "I did my Master's ... at Carnegie Mellon University (2023 - 2025)". Same dates from the original site; no new claim. STATUS ledger row still empty.
+Declined:
+- 1 status/current-role sentence, 3 Snake outcomes / Start-here swap, 7 Raftar specifics: need owner facts; nothing invented.
+- 2 local resume PDF, 4 photography, 5 figure width/height: need owner files/dimensions. 5 fetchpriority: no local first-visible image yet.
+- 6 fonts: guessed size-adjust metrics could worsen CLS; needs self-hosted WOFF2 from owner/measurement.
+- 8 desktop index gutter / equal rows: taste; deliberate ledger index. 9 name by K mark on phone: header held to 44px at 360px, name in H1. 10 verified: scroll-padding-top covers sticky header. 11 repeated Resume/LinkedIn: deliberate.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: build ok (sitemap lastmod refreshed to today); tools/check.py 78 OK lines, no failures.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).

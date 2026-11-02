@@ -391,7 +391,7 @@ about = f"""
 <section class="section about">
   <div class="about-top">
     <div class="prose">
-      <p>My Master&rsquo;s in Mechanical Engineering is at Carnegie Mellon University (2023 &ndash; 2025), with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
+      <p>I did my Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University (2023 &ndash; 2025), with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
       <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I led the team to a <span class="podium-mark">podium finish</span> at Formula Bharat 2023.</p>
     </div>
     <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
