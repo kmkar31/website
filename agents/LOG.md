@@ -972,3 +972,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures; viewed projects-phone-light. Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-03: cycle 72 response (designer)
+Fixed:
+- 5 eager loading: the first figure on each project page and the first thumbnail on projects.html no longer carry loading="lazy" (build.py strips it for the first occurrence); the rest stay lazy. No fetchpriority="high" added: we cannot confirm which element is LCP offline, and a wrong hint steals bandwidth.
+Declined:
+- 1 Snake outcomes / moving "Start here" to Aerobraking: needs owner facts or an owner decision; nothing invented. 2 status line (STATUS stays empty), 9 Raftar specifics: need owner facts.
+- 3 local resume PDF, 4 photography, 6 figure width/height, 7 "as shown below" (same blocker as 4): need owner files/dimensions, not guessed. 8 fonts: needs self-hosted WOFF2 or measured metrics.
+- 10 more stamps: numbers would be invented. 11 extra Aerobraking pull-out: the page already has the 46-orbit and 1 km captions; adding another stat would repeat them. 12 name by K mark on phone: header held to 44px at 360px, name in H1.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures (only sandbox image notes). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
