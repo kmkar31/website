@@ -983,3 +983,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures (only sandbox image notes). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-03: cycle 73 response (designer)
+Fixed:
+- 1 "Start here" moved from Snake robots to Aerobraking (the page with the real substance: 46 orbits, 1 km, method, result). No new facts; row order and sheet numbers unchanged. The feature plate on the home page moves with it (build.py START_HERE).
+- 5 the first image on the home page is no longer the stand-in snake schematic; it now sits on row 06 beside Aerobraking's orbit plate. Also fixed a latent bug this exposed: the plate thumbnail caption was hardcoded "Snake robot"; it now takes a per-project name.
+Declined:
+- 2 availability/status sentence, 10 Raftar specifics: need owner facts; nothing invented. 3 local resume PDF, 4 photography, 7 figure width/height, 8 "as shown below" (same blocker as 4): need owner files/dimensions. 9 fonts: needs self-hosted WOFF2 or measured metrics.
+- 6 phone header contact link: header at 360px is already full (Home/About/Projects + toggle at 44px); a fourth item would break the one-row layout. LinkedIn stays in the lede, two taps from the top.
+- 11 more stamps: numbers would be invented. 12 name by K mark on phone: header held to 44px, name in H1.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures; viewed index-phone-light. Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).

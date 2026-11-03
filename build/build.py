@@ -22,6 +22,8 @@ def fig(src, cap="", alt="", cls=""):
 
 def row(*figs): return '<div class="fig-row">' + "".join(figs) + "</div>"
 
+START_HERE = "aerobraking-drl"  # row marked "Start here": the page with the most substance (46 orbits, 1 km, method, result)
+
 PROJECTS = [
  dict(slug="snake-robots", title="Gait-based Control of Modular Snake Robots",
   q="How do we coordinate the motion of hyper-redundant snake robots while remaining computationally inexpensive?",
@@ -211,9 +213,10 @@ PLATES = {
  "assistive-tricycle": ('<circle cx="170" cy="100" r="62" class="dash"/><ellipse cx="320" cy="100" rx="80" ry="48" class="acc thick"/><circle cx="170" cy="100" r="3" class="fill"/><circle cx="320" cy="100" r="3" class="fill"/><text x="116" y="186">circular</text><text x="274" y="186">elliptical</text>',
    "Foot path of a circular crank (dashed) against the elliptical four-bar path (solid) used to keep the knee within its range of motion.", "Circle beside a wider ellipse"),
 }
+PLATE_NAMES = {"snake-robots": "Snake robot", "aerobraking-drl": "Aerobraking orbits"}
 def plate_thumb(slug):
     svg = PLATES[slug][0]
-    return f'<span class="thumb plate-thumb plate" data-cap="Fig. 1 &middot; Snake robot"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
+    return f'<span class="thumb plate-thumb plate" data-cap="Fig. 1 &middot; {html.escape(PLATE_NAMES[slug])}"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
 
 def plate(slug):
     svg, cap, label = PLATES[slug]
@@ -370,7 +373,7 @@ home = f"""
 
 <section class="section">
   <div class="section-head"><h2>Projects</h2></div>
-  <ul class="index">{"".join(row_item(p, first=(i == 0)) for i, p in enumerate(PROJECTS))}</ul>
+  <ul class="index">{"".join(row_item(p, first=(p["slug"] == START_HERE)) for i, p in enumerate(PROJECTS))}</ul>
 </section>
 """
 page("index.html", "Karthik Karumanchi | Control of Robots and Spacecraft",
