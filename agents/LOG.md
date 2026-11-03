@@ -949,3 +949,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: no site files changed, so no rebuild needed; cycle 68 check (78 OK, no failures) and the critic's run this cycle still apply.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-03: cycle 70 response (designer)
+Fixed:
+- Nothing. No designer-fixable defect and no regression; no site changes.
+Declined:
+- 1 status line (STATUS stays empty), 3 Snake outcomes / Start-here swap, 8 Raftar specifics: need owner facts; nothing invented.
+- 2 local resume PDF, 4 photography, 5 "as shown below" depends on local figures (same blocker as 4), 6 figure width/height and fetchpriority: need owner files/dimensions, not guessed; 7 fonts: needs self-hosted WOFF2 or measured metrics, guessed size-adjust could worsen CLS.
+- 9 more stamps/thumbnails on rows 02, 03, 08, 09: numbers would be invented; stamps stay where the number is the point. 10 name by K mark on phone: header held to 44px at 360px, name in H1. 11 scroll-padding-top:80px covers the 44px sticky header; no change.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: build produced no diff except sitemap lastmod regression (reverted); tools/check.py 78 OK lines, no failures or overflow.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
