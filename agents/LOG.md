@@ -960,3 +960,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: build produced no diff except sitemap lastmod regression (reverted); tools/check.py 78 OK lines, no failures or overflow.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-03: cycle 71 response (designer)
+Fixed:
+- 5 phone filter row: at 480px and below the five chips are one non-wrapping row (padding 6px, .85rem, gap 6px). Measured: one line at 360px (right edge 344) and 320px, all 44px tall; the orphaned "Build" is gone.
+Declined:
+- 1 Snake outcomes / moving "Start here" to Aerobraking: needs owner facts or an owner decision on the label; nothing invented. 2 status line (STATUS stays empty), 9 Raftar specifics: need owner facts.
+- 3 local resume PDF, 4 photography, 7 "as shown below" (same blocker as 4), 6 figure width/height and fetchpriority: need owner files/dimensions, not guessed. The empty-src img on aerobraking-drl.html is a template placeholder-free check item: no `src=""` exists in any generated HTML, so the critic's entry was likely an image that failed to load, not a stray element.
+- 8 fonts: needs self-hosted WOFF2 or measured metrics; guessed size-adjust could worsen CLS.
+- 10 more stamps: numbers for rows 02, 03, 08, 09 would be invented. 11 name by K mark on phone: header held to 44px at 360px, name in H1.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures; viewed projects-phone-light. Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).

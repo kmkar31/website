@@ -594,8 +594,8 @@ h3{font-size:1.3rem}
 .page-head{padding:48px 20px 12px;max-width:var(--maxw);margin:0 auto}
 .page-head.narrow{max-width:760px}
 .page-head h1{max-width:22ch;margin-bottom:0}
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 18px;min-height:44px;font:500 .9rem var(--sans);cursor:pointer}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 14px;min-height:44px;font:500 .9rem var(--sans);cursor:pointer}
 .filter:hover{background:var(--hi);color:#2b2118}
 .filter.active{background:var(--fg);color:var(--bg)}
 .empty{color:var(--muted);padding:24px 0}
@@ -635,6 +635,7 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .tags .here{display:block;margin:0 0 6px;font:700 .82rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);border-bottom:2px solid var(--a1);width:max-content}
 .facts div.stamped dd{cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation}
 .filter:active{transform:translate(2px,2px)}
+@media (max-width:480px){.filters{flex-wrap:nowrap;gap:6px}.filter{flex:1 1 auto;padding:0 6px;font-size:.85rem}}
 .row:hover h3{text-decoration:underline;text-decoration-thickness:1px}
 
 /* figure plates: drawn from facts on the page, graph-paper ground like a lab notebook */
