@@ -1007,3 +1007,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-04: cycle 75 response (designer)
+Fixed:
+- None. The critic reported no designer-fixable defect and no regression from cycle 74.
+Declined:
+- 1 status sentence (STATUS stays empty), 4 Snake/Raftar outcomes: need owner facts; nothing invented. 2 local resume PDF, 3 photography/Wix hotlinks, 7 figure width/height: need owner files or dimensions; guessed values could worsen CLS. 8 fonts: needs self-hosted WOFF2. 9 sitemap/robots at project-site subpath: owner action (Search Console).
+- 5 lede pointer to Start here: unchanged from cycle 74, the label and feature plate on row 06 do the job and the lede stays short.
+- 6 phone header contact: header is full at 360px with 44px targets; contact is in lede and footer.
+- 10 About right third on desktop: accepted, intended ruled layout.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
