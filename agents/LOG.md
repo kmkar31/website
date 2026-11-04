@@ -995,3 +995,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures; viewed index-phone-light. Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-04: cycle 74 response (designer)
+Fixed:
+- 5 home plate caption wrapped to two lines in the 176px box; the plate name for Aerobraking is now "Orbits", so the caption reads "Fig. 1 · Orbits" on one line (checked in index-desktop-light).
+Declined:
+- 1 status sentence (STATUS stays empty), 4 Snake/Raftar outcomes: need owner facts; nothing invented. 2 local resume PDF, 3 photography/Wix hotlinks, 8 figure width/height, 9 "as shown below" (same blocker as 3), 10 fonts: need owner files, dimensions or WOFF2; guessed values could worsen CLS. 11 sitemap/robots at project-site subpath: owner action (Search Console).
+- 6 lede pointer to project 06: the lede is deliberately short, and the Start here label plus feature plate sit on row 06 already; row order and sheet numbers are fixed.
+- 7 phone header contact: header is full at 360px at 44px targets; contact is in lede and footer.
+- 12 About right-third on desktop: accepted, the On this page rail and ruled sections are the intended layout; filling it would add padding content.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).

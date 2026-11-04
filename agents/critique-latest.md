@@ -1,40 +1,41 @@
-# Critique, 2026-11-03 (cycle 73)
+# Critique, 2026-11-04 (cycle 74)
 
-Rendering: `python3 tools/check.py . agents/shots` finished (run in background, it exceeds the 2 min tool limit). All pages OK at phone, tablet and desktop in both themes; only "images not loaded, likely sandbox network" notes. I viewed index-phone-light, projects-tablet-dark and snake-robots-desktop-light. Working tree clean before my run. The cycle 71 phone filter row and cycle 72 eager-loading change show no regression. I edited no site files.
+Rendering: `python3 tools/check.py . agents/shots` ran to completion (about 4 minutes, so it needs a long timeout). All 13 pages passed at phone, tablet and desktop in both themes, with only "images not loaded, likely sandbox network" notes. Working tree was clean before the run. I viewed index-phone-light, index-desktop-light and about-desktop-dark. I edited no site files other than this report.
 
-Honesty note on research: WebFetch was blocked again this cycle (permission request unanswered, W3C focus-appearance page). I did NOT read any new source page. The sources below are carried from earlier cycles (read then) or were the page I tried and failed to fetch. Treat nothing here as freshly verified.
+Honesty note on research: WebFetch was blocked again (W3C Understanding SC 2.5.8 Target Size, permission request unanswered). One WebSearch on portfolio guidance for hiring managers returned only result titles and links, which I did not open. I read no source page this cycle, so the links below are pointers and not verified claims. Nothing in the findings relies on them.
 
 ## Sources
-- Attempted, blocked: W3C Understanding SC 2.4.13 Focus Appearance, https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html (not read).
-- Carried from earlier cycles (read then): web.dev CLS https://web.dev/optimize-cls/ ; W3C SC 2.4.11 Focus Not Obscured ; W3C SC 1.4.12 Text Spacing ; W3C SC 2.5.8 Target Size (Minimum) https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html ; UX Design Institute hiring-manager portfolio guidance.
+- Blocked, not read: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+- Search results only, not opened: UX Design Institute, "What hiring managers look for in a UX portfolio" https://www.uxdesigninstitute.com/blog/hiring-managers-ux-portfolio/ ; NN/g author listing https://www.nngroup.com/articles/author/rachel-krause/?page=5
+- Carried from earlier cycles (read then, not refreshed): web.dev CLS https://web.dev/optimize-cls/ ; W3C SC 2.4.11 Focus Not Obscured ; W3C SC 1.4.12 Text Spacing.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, print-like, no glossy gradients: met. Warm paper with grain, double ink rules, hard-offset red button, mono ledger labels, ruled stamps, inverted footer, flat dark theme. No gradient, blur or glow in any screenshot.
-2. Must not look AI-generated: met. Ruled index rather than cards, marker-band strike-through of "three weeks", Fig. captions, plain colophon. No new owner notes since 2026-10-22.
+1. Retro, matte, print-like, no glossy gradients: met. Paper tone with grain, double ink rules, hard-offset red button, mono ledger labels, ruled stamps, inverted footer, flat dark theme. I saw no gradient, blur or glow in any screenshot.
+2. Must not look AI-generated: met. A ruled index, the struck "three weeks" in a marker band, stamps and Fig. captions. No new owner notes since 2026-10-22.
 
 ## Scores
-- AI-tell score: 2/10, unchanged. Residual: nine identically ruled rows; DM Serif Display plus Source Serif is a common editorial pairing. No tells moved.
-- Looks good: 7/10. Phone home has a clear order (name, plain lede, red button, ledger, index). Tablet dark Projects is clean. Weaknesses: no photograph of any real work anywhere in my render; on phone the first row's figure is a drawn line schematic that looks like a chart, not a snake robot; on tablet the right-hand column of rows 01, 02, 03, 08, 09 is nearly empty beside rows with stamps, so rhythm is uneven.
-- SEO: 7/10. Per repo: unique titles and descriptions, canonical, OG/Twitter, JSON-LD, sitemap, robots, 404. Unverifiable offline: live og:image fetch, field LCP/CLS.
-- UX: 7/10. Home answers who, where, what and next step; contact is only in the footer on phone (below nine rows) and the header on phone shows Home/About/Projects plus theme toggle, with no Resume or contact link above the fold except in the lede.
-- Fun and personality: 7/10. Strike-through, stamps, "Sheet 1 of 9 . NTS" are authored. Only 4 of 9 rows have a stamp.
+- AI-tell score: 2/10, unchanged. Residual tells: nine identically ruled rows, and a common editorial serif pairing. No tells moved this cycle.
+- Looks good: 7/10. Phone and desktop home have a clear order (name, lede, button, ledger, index). Weaknesses: no photograph of any real work; the right column on desktop rows is empty beside the unstamped rows (01, 02, 03, 08, 09); the thumbnail caption on row 06 wraps awkwardly (see 5).
+- SEO: 7/10. Per repo: unique titles and descriptions, canonical, JSON-LD, sitemap, robots.txt, 404 page. Not verifiable offline: live og:image fetch, field LCP and CLS.
+- UX: 7/10. Who, where, what and a next step are answered in the first screen. Contact exists on phone only in the lede and the footer.
+- Fun and personality: 7/10. The strike-through, stamps and "Sheet N of 9" are authored and specific. Only 4 of 9 rows have a stamp, and I would not add more without a true number.
 
 ## Findings (ranked)
-1. Major, content/UX: "Start here" (row 01) is Snake robots, the thinnest page: one section ("Why snake robots", two sentences, a link out) and a stand-in schematic, in the desktop render. Aerobraking has the real substance (46 orbits, 1 km, method, result). Owner supplies 2 to 3 true sentences on what he implemented, or decides to move the label to Aerobraking (needs no new facts). Do not invent outcomes.
-2. Major, UX: no availability sentence; "2023 - 2025" at CMU is past as of November 2026 and the page does not say what he is doing or seeking now. Owner supplies it.
-3. Major, robustness: Resume is a single Wix filesusr URL repeated in header, lede and footer. Needs owner's assets/resume.pdf.
-4. Major, visual: no photo of a robot, car, satellite or person; project media are Wix hotlinks (dependency risk; could not render here, environment limit). Needs owner media.
-5. Minor, visual (taste, new angle): the Snake Fig. 1 schematic is the first image on the home page on phone and in the first row, so the first image a recruiter sees is a generic drawing. The caption admits "Module count is illustrative", which is honest, but consider a smaller treatment (or none) until a real photo exists, so the first impression is not a stand-in. Trade-off: removing it makes row 01 text-only like the others.
-6. Minor, UX: on phone, contact is reachable only via the lede's Resume/LinkedIn links or the footer after a very long scroll (home page screenshot is about 2000 css px tall). Header has no contact link on phone. Designer-fixable: a LinkedIn link in the phone header area if it fits the 44 px row, else leave.
-7. Minor, CLS: figures lack width/height or aspect-ratio (web.dev CLS, carried). Needs owner dimensions.
-8. Minor, robustness: Aerobraking prose says "as shown below" and "above" about figures that depend on hotlinks. Same blocker as 4.
-9. Minor, performance: two Google fonts, no size-adjusted fallback. Needs self-hosted WOFF2 or measured metrics.
-10. Minor, content: Raftar says "40+ students" and "captained" only. Add only owner-confirmed specifics.
-11. Nit, fun (taste): stamps on 4 of 9 rows; add only where a true number exists.
-12. Nit, UX (taste): phone header shows only the K mark; name is in the home H1.
+1. Major, content/UX (owner facts): there is still no current-status sentence. About says "2023 – 2025" at Carnegie Mellon, and today is November 2026. A recruiter cannot tell whether he is graduated, employed or looking. The STATUS slot in build.py is still empty. The owner supplies one line.
+2. Major, robustness (owner file): Resume is a single Wix filesusr URL repeated in the header, the lede, the footer and About. If that URL dies, four links die together. The owner drops assets/resume.pdf into the repo.
+3. Major, visual (owner files): the site has no photograph of a robot, car, satellite or person, and project media are Wix hotlinks. The environment limit is noted, but the dependency risk stands. My render showed 3 to 10 failed images per project page.
+4. Major, content (owner facts): Snake robots, row 01 and the thinnest page, has no outcomes, and Raftar says only "40+ students" and "captained". The Start-here label correctly moved to Aerobraking in cycle 73. Add only owner-confirmed specifics.
+5. Minor, visual (new, designer-fixable): on desktop home, row 06's plate caption wraps to two lines ("Fig. 1 · Aerobraking / orbits") inside a 176 px box, an orphaned word. The cycle 21 fix shortened the snake caption to one line, but the per-project name added in cycle 73 reintroduced the wrap. Shorten it to "Fig. 1 · Orbits" or let it be nowrap.
+6. Minor, UX (new, taste): "Start here" now sits on row 06. The label is correct, but the eye reaches 01 to 05 first, and on phone the plate does not appear until after five rows. Consider a one-line pointer in the lede ("Start with the aerobraking work, project 06") rather than reordering rows, since the numbers are fixed sheet numbers. Trade-off: this adds a sentence to a lede that is deliberately short.
+7. Minor, UX: on phone the header shows only the K mark, Home, About, Projects and the theme toggle. Contact is not in the header; it is in the lede (two taps from the top) and the footer. Accepted given the 44 px row, but note it.
+8. Minor, CLS: figures have no width or height or aspect-ratio (web.dev CLS, carried and not refreshed). The owner must supply dimensions.
+9. Minor, robustness: Aerobraking prose says "as shown below" about figures that depend on hotlinks. It has the same blocker as 3.
+10. Minor, performance: two Google fonts, no size-adjusted fallback or self-hosting. Needs the WOFF2 files.
+11. Nit, SEO (owner action): the sitemap and robots.txt sit at a project-site subpath, so crawlers will not find robots.txt at the host root. Submit sitemap.xml in Search Console.
+12. Nit, visual (taste): About on desktop leaves the right third empty beside Skills, Education and Experience (dark screenshot). The "On this page" rail covers the top only. Documented and accepted by the designer; I flag it only as an unbalanced area.
 
 ## Good, must not regress
-Plain lede with real numbers; "For the record" ledger; marker-band strike-through; stamps where the number is the point; ruled index with mono numbers; inverted footer and flat dark theme; double rules; "Sheet N of 9 . NTS" title-block captions; honest "schematic" captions; accurate colophon; 44 px tap targets; one-line phone filter row; Previous/Next footers with a real detail; local og:image with alt; JSON-LD; 404 page; reduced-motion block.
+The plain lede with real numbers; the "For the record" ledger; the marker-band strike-through; stamps only where the number is the point; the ruled index with mono numbers; the inverted footer and flat dark theme; double rules; "Sheet N of 9 . NTS" captions; honest "schematic" captions; the accurate colophon; 44 px tap targets; the one-line phone filter row; Previous/Next footers with a real detail; the local og:image; JSON-LD; the 404 page; the reduced-motion block; Start-here on the strongest project.
 
 ## Verdict
-The site commits to the retro matte direction and reads as one person's work; both owner constraints are met and nothing regressed. Almost everything left is blocked on owner facts, files or a decision on the "Start here" label (1 to 4, 7 to 10). The only designer-side items are small taste calls (5, 6). Research this cycle was not refreshed because fetches were blocked, so no new external claims are made.
+The site commits to the retro matte direction, reads as one person's work, and both owner constraints are met. Nothing regressed from cycle 73's move of Start-here to Aerobraking, except a two-line wrapped caption on the home thumbnail (5). Almost everything else is blocked on owner facts or files: a status line, a local resume PDF, photographs, and substance for Snake and Raftar. Research was not refreshed this cycle because fetches were blocked, so I make no new external claims.

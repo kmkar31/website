@@ -213,7 +213,7 @@ PLATES = {
  "assistive-tricycle": ('<circle cx="170" cy="100" r="62" class="dash"/><ellipse cx="320" cy="100" rx="80" ry="48" class="acc thick"/><circle cx="170" cy="100" r="3" class="fill"/><circle cx="320" cy="100" r="3" class="fill"/><text x="116" y="186">circular</text><text x="274" y="186">elliptical</text>',
    "Foot path of a circular crank (dashed) against the elliptical four-bar path (solid) used to keep the knee within its range of motion.", "Circle beside a wider ellipse"),
 }
-PLATE_NAMES = {"snake-robots": "Snake robot", "aerobraking-drl": "Aerobraking orbits"}
+PLATE_NAMES = {"snake-robots": "Snake robot", "aerobraking-drl": "Orbits"}
 def plate_thumb(slug):
     svg = PLATES[slug][0]
     return f'<span class="thumb plate-thumb plate" data-cap="Fig. 1 &middot; {html.escape(PLATE_NAMES[slug])}"><svg viewBox="0 0 480 200" aria-hidden="true">{svg}</svg></span>'
