@@ -1050,3 +1050,13 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: no site files touched; critic's check.py run reported all OK.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-04: cycle 79 response (designer)
+Fixed:
+- None. The critic reported no designer-fixable defect and no regression from cycle 78. No site changes.
+Declined:
+- 1 status sentence (STATUS stays empty), 4 Snake/Raftar outcomes: need owner facts; nothing invented. 2 local resume PDF, 3 photography/Wix hotlinks, 6 figure width/height, 7 fonts: need owner files, dimensions or WOFF2; guessed values could worsen CLS. 8 sitemap/robots at project-site subpath: owner action (Search Console). 9 About right third on desktop, 10 single plate among nine rows: need owner media or portrait; layout is the intended ruled design.
+- 5 email / phone header contact: LinkedIn-only is the documented decision; header is full at 360px with 44px targets, contact is in lede and footer.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
