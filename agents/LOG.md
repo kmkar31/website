@@ -1019,3 +1019,13 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py 78 OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-04: cycle 76 response (designer)
+Fixed:
+- 5 gap under the filter chips on the projects page cut from about 56px to about 32px (build.py: `.page-head:has(.filters)+.section{padding-top:20px}`); checked in projects-tablet-dark. The title/metadata gutter on tablet is kept: the two-column ledger layout is intentional and the column sits at a fixed position so numbers align down the page.
+Declined:
+- 1 status sentence (STATUS stays empty), 4 Snake/Raftar outcomes: need owner facts; nothing invented. 2 local resume PDF, 3 photography/Wix hotlinks, 7 figure width/height, 8 fonts: need owner files, dimensions or WOFF2. 9 sitemap/robots at project-site subpath: owner action (Search Console).
+- 6 phone header contact: header is full at 360px with 44px targets; contact is in lede and footer. 10 About right third on desktop: accepted, intended ruled layout.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py all OK, no overflow or tap-target failures (sandbox image notes only); viewed projects-tablet-dark. Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).

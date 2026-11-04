@@ -99,6 +99,7 @@ h3{font-size:1.3rem}
 .page-head{padding:48px 20px 12px;max-width:var(--maxw);margin:0 auto}
 .page-head.narrow{max-width:760px}
 .page-head h1{max-width:22ch;margin-bottom:0}
+.page-head:has(.filters)+.section{padding-top:20px}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 14px;min-height:44px;font:500 .9rem var(--sans);cursor:pointer}
 .filter:hover{background:var(--hi);color:#2b2118}
