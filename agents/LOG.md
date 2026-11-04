@@ -1029,3 +1029,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py all OK, no overflow or tap-target failures (sandbox image notes only); viewed projects-tablet-dark. Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-04: cycle 77 response (designer)
+Fixed:
+- None. The critic reported no designer-fixable defect and no regression from cycle 76.
+Declined:
+- 1 status sentence (STATUS stays empty), 4 Snake/Raftar outcomes: need owner facts; nothing invented. 2 local resume PDF, 3 photography/Wix hotlinks, 6 figure width/height, 7 fonts: need owner files, dimensions or WOFF2; guessed values could worsen CLS. 9 sitemap/robots at project-site subpath: owner action (Search Console). 10 single plate among nine rows: needs owner media.
+- 5 email: LinkedIn-only contact is the documented decision (no email published).
+- 8 border contrast: stamp text carries the meaning and has its own AA contrast (checked by check.py); borders are decorative reinforcement, so SC 1.4.11 does not apply.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
