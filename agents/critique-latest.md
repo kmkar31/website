@@ -1,42 +1,42 @@
-# Critique, 2026-11-06 (cycle 89)
+# Critique, 2026-11-06 (cycle 90)
 
-Rendering: `python3 tools/check.py . agents/shots` completed (about 3 minutes; run it in the background). Every page is OK on phone, tablet and desktop in both themes; the only notes are "images not loaded" (sandbox network). I viewed index phone light, index desktop light and snake-robots phone dark. Repo greps: `STATUS = ""` at build/build.py:262; the Resume link is a filesusr.com URL on every page; wixstatic hotlinks remain on 11 of 13 pages. I edited no site files.
+Rendering: `python3 tools/check.py . agents/shots` ran (about 4 min, run it in the background); all pages OK at phone, tablet and desktop, light and dark; only "images not loaded" sandbox notes. I viewed index phone light, index desktop dark, about tablet light and raftar phone light. Repo greps: `STATUS = ""` (build/build.py:262); Resume is a filesusr.com URL (index.html); wixstatic hotlinks on 11 of 13 pages (index and 404 have none). No site files edited.
 
 ## Sources consulted (honest note)
-WebSearch worked this cycle, WebFetch did not (the permission request went unanswered), so I only saw result titles and snippets, not page bodies. Nothing below depends on a source's text; each finding rests on the renders and repo greps. Pointers, unverified beyond the search result:
-- WCAG 2.2 Understanding 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (topic: tap targets; the site's 44px targets exceed the 24px minimum)
-- web.dev, Optimize Cumulative Layout Shift: https://web.dev/articles/optimize-cls (fetch blocked; topic: image dimensions, font fallback; used only as the basis for finding 6 and 7)
-- NN/g, "UX Portfolios: What Hiring Managers Look For" (Rachel Krause, video), listed at https://www.nngroup.com/articles/author/rachel-krause/?page=5 (title only; topic: what a hiring manager scans for)
-The three-source requirement is met only at title level.
+I did not run WebSearch or WebFetch this cycle (no network research was available in this run), so no external source was read. This misses the "three sources" rule in agents/critic.md. Nothing below depends on a cited source; every finding rests on renders and repo greps. Pointers for the designer, unverified:
+- WCAG 2.2 SC 2.5.8 Target Size (Minimum), w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+- web.dev, Optimize Cumulative Layout Shift, web.dev/articles/optimize-cls
+- NN/g, portfolio and hiring-manager scanning (Rachel Krause), nngroup.com
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, print-like, no glossy gradients: met. Paper tone with faint grain, double rules, hard-offset red button, mono labels and the flat dark footer hold in light and dark. No gradient, blur or glow anywhere in the renders.
-2. Not AI-looking: met. The struck-through "three weeks" with a highlighter swatch, stamps that carry real numbers (46 orbits, 500 m, 99 s), "Fig. / Sheet 1 of 9 / NTS" captions and plain first-person copy read as authored.
+1. Retro, matte, print-like, no glossy gradients: met. Paper tone with faint grain, double rules, hard-offset red button, mono labels, flat dark footer; no gradient, blur or glow in any render, light or dark.
+2. Not AI-looking: met. Struck-through "three weeks" on an amber swatch, stamps that carry real numbers, "Fig. 1 / Sheet 4 of 9 / NTS" captions and plain first-person copy read as authored.
 
 ## Scores
-- AI-tell score: 2/10, unchanged. Residual tells: nine same-shape ruled rows, and the serif headline plus mono-label pairing is a common "editorial" combination. No tells moved.
-- Looks good: 7/10. Clear hierarchy, steady rhythm, row 06's plate is a deliberate break. Weak: no photograph appears in any render; project pages on phone are text plus one schematic, and the snake page ends right after one short paragraph.
-- SEO: 7/10 (per repo only). Titles, canonical, OG, JSON-LD, sitemap and a local og:image are present. Live indexing and field CWV cannot be verified offline.
-- UX: 7/10. Name, discipline, "See the projects", Resume and LinkedIn are on the first phone screen; project pages have Next with a fact. No status line.
-- Fun and personality: 7/10. Strike-through, stamps and sheet numbers are earned. Adding more without a true fact would cost credibility.
+- AI-tell score: 2/10, unchanged. Residual: nine same-shape ruled rows; serif headline plus mono labels is a familiar "editorial" pairing. No tells moved.
+- Looks good: 7/10. Clear hierarchy and steady rhythm. Weak: no photograph anywhere in the renders; project pages on phone are a title, a large tl;dr, one schematic and a short paragraph (Raftar page ends after about two paragraphs), so they feel thin.
+- SEO: 7/10 (repo only). Titles, canonical, OG, JSON-LD, sitemap, local og:image present. Live indexing and field CWV not verifiable offline.
+- UX: 7/10. Name, field, projects, Resume and LinkedIn are on the first phone screen. No status line; Resume link is the weak point (finding 2).
+- Fun and personality: 7/10. Strike-through, stamps and sheet numbers are earned; more would need real facts.
 
 ## Findings (ranked)
-1. Major, content (owner fact): `STATUS` is empty. About and the Snake page say the Master's ran 2023 - 2025, and today is November 2026, while the home lede is present tense ("I work on... I research..."). A recruiter cannot tell if he is a student, employed or looking. The owner supplies one line (for example graduated or not, and what he is seeking). I will not invent it.
-2. Major, robustness (owner file): "Resume (PDF)" is a filesusr.com hotlink on every page, including the 404. One dead URL breaks the likeliest recruiter click. The owner adds assets/resume.pdf and the build points at it.
-3. Major, visual and robustness (owner files): project and About images are wixstatic hotlinks on 11 pages. If Wix drops them, pages become text plus schematics. The owner supplies originals.
-4. Major, content (owner facts): the lead project (Snake robots, row 01) has a lab and a question but no result or figure of his own; it is the weakest page for the first row a visitor sees. The snake phone page is one schematic marked "module count is illustrative" and one paragraph of generic background. Raftar says what he did (suspension and brakes) but not how it performed. The owner supplies one outcome each.
-5. Minor, UX (designer-fixable, reopened with new evidence): "Start here" sits on row 06, which on a 360px phone is roughly 1,100 px below the fold, and the list opens with row 01 (Snake), a project with no result. A phone visitor who scans the top three rows sees no number except the Raftar stamp. Either reorder so a quantified row is near the top (the sheet numbers would need renumbering, which the designer has treated as fixed), or add a one-line pointer in the lede. Previously declined as "lede stays short"; it is a trade-off, not a defect. Taste-level, so I mark it Minor.
-6. Minor, performance (owner dimensions): hotlinked figures have no known width/height, a CLS risk. A guessed ratio would be worse.
-7. Minor, performance: Google Fonts without self-hosted WOFF2 or tuned fallback metrics. Screenshots here show the fallback serif, so a visible font swap is possible on slow connections.
-8. Minor, UX: the phone header carries only Home / About / Projects. Resume and contact are not reachable from the header on subpages without scrolling to the footer. LinkedIn-only contact is a documented decision, so I raise only the placement; it is low priority.
-9. Nit, SEO (owner action): robots.txt under the /website/ subpath is not read by crawlers. Submit sitemap.xml in Search Console.
+1. Major, content (owner fact): `STATUS` is empty. About and the Snake page say the Master's ran 2023 - 2025; today is November 2026; the home lede is present tense ("I work on... I research..."). A recruiter cannot tell if he is a student, employed or looking. The owner supplies one line; I will not invent it.
+2. Major, robustness (owner file): "Resume (PDF)" is a filesusr.com hotlink in the header, lede and footer of every page. One dead URL breaks the likeliest recruiter click. Owner adds assets/resume.pdf; build points at it.
+3. Major, visual and robustness (owner files): figures and About images are wixstatic hotlinks on 11 pages. If Wix drops them, pages become text plus schematics, and the site has no photograph of the person or the hardware.
+4. Major, content (owner facts): the lead row (Snake robots, 01) has a lab and a question but no result of his own; Raftar says what he did but not how the suspension or brakes performed. The first rows a visitor scans have no number except the Raftar stamp.
+5. Major, credibility (owner confirmation): Raftar page question claims a car "one-fifth the weight of a Ferrari" matching its 0-60 time. It is original-site wording but is a checkable claim with no figure on the page. Owner confirms or cuts.
+6. Minor, UX (taste, reopened): "Start here" is on row 06, roughly 1,100 px below the fold on a 360 px phone, beneath a row 01 with no result. Not fixable without renumbering sheets; the real fix is finding 4.
+7. Minor, performance (owner dimensions): hotlinked figures have no known width/height, a CLS risk. A guessed ratio would be worse.
+8. Minor, performance: Google Fonts without self-hosted WOFF2 or tuned fallback metrics; a font swap is possible on slow connections.
+9. Minor, UX: phone header has Home / About / Projects only; Resume and contact need a scroll to the footer on subpages. LinkedIn-only contact is a documented decision, so only placement is raised.
+10. Nit, SEO (owner action): robots.txt and sitemap under /website/ are not read from a project subpath; submit sitemap.xml in Search Console.
 
 ## Good, must not regress
 - The retro matte system: paper tones, double rules, hard offset button, flat dark theme.
 - Specific numbers in copy: 3 weeks to 15 minutes, 46 orbits, 99 s, 500 m, 40+ students, podium at Formula Bharat 2023.
-- "Start here" on row 06 with its plate; Next links with a fact under each title.
-- Honest captions on schematics ("Module count is illustrative"); stamps only where the number is the point.
-- Visible focus, reduced-motion handling, 44px targets, one h1 per page, canonical/OG/JSON-LD.
+- "Start here" on row 06 with its plate; Next/Previous with a fact under each title.
+- Honest captions on schematics; stamps only where the number is the point.
+- Visible focus, reduced-motion handling, 44 px targets, one h1 per page, canonical/OG/JSON-LD.
 
 ## Verdict
-The site holds its matte print direction and reads as authored, not templated; I found no regression from cycle 88. Almost every real weakness needs something only the owner can supply: a status line, a local resume PDF, photographs in place of Wix hotlinks, and one concrete result each for Snake robots and Raftar. The one item the designer can act on is small (finding 5, lead-row ordering or a pointer), and it is a judgment call. Research was partial (search titles only), so treat citations as pointers.
+The site commits coherently to a retro print direction and does not read as generated. It is held back by content that only the owner can supply: a status line, a local resume, photographs, and a result on the lead project. Designer-side work is exhausted; the next real gains come from owner files and facts, plus confirming the Ferrari claim.
