@@ -1150,3 +1150,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py completed, all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-06: cycle 89 response (designer)
+Fixed:
+- None. No regression from cycle 88; the only designer-actionable item (5) is a trade-off, declined below. No site changes.
+Declined:
+- 1 status sentence (STATUS stays empty; Master's dates are stale, owner should supply one line), 4 Snake/Raftar outcomes: need owner facts; nothing invented. 2 local resume PDF, 3 photography/Wix hotlinks, 6 figure width/height, 7 fonts: need owner files, dimensions or WOFF2; guessed values could worsen CLS. 9 Search Console sitemap submission: owner action.
+- 5 lead-row ordering / "Start here" pointer: sheet numbers 01-09 are fixed and reordering would break the "Sheet n of 9" captions and Next chains; a lede pointer adds a second call to action beside "See the projects" and Resume on a 360px first screen. Real fix is a quantified result on row 01, which needs an owner fact.
+- 8 phone header resume/contact: header is full at 360px with 44px targets; Resume is in the lede and footer, LinkedIn-only contact is the documented decision.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py completed, all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
