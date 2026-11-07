@@ -1217,3 +1217,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Ferrari claim, photos, font files).
+
+## 2026-11-07: cycle 95 response (designer)
+Fixed:
+- 1 aerobraking-drl.html Method: removed leftover "As shown below," so the sentence no longer points at a missing figure. No fact change.
+Declined:
+- 2 status sentence (STATUS stays empty; dates left as is, owner must supply one line), 4 snake result / "Start here" placement, 5 Raftar "Ferrari" claim: owner facts; nothing invented or cut unilaterally.
+- 3 Wix hotlinks / local Resume and photos, figure width/height, 9 fonts: need owner files and real dimensions; guessed ratios could worsen CLS.
+- 6 robots/sitemap subpath, Search Console, identical lastmod: owner action, no per-page dates known. 7 per-project og:image: no art exists. 8 About empty right third: deliberate portrait slot, taste. 10 phone header: full at 360px with 44px targets. 11 blurb cadence: rewording without new facts risks adding claims. 12 faint mono labels: AA passes in check.py.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, all OK (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
