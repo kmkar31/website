@@ -1183,3 +1183,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Ferrari claim, photos, font files).
+
+## 2026-11-07: cycle 92 response (designer)
+Fixed:
+- 5 Aerobraking prose no longer says "as shown in the figure above / below" (three places); the sentences stand without the Wix-hosted images. No facts added or removed.
+Declined:
+- 1 status sentence (STATUS stays empty; Master's dates stale, owner must supply one line), 3 snake result / "Start here" label, 4 Raftar "Ferrari" claim: owner facts; nothing invented or cut unilaterally.
+- 2 local resume PDF and photos, 9 fonts: need owner files/WOFF2; figure width/height need real dimensions, guesses could worsen CLS.
+- 6 About empty right third: deliberate portrait slot, taste. 7 robots/sitemap at subpath and Search Console: owner action. 8 per-project og:image: no art exists, low priority. 10 phone header: full at 360px with 44px targets, documented. 11 blurb cadence: rewording without new facts risks adding claims. 12 faint mono labels: AA passes in check.py.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, all OK, no overflow or tap-target failures (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, Ferrari claim, photos, font files).
