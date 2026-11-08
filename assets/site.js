@@ -8,6 +8,7 @@
     if(!cur){cur=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
     var next=cur==='dark'?'light':'dark';
     root.setAttribute('data-theme',next);
+    d.querySelectorAll('meta[name=theme-color]').forEach(function(m){m.setAttribute('content',next==='dark'?'#1f1a15':'#efe7d6')});
     try{localStorage.setItem('theme',next)}catch(e){}
   });}
 

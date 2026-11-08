@@ -1,40 +1,40 @@
-# Critique, 2026-11-07 (cycle 96)
+# Critique, 2026-11-08 (cycle 97)
 
-Rendering: `python3 tools/check.py . <scratchpad>/shots` ran in the background (it exceeds a 2-minute tool timeout in the foreground). Every line reported OK for 13 pages x 3 viewports x 2 themes; the only notes are "images not loaded" (sandbox). I viewed index phone light, index desktop dark and snake-robots tablet light. Repo greps: `STATUS = ""` (build/build.py:262); Ferrari claim at raftar-formula-racing.html:48; wixstatic references on 11 of 13 pages (7 on aerobraking-drl); the "As shown below" sentence from last cycle is gone (no regression). No site files edited.
+Rendering: `python3 tools/check.py . <scratchpad>/shots` ran in the background; every line reported OK (only "images not loaded" sandbox notes). I viewed index phone light and aerobraking-drl phone dark. Repo greps: `STATUS = ""` (build/build.py:262); Ferrari claim raftar-formula-racing.html:48; wixstatic on 11 of 13 pages (7 on aerobraking-drl). No site files edited. HEAD b2321ab (cycle 96), no regression seen.
 
 ## Sources consulted
-WebFetch was refused for every URL this cycle (permission request unanswered), so no page body was read. Only WebSearch result listings were available; I rely on them only for the existence and scope of these pages, and on the repo for everything else:
-- WCAG 2.2 Understanding 2.5.8 Target Size (Minimum), https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (listed in search results; AA minimum is 24 CSS px; the site's 44 px targets exceed it).
-- web.dev, CSS size-adjust for @font-face, https://web.dev/articles/css-size-adjust (listed in search results only).
-- Carried over from cycle 95 (read in full then): web.dev Optimize CLS, https://web.dev/optimize-cls/; UX Design Institute on hiring managers, https://www.uxdesigninstitute.com/blog/hiring-managers-ux-portfolio/.
-Unverified this cycle: anything about size-adjust specifics, and Search Console behavior.
+- web.dev, Improve dark mode default with color-scheme and a meta tag, https://web.dev/articles/color-scheme (read in full this cycle).
+- WCAG 2.2 Understanding Focus Not Obscured, https://w3c.github.io/wcag/understanding/focus-not-obscured (search listing only; fetch not read).
+- Nielsen Norman Group portfolio advice via search listings only (no primary page read), so no claims drawn from it.
+- Carried over: WCAG 2.5.8 target size, web.dev CLS and size-adjust (earlier cycles).
 
 ## Scores
-- AI-tell score: 2/10, unchanged. Flat paper, double rules, one hard-offset button, struck-through "three weeks" on amber, double-border stamps, "Fig. 1 / Sheet n of 9" captions, plain first-person lede. No gradients, blur, glow, card trio, stats strip or slogans. Residual: intro, ruled list, dark footer is a familiar shape; blurbs share a verb-led cadence. No tell moved.
-- Looks good: 8/10. Phone and desktop-dark renders hold: clear hierarchy, steady ruled rhythm, dark theme reads as inverted print. Weak spots: row 06 is the only row with a plate, so the list is lopsided (on phone the plate sits above the title and breaks the rhythm); snake-robots page (the lede project) is a big schematic plus one short paragraph, so the page feels unfinished next to the others; About desktop right third empty.
-- SEO: 7/10. Unique titles and descriptions, canonical, OG/Twitter with absolute og:image 1200x630, JSON-LD, sitemap, 404, one h1. Risks: robots.txt and sitemap live under /website/, not the host root (crawlers ignore robots.txt there); one og:image for all pages; hotlinked figures without dimensions; identical lastmod (2026-11-02) on every URL.
-- UX: 6/10. On the phone render, name, field, lede, Resume and LinkedIn are visible without scrolling past the first screen, which is good. Held down by: no current status (graduated or not) and no quantified result on the lede project.
-- Fun and personality: 7/10. 99 s stamp, 404 joke, strike-through, plates, "For the record" ledger. Home has little beyond the strike-through; project pages carry the character.
+- AI-tell: 2/10, unchanged. Flat paper, double rules, hard-offset button, struck-through "three weeks" on amber, stamps, Fig./Sheet captions, plain first-person lede. No gradients, blur, glow, card trio, stats strip or slogans. Residual: intro, ruled list, dark footer is a familiar shape; blurbs share a verb-led cadence. No tell moved.
+- Looks good: 8/10. Phone light and dark hold: steady ruled rhythm, dark reads as inverted print. Weak: row 06 is the only row with a plate (on phone it sits above the title and breaks the list rhythm); snake-robots (the lede project) is thin; About desktop right third empty.
+- SEO: 7/10. Unique titles/descriptions, canonical, OG/Twitter with absolute og:image, JSON-LD, sitemap, 404, one h1. Risks: robots.txt and sitemap under /website/ subpath; one og:image everywhere; hotlinked figures without dimensions; identical lastmod.
+- UX: 6/10. Name, field, lede, Resume and LinkedIn appear on the first phone screen. Held down by no current status and no quantified result on the lede project.
+- Fun and personality: 7/10. 99 s stamp, 404 joke, strike-through, plates, "For the record" ledger. Home has little beyond the strike-through.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, print-like, no glossy gradients: met (flat paper, grain, one hard shadow, inverted-print dark mode, no blur).
+1. Retro, matte, no glossy gradients: met.
 2. Not AI-looking: met on visuals and copy. Do not regress.
 
 ## Ranked findings
-1. Major (UX, credibility). Home subtitle "MS Mechanical Engineering, Carnegie Mellon University" and About "2023 - 2025" against today 2026-11-07; the Status row never renders because STATUS is empty. A recruiter cannot tell graduated, studying or available. Owner must supply one line.
-2. Major (UX, 30-second test). The lede leads with snake robots (row 01) but its page has only a schematic, one paragraph and a link out to the lab; "Start here" sits on row 06 (the only row with a plate). Two answers to "strongest project", and the lede one is the thinnest (snake-robots tablet render). Owner to supply a snake result or choose the lead.
-3. Major (robustness, CLS). Project photos and the Resume are hotlinked from Wix (wixstatic.com, filesusr.com) on 11 pages; figures carry no width/height (web.dev CLS guidance). If Wix rotates URLs, Resume breaks in header, lede and every footer. Needs owner files and real dimensions; do not guess ratios.
+1. Major (UX, credibility). Home "MS Mechanical Engineering, Carnegie Mellon University" and About "2023 - 2025" against today 2026-11-08; the Status row never renders because STATUS is empty. Reader cannot tell graduated, studying or available. Owner must supply one line.
+2. Major (UX, 30-second test). Lede leads with snake robots (row 01) but that page is a schematic, one paragraph and an outbound link; "Start here" sits on row 06. Two answers to "strongest project", and the lede one is thinnest. Owner to supply a snake result or pick the lead.
+3. Major (robustness, CLS). Photos and Resume hotlinked from Wix (wixstatic.com, filesusr.com) on 11 pages; no width/height. If URLs rotate, Resume breaks in header, lede and footers. Needs owner files and real dimensions; do not guess ratios.
 4. Major (credibility). Raftar: "one-fifth the weight of a Ferrari but matches its 0-60 acceleration time". Nothing in the repo supports it. Owner to confirm or cut.
-5. Minor (SEO). robots.txt and sitemap at a project-site subpath: robots.txt is not honoured there; submit the sitemap in Search Console (owner). lastmod identical across URLs.
-6. Minor (SEO). One og:image and og:image:alt ("robotics and controls engineer") on every page; no per-project art exists. Low priority.
-7. Minor (looks). Home list lopsided: one plate on row 06. Either accept as the deliberate "lead" or add plates only when real figures exist. Taste.
-8. Minor (looks). About desktop: empty right third until a portrait exists. Taste.
-9. Minor (fonts). Two Google Fonts, display=swap, no size-adjusted fallback; needs measured metrics.
-10. Minor (UX, phone). Header drops Resume and GitHub on phones; Resume remains in lede and footer. Acceptable.
-11. Nit (copy). Home blurbs share a verb-led cadence; vary two or three only with facts already on the pages.
-12. Nit (looks). Small mono labels (01-09, tags) are the faintest text on tan; passes AA, reads faint on phone. Taste.
+5. Minor (dark mode, NEW, designer-fixable). No `color-scheme` meta or CSS property anywhere (grep: only two prefers-color-scheme media queries in assets/style.css). Per web.dev, `<meta name="color-scheme" content="light dark">` plus `color-scheme: light dark` on :root makes scrollbars, form controls, selection and the pre-CSS first paint follow the theme, avoiding a light flash on dark systems. Related: index.html has a single `theme-color #efe7d6`; on phones in dark mode the browser bar stays cream over the dark page. Fix: two theme-color metas with media="(prefers-color-scheme: dark)", and make the manual toggle (data-theme in site.js) update the meta and color-scheme. Low risk, no content change. Verify the dark hex against the real dark background token before using it.
+6. Minor (SEO). robots.txt and sitemap at a project-site subpath; submit sitemap in Search Console (owner). lastmod identical.
+7. Minor (SEO). One og:image and alt for all pages; no per-project art.
+8. Minor (looks). Lopsided plates, taste; add plates only with real figures.
+9. Minor (looks). About desktop empty right third until a portrait exists. Taste.
+10. Minor (fonts). Two Google Fonts, swap, no size-adjusted fallback; needs measured metrics.
+11. Minor (UX, phone). Header drops Resume and GitHub on phones; kept in lede and footer. Acceptable.
+12. Nit (copy). Blurbs share a verb-led cadence; vary only with facts already present.
+13. Nit (looks). Small mono labels are the faintest text on tan; pass AA, faint on phone. Taste.
 
-Designer-fixable this cycle: none new. No regression from cycle 95.
+Designer-fixable this cycle: item 5 only.
 
 ## Good, must not regress
 - Retro matte system: paper, grain, double rules, one hard-shadow button, inverted-print dark mode.
@@ -45,4 +45,4 @@ Designer-fixable this cycle: none new. No regression from cycle 95.
 - One h1 per page, JSON-LD, canonical, 404 with a joke, skip link, 44 px targets.
 
 ## Verdict
-The site is authored, coherent and not generic, and the cycle 95 fix landed cleanly. Nothing new is designer-fixable. The risks that remain all need the owner: a current status line, a result or a decision on the lead project (the snake page is the thinnest page and sits first), a confirmed or cut Raftar claim, and local copies of the Resume and images with real dimensions. Research was weak this cycle because page fetches were blocked; only search listings were seen, so no new best-practice claims are made.
+The site is authored, coherent and not generic, with no regressions. One small designer-fixable gap is new: color-scheme and a dark theme-color are missing, so native UI and the phone browser bar ignore the dark theme. Everything else still waits on the owner: a current status line, a snake result or a decision on the lead project, a confirmed or cut Raftar claim, and local Resume and images with real dimensions. Research was thin again; only one primary page (web.dev) could be read.

@@ -283,7 +283,7 @@ def page(fname, title, desc, body, active, ld=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-{'<meta name="robots" content="noindex">' + chr(10) if fname == "404.html" else ""}<meta name="theme-color" content="#efe7d6">
+{'<meta name="robots" content="noindex">' + chr(10) if fname == "404.html" else ""}<meta name="color-scheme" content="light dark"><meta name="theme-color" content="#efe7d6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#1f1a15" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
@@ -300,7 +300,7 @@ def page(fname, title, desc, body, active, ld=None):
 <link rel="canonical" href="{URL}">
 <link rel="icon" href="{FAVICON}">{ldtag}
 {FONTS}
-<script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
+<script>try{{var t=localStorage.getItem('theme');if(t){{document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('meta[name=theme-color]').forEach(function(m){{m.setAttribute('content',t==='dark'?'#1f1a15':'#efe7d6')}})}}}}catch(e){{}}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -497,6 +497,7 @@ with open(os.path.join(OUT, "robots.txt"), "w") as f:
 # ----------------------------------------------------------- css
 css = r"""
 :root{
+  color-scheme:light dark;
   --bg:#efe7d6; --bg2:#e5dbc3; --fg:#2b2118; --muted:#5b4e40; --ink:#2b2118; --line:#b9ab8a; --card:#f7f1e3;
   --a1:#9c3a22; --a2:#2f6f62; --hi:#d9a441; --btn-bg:#b4452b; --btn-fg:#f7f1e3; --shadowc:#2b2118;
   --maxw:1040px; --grid:#e3d9c1; --band-bg:#2b2118; --band-fg:#efe7d6; --band-mute:#c9bca2; --band-link:#e8a652;
@@ -507,7 +508,9 @@ css = r"""
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 /* dark = inverted print: dark paper, tan ink rules, hard shadows go darker than the paper */
+:root[data-theme="light"]{color-scheme:light}
 :root[data-theme="dark"]{
+  color-scheme:dark;
   --bg:#1f1a15; --bg2:#272019; --fg:#eadfc8; --muted:#d9cfba; --ink:#9a8c71; --line:#4f4436; --card:#2a231b;
   --a1:#e8a652; --a2:#7fc4b0; --hi:#d9a441; --btn-bg:#e8a652; --btn-fg:#1d1814; --shadowc:#0c0a08; --grid:#2d251c; --band-bg:#14100c; --band-fg:#eadfc8; --band-mute:#b8ab95; --band-link:#e8a652;
 }
@@ -796,6 +799,7 @@ js = r"""
     if(!cur){cur=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
     var next=cur==='dark'?'light':'dark';
     root.setAttribute('data-theme',next);
+    d.querySelectorAll('meta[name=theme-color]').forEach(function(m){m.setAttribute('content',next==='dark'?'#1f1a15':'#efe7d6')});
     try{localStorage.setItem('theme',next)}catch(e){}
   });}
 

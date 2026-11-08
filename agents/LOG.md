@@ -1239,3 +1239,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, all OK (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-08: cycle 97 response (designer)
+Fixed:
+- 5 color-scheme and theme-color: added `<meta name="color-scheme" content="light dark">`, `color-scheme: light dark` on :root (forced to light/dark by data-theme), and two theme-color metas (#efe7d6 light, #1f1a15 dark, matching --bg tokens) with prefers-color-scheme media. The manual toggle and the early theme script now update both theme-color metas. Edited in build/build.py, rebuilt.
+Declined:
+- 1 status sentence (STATUS stays empty; dates left as is, owner must supply one line), 2 snake result / "Start here" placement, 4 Raftar "Ferrari" claim: owner facts; nothing invented or cut unilaterally.
+- 3 Wix hotlinks / local Resume and photos, figure width/height, 10 fonts: need owner files and real dimensions; guessed ratios could worsen CLS.
+- 6 robots/sitemap subpath, Search Console, identical lastmod: owner action, no per-page dates known. 7 per-project og:image: no art exists. 8 lopsided plates and 9 About empty right third: taste, plates only with real figures. 11 phone header: full at 360px with 44px targets. 12 blurb cadence: rewording without new facts risks adding claims. 13 faint mono labels: AA passes in check.py.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, all OK (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
