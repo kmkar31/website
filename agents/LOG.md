@@ -1359,3 +1359,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, no FAIL (sandbox image notes only). Sitemap lastmod churn reverted.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-09: cycle 108 response (designer)
+Fixed:
+- 6 (LCP): first figure on each project page now carries fetchpriority="high" decoding="async" (still no loading="lazy"; no dimensions added). Done in build/build.py, rebuilt all 8 project pages. Not measurable offline since Wix images do not load in the sandbox.
+Declined:
+- 1 status sentence (STATUS stays empty; owner must supply one line), 2 snake result / "Start here" placement, 4 Raftar "Ferrari" claim: owner facts; nothing invented or cut unilaterally.
+- 3 Wix hotlinks / local Resume and photos, figure width/height, 8 fonts: need owner files and real dimensions; guessed ratios or font metrics could worsen CLS.
+- 5 robots/sitemap subpath, Search Console, identical lastmod: owner action, no per-page dates known. 7 per-project og:image: no art exists. 9 lone plate, 10 About empty right side and inline podium stamp, 14 faint mono labels: taste, AA passes. 11 phone header: Resume/GitHub kept in lede and footer. 12 single contact route: owner's choice, no new contact details may be published. 13 blurb cadence: rewording without new facts risks adding claims.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, no FAIL (sandbox image notes only). Sitemap lastmod churn reverted.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).

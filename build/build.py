@@ -474,7 +474,7 @@ for i, p in enumerate(PROJECTS):
   <dl class="facts">{res}</dl>
   <article class="prose project">
   {plate(p['slug'])}
-  {p['body'].replace(' loading="lazy"', '', 1)}
+  {p['body'].replace(' loading="lazy" decoding="async"', ' fetchpriority="high" decoding="async"', 1)}
   </article>
   <nav class="pager" aria-label="More projects">
     {pager_prev}
