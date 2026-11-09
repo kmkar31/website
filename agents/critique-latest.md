@@ -1,12 +1,12 @@
-# Critique, 2026-11-09 (cycle 105)
+# Critique, 2026-11-09 (cycle 106)
 
-Rendering: `python3 tools/check.py . agents/shots` ran (about 3 min; run it in the background, it exceeds a 2 min tool timeout). All pages OK in phone, tablet and desktop, light and dark; only "images not loaded" sandbox notes. I viewed index phone light, index desktop light, snake-robots phone dark. The last site-file change was the cycle 97 theme-color meta; nothing has changed since, so no new regression is possible. No site files edited.
+Rendering: `python3 tools/check.py . agents/shots` ran in the background (about 3 min; it exceeds the 2 min tool timeout). 78 page/viewport/theme checks OK; only "images not loaded" sandbox notes. I viewed index phone light and projects tablet dark. `git status` is clean and the last commit (e78e4c2) changed only the log, so no regression is possible. No site files edited.
 
 ## Sources consulted
-- Fetches of web.dev LCP (https://web.dev/articles/lcp) and WCAG 2.2 Focus Appearance (https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html) were blocked (permission unanswered). WebSearch returned only titles for: web.dev LCP, W3C WCAG 2.2 Understanding 2.4.13, and Nielsen Norman Group / UX portfolio hiring-manager articles. I read none of them, so nothing below is cited from this cycle's reading.
+- Fetch of https://web.dev/articles/optimize-cls was blocked (permission unanswered). One WebSearch (robots.txt location) returned titles only, including Google's create-robots-txt page (https://developers.google.com/crawling/docs/robots-txt/create-robots-txt) and a GitHub Pages discussion (https://github.com/orgs/community/discussions/64865). I read none of them, so no source was read this cycle.
 - Carried from cycle 104 (read): https://web.dev/articles/optimize-cls (set width and height on images; size-adjusted font fallbacks).
 - Carried: WCAG 2.5.8 https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
-- Topic this cycle: LCP and focus appearance. Both unverified; I flag them as open checks, not findings.
+- Topic this cycle: robots.txt placement and CLS. Finding 5 stays labelled unverified.
 
 ## Scores
 - AI-tell: 2/10, unchanged. Flat paper, double rules, one hard-offset button, strike-through "three weeks" on amber, stamps, Fig. captions, mono ledger, plain first-person copy. No gradient, blur, glow, stats strip, card trio or slogan. Residual: intro / ruled list / dark footer is a familiar shape. No tell moved.
