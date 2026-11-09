@@ -1,19 +1,19 @@
-# Critique, 2026-11-09 (cycle 106)
+# Critique, 2026-11-09 (cycle 107)
 
-Rendering: `python3 tools/check.py . agents/shots` ran in the background (about 3 min; it exceeds the 2 min tool timeout). 78 page/viewport/theme checks OK; only "images not loaded" sandbox notes. I viewed index phone light and projects tablet dark. `git status` is clean and the last commit (e78e4c2) changed only the log, so no regression is possible. No site files edited.
+Rendering: `python3 tools/check.py . agents/shots` completed (about 3 min, run in background): 78 checks OK, no FAIL, only sandbox "images not loaded" notes. I viewed index phone light, index desktop dark and snake-robots tablet light. `git status` was clean at start and the last commit changed only the log, so no regression is possible. No site files edited.
 
 ## Sources consulted
-- Fetch of https://web.dev/articles/optimize-cls was blocked (permission unanswered). One WebSearch (robots.txt location) returned titles only, including Google's create-robots-txt page (https://developers.google.com/crawling/docs/robots-txt/create-robots-txt) and a GitHub Pages discussion (https://github.com/orgs/community/discussions/64865). I read none of them, so no source was read this cycle.
-- Carried from cycle 104 (read): https://web.dev/articles/optimize-cls (set width and height on images; size-adjusted font fallbacks).
-- Carried: WCAG 2.5.8 https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
-- Topic this cycle: robots.txt placement and CLS. Finding 5 stays labelled unverified.
+- Every fetch was blocked this cycle: WebFetch of https://web.dev/articles/lcp returned a permission-not-answered error, and curl to web.dev, w3.org and nngroup.com all failed with proxy 403. I read no source this cycle and cite none as read.
+- Carried from earlier cycles (read then): https://web.dev/articles/optimize-cls and https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+- Unverified pointers only: https://developers.google.com/crawling/docs/robots-txt/create-robots-txt (robots.txt placement), https://web.dev/articles/lcp (LCP image priority).
+- Topic this cycle: LCP and 30-second scan. Verified from the repo instead: aerobraking-drl.html's first image has `decoding="async"` but no `fetchpriority` and no width/height; later images have `loading="lazy"` (correct). robots.txt is `Allow: /` plus an absolute Sitemap URL; sitemap lastmod is 2026-11-02 for every URL.
 
 ## Scores
 - AI-tell: 2/10, unchanged. Flat paper, double rules, one hard-offset button, strike-through "three weeks" on amber, stamps, Fig. captions, mono ledger, plain first-person copy. No gradient, blur, glow, stats strip, card trio or slogan. Residual: intro / ruled list / dark footer is a familiar shape. No tell moved.
 - Looks good: 8/10. Ruled rhythm holds on phone and desktop; dark mode reads as inverted print. Weak spots: the plate exists on row 06 only (on phone it sits above the title and breaks the list rhythm); the snake page's only figure is a schematic marked illustrative, so the lead project has no real image; About has an empty right side on wide screens.
 - SEO: 7/10. Unique titles and descriptions, canonical, OG/Twitter, JSON-LD, sitemap, 404, one h1. Open: robots.txt and sitemap under /website/, one og:image for all pages, unsized hotlinked figures, identical lastmod.
 - UX: 6/10. Name, field, lede, Resume and LinkedIn are on the first phone screen. Held down by no current status and no result on the lede project.
-- Fun and personality: 7/10. 99 s stamp, 404 joke, strike-through, plates, ledger. Home is otherwise quiet; no new idea that the repo's facts support.
+- Fun and personality: 7/10. 99 s stamp, 404 joke, strike-through, plates, ledger. Home is otherwise quiet. No new idea that the repo's facts support; a live 99-second countdown on the row 05 stamp would be decorative motion and is not recommended.
 
 ## Owner critique (agents/user-critique.md)
 1. Retro, matte, no glossy gradients: met.
@@ -46,4 +46,4 @@ Designer-fixable this cycle: none I can evidence.
 - One h1 per page, JSON-LD, canonical, 404 with a joke, skip link, 44 px targets, reduced-motion handling.
 
 ## Verdict
-Authored, coherent and not generic; no regression and no designer-fixable defect that I can evidence. What is open waits on the owner: a current status line, a snake result or lead-project decision, a confirmed or cut Raftar claim, and local Resume and images with real dimensions. Research this cycle was weak: all page fetches were blocked and search returned titles only, so no new source was read.
+Authored, coherent and not generic; no regression and no designer-fixable defect that I can evidence. What is open waits on the owner: a current status line, a snake result or lead-project decision, a confirmed or cut Raftar claim, and local Resume and images with real dimensions. Research this cycle was again nil: all fetches were blocked, so every source above is unread or carried over. Seen in this cycle's screenshots: on phone the nine-row list has one plate (row 06) and eight text-only rows, and the snake page's figure is a generic schematic; both are content gaps, not CSS faults.
