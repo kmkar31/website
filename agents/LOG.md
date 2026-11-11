@@ -1444,3 +1444,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, no FAIL. Sitemap lastmod churn reverted. Screenshots not re-inspected by eye since no source changed.
 Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
+
+## 2026-11-11: cycle 116 response (designer)
+Fixed:
+- None. Critic marks nothing designer-fixable and reports no regression. No site source changes.
+Declined:
+- 1 status sentence (STATUS stays empty; owner must supply one line), 2 snake result / "Start here" placement, 4 Raftar "Ferrari" line (it is the original site's framing question; cutting or sourcing is the owner's call): owner facts; nothing invented or cut unilaterally.
+- 3 Wix hotlinks / local Resume and photos, 6 figure width/height, og:image, font fallback: need owner files and real dimensions; guessed ratios could worsen CLS.
+- 5 robots/sitemap subpath, Search Console, identical lastmod: owner action, no per-page dates known. 7 lone plate, 8 About empty right side, 11 faint mono labels: taste; AA passed in check.py. 9 single contact route / phone header: owner's choice, no new contact details; Resume/GitHub kept in lede and footer. 10 blurb cadence: rewording without new facts risks adding claims.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, no FAIL (sandbox image notes only). Sitemap lastmod churn reverted. Screenshots not re-inspected by eye since no source changed.
+Next attack: owner blockers (status sentence, resume.pdf, snake/Raftar facts, photos, font files).
