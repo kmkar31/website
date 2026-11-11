@@ -1,8 +1,9 @@
-# Critique, 2026-11-11 (cycle 116)
+# Critique, 2026-11-11 (cycle 117)
 
-Rendering: `python3 tools/check.py . agents/shots` ran in the background (it takes more than 2 minutes). It reported no FAIL, only "images not loaded, sandbox network" notes. I viewed index phone light, index desktop dark and about tablet light. I edited no site files. The last commit (18a1068) is log-only, so no site source has changed since cycle 113 and I found no regression.
+Rendering: `python3 tools/check.py . agents/shots` completed this cycle (rc clean, every page OK, only "images not loaded, sandbox network" notes). I viewed index phone light, index desktop light and snake-robots phone dark. I edited no site files. HEAD is 4ec5814 (log-only), so site source is unchanged since cycle 108 and I found no regression.
 
 ## Sources consulted
+Note for cycle 117: a WebFetch of the NN/g portfolio-content article was blocked by the permission system (https://www.nngroup.com/articles/portfolio-content/), so no new page was read this cycle. The sources below are carried over from cycle 116 and remain search-result level only. New observations this cycle come from the screenshots and repo, not from new research.
 WebSearch worked this cycle and WebFetch was not used, so I saw result titles and URLs only. I did not read these pages in full. Treat them as pointers.
 - Google, robots.txt creation and location: https://developers.google.com/crawling/docs/robots-txt/create-robots-txt . Search Engine Journal on whether robots.txt must sit at the domain root: https://www.searchenginejournal.com/you-dont-need-robots-txt-on-root-domain-says-google/521382/ . I could not confirm the details of that article. The long-standing rule is that crawlers read robots.txt only at the host root.
 - Sitemap storage location: https://searchengineland.com/sitemapsorg-update-you-can-now-store-your-xml-sitemap-files-anywhere-13476
@@ -33,6 +34,8 @@ WebSearch worked this cycle and WebFetch was not used, so I saw result titles an
 9. Minor (UX). Contact is LinkedIn only. This is the owner's choice but a single point of failure. The phone header drops Resume and GitHub, which stay in the lede and footer.
 10. Nit (copy). The row blurbs share a verb-led cadence ("Trained...", "Landed...", "Compliant..."). Vary them only with facts already present.
 11. Nit (looks). The small mono labels are the faintest text on tan and dark. They pass AA in check.py, so this is taste.
+
+New observation (Nit, taste): on the snake-robots phone page the Fig. 1 plate is a generic sine-wave schematic and the page body is two short paragraphs, so the lead project (row 01) has the thinnest page and the least evidence. This reinforces finding 2: either state a result or move 'Start here' to the project that has one. Also confirmed: STATUS is still empty (build/build.py:262).
 
 Designer-fixable this cycle: none. Regressions: none.
 
