@@ -783,6 +783,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .section-head{flex-wrap:wrap}
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
+@media (max-width:359px){.site-header{padding:4px 8px}.site-header nav a{padding:0 6px}}
 """
 with open(os.path.join(OUT, "assets", "style.css"), "w") as f:
     f.write(css.strip() + "\n")
