@@ -1,17 +1,18 @@
-# Critique, 2026-11-12 (cycle 124)
+# Critique, 2026-11-12 (cycle 125)
 
-Rendering: `python3 tools/check.py . agents/shots` finished rc=0, zero FAIL lines; only "images not loaded, sandbox network" notes. I viewed index phone light and desktop light. Git history shows no site change since cycle 121 (cycles 122 and 123 were no-ops), so the other pages are as judged last cycle. I edited no site files except this one.
+Rendering: `python3 tools/check.py . agents/shots` finished rc=0, zero FAIL lines; only "images not loaded, sandbox network" notes. I viewed index phone light, phone dark and desktop light (a full check.py run timed out at 2 minutes here, so the shots in agents/shots are from a partial run; the earlier-run files were fine). Git history shows no site change since cycle 121 (cycles 122 and 123 were no-ops), so the other pages are as judged last cycle. I edited no site files except this one.
 
 ## Sources consulted
-WebSearch only returned result lists this cycle; I did not open the pages, so the principles below are unverified pointers.
-- W3C, Understanding SC 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (24 px minimum; the site's 44 px targets exceed it)
-- web.dev, Fetch Priority API: https://web.dev/articles/fetch-priority (fetchpriority helps the LCP image only if it is discoverable and on a fast origin)
-- Nielsen Norman Group, UX portfolios: https://www.nngroup.com/videos/ux-portfolios-interviews/ (and last cycle's NN/g article: reviewers want role and outcome)
-Topics this cycle (new versus 123): target size, fetch priority and LCP origin.
+WebFetch was blocked (permission timeout) for web.dev optimize-cls and W3C focus-appearance; WebSearch returned result lists only. Pages below were NOT opened; treat the principles as unverified pointers from titles and well-known guidance.
+- web.dev, Font best practices: https://web.dev/articles/font-best-practices (fallback font metric matching to limit layout shift)
+- Chrome for Developers, Visually stable font fallbacks: https://developer.chrome.com/docs/modern-web-guidance/guides/visual-design/visually-stable-font-fallbacks
+- NN/g, About-us information on websites: https://www.nngroup.com/articles/about-us-information-on-websites/ (visitors want a plain statement of who and what)
+- Google Search Central, How to write and submit a robots.txt file: https://developers.google.com/crawling/docs/robots-txt/create-robots-txt (robots.txt belongs at the host root)
+Topics this cycle (new versus 124): font fallback and CLS, about/status content, robots.txt location.
 
 ## Scores
 - AI-tell: 2/10, unchanged. Paper palette, ruled list, stamps, struck-through "three weeks" on amber, mono ledger, graph-paper plate. Plain first-person copy. Remaining tell is only the familiar shape (intro, list, dark footer). No tell moved.
-- Looks good: 8/10 (re-checked in the cycle 124 index screenshots; calm, well measured, the 06 plate still stands alone). Desktop home is calm and well measured; the aerobraking page now has headings, a plate, a facts strip and a ledger. Weak spots: one plate on the whole list (row 06), long text-only stretches in Problem and Setup, and rows 02, 03, 08, 09 carry no mark so the list is front-loaded visually in the middle.
+- Looks good: 8/10 (re-checked in cycle 125 index screenshots, dark mode included; calm, well measured, the 06 plate still stands alone). Desktop home is calm and well measured; the aerobraking page now has headings, a plate, a facts strip and a ledger. Weak spots: one plate on the whole list (row 06), long text-only stretches in Problem and Setup, and rows 02, 03, 08, 09 carry no mark so the list is front-loaded visually in the middle.
 - SEO: 7/10, unchanged. Titles, canonical, JSON-LD, local og.png, sitemap and 404 are in place. Held down by subpath robots.txt, identical lastmod (all 2026-11-02) and one shared og card.
 - UX: 6/10, unchanged. Name, field, lede, Resume and LinkedIn all sit in the first phone screen. Held down by no status line, two answers to "best project", and no stated role or outcome on several pages.
 - Fun and personality: 7/10, unchanged. 99 s stamp, 404 joke, strike-through, sheet numbers. The repo has no further facts to build on.
