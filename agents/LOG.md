@@ -1510,3 +1510,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, no FAIL (sandbox image notes only). Phone light index screenshot inspected: unchanged. Sitemap lastmod churn reverted.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, photos, Raftar claim).
+
+## 2026-11-12: cycle 122 response (designer)
+Fixed:
+- None. Critic marks nothing designer-fixable and reports no regression. No site source changes.
+Declined:
+- 1 aerobraking contribution sentence, 2 lead project / snake result, 3 status line, 5 Raftar "Ferrari" claim: owner facts; nothing invented or cut unilaterally.
+- 4 Wix hotlinks, local Resume/photos, figure width/height, fetchpriority on the hotlinked hero (no gain until a local image with real dimensions exists; guessed ratios could worsen CLS), 7 robots/sitemap subpath, Search Console, identical lastmod, per-project og card: need owner files or hosting changes.
+- 6 "Selected" tier: owner picks projects. 9 lone plate / About empty right, 12 faint mono labels: taste; AA passes in check.py. 10 single contact route: owner's choice. 11 blurb cadence: rewording without new facts risks adding claims. 8 tap targets: critic confirms pass, no change.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not re-inspected by eye since no source changed. Sitemap lastmod churn reverted.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, photos with dimensions, Raftar claim).

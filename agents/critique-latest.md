@@ -1,51 +1,51 @@
-# Critique, 2026-11-12 (cycle 121)
+# Critique, 2026-11-12 (cycle 122)
 
-Rendering: `python3 tools/check.py . agents/shots` completed; every page OK, with only "images not loaded, sandbox network" notes. HEAD 7e8a309 is log-only, so site source is unchanged since cycle 117 and there is no regression. I viewed index (phone light, desktop light), snake-robots (phone dark), about (tablet light) and aerobraking-drl (desktop light). I also ran a Playwright WCAG text-spacing test, a no-JS load and a tap-target scan. I edited no site files.
+Rendering: `python3 tools/check.py . agents/shots` took longer than 2 minutes but finished with rc=0 and zero FAIL lines. Only "images not loaded, sandbox network" notes appeared. HEAD is f6868d9 (the 320 px header fix). I viewed index (phone light, desktop dark), about (tablet dark) and quadrotor-sysid (phone light). I also inspected the HTML and CSS. I edited no site files.
 
 ## Sources consulted
-Fetched and read:
-- Nielsen Norman Group, UX design portfolios: https://nngroup.com/articles/ux-design-portfolios/ (hiring managers rarely read a whole portfolio; they want context, role, constraints and rejected options; 3 to 5 strong projects beat many weak ones)
-- W3C, Understanding SC 1.4.12 Text Spacing: https://w3c.github.io/wcag/understanding/text-spacing (line height 1.5, paragraph spacing 2x, letter spacing 0.12em, word spacing 0.16em must not cause loss of content)
-Search-result pointers only (not opened; page not verified):
-- Google, robots.txt creation: https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt (fetch was blocked; the root-only rule is from my memory of the spec)
-- WCAG 2.2 Understanding index and 1.4.10 Reflow: https://www.w3.org/WAI/WCAG22/understanding/
-Topics this cycle (new versus cycle 120): portfolio project curation, text-spacing/reflow, project authorship clarity.
+WebFetch was blocked this cycle ("permission request not answered"), so nothing below was opened and read. These are search-result pointers only. I used them for the principle each one is known for, and I treat the principles as unverified until someone opens the pages.
+- web.dev, Optimize Cumulative Layout Shift: https://web.dev/articles/optimize-cls (set width/height or aspect-ratio on images and media)
+- W3C, Understanding SC 2.5.8 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (24 by 24 CSS px minimum, with exceptions)
+- Nielsen Norman Group, F-shaped reading pattern: https://nngroup.com/articles/f-shaped-pattern-reading-web-content/ (visitors scan the left edge and first words of lines)
+Carried over from cycle 121: the NN/g portfolio article and the W3C text-spacing page, which were fetched then.
+Topics this cycle (new versus 121): CLS and LCP on hotlinked images, tap-target minimum, left-edge scanning of the project list.
 
 ## Scores
-- AI-tell: 2/10, unchanged. Paper tone, double rules, hard-offset button, struck-through "three weeks" on amber, stamps, mono ledger and the DM Serif/Source Serif pairing read as authored. Copy is plain first person. Remaining tell: the familiar shape (intro, ruled list, dark footer). No tell moved.
-- Looks good: 8/10. Desktop home has a clear measure, rhythm and one strong accent. The aerobraking page is orderly (stat row, plate, sections, pager). Weak spots: the lone plate on row 06 and the bare rows beside it; long text-only stretches on project pages.
-- SEO: 7/10, unchanged (findings 6 and 7).
-- UX: 6/10. Name, field, lede, Resume and LinkedIn fit on the first phone screen. Held down by no current status, an ambiguous lead project, and nine undifferentiated projects.
-- Fun and personality: 7/10. 99 s stamp, 404 joke, strike-through, Fig. 1 plate with "Sheet n of 9", "For the record". Nothing new proposed; the repo holds no further facts.
+- AI-tell: 2/10, unchanged. The paper palette, double rules, hard-offset button, struck-through "three weeks" on amber, stamps, mono ledger and the DM Serif/Source Serif pairing read as authored. The copy is plain first person. The remaining tell is the familiar shape (intro, ruled list, dark footer). No tell moved.
+- Looks good: 8/10. The desktop dark home has a clear measure, a ledger sidebar and one amber accent. The About tablet page is orderly. Weak spots: the lone plate on row 06, text-only stretches on project pages (sysid Background is about 20 lines of generic prose on phone), and an empty lower-right area on wide screens.
+- SEO: 7/10, unchanged. Unique titles, canonical, JSON-LD, local og.png, sitemap, 404 are all present. Held down by subpath robots.txt and identical lastmod (finding 7).
+- UX: 6/10, unchanged. Name, field, lede, Resume and LinkedIn are on the first phone screen. Held down by no status line, an ambiguous lead project and nine equal projects.
+- Fun and personality: 7/10, unchanged. 99 s stamp, 404 joke, strike-through, "Sheet n of 9" caption, "For the record". The repo holds no further facts to build on.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, no glossy gradients: met. No gradient, blur or glow in any screenshot.
+1. Retro, matte, no glossy gradients: met. I saw no gradient, blur or glow in any screenshot, light or dark.
 2. Not AI-looking: met on visuals and copy. Do not regress.
 
 ## Ranked findings
-1. Major (credibility, new angle). The "Start here" project, aerobraking-drl, mixes his work with someone else's and never separates them. Setup says "This project builds off work done by Falcone et al." and Method says "Falcone et al. simulated their agent ... required a training time of 1 week on a 50 core cluster". Then the Result says "our NN state-space model" and "the trained agent returned ... 8.4 km". A professor will ask what Karthik did. Add one plain sentence stating his contribution (for example, which parts he trained, reproduced or changed). Only the owner can supply it. NN/g wants the "role" for each case study (https://nngroup.com/articles/ux-design-portfolios/). Without it, the strongest-looking page reads as a summary of a paper.
-2. Major (UX, 30-second test). The lede and row 01 lead with snake robots, whose page states no result (phone and desktop screenshots; it has a schematic, a lab and an advisor, plus a "Why snake robots" paragraph). "Start here" and the only plate sit on row 06. That gives two answers to "strongest project". Owner decision: move "Start here" to row 01, or give the snake page a result.
-3. Major (UX, credibility). `STATUS = ""` in build/build.py:262. The subtitle says MS at CMU and About says 2023 to 2025. Today is 2026-11-12 and there is no status line. A visitor cannot tell whether he has graduated, is working or is looking. The owner must supply one line.
-4. Major (robustness). Images and the Resume link are hotlinked from Wix (76 wixstatic references across the pages). Resume is the main recruiter action and sits in the header, lede and footer, so one Wix change breaks all three. It needs a local resume.pdf and local photos from the owner. Not verifiable offline.
-5. Major (credibility). The Raftar page says "one-fifth the weight of a Ferrari but matches its 0-60 acceleration time", with no source. Source it or cut it.
-6. Minor (UX, new). Nine projects with equal weight on Home. NN/g advises 3 to 5 strong projects. The ledger format keeps the list scannable, so this is not a defect. Do consider a visible tier, for example a short "Selected" group of 3 above "Also". The owner picks which three. Taste plus the NN/g evidence.
-7. Minor (SEO). robots.txt and sitemap.xml are served under the /website/ subpath. Google reads robots.txt at the host root only (from memory of the spec; I could not open the doc), so it is probably ignored. The sitemap works if submitted in Search Console. All 12 lastmod values are identical (2026-11-02). There is no per-project og:image, only the shared og.png. Wix figures lack width/height, so CLS is likely once they load. Needs the owner (custom domain or Search Console) and real image dimensions.
-8. Minor (accessibility, new). Under the WCAG 1.4.12 text-spacing override at 320 px width, the header theme button overflows by 14 px (scrollWidth 334 vs 320) on every page I tested. At 390 px nothing overflows. This is a designer-fixable robustness issue: let the header wrap or hide the brand text below about 340 px, or allow the nav to shrink. Without the override I did not confirm overflow at 320 px, so treat severity as low. Source: https://w3c.github.io/wcag/understanding/text-spacing
-9. Minor (looks, taste). The plate appears on row 06 only; the other rows read thin on desktop. About has an empty right area on wide screens.
-10. Minor (UX). Contact is LinkedIn only (owner's choice). The phone header drops Resume and GitHub; they stay in the lede and footer.
-11. Nit (copy). Row blurbs share a verb-led cadence ("Trained...", "Landed...", "Compliant..."). Vary only with facts already present.
-12. Nit (looks). Small mono labels are the faintest text on tan and dark. They pass AA in check.py, so this is taste.
+1. Major (credibility). The aerobraking page ("Start here") does not separate Karthik's work from Falcone et al. Setup says the project "builds off work done by Falcone et al." and Method describes what "Falcone et al. simulated". The Result then says "our NN state-space model". A professor will ask what he did. One plain sentence from the owner fixes it. Reopened because nothing has changed: this is the page the site points to as the best project.
+2. Major (UX). Row 01 and the lede lead with snake robots, whose page states no result. "Start here" sits on row 06. That gives two answers to "strongest project". Owner decision: move "Start here" to 01, or give the snake page a result.
+3. Major (UX). `STATUS = ""` at build/build.py:262. The site says MS at CMU, 2023 to 2025, and today is 2026-11-12. There is no line saying whether he has graduated, is working or is looking. The owner must supply one line.
+4. Major (robustness and performance). The Resume link and every figure are hotlinked from Wix: 76 references across the pages (aerobraking-drl alone has 9). No `<img>` I inspected has width/height, so CLS is likely once they load (web.dev optimize-cls, unverified pointer). New detail: `aerobraking-drl.html` marks its first hotlinked figure `fetchpriority="high"` with no dimensions. LCP therefore depends on a third-party host and reserves no space. If the owner supplies local images with real dimensions, keep the high priority on the hero plate only. Until then the hint gains nothing. This needs owner files and cannot be verified offline.
+5. Major (credibility). The Raftar page asks "one-fifth the weight of a Ferrari but matches its 0-60 acceleration time" with no source. Source it or cut it. Owner fact.
+6. Minor (UX, taste plus NN/g evidence). Nine projects at equal weight. The ledger stays scannable, but a short "Selected" group of 3 above "Also" would help a 30-second reader. The owner picks the three.
+7. Minor (SEO). robots.txt and sitemap.xml sit under /website/, and Google reads robots.txt only at the host root, so it is probably ignored. Submit the sitemap in Search Console. All 12 lastmod values are 2026-11-02. There is only the shared og.png, with no per-project card. Owner action.
+8. Minor (accessibility, new check, passes). I looked for tap-target risk (WCAG 2.5.8 needs at least 24 px). Header links and buttons are 44 px by design, and the 359 px rule from cycle 121 keeps the 44 px height. The text-only "Resume (PDF)" and "LinkedIn" links in the lede are inline links and so are exempt. No change needed. I record this so the designer does not reopen it.
+9. Minor (looks, taste). The plate appears only on row 06, so the other rows read thin on desktop. About has empty space at lower right on wide screens.
+10. Minor (UX). Contact is LinkedIn only, which is the owner's choice. The phone header drops Resume and GitHub; they remain in the lede and footer.
+11. Nit (copy). Row blurbs share a verb-led cadence. Vary only with facts already present.
+12. Nit (looks). The small mono labels are the faintest text. They pass AA, so this is taste.
 
-Designer-fixable this cycle: finding 8 only (low severity). Everything else needs the owner (status line, lead project, contribution sentence, Raftar claim, local Resume and images).
+Designer-fixable this cycle: nothing. Everything above needs the owner (status line, lead project, contribution sentence, Raftar claim, local Resume and images with dimensions).
 
 ## Good, must not regress
-- Retro matte system: paper, grain, double rules, one hard-shadow button, inverted-print dark mode.
-- Struck-through "three weeks" on amber, and the stamps (46 orbits, 500 m, 99 s, podium).
-- Fig. 1 plate with "Sheet n of 9" caption and honest "schematic" notes.
-- Plain first-person lede with real specifics, no slogan copy.
-- Aerobraking page structure: stat row, plate, problem/setup/method/result, and a pager that shows the neighbour's first fact.
-- Failed images collapse cleanly; one h1 per page, unique titles, JSON-LD, canonical, 404 joke, skip link, focus-visible outline, reduced-motion handling, no-JS pages render fully (24 links, one h1), no overflow at 390 px.
+- The retro matte system: paper, grain, double rules, one hard-shadow button, inverted-print dark mode.
+- The struck-through "three weeks" on amber, and the stamps (46 orbits, 500 m, 99 s, podium).
+- The Fig. 1 plate with "Sheet n of 9" caption and honest "schematic" notes.
+- The plain first-person lede with real specifics and no slogan copy.
+- The aerobraking page structure and a pager that shows the neighbour's first fact.
+- Failed images collapse cleanly. One h1 per page, unique titles, JSON-LD, canonical, 404 joke, skip link, focus-visible outline and reduced-motion handling all hold.
 - About's ruled, dated education and experience entries.
+- The 320 px header fix from cycle 121 (no regression seen at the three standard viewports).
 
 ## Verdict
-The site is authored, coherent and not generic, and nothing has regressed. The new concern is credibility on the project the site itself points to: the aerobraking page does not say what Karthik did versus Falcone et al., which matters more than polish for a professor reading it. The older owner items still stand: a status line, a decision on the lead project, a sourced or cut Raftar claim, and a local Resume and images with real dimensions. The designer can fix only the 320 px header overflow under text-spacing; the rest waits on the owner.
+The site is authored, coherent and not generic, and I found no regression from cycle 121. The open problems are content the owner must supply: a status line, a decision on the lead project, a sentence separating his work from Falcone et al., a sourced or cut Raftar claim, and local Resume and images with real dimensions. The one new point is that the Wix-hosted hero figure carries a high-priority hint and no dimensions, so the page's main image has no reserved space and a third-party dependency. The designer has nothing left to fix, and the site's next gains depend on the owner.
