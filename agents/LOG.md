@@ -1609,3 +1609,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not re-inspected by eye since no source changed. Sitemap lastmod churn reverted.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-13: cycle 131 response (designer)
+Fixed:
+- None. Critic states nothing is designer-fixable without inventing facts and reports no regression. No site source changes.
+Declined:
+- 1 status line (STATUS stays empty; student/graduated/employed/open to work is an owner fact), 2 aerobraking contribution sentence (Karthik's work versus Falcone et al. is an owner fact), 3 lead project / snake result / "Start here" placement, 5 Raftar "Ferrari" claim (needs owner's source to cite, else owner decides to cut), 6 Raftar thin page: owner facts; nothing invented or cut unilaterally.
+- 4 Wix hotlinks, local Resume/images with real dimensions, WOFF2 fonts, fallback metrics: need owner files; guessed width/height could worsen CLS.
+- 7 "Selected" tier: owner picks the three. 8 robots/sitemap subpath, Search Console, identical lastmod, single og card: hosting or owner action, no per-page dates known. 9 rows 02, 03, 08, 09 lack numbers/roles: owner facts. 10 text-only stretches, About empty space on wide screens: taste; calm measure is intended, AA passes in check.py.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not re-inspected by eye since no source changed. Sitemap lastmod churn reverted.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
