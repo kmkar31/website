@@ -1,49 +1,44 @@
-# Critique, 2026-11-14 (cycle 134)
+# Critique, 2026-11-14 (cycle 135)
 
-Method: ran `python3 tools/check.py . agents/shots` to completion: zero FAIL, only "images not loaded, sandbox network" notes. No site files edited and none changed since cycle 133 (git clean). I viewed projects phone-dark, raftar phone-light, snake-robots desktop-light and hasselhoff tablet-dark (different from last cycle's set); I did not open the other ~74 screenshots. No regression seen.
+Method: `python3 tools/check.py . agents/shots` ran to completion (log: every page OK, only "images not loaded, sandbox network" notes; I read the tail of the log, which showed no FAIL). No site files edited; git tree clean at start. I viewed index phone-light, index desktop-light, about desktop-light and tethered-nanosatellite phone-dark. I did not open the other ~74 screenshots. No regression seen in the four viewed.
 
-## Sources consulted
-Honest status: WebFetch was denied for every page this cycle (permission prompt unanswered, so no page was read). Only WebSearch result listings were available, i.e. titles and URLs, not content. No finding below depends on a quoted claim from them; they are pointers for the owner/designer to read.
-- Google, How Google interprets the robots.txt specification: https://developers.google.com/search/reference/robots_txt (listing only; fetch of the create-robots-txt page was blocked). Used for finding 7 (robots.txt is read from the host root).
-- GitHub community discussion, robots.txt in github.io pages: https://github.com/orgs/community/discussions/64865 (listing only). Same topic.
-- web.dev, Font best practices: https://web.dev/articles/font-best-practices and Self-hosted fonts pattern: https://web.dev/patterns/web-vitals-patterns/fonts/font-self-hosted (listings only; fetch blocked). Pointers for finding 4.
-- NN/G mobile UX article fetch was blocked.
-Three-source rule NOT met in substance. Previously read NN/G portfolio guidance (cycle 133) still applies to findings 1 to 3.
+## Sources consulted (honest status)
+- WebFetch was blocked again this cycle (permission request unanswered, W3C WCAG 2.2 target-size page: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html). No page content was read.
+- WebSearch returned listings only (titles, URLs). Pointers, not evidence: https://www.nngroup.com/topic/careers-ux/ , https://measuringu.com/what-hiring-managers-want-and-what-ux-practitioners-do/ , https://www.uxdesigninstitute.com/blog/hiring-managers-ux-portfolio/ (these concern UX portfolios, only loosely applicable to an engineering portfolio).
+- Prior-cycle sources (robots.txt spec, web.dev font pages) remain unread pointers. The three-source rule is NOT met in substance. No finding below rests on a quoted claim from any source; findings 1 to 9 are from the repo and screenshots.
 
 ## Scores
-- AI-tell: 2/10, unchanged. Paper palette, ruled list, tilted stamps, struck-through "three weeks", sheet numbers, mono labels, plain first-person copy, honest footer. Remaining tell is the overall shape (intro, list, dark footer) and the repeated figure plate template. No tell moved.
-- Looks good: 8/10, unchanged. Hasselhoff tablet-dark is the strongest page: figure with labelled thrusters and IR target, stamp, state-machine disclosure, pager. Projects phone-dark list is clean and the stamps carry information. Weak: snake desktop page is bare after the figure (one two-line paragraph, then pager; roughly 200 px of dead paper above the footer); Raftar page is the same (one paragraph plus an external link).
-- SEO: 7/10, unchanged. Unique titles, descriptions, canonical, og, JSON-LD, 12-URL sitemap, 404. Held down by robots.txt/sitemap under /website/ (crawlers use host-root robots.txt only; the `Sitemap:` line in a subpath file is ignored), all 12 lastmod identical (2026-11-02), one shared og card, 33 wixstatic references across 11 pages.
-- UX: 6/10, unchanged. First phone screen has name, field, lede, Resume and LinkedIn. Held down by empty `STATUS` (`build/build.py:262`), two answers to "best project", thin pages (snake, Raftar), one contact route.
-- Fun and personality: 7/10, unchanged. 99 s stamp, 46 orbits, 500 m tether, struck-through "three weeks", Hasselhoff SpongeBob origin line (specific and funny; keep), 404 joke.
+- AI-tell: 2/10, unchanged. Specific content (Seagate 3 weeks struck to 15 minutes, 99 s stamp, 46 orbits, sheet-numbered plates), plain first-person copy, honest footer. Residual tells: the intro / ruled list / dark footer shape, and the identical plate-and-stamp template across pages. No tell moved.
+- Looks good: 8/10, unchanged. Home desktop is composed: name, ledger column, one button, ruled rows, one plate. Tethered phone-dark reads well; the plate is legible. Weak: tethered page on phone is about 60% three unbroken prose paragraphs after the plate (taste-level, text is the owner's).
+- SEO: 7/10, unchanged. Unique titles and descriptions, canonical, og, JSON-LD, 12-URL sitemap, 404. Held down by robots.txt and sitemap under /website/ (verified file content: the `Sitemap:` line sits in a subpath file, which crawlers do not read as the host robots.txt; per Google's spec, unverified this cycle), all 12 lastmod identical (2026-11-02), one shared og card, 33 wixstatic references.
+- UX: 6/10, unchanged. First phone screen answers who, what, Resume, LinkedIn. Held down by the empty STATUS slot, two answers to "best project", thin snake and Raftar pages, a single contact route.
+- Fun and personality: 7/10, unchanged.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, no glossy gradients: met (flat paper/ink, hard-edged stamps, inverted-print dark mode, no gradient/blur/glow in the screenshots viewed).
-2. Must not look AI-generated: met in visuals and copy. Do not regress.
-No new owner notes.
+1. Retro, matte, no glossy gradients: met (flat paper and ink, hard-edged stamps, no gradient, blur or glow in the screenshots viewed).
+2. Must not look AI-generated: met. No new owner notes.
 
 ## Ranked findings
-1. Major (UX, credibility). No status; stale timeline. Home says CMU MS with no year; About says 2023 to 2025; today is 2026-11-14. Student, graduated, employed or open to work is unanswerable. Owner supplies one line for STATUS.
-2. Major (credibility). Aerobraking page (the "Start here" project) never separates Karthik's work from Falcone et al. Owner fact: "I did X; Falcone et al. did Y".
-3. Major (UX). Two answers to "strongest project": lede and row 01 lead with snake robots, but the snake page is the thinnest in the set (schematic, one paragraph, no result, method or outcome; confirmed in the desktop screenshot) while the "Start here" mark and the richest page belong to aerobraking. Owner decision: add a snake result, or lead with aerobraking.
-4. Major (robustness, performance). 33 Wix hotlinks, and Resume PDF off-site, linked from every page. Fonts come from Google Fonts with no metric-matched fallback. Needs owner files: local images, resume.pdf, WOFF2 (see web.dev font pages above, unread).
-5. Major (credibility). Raftar page: "one-fifth the weight of a Ferrari but matches its 0-60 acceleration time" is unsourced, it is the page's headline question, and the page has no data behind it. Cite or cut. Owner fact.
-6. Major (looks/UX, new emphasis). Raftar page is mostly a stamp-and-sketch around one generic paragraph ("A team of 40+ engineering students design, build, test and race...") plus an external link; "I did the suspension and brakes" appears twice (lede and caption) but never what was designed or what constraint it met. It is the owner's only leadership claim. Owner fact needed: one concrete suspension or brake decision.
-7. Minor (SEO). robots/sitemap under /website/; submit the sitemap in Search Console (works for a project site); identical lastmod; one og.png for all pages.
-8. Minor (UX, taste). Nine equal-weight rows on Home and Projects; no "Selected" tier. Owner picks three.
-9. Minor (content). Rows 02, 03, 08, 09 on Projects have no stamp or role; tethered page has no outcome beyond the 500 m setup. Owner facts.
-10. Nit (looks, taste). Text-only stretches (aerobraking Problem/Method, tethered body); About right column empty at 1366 px.
+1. Major (UX, credibility). No status. Home shows "MS Mechanical Engineering, Carnegie Mellon University" with no year; About shows "2023 – 2025" and "I did my Master's"; today is 2026-11-14. A recruiter cannot tell student, graduate, employed or open to roles. Owner supplies one line for STATUS (`build/build.py`).
+2. Major (credibility). The "Start here" aerobraking page does not separate Karthik's contribution from the cited prior work (Falcone et al.). Owner fact: "I did X; they did Y".
+3. Major (UX). Two answers to "strongest project". Lede and row 01 lead with snake robots, whose page is the thinnest; the "Start here" mark, the plate and the richest page belong to row 06. On the phone home screenshot the plate and START HERE sit mid-list at row 06, below five rows, so the one visual cue is hard to see in the first scroll. Owner decides: give snake a result, or lead with aerobraking and move row 06 up.
+4. Major (robustness, performance). 33 Wix hotlinks across 11 pages, Resume PDF hosted off-site and linked from header, home, footer; Google Fonts with no metric-matched fallback. Needs owner files (images with dimensions, resume.pdf, WOFF2).
+5. Major (credibility). Raftar headline question (`raftar-formula-racing.html` line 48): "one-fifth the weight of a Ferrari but matches its 0-60 acceleration time" is unsourced and unsupported by any figure on the page. Cite or cut. Owner fact.
+6. Major (content). Raftar page: the owner's only leadership claim ("I captained the team and did the suspension and brakes") never says what was designed or what constraint it met. Owner fact: one concrete suspension or brake decision, or one result.
+7. Minor (SEO). robots.txt and sitemap under a subpath; submit sitemap.xml in Search Console (owner action); identical lastmod on all URLs; one og.png for every page.
+8. Minor (UX, taste). Nine equal-weight rows; a "Selected" tier of three would help a 30-second reader. Owner picks.
+9. Minor (content). Rows 02, 03, 08, 09 carry no stamp or role; tethered page ends with no outcome beyond the 500 m setup. Owner facts.
+10. Nit (looks, taste). About right column empty below the "On this page" index at 1366 px; tethered body is text-only on phone.
 
-Designer-fixable this cycle: nothing without inventing facts. The loop has been a no-op since cycle 122. Owner must answer 1, 2, 3, 5, 6 and supply files for 4 before more cycles are useful.
+Designer-fixable without inventing facts: nothing. The loop has been a no-op since cycle 122. Owner answers to 1, 2, 3, 5, 6 and files for 4 are what is needed.
 
 ## Good, must not regress
 - Retro matte system: paper, grain, double rules, hard-shadow button, inverted-print dark mode.
-- Struck-through "three weeks" on amber; stamps (46 orbits, 500 m, 99 s, podium).
-- Fig. 1 plates with "Sheet n of 9" captions and honest "schematic"/"not to scale" notes.
-- Hasselhoff page: SpongeBob-movie naming story, state-machine disclosure.
-- Plain first-person lede, no slogans, consistent "captained" wording.
-- Pager showing the neighbour's first fact; "All projects" back link.
-- Failed images collapse cleanly; one h1 per page; unique titles; JSON-LD; canonical; 404 joke; skip link; focus-visible; reduced-motion; 44 px phone nav targets.
+- Struck-through "three weeks" on amber (home and About); stamps (46 orbits, 500 m, 99 s, podium).
+- Fig. 1 plates with "Sheet n of 9" captions and honest "Not to scale" notes.
+- Hasselhoff page and its naming story; 404 joke.
+- Plain first-person lede, no slogans; consistent "captained" wording.
+- Pager with neighbour's first fact; "All projects" link; failed images collapse; one h1 per page; unique titles; JSON-LD; canonical; skip link; focus-visible; reduced-motion; 44 px phone nav targets.
 
 ## Verdict
-The site is authored, coherent and not generic, with no regression. What holds it back is content only the owner can supply: a status line, a sentence separating his work from Falcone et al., one answer to "best project" with a real snake result, a sourced or cut Raftar claim plus one concrete suspension detail, and local Resume, images and fonts. Caveat: external sources were not readable this cycle (fetch denied), and only 4 of 78 screenshots were viewed this cycle.
+Authored, coherent, not generic, no regression. What holds it back is content only the owner can supply: a status line, a sentence separating his work from Falcone et al., one answer to "best project" with a real snake result, a sourced or cut Raftar claim plus one concrete suspension detail, and local Resume, images and fonts. Caveat: external sources were unreadable this cycle and only 4 of 78 screenshots were inspected.
