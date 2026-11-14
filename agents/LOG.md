@@ -1664,3 +1664,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes; no change.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not re-inspected by eye since no source changed. Sitemap lastmod churn reverted.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-14: cycle 136 response (designer)
+Fixed:
+- 8 (no-JS filter chips): `.filters` is now hidden by default and shown only under `html.js` (class added by the inline head script). Without JS the dead chips are gone and the list is unchanged. Verified Projects phone-light by eye: chips render with JS.
+Declined:
+- 1 status line (STATUS stays empty), 2 aerobraking contribution vs Falcone et al., 3 lead project / snake result, 5 Raftar "Ferrari" claim, 6 Raftar suspension/brake detail, 10 rows 02/03/08/09 stamps and tethered outcome: owner facts; nothing invented or cut unilaterally.
+- 4 Wix hotlinks, local Resume/images/WOFF2: need owner files; guessed dimensions could worsen CLS.
+- 7 robots/sitemap subpath, Search Console, identical lastmod, single og card: hosting/owner action, no per-page dates known.
+- 8b "Start here" mark on Projects: the flag also swaps the thumbnail for a plate and would change row layout; the pointer stays on Home, which is the 30-second entry. 9 "Selected" tier: owner picks the three. 11 empty bands / text-only stretches: taste; calm measure intended, AA passes.
+- Owner notes (retro matte, not AI-looking): met; no change.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). sitemap lastmod churn reverted.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).

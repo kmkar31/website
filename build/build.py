@@ -300,7 +300,7 @@ def page(fname, title, desc, body, active, ld=None):
 <link rel="canonical" href="{URL}">
 <link rel="icon" href="{FAVICON}">{ldtag}
 {FONTS}
-<script>try{{var t=localStorage.getItem('theme');if(t){{document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('meta[name=theme-color]').forEach(function(m){{m.setAttribute('content',t==='dark'?'#1f1a15':'#efe7d6')}})}}}}catch(e){{}}</script>
+<script>document.documentElement.classList.add('js');try{{var t=localStorage.getItem('theme');if(t){{document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('meta[name=theme-color]').forEach(function(m){{m.setAttribute('content',t==='dark'?'#1f1a15':'#efe7d6')}})}}}}catch(e){{}}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -601,7 +601,8 @@ h3{font-size:1.3rem}
 .page-head.narrow{max-width:760px}
 .page-head h1{max-width:22ch;margin-bottom:0}
 .page-head:has(.filters)+.section{padding-top:20px}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.filters{display:none;flex-wrap:wrap;gap:8px;margin-top:24px}
+.js .filters{display:flex}
 .filter{border:2px solid var(--ink);background:var(--card);color:var(--fg);padding:0 14px;min-height:44px;font:500 .9rem var(--sans);cursor:pointer}
 .filter:hover{background:var(--hi);color:#2b2118}
 .filter.active{background:var(--fg);color:var(--bg)}
