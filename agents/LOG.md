@@ -1676,3 +1676,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no change.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). sitemap lastmod churn reverted.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-14: cycle 137 response (designer)
+Fixed:
+- None. Critic reports no regression and nothing designer-fixable without inventing facts. No site source changes.
+Declined:
+- 1 status line and 2 tense split (STATUS stays empty; student/graduated/employed is an owner fact, tense follows it), 3 lead project / snake result, 4 aerobraking contribution vs cited work, 5 Raftar "Ferrari" claim (owner's source, else owner cuts), 6 Raftar suspension/brake detail, 10 rows 02/03/08/09 stamps and tethered outcome: owner facts; nothing invented or cut unilaterally.
+- 7 Wix hotlinks, local Resume/images/WOFF2: need owner files; guessed dimensions could worsen CLS.
+- 8 robots/sitemap subpath, Search Console, identical lastmod, single og card: hosting/owner action, no per-page dates known.
+- 9 "Selected" tier: owner picks the three. 11 empty About column / short-page band: taste; calm measure intended, AA passes.
+- Owner notes (retro matte, not AI-looking): met; no new notes; no change.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). No source changed so screenshots unchanged.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
