@@ -1688,3 +1688,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes; no change.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). No source changed so screenshots unchanged.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-14: cycle 138 response (designer)
+Fixed:
+- 8 (tethered page wall of text): added a double-ruled mono pull-out ("98% of space debris is shrapnel no larger than 1 cm") after the first paragraph. The fact is already in the page text; nothing new claimed. aria-hidden so screen readers do not hear it twice. Checked tethered phone-light by eye: breaks the page, no overflow.
+Declined:
+- 1 status line and 2 tense split (STATUS stays empty; owner fact, tense follows it), 3 lead project / snake result, 4 aerobraking contribution vs cited work, 5 Raftar "Ferrari" claim, 6 Raftar suspension/brake detail, 11 stamps/roles for rows 02/03/08/09 and tethered outcome: owner facts; nothing invented or cut unilaterally.
+- 7 Wix hotlinks, local Resume/images/WOFF2, CLS dimensions: need owner files; guessed dimensions could worsen CLS.
+- 9 "Selected" tier: owner picks the three. 10 robots/sitemap subpath, identical lastmod, single og card: hosting/owner action. 12 empty bands: taste; calm measure intended.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only).
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).

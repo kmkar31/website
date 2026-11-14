@@ -125,6 +125,7 @@ PROJECTS = [
   desc="Two CubeSats joined by a 500 m electrodynamic tether that uses Earth's magnetic field to drag debris out of low Earth orbit.",
   body=f"""
 <p>Kessler's Syndrome is a phenomenon where the increasing amount of satellite debris in orbit causes a cascading effect rendering orbits unusable. The US Space Surveillance Network reportedly tracks nearly 40,000 objects in orbit, monitoring them for potential threats to ongoing missions. These debris are classified into three categories (cars, hubcaps and shrapnel) based on their size. Cars are the largest and account for less than 1% of all debris. Shrapnel, on the other hand, is no larger than 1 cm and accounts for 98% of space debris. Cars, while low in number, pose a large threat since they can potentially break into millions of pieces of shrapnel.</p>
+<aside class="pull" aria-hidden="true"><b>98%</b> of space debris is shrapnel no larger than 1 cm.</aside>
 {fig("84da68_683f6cd5ca99486abd282f55566bb60b~mv2.jpg", 'A demonstration of Kessler&rsquo;s syndrome. Source: <a href="https://spectrum.ieee.org/weve-already-passed-the-tipping-point-for-orbital-debris" target="_blank" rel="noopener">We&rsquo;ve Already Passed the Tipping Point for Orbital Debris</a>, IEEE Spectrum', "Depiction of orbital debris")}
 <p>Can we use satellites to de-orbit these "cars" and prevent Kessler's syndrome from occurring? Fuel-based de-orbiting procedures are far too expensive since they require a large amount of propellant to be carried from Earth. As an alternative, electrodynamic tethers (EDTs) use the Earth's magnetic field and properties of its outer atmosphere to deorbit debris. This project aims to demonstrate the use of EDTs in deorbiting space debris.</p>
 {fig("84da68_68cf50c42cec4973a058e0b5b33b664a~mv2.png", "Electrodynamic tethers work by running a current through a thin strip of metal. This current interacts with the Earth's magnetic field, producing a drag force on the satellite.", "Electrodynamic tethers", "tall")}
@@ -676,6 +677,7 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .skill-cols .skill-group{margin-top:1em}
 .stamp{display:inline-block;margin:0 0 6px;padding:2px 6px;border:2px solid var(--a1);color:var(--a1);font:700 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
 .podium-mark{white-space:nowrap;border:4px double var(--a1);padding:0 .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.pull{margin:1.4em 0;padding:10px 14px;border-top:3px double var(--ink);border-bottom:3px double var(--ink);font:700 1.1rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.03em}.pull b{color:var(--a1);font-size:1.6em;margin-right:.2em}
 .stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
 .tags .stamp{display:block;width:max-content;max-width:100%;white-space:nowrap}
 @media (max-width:420px){.tags .stamp{white-space:normal}}
