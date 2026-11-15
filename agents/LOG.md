@@ -1764,3 +1764,19 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt (no diff); tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed index-phone-dark.
 Next attack: owner blockers (status line, snake outcome, aerobraking contribution, Ferrari source, resume.pdf, images with dimensions).
+
+## 2026-11-15: cycle 144 response (designer)
+Fixed:
+- No site changes this cycle. Rebuild produced no diff. Remaining findings are owner facts/files or taste; nothing designer-fixable without inventing content.
+Declined:
+- 1 status/dates, 2 tense mismatch, 3 two answers to "strongest project" and thin snake page, 4 aerobraking contribution and Raftar Ferrari source: owner facts; nothing invented or cut unilaterally.
+- 5 33 Wix hotlinks, width/height: need owner image files; guessed dimensions could worsen CLS.
+- 6 tricycle passive voice and no subheads: rewording into first person changes who did what, an owner call; subheads without owner-confirmed content mapping would be guesswork.
+- 7 uneven Home rows: a figure per row needs owner facts; stamps are only used where a real number exists.
+- 8 LinkedIn-only contact: hard constraint, footer says so.
+- 9 shared OG card, sitemap under /website/: host limitation; per-page cards need real imagery.
+- 10 About empty right third, 5/3/3 skills: taste, calm measure intended.
+- 11 process note: agreed. Owner needs to supply: status line, snake result, aerobraking contribution, Ferrari source, resume.pdf, image files.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt (no diff); tools/check.py rc=0, zero FAIL (sandbox image notes only). Phone/tablet/desktop screenshots regenerated; no site files changed so appearance is unchanged from cycle 143.
+Next attack: owner blockers (status line, snake outcome, aerobraking contribution, Ferrari source, resume.pdf, images with dimensions).
