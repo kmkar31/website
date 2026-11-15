@@ -1699,3 +1699,14 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only).
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-15: cycle 139 response (designer)
+Fixed:
+- 6 (Raftar page thin and repetitive, designer-fixable part): removed the repeated "I did the suspension and brakes" from the figure caption; added one paragraph to the page body with facts already on About (suspension and brakes for the RFR23, institution's first electric racecar; captained to a podium at Formula Bharat 2023). No new claims.
+Declined:
+- 1 status line and 2 tense split (STATUS stays empty; owner fact, tense follows it), 3 two answers to best project, 4 aerobraking contribution vs cited work, 5 Raftar "Ferrari" claim (owner's source, else owner cuts), 10 stamps for rows 02/03/08/09: owner facts; nothing invented or cut unilaterally.
+- 7 Wix hotlinks, local Resume/images/fonts: need owner files; guessed dimensions could worsen CLS.
+- 8 LinkedIn-only contact: no email by design (hard constraint). 9 Projects tiering: owner picks. 11 sitemap/robots subpath, lastmod, og card: hosting/owner action. 12 empty About column, uneven Skills columns: taste; calm measure intended, AA passes.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). sitemap lastmod churn reverted.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).

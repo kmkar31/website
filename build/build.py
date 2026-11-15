@@ -61,6 +61,7 @@ PROJECTS = [
   desc="Raftar Formula Racing, IIT Madras: 40+ students built and raced an electric Formula SAE car; podium at Formula Bharat 2023.",
   body=f"""
 <p>Raftar Formula Racing is the FSAE team of IIT Madras. A team of 40+ engineering students design, build, test and race an electric formula-style car at Indian and European competitions.</p>
+<p>My part was modeling, designing and manufacturing the suspension and brakes for the RFR23, our institution&rsquo;s first electric racecar. In my senior year I captained the team to a podium finish at Formula Bharat 2023.</p>
 <p>Read more on the <a href="https://www.raftariitm.com/" target="_blank" rel="noopener">Raftar Formula Racing website</a>.</p>
 {row(fig("84da68_6dc1a48fd9e240f18c13004eedbfb4b1~mv2.webp", alt="Raftar Formula Racing electric car"), fig("84da68_601857af9385447db7042112e16c3e30~mv2.png", alt="Raftar Formula Racing team figure"))}
 """),
@@ -202,7 +203,7 @@ PLATES = {
  "quadrotor-landing": ('<circle cx="240" cy="100" r="70" class="dash"/><circle cx="240" cy="100" r="3" class="fill"/><text x="232" y="122" text-anchor="end">origin</text><rect x="283" y="46" width="30" height="30" class="paper acc" transform="rotate(35 298 61)"/><path d="M80 40l70 38 80 20" class="dash"/><path d="M70 40h20M80 30v20" class="thick"/><text x="20" y="22">start (random)</text><path d="M240 100h70" /><text x="262" y="118">r = 0.8 m</text>',
    "Top view of the test: the Tumbller drives a 0.8 m circle at 0.38 m/s while the CrazyFlie flies from a random start to the origin and then tracks it.", "Circular platform path with a quadrotor approaching from a random start"),
  "raftar-formula-racing": ('<circle cx="120" cy="140" r="34" class="paper"/><circle cx="120" cy="140" r="12"/><circle cx="360" cy="140" r="34" class="paper"/><circle cx="360" cy="140" r="12"/><path d="M60 128H30v-14h70M154 140h172M100 114L190 100 210 70h60l30 38 70 8v12" class="thick"/><path d="M215 70l-8-24h46l-6 24" /><path d="M20 176h440" class="dash"/>',
-   "Side-on sketch of an open-wheel Formula SAE car, the kind the team built. I did the suspension and brakes.", "Open-wheel race car in side view"),
+   "Side-on sketch of an open-wheel Formula SAE car, the kind the team built.", "Open-wheel race car in side view"),
  "hasselhoff-submarine": ('<rect x="170" y="50" width="140" height="100" rx="40" class="paper"/><circle cx="150" cy="60" r="16" class="acc"/><circle cx="330" cy="60" r="16" class="acc"/><circle cx="150" cy="140" r="16" class="acc"/><circle cx="330" cy="140" r="16" class="acc"/><circle cx="415" cy="100" r="26" class="dash"/><circle cx="415" cy="100" r="10"/><circle cx="415" cy="100" r="2" class="fill"/><path d="M315 100H378" class="dash"/><text x="170" y="176">4 thrusters</text><text x="388" y="148">IR target</text>',
    "Top view: four thrusters drive the hull, and the pilot has 99 seconds to land it on the infrared target.", "Submarine seen from above with four thrusters, heading for a target ring"),
  "aerobraking-drl": (_orbits()+'<text x="352" y="36">46 orbits</text><path d="M240 100H410" class="dash"/>',
