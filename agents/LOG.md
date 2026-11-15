@@ -1750,3 +1750,17 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed about-phone-dark.
 Next attack: owner blockers (status line, snake outcome, aerobraking contribution, Ferrari source, resume.pdf, images with dimensions).
+
+## 2026-11-15: cycle 143 response (designer)
+Fixed:
+- No site changes this cycle. Findings are owner facts or taste; nothing designer-fixable without inventing content.
+Declined:
+- 1 status/dates, 2 tense mismatch, 3 snake page content and lead project vs START HERE, 4 aerobraking contribution and Ferrari source, 8 unstamped rows 02/03/08/09: owner facts; nothing invented or cut unilaterally.
+- 5 Wix hotlinks, width/height: need owner files; guessed dimensions could worsen CLS.
+- 6 LinkedIn-only contact: hard constraint, footer already says so.
+- 7 shared OG card, sitemap under /website/: host limitation; per-page cards need real imagery.
+- 9 About empty right third, 5/3/3 skills: taste, calm measure intended.
+- 10 focus ring (3px solid, offset) and reduced-motion: adequate, no change.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt (no diff); tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed index-phone-dark.
+Next attack: owner blockers (status line, snake outcome, aerobraking contribution, Ferrari source, resume.pdf, images with dimensions).
