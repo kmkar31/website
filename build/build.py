@@ -125,8 +125,9 @@ PROJECTS = [
   thumb="84da68_68cf50c42cec4973a058e0b5b33b664a~mv2.png", page_title="Tethered Nanosatellite",
   desc="Two CubeSats joined by a 500 m electrodynamic tether that uses Earth's magnetic field to drag debris out of low Earth orbit.",
   body=f"""
-<p>Kessler's Syndrome is a phenomenon where the increasing amount of satellite debris in orbit causes a cascading effect rendering orbits unusable. The US Space Surveillance Network reportedly tracks nearly 40,000 objects in orbit, monitoring them for potential threats to ongoing missions. These debris are classified into three categories (cars, hubcaps and shrapnel) based on their size. Cars are the largest and account for less than 1% of all debris. Shrapnel, on the other hand, is no larger than 1 cm and accounts for 98% of space debris. Cars, while low in number, pose a large threat since they can potentially break into millions of pieces of shrapnel.</p>
-<aside class="pull" aria-hidden="true"><b>98%</b> of space debris is shrapnel no larger than 1 cm.</aside>
+<p>Kessler's Syndrome is a phenomenon where the increasing amount of satellite debris in orbit causes a cascading effect rendering orbits unusable. The US Space Surveillance Network reportedly tracks nearly 40,000 objects in orbit, monitoring them for potential threats to ongoing missions. These debris are classified into three categories (cars, hubcaps and shrapnel) based on their size. Cars are the largest and account for less than 1% of all debris.</p>
+<aside class="pull"><b>98%</b> of space debris is shrapnel no larger than 1 cm.</aside>
+<p>Cars, while low in number, pose a large threat since they can potentially break into millions of pieces of shrapnel.</p>
 {fig("84da68_683f6cd5ca99486abd282f55566bb60b~mv2.jpg", 'A demonstration of Kessler&rsquo;s syndrome. Source: <a href="https://spectrum.ieee.org/weve-already-passed-the-tipping-point-for-orbital-debris" target="_blank" rel="noopener">We&rsquo;ve Already Passed the Tipping Point for Orbital Debris</a>, IEEE Spectrum', "Depiction of orbital debris")}
 <p>Can we use satellites to de-orbit these "cars" and prevent Kessler's syndrome from occurring? Fuel-based de-orbiting procedures are far too expensive since they require a large amount of propellant to be carried from Earth. As an alternative, electrodynamic tethers (EDTs) use the Earth's magnetic field and properties of its outer atmosphere to deorbit debris. This project aims to demonstrate the use of EDTs in deorbiting space debris.</p>
 {fig("84da68_68cf50c42cec4973a058e0b5b33b664a~mv2.png", "Electrodynamic tethers work by running a current through a thin strip of metal. This current interacts with the Earth's magnetic field, producing a drag force on the satellite.", "Electrodynamic tethers", "tall")}
@@ -232,7 +233,7 @@ META = {
    results=[("Approach", "Visual orbit determination"), ("Orbit", "LEO")]),
  "quadrotor-landing": dict(tags=["Robotics", "Controls"], tldr="Landed a CrazyFlie on a Tumbller balancing robot driving in a circle, with model predictive control and a state machine.",
    results=[("Landing success", "100% (small pad, under 0.25 m/s)"), ("At top speed", "5.6 s, 2.5 cm error")]),
- "raftar-formula-racing": dict(tags=["Build"], tldr="IIT Madras's electric Formula SAE car, built and raced by 40+ students. I captained the team and did the suspension and brakes.",
+ "raftar-formula-racing": dict(tags=["Build"], tldr="IIT Madras's electric Formula SAE car, built and raced by 40+ students.",
    stamp="Podium, Formula Bharat 2023", results=[("Team", "40+ students"), ("Result", "Podium, Formula Bharat 2023")]),
  "hasselhoff-submarine": dict(tags=["Robotics", "Build"], tldr="A mini submarine you steer with a joystick remote. Four thrusters and 99 seconds to land on the target.",
    stamp="Time allowed: 99 s", results=[("Thrusters", "4 BLDC"), ("Time allowed", "99 seconds")]),
@@ -263,9 +264,11 @@ LIGHTBOX = '<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" 
 # Owner to supply, e.g. "Graduated May 2025; open to roles in ...". Renders nothing while empty.
 STATUS = ""
 
-import subprocess
+import subprocess, datetime
 def lastmod(n):
     try:
+        if subprocess.run(["git", "diff", "--quiet", "HEAD", "--", n], cwd=OUT or ".").returncode:
+            return f"<lastmod>{datetime.date.today().isoformat()}</lastmod>"
         d = subprocess.run(["git", "log", "-1", "--format=%cs", "--", n], capture_output=True, text=True, cwd=OUT or ".").stdout.strip()
     except Exception:
         d = ""

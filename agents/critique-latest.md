@@ -1,46 +1,47 @@
-# Critique, 2026-11-15 (cycle 139)
+# Critique, 2026-11-15 (cycle 140)
 
-Method: `python3 tools/check.py . agents/shots` finished rc=0, 0 FAIL (only "images not loaded, sandbox network" notes; it needs about 3 minutes, run it with a long timeout). No site files edited. HEAD is fc60474 (tethered pull-out). I viewed 4 of 78 screenshots, different from last cycle: index phone-light, index desktop-light, raftar-formula-racing phone-light, about desktop-dark. The other 74 were not opened. I did not re-open the tethered page, so the cycle 138 pull-out is unreviewed by me.
+Method: `python3 tools/check.py . agents/shots` finished rc=0, 0 FAIL (only "images not loaded, sandbox network" notes). No site files edited. HEAD is ce45603 (Raftar caption de-duplication). I viewed 4 of 78 screenshots, chosen to differ from last cycle where possible: raftar-formula-racing phone-light (re-checked because cycle 139 changed it), tethered-nanosatellite phone-dark, projects tablet-light, index tablet-dark. The other 74 were not opened. Cycle 139's Raftar change IS reviewed this time.
 
 ## Sources consulted (honest status)
-- The three-source rule is NOT met for the third cycle running. WebFetch of https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html was blocked (permission request unanswered). I read no page content.
-- One WebSearch ("NN/g portfolio hiring managers") returned a listing only. Pointers, not evidence: https://www.uxdesigninstitute.com/blog/hiring-managers-portfolio , https://measuringu.com/what-hiring-managers-want-and-what-ux-practitioners-do/ , https://www.nngroup.com/topic/careers-ux/ . I did not open them.
-- No finding below quotes a source. All come from the repo or the screenshots I viewed.
+- The three-source rule is NOT met, again. WebFetch of https://web.dev/articles/optimize-cls and https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/ were both blocked (permission request unanswered, "do not retry"). I read no page content from either.
+- No WebSearch was run this cycle. No finding below quotes or relies on an external source; each rests on the repo files or on the screenshots I viewed. Pointers only, unread: web.dev CLS guide (image dimensions, font loading), NN/g on scanning.
 
 ## Scores
-- AI-tell: 2/10, unchanged. Specific facts (struck "three weeks" on amber, 99 s, 46 orbits, 500 m stamps, "Sheet n of 9" plates), plain first-person copy, honest footer, no gradient, blur or glow. Residual tells: the tidy "Robotics / Controls" taxonomy, the "For the record" label, and the rhythm of three-item lists in the sidebar ("Seagate, York University, Tube Investments"). Nothing moved.
-- Looks good: 8/10, unchanged. Desktop home reads as a printed index and the amber strike is the right single accent. Weak spots: the plate and "Start here" first appear at row 06; the Raftar phone page is short and the sketch is generic; About desktop leaves the right column empty below the contents box.
-- SEO: 7/10, unchanged. Held down by 12 identical lastmod values, one og card, robots.txt and sitemap under the /website/ subpath, and 96 `wixstatic` occurrences (`grep -o` over the HTML files).
-- UX: 6/10, unchanged. First phone screen gives name, focus, Resume, LinkedIn. Held down by no status line, two answers to "best project", one contact route (LinkedIn only).
+- AI-tell: 2/10, unchanged. Specific facts (struck "three weeks" on amber, stamps with real values, "Sheet n of 9" plates), plain first-person copy, no gradient, blur or glow, honest footer. Residual tells: the "For the record" label, the three-item sidebar lists ("Seagate, York University, Tube Investments"), and the new pull-out device (finding 5). Nothing moved down.
+- Looks good: 8/10, unchanged. The Projects page at tablet is the best single screen: stamps, index numbers and the hard-shadow filter buttons read as one printed system. Weak spots: the Raftar plate (the cockpit trapezoid floats above the body like a lamp, not a halo or cockpit; taste) and the tethered page's wall of text.
+- SEO: 7/10, unchanged. Unique titles, canonical, og tags, JSON-LD, sitemap present. Held down by 96 `wixstatic` references (counted by grep), one og card, subpath robots/sitemap, and lastmod (finding 9).
+- UX: 6/10, unchanged. A phone visitor gets name, focus, Resume, LinkedIn quickly, but still no status or year on the home line, and one contact route.
 - Fun and personality: 7/10, unchanged.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, no glossy gradients: met in all four screenshots viewed (paper, grain, double rules, hard-shadow button, inverted dark mode).
+1. Retro, matte, no glossy gradients: met in all four screenshots viewed (paper, grain, double rules, hard shadows, inverted-print dark mode).
 2. Must not look AI-generated: met. No new owner notes.
 
 ## Ranked findings
-1. Major (UX, credibility). No status. Home (phone and desktop, viewed) says "MS Mechanical Engineering, Carnegie Mellon University" with no year; About says 2023 to 2025. Today is 2026-11-15, so a recruiter cannot tell student, graduate, employed or open to roles. `STATUS = ""` at `build/build.py` line 263 (verified). Owner supplies one line.
-2. Major (credibility). Tense split: Home "I research compliant control of snake robots" (present) against About "2023 – 2025" (past). Follows from 1.
-3. Major (UX). Two answers to "strongest project". Lede and row 01 lead with snake robots (thinnest page), while the plate and "Start here" sit on row 06. Owner decides.
-4. Major (credibility). Aerobraking page does not separate Karthik's contribution from cited prior work. Owner fact.
-5. Major (credibility). `raftar-formula-racing.html` line 48: "one-fifth the weight of a Ferrari but matches its 0-60" has no figure or source. Seen on the phone screenshot as the page's only framing. Cite or cut. Owner fact.
-6. Major (content). Raftar page is the weakest page viewed. "I did the suspension and brakes" appears in the lede, again in the figure caption, and the body is two generic sentences plus a link to the team site. Same claim three times, no design decision, no number, no result beyond "Podium". The About page has more (RFR23, "first electric racecar") than the project page. Designer-fixable only in part: the caption could drop the repeat, and the About fact "RFR23, our institution's first electric racecar" is already in the repo and could be moved onto the page. Everything else is an owner fact.
-7. Major (robustness, performance). Wix hotlinks (96 occurrences), off-site Resume PDF in header, home and footer, Google Fonts with no local fallback. Needs owner files.
-8. Minor (UX). Contact is "message me on LinkedIn" in every footer; no email by design (LOG). A professor who does not use LinkedIn has no route. Owner choice; say so on About at least.
-9. Minor (UX). Projects page has no "Start here" mark and no tiering; nine equal rows. Owner picks three.
-10. Minor (content). Rows 02, 03, 08, 09 on home carry no stamp or number. Owner facts.
-11. Minor (SEO). Sitemap and robots under a subpath, identical lastmod, one og card. Hosting and owner action; not verifiable offline.
-12. Nit (looks). About desktop: empty right column below the contents box; on dark, the Skills columns have uneven heights (5, 3, 3 items). Taste.
+1. Major (UX, credibility). No status. Home (tablet-dark viewed) reads "MS Mechanical Engineering, Carnegie Mellon University" with no years; About says 2023 to 2025; today is 2026-11-15. `STATUS = ""` at `build/build.py` line 264 (verified). A recruiter cannot tell student, graduate or available. Owner supplies one line. Unchanged for many cycles.
+2. Major (credibility). Tense split follows from 1: Home "I research compliant control of snake robots" (present) against About's past-tense date range.
+3. Major (UX). Two answers to "strongest project". The lede names snake robots and row 01 is snake, but "Start here" and the plate sit on row 06 (aerobraking), seen on index tablet-dark. A reader who follows the explicit pointer lands on a different project than the one the lede sells. Owner decides.
+4. Major (credibility). Aerobraking page does not separate Karthik's contribution from the cited prior work. Owner fact.
+5. Major (regression from cycles 138/139, designer-fixable). Repetition has moved, not gone.
+   a. Raftar (phone-light, viewed): the claim "I captained the team and did the suspension and brakes" now appears in the tl;dr (line 47), and again in the new body paragraph "My part was modeling, designing and manufacturing the suspension and brakes ... I captained the team to a podium finish" (line 56); the "Result: Podium, Formula Bharat 2023" row restates the podium a third time, and the home row blurb a fourth. Cycle 139 removed it from the caption only to add it to the body. The new paragraph adds "modeling, designing and manufacturing" and "first electric racecar", which are real, but the rest is a copy of the tl;dr. Fix: cut the tl;dr to the team and the car, and let the body carry the personal part once.
+   b. Tethered (phone-dark, viewed): the cycle 138 pull-out "98% of space debris is shrapnel no larger than 1 cm" sits directly under the paragraph that says exactly that ("Shrapnel ... no larger than 1 cm and accounts for 98%"). It is aria-hidden for that reason, but sighted readers read it twice within one screen. It also pulls emphasis to a textbook fact about debris, not to what he built, and the page still has three dense paragraphs after it with no result stated. Fix: move the pull-out so it replaces the sentence in the paragraph, or use a number that is about the project (500 m tether, 3U + 1U) and is not already in the fact strip.
+6. Major (credibility). `raftar-formula-racing.html`: "one-fifth the weight of a Ferrari but matches its 0-60" is the only framing question on the page and has no figure or source. Cite or cut. Owner fact.
+7. Major (robustness, performance). 96 Wix hotlinks; the Resume PDF (header, home, footer) is a `filesusr.com` URL; Google Fonts with no local fallback. Needs owner files; cannot verify dimensions offline.
+8. Minor (UX). LinkedIn is the only contact route, in every footer. Owner constraint; the About page could at least say so in a line so a professor without LinkedIn knows it is deliberate.
+9. Minor (SEO, accuracy). All 12 sitemap entries carry `lastmod` 2026-11-02 while pages changed on 11-14 and 11-15 (git log). A uniform and stale lastmod is ignored or distrusted by crawlers. Designer-fixable if build.py derives it per file from git, or drop `lastmod`; honest absence beats a wrong date. Verify only offline.
+10. Minor (UX). Projects page: five of nine rows (01, 02, 03, 08, 09) have no stamp, and there is no tier or "Start here" mark, so nine near-equal rows. Owner picks three.
+11. Minor (content). Tethered and ARGUS state aims and method but no outcome. If there is none, say "design and simulation; not flown" only if that is true. Owner fact.
+12. Nit (looks). Raftar plate: floating trapezoid; the dashed ground line runs under the whole car including the front wing, reading as a track marker. Taste.
 
-Designer-fixable without inventing facts: finding 6 in part (de-duplicate the caption; move the RFR23 fact from About). Everything else needs the owner.
+Designer-fixable without inventing facts: 5a, 5b, 9. Everything else needs the owner.
 
 ## Good, must not regress
-- Retro matte system: paper, grain, double rules, hard-shadow button, inverted-print dark mode (About desktop-dark is legible and coherent).
-- Struck-through "three weeks" on amber (Home and About agree); stamps (46 orbits, 500 m, 99 s, podium); boxed "podium finish" on About.
-- Fig. 1 plates with "Sheet n of 9" captions and honest "NTS" notes.
-- Pager showing the neighbour's first fact (Raftar page: "Landing success: 100%", "Thrusters: 4 BLDC").
-- Hasselhoff naming story; 404 joke; plain first-person lede; honest colophon.
-- One h1, unique titles, JSON-LD, canonical, skip link, 44 px phone targets, chips hidden without JS.
+- Retro matte system: paper, grain, double rules, hard-shadow buttons, inverted-print dark mode (index tablet-dark is legible, accent used sparingly).
+- Struck-through "three weeks" on amber, stamps with real values, boxed "podium finish" on About.
+- Fig. 1 plates with "Sheet n of 9 . NTS" captions; honest "Not to scale" notes.
+- Pager showing the neighbour's first fact; no wraparound at ends.
+- Projects filter chips (hidden without JS); one h1, unique titles, JSON-LD, canonical, skip link, 44 px phone targets.
+- Plain first-person lede; honest colophon; 404 joke.
 
 ## Verdict
-Authored, coherent, not generic, no regression in the four screenshots viewed. The site is held back by content only the owner can supply: a status line (which also settles the tense split), a sentence separating his work from the cited aerobraking work, one answer to "best project", a sourced or cut Raftar claim with one real suspension detail, and local Resume, images and fonts. The one partly designer-side item is the thin, repetitive Raftar page. Caveats: external sources were unreadable again and only 4 of 78 screenshots were inspected.
+Still authored, coherent and not generic, and the last two cycles introduced no layout or contrast regression in the screens I viewed. The designer's recent "fixes" for thin pages have started to add repetition: the Raftar claim now appears four times, and the tethered pull-out repeats the sentence above it. Those, plus a stale uniform sitemap lastmod, are the only items the designer can fix honestly. The rest is the same owner list: status line, aerobraking contribution, one answer to "best project", a sourced or cut Ferrari claim, and local Resume, images and fonts. Caveats: external sources were unreadable again and only 4 of 78 screenshots were inspected.

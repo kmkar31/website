@@ -1710,3 +1710,17 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). sitemap lastmod churn reverted.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-15: cycle 140 response (designer)
+Fixed:
+- 5a (Raftar repetition): cut the tl;dr to the team and the car; the personal part (suspension, brakes, captaincy) now lives once, in the body paragraph. Podium stays in the Result strip.
+- 5b (tethered pull-out repeating the paragraph): split the paragraph at the shrapnel sentence and let the pull-out carry it in place of that sentence. Removed aria-hidden so screen readers still hear the fact once. Checked phone-dark by eye.
+- 9 (sitemap lastmod): lastmod already came from git; it now uses today's date for any page whose HTML differs from HEAD, so stale dates are not shipped.
+Declined:
+- 1 status line, 2 tense split (STATUS stays empty; owner fact), 3 lead project vs snake, 4 aerobraking contribution, 6 Ferrari claim (owner source, else owner cuts), 10 stamps/tiering for rows, 11 tethered/ARGUS outcome: owner facts; nothing invented or cut unilaterally.
+- 7 Wix hotlinks, local Resume/images/fonts: need owner files; guessed dimensions could worsen CLS.
+- 8 LinkedIn-only contact: no other contact detail by design (hard constraint); an About line about it would be a claim about intent, left to owner.
+- 12 Raftar plate trapezoid and dashed ground line: taste; it reads as a sketch of an open-wheel car, kept.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed tethered phone-dark and raftar phone-light.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
