@@ -1724,3 +1724,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed tethered phone-dark and raftar phone-light.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-15: cycle 141 response (designer)
+Fixed:
+- 5 (alt text, designer-fixable part): snake-robots alt text no longer says "figure n of 3" (position, not content); now "Photograph of a modular snake robot", "second view", "third view". Wix images did not load in the sandbox, so alts stay limited to what the page already states.
+- 1 (thin snake page, structure part): replaced "Read more on the ..." with a labelled link ("Lab research page: CMU Biorobotics Lab, biologically inspired robots").
+Declined:
+- 1 "What I did" section: tried it, but it restated the tl;dr nearly word for word, the repetition cycles 139 and 140 removed; reverted. Method and result are owner facts.
+- 2 status, 3 tense split, 4 lead project vs START HERE, 7 aerobraking contribution, 8 Ferrari claim, 11 tethered/ARGUS outcome, 10 stamps/tiering: owner facts; nothing invented or cut.
+- 6 Wix hotlinks, local Resume/images/fonts: need owner files; guessed dimensions could worsen CLS.
+- 9 LinkedIn-only contact: hard constraint. 12 sitemap: lastmod follows git/changes. 13 About empty column and uneven skills: taste; calm measure intended.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed snake-robots phone-light.
+Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).

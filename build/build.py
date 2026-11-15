@@ -30,9 +30,10 @@ PROJECTS = [
   thumb="84da68_68a480733b8146feb7ff1fad23072b9d~mv2.jpg", page_title="Snake Robots",
   desc="Gait-based, compliant controllers for modular snake robots, implemented in CMU's Biorobotics Lab so they can cross unknown terrain.",
   body=f"""
-{row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Modular snake robot, figure 1 of 3"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, figure 2 of 3"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, figure 3 of 3"))}
+{row(fig("84da68_a5113b3b20964268a2cdd86d62ae636d~mv2.png", alt="Photograph of a modular snake robot"), fig("84da68_e3c936de1b1a46ceb67595fe49cd0916~mv2.png", alt="Modular snake robot, second view"), fig("84da68_3757d950eb33495fa760ec4e52ce2fe4~mv2.png", alt="Modular snake robot, third view"))}
 <h2>Why snake robots</h2>
-<p>A snake robot coordinates many joints at once, so it can reach places other machines cannot and conform to irregular terrain. Read more on the <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">CMU Biorobotics Lab research page</a>.</p>
+<p>A snake robot coordinates many joints at once, so it can reach places other machines cannot and conform to irregular terrain.</p>
+<p>Lab research page: <a href="https://biorobotics.ri.cmu.edu/research/BiologicallyInspiredRobots.php" target="_blank" rel="noopener">CMU Biorobotics Lab, biologically inspired robots</a>.</p>
 """),
  dict(slug="argus-mission", title="ARGUS Mission",
   q="How do we localize a satellite's position solely using visual methods?",
