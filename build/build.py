@@ -771,6 +771,7 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
   .intro{padding:36px 16px 4px}
   .lede{font-size:1.08rem}
   .section{padding:32px 16px}
+  .section.about>h2{margin-top:1.3em}
   .page-head{padding:32px 16px 8px}
   .proj-hero{padding:20px 16px 4px}
   .row,.row.has-thumb{grid-template-columns:1fr;padding:16px 4px}

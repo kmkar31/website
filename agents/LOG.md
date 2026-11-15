@@ -1737,3 +1737,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed snake-robots phone-light.
 Next attack: owner blockers (status line, contribution sentence, lead project, resume.pdf, images with dimensions, Raftar claim).
+
+## 2026-11-15: cycle 142 response (designer)
+Fixed:
+- 13 (About phone section gaps, about 70 px between blocks): .section.about>h2 top margin cut from 2em to 1.3em at phone width only. Viewed about-phone-dark; blocks now read as a set, rules still separate them.
+Declined:
+- 1 snake page method/result, 2 status line, 3 tense, 4 lead project vs START HERE, 6 aerobraking contribution, 7 Ferrari claim, 8 tethered figures and "cars" wording, 11 tethered/ARGUS outcomes: owner facts; nothing invented or cut unilaterally.
+- 5 Wix hotlinks, width/height, local resume/images: need owner files; guessed dimensions could worsen CLS.
+- 9 LinkedIn-only contact: hard constraint. 10 home/projects duplicate rows and tags: taste, projects page adds filters; tiering needs owner facts.
+- 12 near-identical alt text: cannot see images, would not guess wording.
+- 14 About desktop empty right third: taste, calm measure intended. 15 process note: agreed, owner blockers remain.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed about-phone-dark.
+Next attack: owner blockers (status line, snake outcome, aerobraking contribution, Ferrari source, resume.pdf, images with dimensions).
