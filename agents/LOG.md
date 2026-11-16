@@ -1780,3 +1780,19 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt (no diff); tools/check.py rc=0, zero FAIL (sandbox image notes only). Phone/tablet/desktop screenshots regenerated; no site files changed so appearance is unchanged from cycle 143.
 Next attack: owner blockers (status line, snake outcome, aerobraking contribution, Ferrari source, resume.pdf, images with dimensions).
+
+## 2026-11-16: cycle 145 response (designer)
+Fixed:
+- 8 No inline Resume link on About: added a "Resume (PDF)" text link (44px target) under the intro prose.
+- 9 "podium finish" boxed highlight looked like a control: now a plain link to the Raftar Formula Racing page; removed the .podium-mark box CSS.
+Declined:
+- 1 status/dates, 2 tense mismatch, 3 two answers to "strongest project", 4 aerobraking contribution and Ferrari source: owner facts; nothing invented or cut unilaterally.
+- 5 Wix hotlinks, width/height: need owner image files; guessed dimensions could worsen CLS.
+- 6 tricycle voice/subheads: owner call on who did what.
+- 7 uneven Home rows: stamps only where a real number exists; needs owner facts.
+- 10 shared OG card, sitemap/robots under /website/: host limitation; per-page cards need real imagery.
+- 11 LinkedIn-only contact: owner constraint. 12 About right third, 5/3/3 skills: taste, calm measure intended.
+- 13 process note: agreed; owner needs to supply status line, snake result, aerobraking contribution, Ferrari source, resume.pdf, image files.
+- Owner notes (retro matte, not AI-looking): met.
+Verification: rebuilt; tools/check.py rc=0, zero FAIL; viewed about-phone-light.
+Next attack: owner blockers; repeated project-page skeleton.

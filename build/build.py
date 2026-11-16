@@ -401,7 +401,8 @@ about = f"""
   <div class="about-top">
     <div class="prose">
       <p>I did my Master&rsquo;s in Mechanical Engineering at Carnegie Mellon University (2023 &ndash; 2025), with a focus on robotics and adaptive control. In the Biorobotics Lab, under <a href="https://www.ri.cmu.edu/ri-faculty/howie-choset/" target="_blank" rel="noopener">Prof. Howie Choset</a>, I&rsquo;ve implemented these algorithms on snake robots so they can traverse unknown terrain.</p>
-      <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I captained the team to a <span class="podium-mark">podium finish</span> at Formula Bharat 2023.</p>
+      <p>I earned my Bachelor&rsquo;s in Mechanical Engineering at the Indian Institute of Technology Madras. There I contributed to Raftar Formula Racing, modeling, designing and manufacturing the suspension and brakes for our institution&rsquo;s first electric racecar, the RFR23. In my senior year, I captained the team to a <a href="raftar-formula-racing.html">podium finish</a> at Formula Bharat 2023.</p>
+      <p><a class="textlink" href="{RESUME}" target="_blank" rel="noopener">Resume (PDF)<span class="sr-only"> (opens in a new tab)</span></a></p>
     </div>
     <img class="portrait" src="{PROFILE}" alt="Portrait of Karthik Karumanchi">
     <aside class="ledger toc" aria-label="On this page"><p class="ledger-h">On this page</p><dl><div><dt><a href="#skills">Skills &amp; tools</a></dt></div><div><dt><a href="#education">Education</a></dt></div><div><dt><a href="#experience">Experience</a></dt></div></dl></aside>
@@ -681,7 +682,6 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .skill-cols{max-width:760px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
 .skill-cols .skill-group{margin-top:1em}
 .stamp{display:inline-block;margin:0 0 6px;padding:2px 6px;border:2px solid var(--a1);color:var(--a1);font:700 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
-.podium-mark{white-space:nowrap;border:4px double var(--a1);padding:0 .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .pull{margin:1.4em 0;padding:10px 14px;border-top:3px double var(--ink);border-bottom:3px double var(--ink);font:700 1.1rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.03em}.pull b{color:var(--a1);font-size:1.6em;margin-right:.2em}
 .stamp.s-raftar{transform:none;border-style:double;border-width:4px;padding:1px 6px}
 .tags .stamp{display:block;width:max-content;max-width:100%;white-space:nowrap}
