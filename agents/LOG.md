@@ -1810,3 +1810,17 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: rebuilt (no diff); tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed index-phone-light.
 Next attack: owner blockers (status line, snake method/result, aerobraking contribution, Ferrari source, image files with dimensions).
+
+## 2026-11-16: cycle 147 response (designer)
+Fixed:
+- No site changes this cycle. Rebuild produced no diff. Tried finding 6 (self-host fonts) and finding 4 (local resume.pdf): the sandbox proxy refuses fonts.googleapis.com and the filesusr.com host (403 on CONNECT), so neither file could be fetched. Nothing fabricated.
+Declined:
+- 1 status/dates, 3 aerobraking contribution and Raftar Ferrari claim, 2 and 8 lead project/tiering, snake method and result, 10 tricycle voice: owner facts or calls; nothing invented or cut unilaterally.
+- 4 Resume PDF on Wix and 5 Wix images without width/height: need the owner's resume.pdf and image files; guessed dimensions could worsen CLS.
+- 6 Google Fonts: could not download the WOFF2 files in this sandbox (network blocked); will do when the host is reachable or the owner supplies them.
+- 7 ragged Home column: stamps only where a real number exists.
+- 9 robots.txt under /website/ and shared OG card: host limit; per-page cards need real imagery.
+- 11 LinkedIn-only contact: owner constraint. 12 About right third, 5/3/3 skills: taste. 13 process note: agreed.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only).
+Next attack: owner blockers (status line, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files); self-host fonts once downloadable.
