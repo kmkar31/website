@@ -1796,3 +1796,17 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met.
 Verification: rebuilt; tools/check.py rc=0, zero FAIL; viewed about-phone-light.
 Next attack: owner blockers; repeated project-page skeleton.
+
+## 2026-11-16: cycle 146 response (designer)
+Fixed:
+- No site changes this cycle. Rebuild produced no diff. Checked finding 5: Wix images already use decoding=async, lazy loading below the fold and fetchpriority on the lead image; only width/height is missing and needs real dimensions.
+Declined:
+- 1 status/dates, 2 tense mismatch: owner fact (STATUS stays empty rather than guessing availability).
+- 3 lead project vs START HERE and thin snake page, 4 aerobraking contribution and Raftar Ferrari claim: owner facts; nothing invented or cut unilaterally.
+- 5 Wix hotlinks without width/height: need owner image files or sizes; guessed aspect-ratio could worsen CLS.
+- 6 nine projects on Home: tiering is an owner call. 7 tricycle voice/subheads: who did what is an owner call.
+- 8 uneven Home rows: stamps only where a real number exists. 9 shared OG card: needs real per-page imagery.
+- 10 LinkedIn-only contact: owner constraint. 11 About right third, 5/3/3 skills: taste, calm measure intended. 12 process note: agreed.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: rebuilt (no diff); tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed index-phone-light.
+Next attack: owner blockers (status line, snake method/result, aerobraking contribution, Ferrari source, image files with dimensions).

@@ -1,47 +1,44 @@
-# Critique, 2026-11-16 (cycle 145)
+# Critique, 2026-11-16 (cycle 146)
 
-Method: `python3 tools/check.py . agents/shots` completed, rc=0, 0 FAIL, only "images not loaded, sandbox network" notes. No site files edited. I viewed index phone-light and desktop-light, quadrotor-sysid phone-light, projects tablet-dark and about tablet-dark. Repo greps: 96 `wixstatic` string occurrences across the HTML (33 distinct images per last cycle's count); `STATUS = ""` still at build/build.py (1 match); JSON-LD present on all 12 pages; `<meta name="color-scheme" content="light dark">`, `color-scheme` in CSS, and light/dark `theme-color` present; `:focus-visible` is a 3px solid outline with 3px offset; a `prefers-reduced-motion` block exists (assets/style.css:247); robots.txt allows all and names the sitemap.
+Method: `python3 tools/check.py . agents/shots` ran to completion (rc=0, no FAIL, only "images not loaded, sandbox network" notes). I looked at index phone-light and desktop-dark, about phone-dark, snake-robots tablet-light and projects phone-dark. Repo greps: wixstatic occurrences per page (about 1, aerobraking 7, tricycle 4, submarine 4, sysid 5, tethered 4, landing 2, others 1; index has none); `STATUS = ""` still at build/build.py:266; og:image is one shared absolute URL (assets/og.png); no mailto anywhere; `.btn:active`, `.row:active`, `.filter:active` press states exist; a reduced-motion block disables transitions (assets/style.css:247). No site files edited.
 
 ## Sources consulted
-Limit of this cycle: WebFetch was blocked (permission not answered) for web.dev/articles/prefers-color-scheme, developers.google.com profile-page docs and the w3.org focus-appearance page. I could only run searches, so the links below are search-result pointers whose bodies I did not read. No finding depends on their text; findings rest on repo evidence and screenshots.
-- https://web.dev/articles/color-scheme (dark mode default with `color-scheme` CSS and meta; checked in repo, present and correct)
-- https://w3c.github.io/wcag/understanding/focus-appearance-enhanced (WCAG 2.2 SC 2.4.13, AAA; the existing 3px outline is consistent with its intent, not verified against its numbers)
-- https://developer.chrome.com/docs/modern-web-guidance/guides/visual-design/dark-mode (dark-mode guidance, pointer only)
-- Searching NN/g for contact-information findability returned no primary NN/g page. I cite nothing from it.
-Topic this cycle: dark mode and focus visibility (new versus earlier CLS, portfolio and target-size cycles). Both already pass on the evidence I can see.
+- https://web.dev/articles/optimize-cls (read): always put width and height on images, or reserve space with CSS aspect-ratio; mismatched attributes still shift a little, but less than none. Applies to every Wix img in the project pages (e.g. snake-robots.html line 55 has no width or height).
+- https://nngroup.com/articles/ux-design-portfolios/ (read; it is about UX portfolios, so applied by analogy to an engineering one): show 3 to 5 strong projects rather than many, state your own role, show process and whether it worked, keep it scannable because reviewers give little time.
+- https://developers.google.com/search/docs/appearance/structured-data/profile-page (search result pointer only, body not read; no finding depends on it).
+Topic this cycle: image dimensions and layout shift, and portfolio case-study content. Both are new compared with the dark-mode and focus topics of last cycle.
 
 ## Scores
-- AI-tell: 2/10, unchanged. No gradients, blur, glow, floating chips, stats strip or card trio. Plain first-person lede, strike-through "three weeks", stamps that carry real numbers. Residual tells: the identical project-page skeleton and the "Seagate, York University, Tube Investments" ledger triplet. No tell moved since last cycle.
-- Looks good: 8/10, unchanged. Index desktop-light has clear hierarchy (large serif name, mono role line, ruled ledger, numbered rows, one red button with the only hard shadow). About tablet-dark is calm and legible. Held back by uneven Home rows (only 06 has a plate; 01, 02, 03, 08, 09 have neither plate nor stamp) and by wide empty right-hand space on desktop About.
-- SEO: 7/10, unchanged. Unique titles, canonical, OG, JSON-LD on every page, sitemap, robots. Held down by Wix hotlinks without verified dimensions, one shared OG card, and sitemap/robots living under the /website/ subpath (host limit; crawlers only honour robots.txt at the host root).
-- UX: 6/10, unchanged. 30-second phone test passes for name, subject, advisor, Resume and LinkedIn. It fails for status and availability, and "strongest project" still has two answers.
-- Fun and personality: 7/10, unchanged. Stamps, struck text, "Time allowed: 99 s", 404 joke. No new moment this cycle.
+- AI-tell: 2/10, unchanged. No gradients, blur, glow, chips, stats strip or card trio. The page reads as authored: plain first-person lede, struck-through "three weeks", stamps that carry real numbers, "Time allowed: 99 s". Residual tells: every project page uses the same skeleton (back link, tag, big title, standfirst, "The question", two-cell meta, figure, sections, next link), and the ledger line "Seagate, York University, Tube Investments". Nothing moved since last cycle.
+- Looks good: 8/10, unchanged. Index desktop-dark has a clear hierarchy: large serif name, mono role line, ruled ledger aside, numbered rows, one amber button. Held back by uneven Home rows (02, 03, 08, 09 have no plate or stamp, so the right column goes ragged) and by large bare areas on the snake page (below).
+- SEO: 7/10, unchanged. Unique titles and descriptions, canonical, OG and JSON-LD per page, sitemap, robots. Held down by Wix hotlinks without dimensions, one shared OG card for all 12 pages, and sitemap/robots under the /website/ subpath (crawlers only read robots.txt at the host root; a host limit).
+- UX: 6/10, unchanged. In 30 seconds on a phone I can find name, school, advisor, Resume and LinkedIn (index phone-light). I cannot tell whether he is graduated, employed or available, and "strongest project" has two answers. Below 7, so Major.
+- Fun and personality: 7/10, unchanged. Stamps, strike-through, 99 s submarine, 404 joke, press-down states on rows and buttons. No new moment this cycle.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, no glossy gradients: met. Paper and umber palette, double rules, hard shadow on the primary button only, no blur. Dark theme is amber on umber and stays matte (about tablet-dark).
-2. Must not look AI-generated: met. Only caveat is taste: the repeated page skeleton.
+1. Retro, matte, no glossy gradients: met. Paper and umber palette, double rules, hard offset shadow on the primary button only, no blur. Dark theme (amber on umber) stays matte and flat in index desktop-dark.
+2. Must not look AI-generated: met. Only caveat, labelled taste: the repeated page skeleton.
 
 ## Ranked findings
-1. Major (UX, credibility). No status or dates on Home. Home says "MS Mechanical Engineering, Carnegie Mellon University" with no years; About (tablet-dark) says 2023 - 2025; today is 2026-11-16. A recruiter cannot tell graduate, employed or available. Build `STATUS` is empty and the template supports a Status row. Owner fact needed.
-2. Major (credibility). Tense mismatch with 1: Home lede is present tense ("I research compliant control of snake robots") but the CMU range on About is closed. Resolves with 1.
-3. Major (UX). Two answers to "strongest project". Row 01 (snake) leads Home and has the thinnest page; the only START HERE mark is on row 06 (aerobraking). Owner picks one; snake needs owner method and result.
-4. Major (credibility). Aerobraking page: what Karthik contributed versus the cited prior work (Falcone et al.) is not stated; the Raftar "Ferrari" claim still needs a source or a cut. Owner facts.
-5. Major (SEO, performance, robustness). Wix hotlinks remain (96 string occurrences). No local copies, no verified width/height. A Wix outage or URL change blanks the project pages. Needs owner files; the designer should not guess dimensions.
-6. Minor (content). Tricycle page body is passive voice with no subheads, while other pages have Problem/Setup/Method/Result. Owner call on first person.
-7. Minor (UX, visual). Uneven Home rows (index desktop-light): rows 02, 03, 08, 09 have no figure or stamp, so the right column looks half-finished for them. Do not invent numbers; owner facts would fix it.
-8. Minor (UX). About body has no inline Resume link. The header and footer carry it, so a reader who reaches the Experience section at the bottom of the page on a phone must scroll to the footer. A one-line "Resume (PDF)" link under the intro is purely structural and invents nothing. Designer-fixable.
-9. Minor (visual). About tablet-dark: "podium finish" is an outlined, boxed inline highlight that looks like a button or tag but is not interactive (no link). Reads as a control to a scanner. Either make it a link to the Raftar page or drop the box. Designer-fixable, taste plus affordance.
-10. Minor (SEO). One shared OG card; per-page cards need real imagery. Sitemap and robots under /website/ are host-limited.
-11. Nit (UX). Contact is LinkedIn only by owner constraint; footer says so plainly. Fine.
-12. Nit (taste). About desktop leaves the right third empty; Skills columns uneven (5/3/3). Previously declined as calm measure; I leave it.
-13. Nit (process). Many consecutive cycles of the same owner-fact blockers (1 to 5). The designer has correctly declined to invent. The owner needs to supply: status line, snake result, aerobraking contribution, Ferrari source, resume.pdf, image files.
+1. Major (UX, credibility). No status or dates on Home. Phone-light shows "MS Mechanical Engineering, Carnegie Mellon University" with no years, while About says 2023 to 2025 and today is 2026-11-16. A recruiter cannot tell whether he is a student, graduate or available. `STATUS` is empty although the template already supports a Status row. Needs an owner fact.
+2. Major (credibility). Tense mismatch tied to 1: the lede says "I research compliant control of snake robots" (present) but the CMU range on About is closed. Resolves with 1.
+3. Major (UX, content). Two answers to "strongest project". Row 01 (snake) leads Home yet has the thinnest page; the only START HERE mark is on row 06 (aerobraking). The snake tablet-light page is a schematic figure, one paragraph ("Why snake robots") and a lab link, with no method or result. NN/g (above) says reviewers want your role and whether it worked. Owner picks the lead and supplies the snake method and result.
+4. Major (credibility). Aerobraking: what Karthik contributed versus cited prior work (Falcone et al.) is not stated. Raftar page line 48 still claims "one-fifth the weight of a Ferrari but matches its 0-60 acceleration time" with no source. Owner source, or cut.
+5. Major (SEO, performance, robustness). Roughly 30 Wix hotlinks remain with no width/height. web.dev (above) says unsized images cause layout shift; a Wix outage or URL change blanks the project pages. The designer can reduce CLS without guessing by adding `aspect-ratio` containers per figure row once the owner supplies files or sizes. Until then this stays open.
+6. Minor (content). Nine projects on Home. NN/g suggests 3 to 5 strong ones. Taste, but the lack of any tiering is why finding 3 exists. Owner decides.
+7. Minor (content). Tricycle page is passive voice with no subheads, unlike pages with Problem, Setup, Method, Result. Owner call on first person.
+8. Minor (visual). Uneven Home rows (see Looks good). Stamps only where a real number exists is the right rule; accept the ragged column or find real figures.
+9. Minor (SEO). One shared OG card for all pages. Per-page cards need real imagery.
+10. Minor (UX). Contact is LinkedIn only; footer says so. Owner constraint, noted not pressed.
+11. Nit (visual, taste). About desktop leaves the right third empty and skills are 5/3/3. Calm measure is defensible.
+12. Nit (process). Cycles 139 to 145 declined the same owner-fact items. The site is near its ceiling without owner input.
 
 ## Good, must not regress
-- Retro matte system: paper tones, double rules, hard shadow only on the primary button, no blur or gradients, inverted-print dark theme.
-- Stamps with real numbers (46 orbits, 99 s, 500 m, Formula Bharat podium) and the amber strike-through "three weeks" to "15 minutes".
-- "Sheet n of 9 . NTS" plates and the tethered pull-out.
-- Plain first-person lede; Previous/Next pager carrying the neighbouring project's key figure; sysid phone-light reads as a clean sheet (question, unknowns, tests, plate).
-- 404 joke; per-page titles, canonical, OG, JSON-LD, `color-scheme` meta and theme-color pair; no-JS-safe static pages; zero FAIL in check.py.
+- Retro matte system: paper tones, ink borders, hard shadow on one button, no blur or gradient, flat dark theme.
+- Specific copy: "three weeks" struck to "15 minutes", "Time allowed: 99 s", "46 orbits to target", "500 m of tether", the plain "For the record" ledger.
+- Mobile index: one-row header, Resume and LinkedIn above the fold, 44px targets, readable measure.
+- Projects filter buttons and numbered rows with press states; the 404 joke; per-page JSON-LD, canonical and OG; reduced-motion block; focus ring.
+- Figure plates (orbit and snake schematics) labelled "Fig. 1" and "Sheet 1 of 9" are drawn, not stock.
 
-## Overall verdict
-The site looks authored, not generated, and the visual work is close to finished. What still holds the scores down is missing owner information: status, best project, what he personally contributed on aerobraking and snake, and local copies of the Wix media. Two small structural items (8 and 9) are the only things the designer can fix without inventing content. Until the owner answers findings 1 to 5, UX stays at 6 and SEO at 7, and more polish cycles will not move them. Research this cycle was limited to search pointers because page fetches were blocked.
+## Verdict
+The site has a coherent retro-print identity and does not read as generated: AI-tell 2, visual 8, SEO 7, fun 7. It is held to a 6 on UX by facts only the owner can supply: a status line, a lead project with a real snake method and result, the aerobraking contribution and a source for the Ferrari claim. The one designer-side risk left is unsized Wix images; once the owner provides files or dimensions, add width/height or aspect-ratio and self-host them. Until the owner answers findings 1 to 5, further cycles will mostly repeat.
