@@ -1,20 +1,18 @@
-# Critique, 2026-11-17 (cycle 151 checkout, commit 0313384)
+# Critique, 2026-11-17 (cycle 153 checkout, commit 485b9b8)
 
-Method: clean tree at 0313384. `python3 tools/check.py . agents/shots` finished rc=0 (about 4 minutes), every page OK at phone, tablet and desktop in both themes, only "images not loaded, sandbox network" notes. I looked at index phone-light and desktop-light, snake-robots phone-dark, about tablet-light. Also checked the repo: Wix reference counts, robots.txt, titles. Site files not edited.
+Method: clean tree at 485b9b8 (cycle 152 changed no site files). `python3 tools/check.py . agents/shots` finished with zero FAIL, only "images not loaded, sandbox network" notes. I looked at index phone-light and desktop-dark. Repo checked for Wix references (grep -c wix: aerobraking 7, sysid 5, tricycle 4, hasselhoff 4, tethered 4, landing 2, others 0 to 1), robots.txt and STATUS (build/build.py:266 still empty). Site files not edited. Screenshots render in fallback serif because Google Fonts is blocked in the sandbox; that is an environment limit.
 
 ## Sources consulted
-WebFetch was refused again (permission request unanswered, told not to retry) for both pages below, so no page was read and the web basis is unverified. Cited for the principle only; no finding depends on a quotation. Repo and screenshot facts are verified.
-- https://web.dev/articles/optimize-cls (width/height on images). Blocked.
-- https://developers.google.com/search/docs/crawling-indexing/robots/intro (robots.txt at host root). Blocked.
-- https://www.nngroup.com/articles/portfolios/ and https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html were also on the list from earlier cycles. Not fetched.
-Fewer than the three sources the brief asks for were actually read. Redo when fetches work.
+- Read: https://web.dev/articles/optimize-cls : "Always include width and height size attributes on your images and video elements"; browsers reserve space from them even with width:100%; height:auto.
+- Read: https://developers.google.com/search/reference/robots_txt : robots.txt must be in the top-level directory of the host; a file in a subfolder is not valid.
+- Blocked: https://www.nngroup.com/articles/ux-design-portfolios/ (rate limited twice) and https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html (permission unanswered). Not read; no finding depends on them.
 
 ## Scores
-- AI-tell: 2/10, unchanged. No gradient, blur, glow, chips, stats strip, card trio or sparkle. Name-swap test passes ("three weeks" struck to "15 minutes", "Time allowed: 99 s", "500 m of tether", "46 orbits to target"). Residual: all nine project pages share one skeleton; DM Serif Display with Source Serif 4 is a familiar editorial pairing (taste). Tells moved: none.
-- Looks good: 8/10, unchanged. Desktop index has clear hierarchy (large name, mono credential line, ledger sidebar, ruled list, one hard-offset button). Dark theme is an inverted print, not a generic dark mode. Weak spots: ragged right column (stamps only on 04 to 07) and the lone Fig. 1 plate on row 06, which on phone sits above the title like a stray. Snake page on phone is short and sparse (tl;dr, two fact rows, one schematic, one paragraph, then a pager with large empty space), so the lead project looks unfinished.
-- SEO: 7/10, unchanged. Unique titles and descriptions, canonical, OG/Twitter, JSON-LD, sitemap, robots.txt, 404. Held back by one shared OG card, robots.txt under /website/ (crawlers read only the host root), undimensioned Wix images.
-- UX: 6/10, unchanged. Name, school, Resume and LinkedIn are in the first phone screen. Still no status or dates in the hero, LinkedIn-only contact, Resume hotlinked. Major because below 7.
-- Fun and personality: 7/10, unchanged. Strike-through highlight, stamps, "For the record" ledger, "Sheet 1 of 9 · NTS" captions, 404 joke. No new moment.
+- AI-tell: 2/10, unchanged. No gradient, blur, glow, chips, stats strip or card trio. Specific copy passes the name-swap test. Residual: nine project pages share one skeleton (taste). Tells moved: none.
+- Looks good: 8/10, unchanged. Desktop-dark index is strong: large name, mono credential line, ledger sidebar, ruled list, one hard-offset button. Weak spots: ragged right column (stamps only on 04 to 07) and the lone Fig. 1 plate on row 06, which on phone sits above the title like a stray.
+- SEO: 7/10, unchanged. Held back by one shared OG card, robots.txt under /website/ (Google: host root only), undimensioned Wix images.
+- UX: 6/10, unchanged. Major because below 7: no status or dates, LinkedIn-only contact, hotlinked Resume.
+- Fun and personality: 7/10, unchanged. Strike-through highlight, stamps, ledger, 404 joke. No new moment.
 
 ## Owner critique (agents/user-critique.md)
 1. Retro, matte, no glossy gradients: met (paper tones, ink borders, double rules, one hard shadow, flat dark theme). No drift found.
@@ -43,4 +41,4 @@ Fewer than the three sources the brief asks for were actually read. Redo when fe
 - Drawn figure plates instead of stock imagery; pager with a neighbour fact; inline Resume link on About.
 
 ## Verdict
-The site has a coherent retro-print identity and does not read as generated: AI-tell 2, visual 8, SEO 7, UX 6, fun 7. No regressions and no site changes since the last cycle; automated checks are clean. UX stays under 7 because of facts and files only the owner can supply, the sharpest being the missing status or dates against a visible gap since Aug 2024, then a local resume.pdf and the lead-project call. Web research was blocked again, so sourcing is thin. Without owner input there is little a designer can do without inventing facts.
+The site has a coherent retro-print identity and does not read as generated: AI-tell 2, visual 8, SEO 7, UX 6, fun 7. No regressions and no site changes since the last cycle; automated checks are clean. UX stays under 7 because of facts and files only the owner can supply, the sharpest being the missing status or dates against a visible gap since Aug 2024, then a local resume.pdf and the lead-project call. Two of three sources were read this cycle. Without owner input there is little a designer can do without inventing facts.
