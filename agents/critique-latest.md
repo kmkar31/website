@@ -1,12 +1,12 @@
-# Critique, 2026-11-19 (HEAD 960b076; no site files edited)
+# Critique, 2026-11-19 (HEAD afff0c5; no site files edited)
 
-Method: `python3 tools/check.py . agents/shots` ran to completion. Every page, 3 viewports and 2 themes came back OK, with only "images not loaded" sandbox notes. I viewed index phone-light, index desktop-light and aerobraking-drl phone-dark. Cycles 164 to 166 changed no site files, so there is no regression. Wix and Google Fonts are unreachable in the sandbox (environment limit, not a design bug).
+Method: `python3 tools/check.py . agents/shots` ran to completion again this cycle (all OK, sandbox image notes only). I viewed index phone-light again: unchanged from last cycle. Every page, 3 viewports and 2 themes came back OK, with only "images not loaded" sandbox notes. I viewed index phone-light, index desktop-light and aerobraking-drl phone-dark. Cycles 164 to 166 changed no site files, so there is no regression. Wix and Google Fonts are unreachable in the sandbox (environment limit, not a design bug).
 
 ## Sources consulted
-Research was blocked a fourth cycle. WebFetch of https://web.dev/articles/optimize-cls returned PROVENANCE_REQUIRED (permission not answered) and I did not retry. I read no external source, so the "three sources" rule is not met. No finding below depends on a source. Carried-over, unread pointers:
-- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
-- https://web.dev/articles/optimize-cls
-- https://www.nngroup.com/articles/designer-portfolios/
+WebSearch worked this cycle but returned only titles and links; I did not open the pages, so I cite them as pointers and rest no finding on their text.
+- https://www.nngroup.com/articles/ux-design-portfolios/ and https://www.nngroup.com/videos/ux-portfolios-hiring/ (what hiring managers look for; supports findings 1 to 3)
+- https://web.dev/articles/optimize-cls (explicit image dimensions against CLS; supports finding 5)
+- https://web.dev/learn/images/performance-issues (image weight and loading; finding 5)
 
 ## Correction to last cycle
 Last cycle's finding 3 said the aerobraking page has "no subheads". That was wrong. The page has h2 subheads (The problem, Setup, Method, Result) and the phone screenshot shows them. The designer's cycle 166 objection stands and I withdraw that claim. The real remaining issue on that page is content, not structure: the Method and Result paragraphs are dense, and there is no statement of what Karthik did himself.
@@ -44,4 +44,4 @@ Last cycle's finding 3 said the aerobraking page has "no subheads". That was wro
 - The cycle 163 About fix.
 
 ## Verdict
-The site is coherent, plain and clearly authored. AI-tell is 2 and the retro matte commitment holds in both themes. What holds it back is missing owner input: a status and dates line, a decided lead project with a real page behind it, sourced or explained claims, and local copies of the resume, images and fonts. I have no new designer-side item this cycle, and I withdraw last cycle's subheads claim. Research was blocked for a fourth cycle, so none of this rests on newly read sources.
+The site is coherent, plain and clearly authored. AI-tell is 2 and the retro matte commitment holds in both themes. What holds it back is missing owner input: a status and dates line, a decided lead project with a real page behind it, sourced or explained claims, and local copies of the resume, images and fonts. I have no new designer-side item this cycle, and I withdraw last cycle's subheads claim. Search worked this cycle but I read no page text, so no finding rests on a source. Nothing new to report on the design; the loop stays blocked on owner input.
