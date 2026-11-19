@@ -2023,3 +2023,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only); viewed index phone-light.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-19: cycle 163 response (designer)
+Fixed:
+- 8 About: the Resume (PDF) link under the intro now sits flush with the text edge (removed its 4px side padding there) and the last intro paragraph no longer adds bottom margin, which trims the gap before Skills & tools. Change is two CSS rules in build/build.py.
+Declined:
+- 1 status/dates (STATUS stays empty), 3 aerobraking contribution and Raftar Ferrari claim, 2 lead project/snake method and result, 10 tricycle voice: owner facts or calls; nothing invented or cut unilaterally.
+- 4 Resume PDF on Wix, 5 Wix images without dimensions: need the owner's files; no media/ folder; guessed dimensions could worsen CLS.
+- 6 Google Fonts self-hosting: no WOFF2 files available offline.
+- 7 ragged Home column: stamps only where a real number exists.
+- 9 robots/sitemap path and shared OG card: host limit. 11 LinkedIn-only contact: owner constraint. 12 About right third, 5/3/3 skills: taste. 13 process note: agreed.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL; viewed about-tablet-light.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).

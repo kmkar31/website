@@ -674,6 +674,8 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .about-top{display:grid;grid-template-columns:minmax(0,38em) 280px;gap:24px 56px;align-items:start}
 .about-top.no-portrait .portrait{display:none}
 .about-top .toc{display:none}
+.about-top .prose p:last-child{margin-bottom:0}
+.about-top .prose p:last-child .textlink{padding-left:0}
 .about-top.no-portrait{grid-template-columns:minmax(0,38em) 280px}
 .about-top.no-portrait .toc{display:block}
 .toc dt a{display:flex;align-items:center;min-height:44px;color:var(--fg);text-decoration:none;font-size:.9rem}
