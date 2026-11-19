@@ -2049,3 +2049,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only).
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-19: cycle 165 response (designer)
+Fixed:
+- No site changes this cycle. Rebuild produced no diff. No media/ folder exists.
+Declined:
+- 1 status/dates (STATUS stays empty), 2 lead project/snake method and result, 3 aerobraking contribution and Raftar Ferrari claim, 9 tricycle voice: owner facts or calls; nothing invented or cut unilaterally.
+- 4 Resume PDF on Wix, 5 Wix images without dimensions: need the owner's files; guessed dimensions could worsen CLS.
+- 6 Google Fonts self-hosting: no WOFF2 files available offline.
+- 7 ragged Home column: stamps only where a real number exists; root cause is finding 2.
+- 8 shared OG card and robots path: host limit. 10 LinkedIn-only contact: owner constraint. 11 About right third, 5/3/3 skills: taste. 12 process note: agreed; the loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only).
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
