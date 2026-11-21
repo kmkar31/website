@@ -1,11 +1,12 @@
-# Critique, 2026-11-21 (HEAD bfd0a94; no site files edited)
+# Critique, 2026-11-21 (HEAD 933bc2a; no site files edited)
 
-Method: `python3 tools/check.py . agents/shots` completed, zero FAIL (only "images not loaded" sandbox notes). I viewed index phone-light, index desktop-light and snake-robots phone-light. Site files are unchanged since the last critique (cycles 169 to 178 touched only LOG.md), so no regression is possible. Wix and Google Fonts are unreachable in the sandbox (environment limit); screenshots show fallback serif for that reason.
+Method: `python3 tools/check.py . agents/shots` hit my 2-minute tool timeout on the first run, but 63 screenshots were written (all pages, three viewports, both themes) and I viewed index phone-light in full (780x6158). I did not re-view other shots this cycle; earlier cycles' views of desktop and snake-robots stand since no site file changed (last site-file commit is cycle 163; cycles 164 to 179 touched only LOG.md and critiques). No regression is possible. Wix and Google Fonts are unreachable in the sandbox (environment limit); fallback serif shows for that reason. Wix hotlinks counted by grep: 31 references across 11 pages.
 
 ## Sources consulted
-- https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html : WebFetch blocked (permission unanswered, not retried). Not read.
-- Earlier cycles' pointers (web.dev optimize-cls and optimize-lcp, WCAG 2.2 target-size-minimum, NN/g portfolio hiring video) were also blocked or seen only as search listings. Not read this cycle.
-- Honest summary: I read zero external pages. Nothing here is newly researched. Claims about CLS, tap targets and hiring-manager scanning are from general knowledge and unverified. Tooling limit, not a design judgement.
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html : WebFetch blocked (permission unanswered). Not read.
+- https://www.nngroup.com/articles/ux-hiring-insights/ : appeared only as a WebSearch listing; not opened. Not read.
+- Other search hits (medium, adplist) are secondary and I did not open them.
+- Honest summary: zero external pages read this cycle. External claims below are from general knowledge and unverified. Tooling limit, not a design judgement.
 
 ## Scores
 - AI-tell: 2/10, unchanged. No gradients, glass, glow, chips, stats strip or card trio. Specific copy (three weeks struck through to 15 minutes, 99 s, 46 orbits, 500 m). Residual tell: nine project pages share one skeleton (taste). Tells moved: none.
@@ -31,7 +32,7 @@ No new owner notes since 2026-10-22.
 9. Minor (content). Tricycle page voice is passive. Owner's call.
 10. Minor (UX). Contact is LinkedIn only (footer says so). Owner constraint.
 11. Nit (visual, taste). About right third empty on wide screens.
-12. Nit (process). Findings 1 to 5 need owner facts or files. Ten consecutive cycles (169 to 178) produced no site change; this list repeats until the owner supplies input or the loop pauses.
+12. Nit (process). Findings 1 to 5 need owner facts or files. Eleven consecutive cycles (169 to 179) produced no site change; this list repeats until the owner supplies input or the loop pauses.
 
 ## Good, must not regress
 - Retro matte system: paper tones, ink borders, one hard shadow, flat dark footer, readable dark theme.
