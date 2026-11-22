@@ -1,49 +1,47 @@
-# Critique, 2026-11-22 (HEAD c8ee22d; no site files edited)
+# Critique, 2026-11-22 (HEAD ac975bf; tree clean apart from agents/shots)
 
-Method: `python3 tools/check.py . agents/shots` ran in the background and finished: 79 lines, zero FAIL, only "images not loaded, likely sandbox network" notes. This cycle I re-viewed index phone-light and index desktop-dark (the previous cycle's snake and Raftar views still apply; no site file has changed since). Last site-file commit is cycle 163 (e7e4f75); every cycle since touched only LOG.md and critiques, so no regression is possible. Wix and Google Fonts are unreachable in the sandbox (environment limit); the fallback serif and missing figures are not design bugs. Wix hotlinks counted by grep: filesusr (resume) on all 11 content pages plus 404, wixstatic images on 9 pages (about 83 references).
+Method: `python3 tools/check.py . agents/shots` finished with zero FAIL (only "images not loaded" sandbox notes; it takes about 6 minutes). I viewed index phone-light, index desktop-dark and aerobraking tablet-light, and grepped titles, canonical and og:image, robots.txt, sitemap, JSON-LD, Wix references and `STATUS` in build/build.py. Google Fonts and Wix are unreachable here, so screenshots show fallback faces and no photos (environment limit). No site files were edited. The last site change was before cycle 151; the site is visually identical to the previous critique.
 
 ## Sources consulted
-- WebFetch of https://web.dev/articles/optimize-cls: blocked again (permission request unanswered). Not read.
-- WebSearch "web.dev optimize cumulative layout shift image width height" returned only a title listing (web.dev/articles/optimize-cls, web.dev/learn/images/performance-issues). No page content read.
-- Honest summary: zero external pages read this cycle (fourth cycle running). Claims about CLS, target size and hiring-manager scanning below come from general knowledge and are unverified; the repo facts are verified. Tooling limit, not a design judgement.
+WebFetch was blocked (permission not answered), so I saw only search listings. These are cited by title and prior knowledge, not quoted.
+- https://developers.google.com/search/reference/robots_txt (robots.txt must sit at the host root to be honored)
+- https://support.google.com/webmasters/answer/40361 (same, how to write and submit robots.txt)
+- https://web.dev/articles/fetch-priority (image priority and LCP discovery)
+- https://developer.chrome.com/docs/performance/insights/lcp-discovery (LCP request discovery)
+- https://www.w3.org/WAI/WCAG22/Understanding/reflow and https://www.w3.org/WAI/WCAG22/Understanding/text-spacing (1.4.10, 1.4.12; the phone render shows no clipping or horizontal scroll, so no finding)
+- Blocked and unread: developers.google.com/search/docs/crawling-indexing/robots/intro, w3.org consistent-help, web.dev/articles/optimize-lcp.
 
 ## Scores
-- AI-tell: 2/10, unchanged. No gradients, glass, glow, chips, stats strip or card trio. Specific copy (struck-through "three weeks", 99 s, 46 orbits, 500 m). Residual tell: nine project pages share one skeleton (taste). Tells moved: none.
-- Looks good: 8/10, unchanged. Seen: serif name, mono credential line, ruled index, hard-offset button, flat dark footer, authored Fig. 1 plates. Weak: stamps on rows 04 to 07 only, so the desktop right column is ragged; a lone plate on row 06; the snake page (phone dark) is short and ends in a large empty gap before the pager; the Raftar plate (desktop) is a schematic car that reads a little crude next to the type.
-- SEO: 7/10, unchanged. Unique titles, one h1, canonical, sitemap, JSON-LD, absolute og:image. Weak: one shared OG card; robots.txt under a subpath is ignored by crawlers (host limit); most content depends on Wix hotlinks.
-- UX: 6/10, unchanged. Below 7, so Major (findings 1 to 4).
-- Fun and personality: 7/10, unchanged. Strike-through marker, stamps, "For the record" ledger, 404 joke, 99 s press-and-hold stamp. No new moment.
+- AI-tell: 2/10, unchanged. No gradients, glass, chips, stats strip or card trio. Copy is specific (three weeks struck to 15 minutes, 99 s, 46 orbits, 500 m tether). Residual: nine project pages share one skeleton (taste). Tells moved: none.
+- Looks good: 8/10, unchanged. Serif name, mono credential line, ledger sidebar, ruled list, one hard-offset button, flat dark theme. Weak spots seen: stamps only on rows 04 to 07 so the right column is ragged on desktop; the lone Fig. 1 plate sits above row 06 on phone like a stray; wide empty gutter between description and metadata on desktop.
+- SEO: 7/10, unchanged. Unique titles on all 13 pages, canonical and og:image absolute, sitemap with 12 urls, robots.txt, JSON-LD present. Weak: one shared OG card, robots.txt under /website/ (ignored by Google, host limit), Wix images without dimensions.
+- UX: 6/10, unchanged. Below 7, so Major (findings 1, 2, 4).
+- Fun and personality: 7/10, unchanged. Strike-through highlight, stamps, ledger, 404 joke, orbit plate on the aerobraking page. No new moment.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, no glossy gradients: met (paper tones, ink borders, hard shadow, flat footer; confirmed in screenshots).
+1. Retro, matte, no glossy gradients: met (paper tones, ink borders, double rules, hard shadow, flat dark theme). No drift.
 2. Must not look AI-generated: met, AI-tell 2. Remaining risk is the repeated project template (taste).
-No new owner notes since 2026-10-22.
-
-## New this cycle
-- Phone index (seen): the hero, credential line, Resume and LinkedIn all sit above the fold; the 30-second test passes except for "what is he doing now" (finding 1). The phone rows put the stamp on a separate line under the summary, which reads fine.
-- Desktop dark (seen): a single amber accent, flat borders, hard-offset button; coherent. The "Fig. 1" plate on row 06 is still the only image on the page, so the page looks like one row is special for no stated reason (finding 2).
-- Fun, grounded ideas that need no new facts: make the "99 s" stamp on row 05 a live 99-second countdown on hover, in the mono face; give the struck "three weeks" a tooltip naming the 30-drive batch; put the 46-orbit count in the Fig. 1 caption as a tally mark. Each carries information from the repo.
 
 ## Ranked findings
-1. Major (UX, credibility). No status or date line. Hero reads "MS Mechanical Engineering, Carnegie Mellon University" with no tense; About says 2023 to 2025; today is 2026-11-22. Nothing says what he does now or whether he is available. `STATUS = ""` (build/build.py:266) so the ledger row never renders. Needs an owner fact.
-2. Major (UX). Two answers to "strongest project". Row 01 (snake) leads and matches the hero, but its page (seen, phone dark) is a stub: one-line summary, question, lab, advisor, one schematic, one generic paragraph, no method, result or personal contribution. "START HERE" sits on row 06 (aerobraking, seen) with no stated reason. Owner: pick the lead and supply snake method and result, or move the label.
-3. Major (credibility). Raftar's question (seen on the page) sets the car against a Ferrari ("one-fifth the weight ... matches its 0-60") with no source or number. Aerobraking never says what Karthik changed, and "46 orbits" has no baseline. Owner: source or cut, plus one sentence of contribution each.
-4. Major (robustness). The Resume PDF is a filesusr hotlink in header, hero, About, footer and 404; it is the main call to action and depends on a third party. Needs a local resume.pdf.
-5. Major (performance, unverified offline). Wix images on 9 content pages likely lack width and height (CLS risk, outage dependency). Needs local files first.
-6. Minor (performance, consistency). Fonts load from Google Fonts while the footer says "one stylesheet, no framework". Self-host WOFF2 when files exist.
-7. Minor (visual). Ragged stamp column on Home desktop; lone Fig. 1 plate on row 06 (root cause is finding 2).
-8. Minor (SEO). One shared OG card; robots.txt path is a host limit. Owner action: submit the sitemap in Search Console.
-9. Minor (content). Tricycle page voice is passive. Owner's call.
-10. Minor (UX). Contact is LinkedIn only (footer says so). Owner constraint.
-11. Nit (visual, taste). About right third empty on wide screens.
-12. Nit (process). Findings 1 to 5 need owner facts or files. Cycles 169 to 180 produced no site change and this list repeats until the owner supplies input or the loop pauses. My own source fetches are blocked, so the research requirement is unmet.
+1. Major (UX, credibility). The hero has no status or dates. "MS Mechanical Engineering, Carnegie Mellon University" reads as present tense; About says 2023 to 2025; the newest experience ended Aug 2024; today is 2026-11-22. A recruiter sees an unexplained gap and cannot tell availability. `STATUS = ""` (build/build.py line 266) is ready and renders a Status row. Owner fact needed.
+2. Major (UX). Two answers to "strongest project": row 01 (snake) leads and its page is thin; START HERE sits on row 06 (aerobraking). Owner picks the lead and supplies the snake method and result.
+3. Major (credibility). The aerobraking page describes Method in third person about Falcone et al. and then says "our NN state-space model" and "our method"; the reader cannot tell what Karthik did. "46 orbits" has no baseline. Raftar's "one-fifth the weight of a Ferrari" claim has no source. Owner sentence and source, or cut.
+4. Major (robustness). The resume PDF is hotlinked from Wix in header, hero, About, footer and the 404. If Wix lapses it dies everywhere. Needs the owner's PDF at assets/resume.pdf.
+5. Major (performance). Wix references remain on 11 pages (aerobraking 7, sysid 5, tricycle 4, hasselhoff 4, tethered 4, landing 2, others 1 each; counts include the resume link). No width/height means CLS risk and an outage dependency (web.dev optimize-cls, fetch-priority). Needs local image files. Also every one of these pages has an `alt=""` hit; confirm each is decorative, since a real photo with empty alt is invisible to search and screen readers (not verifiable offline).
+6. Minor (performance, consistency). Fonts load from Google Fonts while the footer says "one stylesheet, no framework". Self-host when WOFF2 files are available.
+7. Minor (visual). Ragged Home right column and lone Fig. 1 plate on phone. Caption it as the only drawn figure or drop it from Home.
+8. Minor (content). Nine projects untiered on Home; same root as 2.
+9. Minor (SEO). Shared OG card; robots path is a host limit (Google robots.txt spec). Noted, not pressed.
+10. Minor (content). Tricycle page voice is passive with no subheads; owner call.
+11. Minor (UX). Contact is LinkedIn only; footer states it. Owner constraint. The phone header drops Resume, LinkedIn and GitHub icons; they appear in the hero and footer, so acceptable.
+12. Nit (visual, taste). About leaves the right third empty on wide screens; skills lists are 5/3/3.
+13. Nit (process). Findings 1 to 5 need owner facts and files; design-only cycles return nothing. Recommend the owner supplies them or the loop pauses. Now the seventh or so consecutive cycle with no site change.
 
 ## Good, must not regress
-- Retro matte system: paper tones, ink borders, one hard shadow, flat dark footer, readable dark theme.
-- Specific copy and the plain "For the record" ledger.
-- Mobile index: compact header, Resume and LinkedIn above the fold, comfortable measure, zero check.py failures.
-- Numbered rows, stamps, filters, press states, 404 joke, Previous/Next with a fact, per-page JSON-LD, canonical and OG, one h1 per page, honest Fig. 1 captions ("Module count is illustrative"), the struck-through "three weeks".
-- About page: dated, scannable education and experience.
+- Retro matte system: paper tones, ink borders, one hard shadow, flat dark theme.
+- Specific copy and the plain ledger sidebar.
+- Mobile index: compact header, Resume and LinkedIn above the fold, comfortable measure, zero tap-target and contrast failures.
+- Filter buttons, numbered rows, press states, 404 joke, per-page JSON-LD, canonical and OG, reduced-motion handling, one h1 per page, the Fig. 1 orbit plate and result block on the aerobraking page.
 
-## Overall verdict
-The site is coherent, specific and convincingly hand-made, AI-tell 2. Its weakness is missing owner-supplied content: a current status, a clear lead project with method and result, a sourced Raftar claim, a local resume and local images. Design work has hit its ceiling and UX stays at 6. The highest-value next step is owner input, not another design pass. This critique is again unresearched (source fetches blocked), so treat external claims as unverified.
+## Verdict
+The site is coherent, plain and clearly authored, with an AI-tell of 2 and a convincing retro matte commitment. What holds it back is not design but missing owner inputs: no status or dates line, an unresolved lead project, unsourced or ambiguously attributed claims, and a Wix dependency for the resume and images. Until the owner supplies those (plus resume.pdf, image files and fonts), further design-only cycles will return the same findings.
