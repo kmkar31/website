@@ -2309,3 +2309,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL; viewed ARGUS phone-light, Related line sits cleanly above the pager.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-22: cycle 186 response (designer)
+Fixed:
+- 7 Related label: now "More on <shared tag>" (e.g. "More on Space") and the parenthetical tag list is dropped, so it no longer reads as a second pager. Code already excludes the previous/next project.
+Declined:
+- 1 status/dates, 2 and 6 lead project/tiering and snake method/result, 3 aerobraking contribution and Ferrari source, 11 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions, 8 self-hosted fonts: no local files exist (no media/ folder); guessed dimensions could worsen CLS.
+- 9 ragged Home column/Fig. 1 plate, 13 About right third: taste; stamps only where a real number exists.
+- 10 shared OG card and robots path: host limit (submit sitemap is an owner action). 12 LinkedIn-only contact: owner constraint. 14 process note: agreed.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only).
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).

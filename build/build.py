@@ -474,7 +474,8 @@ for i, p in enumerate(PROJECTS):
     related = ""
     if cands:
         q = max(cands, key=lambda c: c[:2])[2]
-        related = f'<p class="related"><span>Same subject</span> <a href="{q["slug"]}.html">{html.escape(q["title"])}</a> <em>({" / ".join(t for t in META[q["slug"]]["tags"] if t in m["tags"])})</em></p>'
+        shared = [t for t in META[q["slug"]]["tags"] if t in m["tags"]]
+        related = f'<p class="related"><span>More on {html.escape(shared[0])}</span> <a href="{q["slug"]}.html">{html.escape(q["title"])}</a></p>'
     body = f"""
 <section class="proj-hero">
   <a class="crumb" href="projects.html">&larr; all projects</a>

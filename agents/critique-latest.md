@@ -1,46 +1,49 @@
-# Critique, 2026-11-22 (HEAD efe1748; no site files changed since cycle 151)
+# Critique, 2026-11-22 (HEAD 2018c4c; only change since last critique: "Same subject" Related line)
 
-Method: `python3 tools/check.py . agents/shots` (background run) finished rc=0 with zero FAIL; only "images not loaded" sandbox notes. I viewed index phone-light, index desktop-dark and aerobraking-drl tablet-light, and grepped titles, robots.txt, sitemap, `STATUS` in build/build.py, Wix references, skip link, theme-color, heading order. `git status` shows no site edits by me. Wix and Google Fonts are unreachable here, so photos are absent and fonts fall back (environment limit). The site is byte-identical to the last critique, so settled points are not re-argued.
+Method: `python3 tools/check.py . agents/shots` run twice, zero FAIL (only "images not loaded" sandbox notes). I viewed index phone-light, index desktop-light and argus-mission phone-light (the new Related line). I grepped `STATUS` in build/build.py (still `""`, line 266), counted wixstatic references per page, and read the Related markup on snake, sysid, tricycle and Hasselhoff. `git status` is clean; I edited no site files. Wix and Google Fonts are unreachable here, so photos are absent and fonts fall back (environment limit).
 
 ## Sources consulted
-I could not fetch pages this cycle (WebFetch/WebSearch not used), so these are pointers from earlier cycles, unverified here and relied on for nothing new:
-- https://www.nngroup.com/articles/ux-design-portfolios/ (show your own role and outcome)
+No pages were fetched this cycle (WebFetch/WebSearch not used). These are unverified pointers carried from earlier cycles; no finding below depends on them:
+- https://www.nngroup.com/articles/ux-design-portfolios/ (show your role and outcome)
 - https://web.dev/articles/font-best-practices (self-host fonts, font-display)
-- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum (2.5.8; 44 px targets pass, no finding)
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum (2.5.8; targets pass)
 - Google robots.txt spec (root host only)
 
 ## Scores
 - AI-tell: 2/10, unchanged. No gradients, glass, chips, stats strip or card trio. Copy is specific (three weeks struck to 15 minutes, 99 s, 46 orbits, 500 m tether). Residual: nine project pages share one skeleton (taste). Tells moved: none.
-- Looks good: 8/10, unchanged. Seen: serif name, mono credential line, ledger sidebar, ruled list, one hard-offset button, flat dark theme. Weak spots: stamps only on rows 04 to 07 leave the right column ragged; on phone the Fig. 1 plate sits above row 06 like a stray; on desktop the gap between blurb and metadata column is wide.
-- SEO: 7/10, unchanged. Unique titles, canonical, absolute og:image, sitemap (12 urls), robots.txt, JSON-LD, one h1 and h2 order sane. Weak: one shared OG card, robots.txt under /website/ (ignored by Google, host limit), Wix images without dimensions.
-- UX: 6/10, unchanged. Below 7, so Major (findings 1 to 4).
-- Fun and personality: 7/10, unchanged. Strike-through highlight, stamps, "Sheet 6 of 9 NTS" captions, 404 joke, orbit plate. No new moment.
+- Looks good: 8/10, unchanged. Weak spots: stamps on rows 04 to 07 only leave the right column ragged; the Fig. 1 plate on row 06 is the one picture on the page; the desktop gap between blurb and metadata column is wide.
+- SEO: 7/10, unchanged. Unique titles, canonical, absolute og:image, sitemap, robots.txt, JSON-LD, sane headings. Weak: one shared OG card, robots.txt under /website/ (host limit), Wix images without dimensions. The Related links add useful internal links.
+- UX: 6/10, slightly better navigation, same blockers. Below 7, so Major (findings 1 to 5).
+- Fun and personality: 7/10, unchanged. No new moment this cycle.
 
 ## Owner critique (agents/user-critique.md)
-1. Retro, matte, no glossy gradients: met (paper tones, ink borders, double rules, hard shadow, flat dark theme). No drift.
-2. Must not look AI-generated: met, AI-tell 2. Remaining risk is the repeated project template (taste).
+1. Retro, matte, no glossy gradients: met. The Related line is plain mono label plus underlined link, no drift.
+2. Must not look AI-generated: met, AI-tell 2.
+
+## Previous cycle's change (regression check)
+"Same subject" works: aerobraking links to ARGUS and back, snake to landing, sysid to snake. Fine on phone (clear label, 44 px+ link, sits above the pager rule). Two small issues, see finding 7: the label is quieter than the pager and reads like a second pager; and the links are not reciprocal in every case (sysid to snake, but snake to landing; Hasselhoff to snake, tricycle to Raftar), which is acceptable but means the "Same subject" idea is a nearest-tag guess, not a curated grouping.
 
 ## Ranked findings
-1. Major (UX, credibility). Hero has no status or dates. "MS Mechanical Engineering, Carnegie Mellon University" reads as present tense; About says 2023 to 2025; today is 2026-11-22. A recruiter sees an unexplained gap and cannot tell availability. `STATUS = ""` (build/build.py line 266) renders a Status row once filled. Owner fact needed.
-2. Major (UX). Two answers to "strongest project": row 01 (snake) leads, while START HERE sits on row 06 (aerobraking). The snake page is thin by the previous critique (no method or result). Owner picks the lead and supplies the snake method and result.
-3. Major (credibility). Aerobraking Method is written in third person about Falcone et al., then Result says "our NN state-space model" and "our method" (seen on the tablet screenshot). The reader cannot tell what Karthik did. "46 orbits" has no baseline. Raftar's "one-fifth the weight of a Ferrari" has no source. Owner sentence and source, or cut.
-4. Major (robustness). Resume PDF is hotlinked from Wix in header, hero, About, footer and 404. Needs the owner's PDF at assets/resume.pdf.
-5. Major (performance). Wix references remain on 11 pages (aerobraking 7, sysid 5, tricycle 4, hasselhoff 4, tethered 4, landing 2, others 1). No width/height means CLS risk and an outage dependency. Confirm every `alt=""` is truly decorative; not verifiable offline.
-6. Minor (UX, new angle). Previous/next pagers follow list order, so aerobraking links to Hasselhoff Submarine and the tethered satellite, but not to ARGUS, its nearest relative (Space). A "Related" link by tag would help a reader who came for space work. Design-only; no owner facts needed.
-7. Minor (performance, consistency). Fonts load from Google Fonts while the footer says "one stylesheet, no framework". Self-host WOFF2 with font-display when files exist.
-8. Minor (visual). Ragged Home right column and lone Fig. 1 plate on phone. Caption it as the only drawn figure or drop it from Home.
-9. Minor (content). Nine projects untiered on Home; same root as 2.
+1. Major (UX, credibility). No status or dates in the hero. "MS Mechanical Engineering, Carnegie Mellon University" reads as present tense; About says 2023 to 2025; today is 2026-11-22. A recruiter cannot tell availability or whether the degree is finished. `STATUS = ""` renders a Status row once filled. Owner fact needed.
+2. Major (UX). Two answers to "strongest project": row 01 (snake) leads the list while START HERE sits on row 06 (aerobraking), as seen on both phone and desktop home. The snake page is thin (no method or result). Owner picks the lead and supplies snake method and result.
+3. Major (credibility). Aerobraking Method is third person about prior work, Result switches to "our". The reader cannot tell what Karthik did. "46 orbits" has no baseline. Raftar's Ferrari comparison has no source. Owner sentence and source, or cut.
+4. Major (robustness). The resume PDF is hotlinked from Wix in header, hero, About, footer and 404. Needs the owner's PDF at assets/resume.pdf.
+5. Major (performance). Wix references remain on 11 pages (aerobraking 7, sysid 5, tricycle 4, Hasselhoff 4, tethered 4, landing 2, others 1). No width/height means CLS risk and an outage dependency. Needs local files.
+6. Minor (UX). Home blurbs for 01, 02, 03 and 08 give no outcome; only 04 to 07 carry a hard number. A reader scanning 30 seconds cannot rank the rows. Same root as 2 and 3.
+7. Minor (UX, new). Related line: consider labelling it by the shared tag, e.g. "More on Space", so it is clearly not a third pager entry, and avoid showing the same title twice when it is also the previous or next project (check that the code excludes both, which it appears to).
+8. Minor (performance, consistency). Fonts load from Google Fonts while the footer says "one stylesheet, no framework". Self-host WOFF2 when files exist.
+9. Minor (visual). Ragged right column on Home and the lone plate on row 06. Taste.
 10. Minor (SEO). Shared OG card; robots path is a host limit. Owner action: submit sitemap in Search Console.
-11. Minor (content). Tricycle page voice is passive with no subheads; owner call.
-12. Minor (UX). Contact is LinkedIn only; footer states it. Owner constraint. Phone header drops Resume, LinkedIn and GitHub icons; they appear in hero and footer, acceptable.
-13. Nit (visual, taste). About leaves the right third empty on wide screens; skills lists are 5/3/3.
-14. Nit (process). Findings 1 to 5 need owner facts and files; design-only cycles return nothing. Roughly the ninth consecutive cycle with no site change. Owner should supply the items or pause the loop.
+11. Minor (content). Tricycle page voice is passive and has no subheads. Owner call.
+12. Minor (UX). Contact is LinkedIn only; the footer says so plainly. Owner constraint. Phone header drops Resume, LinkedIn and GitHub icons; they appear in hero and footer.
+13. Nit (visual, taste). About leaves the right third empty on wide screens.
+14. Nit (process). Findings 1 to 6 need owner facts and files. This cycle's only site change came from a design-only idea; the rest of the list is unchanged. The owner should supply the items or pause the loop.
 
 ## Good, must not regress
 - Retro matte system: paper tones, ink borders, one hard shadow, flat dark theme.
-- Specific copy and the plain ledger sidebar.
+- Specific copy and the plain ledger sidebar ("For the record").
 - Mobile index: compact header, Resume and LinkedIn above the fold, comfortable measure, zero tap-target and contrast failures.
-- Filter buttons, numbered rows, press states, 404 joke, per-page JSON-LD, canonical and OG, skip link, light and dark theme-color, one h1 per page, project next-links, Fig. 1 plates with sheet captions, the aerobraking result block.
+- Struck-through "three weeks" highlight, stamps, numbered rows, filters, press states, 404 joke, per-page JSON-LD, canonical and OG, skip link, one h1 per page, Fig. 1 plates with sheet captions, the aerobraking result block, the new Same subject line.
 
 ## Verdict
-The design is finished in the sense that matters: coherent retro matte, specific copy, no AI tells, clean checks. What holds UX at 6 is missing owner input: status and dates, a chosen lead project with a real method and result, a clear statement of personal contribution on aerobraking, and local copies of the resume and images. The one new, actionable item is topical "Related" links between projects (finding 6). Until the owner supplies the rest, further design cycles will keep returning the same list.
+The design is finished in the sense that matters: coherent retro matte, specific copy, no AI tells, clean checks, and the Related line is a sound small improvement without regressions. UX stays at 6 because of missing owner input: a status and dates line, a chosen lead project with a real method and result, a clear statement of personal contribution on aerobraking, and local copies of the resume and images. Until those arrive, further design cycles will return the same list.
