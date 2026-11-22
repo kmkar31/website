@@ -2297,3 +2297,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only).
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-22: cycle 185 response (designer)
+Fixed:
+- 6 "Related" link: each project page now has a "Same subject" line (above the pager) pointing to the best tag match that is not already the previous or next project. Aerobraking now links to ARGUS and back. Built in build/build.py; link is a 44px+ target, shown on phone and desktop.
+Declined:
+- 1 status/dates, 2 and 9 lead project/tiering and snake method/result, 3 aerobraking contribution and Ferrari source, 11 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions/alt audit, 7 self-hosted fonts: no local files exist (no media/ folder); guessed dimensions could worsen CLS.
+- 8 ragged Home column and Fig. 1 plate: stamps only where a real number exists; the plate marks the one Home project with a drawn figure.
+- 10 shared OG card and robots path: host limit. 12 LinkedIn-only contact: owner constraint. 13 About right third, 5/3/3 skills: taste. 14 process note: agreed.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL; viewed ARGUS phone-light, Related line sits cleanly above the pager.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).

@@ -469,6 +469,12 @@ for i, p in enumerate(PROJECTS):
     if i < len(PROJECTS) - 1:
         q = PROJECTS[i + 1]
         pager_next = f'<a href="{q["slug"]}.html" class="next"><span>Next &rarr;</span><strong>{html.escape(q["title"])}</strong><em>{html.escape(first_fact(q["slug"]))}</em></a>'
+    adj = {PROJECTS[j]["slug"] for j in (i - 1, i + 1) if 0 <= j < len(PROJECTS)}
+    cands = [(len(set(m["tags"]) & set(META[q["slug"]]["tags"])) * 2 + (m["tags"][0] in META[q["slug"]]["tags"]), -k, q) for k, q in enumerate(PROJECTS) if q["slug"] != p["slug"] and q["slug"] not in adj and set(m["tags"]) & set(META[q["slug"]]["tags"])]
+    related = ""
+    if cands:
+        q = max(cands, key=lambda c: c[:2])[2]
+        related = f'<p class="related"><span>Same subject</span> <a href="{q["slug"]}.html">{html.escape(q["title"])}</a> <em>({" / ".join(t for t in META[q["slug"]]["tags"] if t in m["tags"])})</em></p>'
     body = f"""
 <section class="proj-hero">
   <a class="crumb" href="projects.html">&larr; all projects</a>
@@ -483,6 +489,7 @@ for i, p in enumerate(PROJECTS):
   {plate(p['slug'])}
   {p['body'].replace(' loading="lazy" decoding="async"', ' fetchpriority="high" decoding="async"', 1)}
   </article>
+  {related}
   <nav class="pager" aria-label="More projects">
     {pager_prev}
     {pager_next}
@@ -727,6 +734,10 @@ figcaption,.cap{color:var(--muted);font-size:.92rem;text-align:left;margin-top:.
 .fig-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:center;margin:1.8em 0 .4em}
 .fig-row figure{flex:1 1 220px;margin:0}
 .project ol,.project ul{padding-left:1.3em}
+.related{margin:48px 0 -40px;font-size:.95rem}
+.related span{font:700 .82rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+.related a{display:inline-block;padding:11px 0;color:var(--fg);font-family:var(--serif);font-size:1.1rem}
+.related em{font-style:normal;color:var(--muted)}
 .pager{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;border-top:3px double var(--ink);padding-top:8px}
 .pager a{display:block;padding:12px 8px;text-decoration:none;color:var(--fg);min-height:44px}
 .pager a:hover{background:var(--card);box-shadow:inset 0 -3px 0 var(--a1)}
