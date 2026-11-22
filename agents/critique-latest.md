@@ -1,11 +1,11 @@
-# Critique, 2026-11-22 (HEAD d282ab4; no site files edited)
+# Critique, 2026-11-22 (HEAD c8ee22d; no site files edited)
 
-Method: `python3 tools/check.py . agents/shots` ran in the background and finished: 78 lines, zero FAIL, only "images not loaded, likely sandbox network" notes. I viewed index desktop-light, snake-robots phone-dark and raftar desktop-light in full. Last site-file commit is cycle 163 (e7e4f75); every cycle since touched only LOG.md and critiques, so no regression is possible. Wix and Google Fonts are unreachable in the sandbox (environment limit); the fallback serif and missing figures are not design bugs. Wix hotlinks counted by grep: filesusr (resume) on all 11 content pages plus 404, wixstatic images on 9 pages (about 83 references).
+Method: `python3 tools/check.py . agents/shots` ran in the background and finished: 79 lines, zero FAIL, only "images not loaded, likely sandbox network" notes. This cycle I re-viewed index phone-light and index desktop-dark (the previous cycle's snake and Raftar views still apply; no site file has changed since). Last site-file commit is cycle 163 (e7e4f75); every cycle since touched only LOG.md and critiques, so no regression is possible. Wix and Google Fonts are unreachable in the sandbox (environment limit); the fallback serif and missing figures are not design bugs. Wix hotlinks counted by grep: filesusr (resume) on all 11 content pages plus 404, wixstatic images on 9 pages (about 83 references).
 
 ## Sources consulted
-- WebFetch of https://web.dev/articles/optimize-cls, https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html and https://www.nngroup.com/articles/ux-hiring-insights/ : all three blocked (permission request unanswered). Not read.
-- WebSearch "web.dev optimize cumulative layout shift image width height font-display" returned only a listing (web.dev/articles/optimize-cls, web.dev/articles/css-web-vitals). Titles only; no page content read.
-- Honest summary: zero external pages read this cycle (third cycle running). Claims about CLS, target size and hiring-manager scanning below come from general knowledge and are unverified; the repo facts are verified. Tooling limit, not a design judgement.
+- WebFetch of https://web.dev/articles/optimize-cls: blocked again (permission request unanswered). Not read.
+- WebSearch "web.dev optimize cumulative layout shift image width height" returned only a title listing (web.dev/articles/optimize-cls, web.dev/learn/images/performance-issues). No page content read.
+- Honest summary: zero external pages read this cycle (fourth cycle running). Claims about CLS, target size and hiring-manager scanning below come from general knowledge and are unverified; the repo facts are verified. Tooling limit, not a design judgement.
 
 ## Scores
 - AI-tell: 2/10, unchanged. No gradients, glass, glow, chips, stats strip or card trio. Specific copy (struck-through "three weeks", 99 s, 46 orbits, 500 m). Residual tell: nine project pages share one skeleton (taste). Tells moved: none.
@@ -18,6 +18,11 @@ Method: `python3 tools/check.py . agents/shots` ran in the background and finish
 1. Retro, matte, no glossy gradients: met (paper tones, ink borders, hard shadow, flat footer; confirmed in screenshots).
 2. Must not look AI-generated: met, AI-tell 2. Remaining risk is the repeated project template (taste).
 No new owner notes since 2026-10-22.
+
+## New this cycle
+- Phone index (seen): the hero, credential line, Resume and LinkedIn all sit above the fold; the 30-second test passes except for "what is he doing now" (finding 1). The phone rows put the stamp on a separate line under the summary, which reads fine.
+- Desktop dark (seen): a single amber accent, flat borders, hard-offset button; coherent. The "Fig. 1" plate on row 06 is still the only image on the page, so the page looks like one row is special for no stated reason (finding 2).
+- Fun, grounded ideas that need no new facts: make the "99 s" stamp on row 05 a live 99-second countdown on hover, in the mono face; give the struck "three weeks" a tooltip naming the 30-drive batch; put the 46-orbit count in the Fig. 1 caption as a tally mark. Each carries information from the repo.
 
 ## Ranked findings
 1. Major (UX, credibility). No status or date line. Hero reads "MS Mechanical Engineering, Carnegie Mellon University" with no tense; About says 2023 to 2025; today is 2026-11-22. Nothing says what he does now or whether he is available. `STATUS = ""` (build/build.py:266) so the ledger row never renders. Needs an owner fact.
