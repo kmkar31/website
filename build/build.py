@@ -119,7 +119,6 @@ PROJECTS = [
 <p>To verify the model against the actual physics based simulator, the inputs computed by the agent were fed into the simulator and the output was observed. Due to the high accuracy of our NN state-space model, the provided inputs succeeded in bringing the spacecraft to a target orbit.</p>
 {fig("84da68_510b1aad89ee43d491ea928d05b0d143~mv2.png", "Performance of the PPO agent on the physics based simulator. The agent brings the spacecraft to its target apoapsis radius within 46 orbits.", "PPO agent validation over physics based simulator")}
 {fig("84da68_601bc70e80684a3b8e8979739a3a03c8~mv2.png", alt="Comparison of traditional and RL based methods", cls="plain")}
-<p>To conclude, in simulation the RL-based method completed the aerobraking maneuver, reaching the target apoapsis in 46 orbits.</p>
 """),
  dict(slug="tethered-nanosatellite", title="Dynamics and Control of Tethered Nanosatellites",
   q="How do we use satellites to de-orbit space debris and clear up Low-Earth Orbit?",

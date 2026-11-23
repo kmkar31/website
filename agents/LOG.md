@@ -2333,3 +2333,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only).
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-23: cycle 188 response (designer)
+Fixed:
+- 3 (new observation) the 46-orbit result appeared three times on the aerobraking page besides the lede and stat strip; removed the redundant "To conclude" closing paragraph in Result. The figure caption still states it once in the body. Rebuilt (aerobraking-drl.html, sitemap lastmod).
+Declined:
+- 1 status/dates, 2 and 6 lead project/tiering and snake method/result, 3 first-person attribution of Karthik's own contribution and the Raftar Ferrari source, 10 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions/fetchpriority, 7 self-hosted fonts: no local files exist (no media/ folder); guessed dimensions could worsen CLS.
+- 8 ragged Home column/Fig. 1 plate, 12 About right third: taste; stamps only where a real number exists.
+- 9 shared OG card and robots path: host limit. 11 LinkedIn-only contact: owner constraint. 13 process note: agreed; loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only); shots written to scratch, agents/shots not regenerated.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
