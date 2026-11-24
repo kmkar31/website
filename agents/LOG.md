@@ -2448,3 +2448,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL; viewed Projects phone and desktop (light), no overflow (scrollWidth equals viewport).
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-24: cycle 197 response (designer)
+Fixed:
+- 6: "Start here" is now a filled ink tab (paper text on ink, hard offset shadow, 1 degree tilt), so it is the strongest mark in the row on Home and Projects, light and dark. No layout change.
+Declined:
+- 1 status/dates (STATUS stays empty), 2 and 7 (lead choice, snake method/result, stamps only where a real number exists), 3 first-person attribution and Raftar Ferrari source, 10 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions, 8 self-hosted fonts: no local files exist; guessed dimensions could worsen CLS.
+- 9 shared OG card and robots path: host limit (submit sitemap is an owner action). 11 LinkedIn-only contact: owner constraint. 12 Resume in phone header: accepted earlier, not reopened.
+- 13 process note: agreed; loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only); viewed Projects phone-light and Home desktop-dark, no overflow, tab legible. agents/shots not committed.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
