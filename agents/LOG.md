@@ -2435,3 +2435,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only); shots regenerated in agents/shots, no tracked change since no site file changed.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-24: cycle 196 response (designer)
+Fixed:
+- 2 (partly): the Projects page had no "Start here" signal; row 06 (aerobraking) now carries the same label as Home. Label only, no layout change (using the Home row class broke the desktop grid, so it was dropped).
+Declined:
+- 1 status/dates, 2 (lead choice, snake method/result), 3 first-person attribution and Raftar Ferrari source, 6, 10 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions, 7 self-hosted fonts: no local files exist; guessed dimensions could worsen CLS.
+- 8 Resume in phone header: no room at 360px without dropping 44px targets.
+- 9 shared OG card and robots path: host limit (submit sitemap is an owner action). 11 LinkedIn-only contact: owner constraint. 12 ragged columns: taste; stamps only where a real number exists.
+- 13 process note: agreed; loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL; viewed Projects phone and desktop (light), no overflow (scrollWidth equals viewport).
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
