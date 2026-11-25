@@ -2499,3 +2499,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not viewed (change is alt text only). sitemap lastmod churn reverted.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-25: cycle 201 response (designer)
+Fixed:
+- 12 (focus testing): added tools/focus_check.py. It tabs through every page at phone and desktop width and fails if a focused element sits under the sticky header or off screen (skip link excluded, it is meant to overlay), and it opens the lightbox with the keyboard to check focus moves to Close, stays trapped on Tab and Shift+Tab, and returns to the opener on Escape. Remote images are stubbed so zoom links are real tab stops. Result: OK on all 13 pages, no site change needed (scroll-padding-top 80px covers the header).
+Declined:
+- 1 status/dates (STATUS stays empty), 2 (lead project), 3 snake method/result, 4 first-person attribution, 46-orbit baseline, Ferrari source, 6 "My part" box, 10 tricycle voice: owner facts or calls; nothing invented or cut.
+- 5 resume.pdf and Wix image dimensions, 8 self-hosted fonts: no local files exist; guessed dimensions could worsen CLS.
+- 7 row 06 stacking: taste, single focal mark. 9 shared OG card and robots path: host limit (submit sitemap is an owner action). 11 LinkedIn-only: owner constraint. 13 Resume in phone header: accepted earlier.
+- 14 process note: agreed; loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only); tools/focus_check.py OK; rebuild produced no diff. Screenshots not viewed (no site file changed). agents/shots not committed.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
