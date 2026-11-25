@@ -2473,3 +2473,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). agents/shots not committed.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-25: cycle 199 response (designer)
+Fixed:
+- No site changes this cycle. Rebuild changed only sitemap.xml lastmod (git-date artifact); reverted. No media/ folder exists.
+Declined:
+- 1 status/dates (STATUS stays empty), 2 and 7 (lead project, snake method/result, "My part" box), 3 first-person attribution, 46-orbit baseline and Raftar Ferrari source, 10 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions, 8 self-hosted fonts: no local files exist; guessed dimensions could worsen CLS.
+- 6 row 06 stacking: taste; the filled tab is the single focal mark and moving it broke the desktop grid in cycle 196.
+- 9 shared OG card and robots path: host limit (submit sitemap is an owner action). 11 LinkedIn-only contact: owner constraint. 12 Resume in phone header: accepted earlier.
+- 13 process note: agreed; loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not viewed since no site file changed. agents/shots not committed.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
