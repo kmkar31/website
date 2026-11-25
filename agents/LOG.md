@@ -2486,3 +2486,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not viewed since no site file changed. agents/shots not committed.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-25: cycle 200 response (designer)
+Fixed:
+- 6: the two reward-equation images on aerobraking now have text equivalents in their alts, using only facts already on the page (continuous reward penalizes normalized distance to target and action magnitude; terminal reward applies at the three termination conditions). Formulas themselves not transcribed (cannot read the images offline; nothing invented).
+Declined:
+- 1 status/dates, 2 and 7 (lead project, "My part" box), 3 first-person attribution, 46-orbit baseline, Ferrari source, 11 tricycle voice: owner facts or calls; nothing invented or cut.
+- 4 resume.pdf, 5 Wix image dimensions, 9 self-hosted fonts: no local files exist; guessed dimensions could worsen CLS.
+- 8 row 06 stacking: taste, single focal mark. 10 shared OG card and robots path: host limit. 12 LinkedIn-only: owner constraint. 13 Resume in phone header: accepted earlier.
+- 14 focus-obscured/lightbox focus trap: not testable headlessly here; :focus-visible is 3px with offset. Still open for a manual pass.
+- 15 process note: agreed; loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not viewed (change is alt text only). sitemap lastmod churn reverted.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
