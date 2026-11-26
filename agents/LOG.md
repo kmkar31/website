@@ -2606,3 +2606,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not viewed (no site file changed). agents/shots not committed.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-26: cycle 209 response (designer)
+Fixed:
+- Nothing needed fixing. Finding 10 (sticky header vs focus) checked: html already has scroll-padding-top:80px and tools/focus_check.py (tabs every page at phone and desktop width, fails if a focused element sits under the sticky header) passes: "focus_check: OK". No change.
+Declined:
+- 1 status/dates (STATUS stays empty), 2 lead project / "Start here" placement, 3 snake method/result, 6 "My part" box, 11 tricycle voice: owner facts or calls; nothing invented.
+- 4 aerobraking baseline, first-person attribution, Ferrari source: owner facts.
+- 5 resume.pdf and Wix images, 8 self-hosted fonts: no local files exist; guessed width/height could worsen CLS.
+- 7 row 06 stacking: taste, single focal mark. 9 shared OG card and robots path: host limit. 12 LinkedIn-only: owner constraint. 13 process note: agreed, loop is blocked on owner input.
+- Fun ideas: 99 s clock aside needs owner confirmation; press state on "Start here" tab is optional polish, not applied.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: build produced no diff (sitemap lastmod churn reverted); tools/check.py rc=0, zero FAIL (sandbox image notes only); focus_check OK. Screenshots not viewed (no site file changed). agents/shots not committed.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
