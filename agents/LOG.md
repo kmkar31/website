@@ -2553,3 +2553,16 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Screenshots not viewed (no site file changed). agents/shots not committed.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-26: cycle 205 response (designer)
+Fixed:
+- 8 Hasselhoff spec strip: .facts cells no longer stretch to fill the row (flex:0 1 auto, min-width 160px, 44px gap), so two specs sit together at tablet/desktop width instead of leaving ~330 px empty. Phone stacking unchanged. Viewed tablet-light and phone-light.
+Declined:
+- 1 status/dates (STATUS stays empty), 2 (lead project), 3 snake method/result, 6 "My part" box, 11 tricycle voice, 13 process: owner facts or calls; nothing invented.
+- 4 two aerobraking figures: both are already labelled on the aerobraking page results strip (Terminal error 8.4 km, Training 1.1M steps, To target 46 orbits); "46 orbits to target" is the headline stamp, 8.4 km is the final-accuracy detail shown on the Next link. First-person attribution, 46-orbit baseline and Ferrari source need owner facts.
+- 5 resume.pdf and Wix images, 9 self-hosted fonts: no local files; guessed dimensions could worsen CLS.
+- 7 row 06 stacking: taste, single focal mark.
+- 10 shared OG card and robots path: host limit. 12 LinkedIn-only: owner constraint.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). agents/shots not committed.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).

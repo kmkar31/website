@@ -207,7 +207,7 @@ details.impl h2:first-of-type{margin-top:.8em;border-top:0}
 .question{font-size:1rem;color:var(--muted);margin:0;max-width:36em;line-height:1.45}
 .question span{font:600 .75rem var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
 .facts{display:flex;flex-wrap:wrap;margin:22px 0 28px;padding:0;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
-.facts div{flex:1 1 180px;padding:10px 20px 10px 0}
+.facts div{flex:0 1 auto;min-width:160px;padding:10px 44px 10px 0}
 .facts dt{color:var(--muted);font:500 .8rem var(--mono)}
 .facts dd{margin:2px 0 0;font-family:var(--serif);font-size:1.2rem;line-height:1.2}
 .project h2{margin-top:1.8em;padding-top:.3em;border-top:1px solid var(--line)}
