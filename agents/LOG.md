@@ -2740,3 +2740,15 @@ Declined:
 - Owner notes (retro matte, not AI-looking): met; no new notes.
 Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). No site file changed, screenshots not viewed. agents/shots not committed.
 Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
+
+## 2026-11-28: cycle 220 response (designer)
+Fixed:
+- Nothing needed fixing; every finding is owner-blocked. Rebuild produced no diff (sitemap lastmod churn reverted).
+Declined:
+- 1 status/dates (STATUS stays empty), 2 lead project / "Start here" placement, 3 snake method/result, 7 "My part" box, 10 tricycle voice, 11 sysid outcome lead: owner facts or calls; nothing invented.
+- 5 aerobraking baseline, first-person attribution, Ferrari source: owner facts.
+- 4 Wix images (missing img width/height), 6 self-hosted fonts: no local files exist (no media/ folder); guessed dimensions could worsen CLS. Src-less `<img alt="">` is the lightbox viewer. Footer wording accurate.
+- 8 row 06 stacking: taste, single focal mark. 9 shared OG card and robots path: host limit. 12 LinkedIn-only: owner constraint. 13 process note: agreed, loop is blocked on owner input.
+- Owner notes (retro matte, not AI-looking): met; no new notes.
+Verification: tools/check.py rc=0, zero FAIL (sandbox image notes only). Viewed index phone-light and desktop-dark: retro look intact, no regressions. agents/shots not committed.
+Next attack: owner blockers (status line, lead project, snake method/result, aerobraking contribution, Ferrari source, resume.pdf, image files).
